@@ -45,6 +45,7 @@ dependencies:
   get: ^4.6.6
   image_picker: ^1.0.4
   flutter_easyloading: ^3.0.5
+  quran: ^1.2.2
 
 dev_dependencies:
   flutter_test:

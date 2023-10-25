@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
+import 'package:flumuttslimer/roles/student/features/Quran/quran_test.dart';
+import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,14 +18,14 @@ class MyApp extends StatelessWidget {
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppPages.INITIAL,
+        // initialRoute: AppPages.shome,
         getPages: AppPages.routes,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: purble2),
           useMaterial3: true,
         ),
-        home: OnBoardingScreen(),
+        home: SHomeScreen(),
       ),
     );
   }
