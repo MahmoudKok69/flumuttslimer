@@ -1,5 +1,4 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/roles/student/features/Quran/quran_test.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';

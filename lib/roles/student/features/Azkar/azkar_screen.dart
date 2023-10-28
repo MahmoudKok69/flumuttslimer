@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_styles.dart';
@@ -9,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class AzkarScreen extends StatelessWidget {
-  var _controller = Get.find<AzkarController>();
+  final _controller = Get.find<AzkarController>();
   AzkarScreen({super.key});
 
   @override

@@ -72,7 +72,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/onboard/
+    - assets/images/gifs/
     - assets/images/
+    - assets/images/sorah/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -96,6 +98,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Amiri Quran.ttf
           weight: 500
+    - family: Uthmani
+      fonts:
+        - asset: assets/fonts/uthman.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

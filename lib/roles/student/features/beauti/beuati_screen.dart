@@ -3,12 +3,11 @@ import 'package:flumuttslimer/core/font_styles.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beauti_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 class BeuatiScreen extends StatelessWidget {
   BeuatiScreen({super.key});
-  var _controller = Get.find<BeuatiController>();
+  final _controller = Get.find<BeuatiController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

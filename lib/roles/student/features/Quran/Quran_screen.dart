@@ -4,12 +4,11 @@ import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 class QuranScreen extends StatelessWidget {
   QuranScreen({super.key});
-  var _controller = Get.find<QuranController>();
+  final _controller = Get.find<QuranController>();
 
   @override
   Widget build(BuildContext context) {
@@ -90,13 +89,7 @@ class QuranScreen extends StatelessWidget {
                         init: QuranController(),
                         builder: (_) {
                           return ListTile(
-                            // onTap: () {
-                            //   Get.toNamed(AppPages.sAzkardetail, parameters: {
-                            //     'name': item.name!,
-                            //     'content': item.descirbe!,
-                            //     'time': 'الصباح'
-                            //   });
-                            // },
+                            onTap: () {},
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.sp)),
                             title: Padding(
@@ -178,7 +171,7 @@ class QuranScreen extends StatelessWidget {
                   return Padding(
                     padding: EdgeInsets.only(top: 1.h),
                     child: ListTile(
-                      visualDensity: VisualDensity(vertical: 3),
+                      visualDensity: const VisualDensity(vertical: 3),
                       leading: SizedBox(
                         height: 40.h,
                         width: 30.w,
@@ -220,11 +213,9 @@ class QuranScreen extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        // Get.toNamed(AppPages.sAzkardetail, parameters: {
-                        //   'name': item.name!,
-                        //   'content': item.descirbe!,
-                        //   'time': 'الصباح'
-                        // });
+                        Get.toNamed(AppPages.sorah, parameters: {
+                          'number': '$index',
+                        });
                       },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.sp)),

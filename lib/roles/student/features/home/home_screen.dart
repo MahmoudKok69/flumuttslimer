@@ -12,7 +12,7 @@ class SHomeScreen extends StatelessWidget {
     MainPages(name: 'القرأن', image: '', page: AppPages.sQuran),
     MainPages(name: 'الأذكار', image: '', page: AppPages.sAzkar),
     MainPages(name: 'الأخلاق و الجمال', image: '', page: AppPages.beuati),
-    MainPages(name: 'القرأن', image: '', page: ''),
+    MainPages(name: 'مركزي', image: '', page: AppPages.rank),
     MainPages(name: 'القرأن', image: '', page: ''),
     MainPages(name: 'القرأن', image: '', page: ''),
     MainPages(name: 'القرأن', image: '', page: ''),
@@ -50,14 +50,14 @@ class SHomeScreen extends StatelessWidget {
                   Container(
                     height: 30.h,
                     width: 70.w,
+                    decoration: BoxDecoration(
+                      color: purble2,
+                      shape: BoxShape.circle,
+                    ),
                     child: Icon(
                       Icons.person,
                       color: white,
                       size: 152.24.sp,
-                    ),
-                    decoration: BoxDecoration(
-                      color: purble2,
-                      shape: BoxShape.circle,
                     ),
                   ),
                   SizedBox(

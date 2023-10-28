@@ -44,7 +44,7 @@ class AzkarDetailScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     data['name']!,
                     textAlign: TextAlign.center,
@@ -55,7 +55,7 @@ class AzkarDetailScreen extends StatelessWidget {
                       fontSize: 50.sp,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),

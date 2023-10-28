@@ -3,15 +3,18 @@ import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/home_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/login_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/quran_Binding.dart';
+import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/register_bindings.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_detail_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
+import 'package:flumuttslimer/roles/student/features/Quran/sourah-screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_screen.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
+import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -25,6 +28,9 @@ class AppPages {
   static const sAzkardetail = '/sazkardetail';
   static const sQuran = '/squran';
   static const beuati = '/beuati';
+  static const rank = '/rank';
+  static const sorah = '/sorah';
+
   static final routes = [
     GetPage(
       name: INITIAL,
@@ -63,6 +69,15 @@ class AppPages {
       name: beuati,
       page: () => BeuatiScreen(),
       binding: BeuatiBinding(),
+    ),
+    GetPage(
+      name: rank,
+      page: () => RankScreen(),
+      binding: RankBinding(),
+    ),
+    GetPage(
+      name: sorah,
+      page: () => SorahScreen(),
     ),
   ];
 }
