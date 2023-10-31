@@ -45,7 +45,6 @@ class SorahScreen extends StatelessWidget {
           children: [
             SizedBox(
               width: Get.size.width,
-              height: 10.h,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -127,7 +126,6 @@ class SorahScreen extends StatelessWidget {
 
             SizedBox(
               width: Get.size.width,
-              height: 10.h,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

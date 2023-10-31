@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_styles.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 
 class NewAccountForm extends StatelessWidget {
@@ -402,11 +406,11 @@ class NewAccountForm extends StatelessWidget {
 
 class ImageSelector extends StatelessWidget {
   var avatarList = [
-    'assets/images/onboard/onBoard1.png',
-    'assets/images/onboard/onBoard2.png',
-    'assets/images/onboard/onBoard3.png',
-    'assets/images/onboard/onBoard4.png',
-    'assets/images/onboard/onBoard5.png',
+    'assets/images/avatars/avatar1.png',
+    'assets/images/avatars/avatar2.png',
+    'assets/images/avatars/avatar3.png',
+    'assets/images/avatars/avatar4.png',
+    'assets/images/avatars/avatar5.png',
   ];
   final ScrollController _imageScrollController = ScrollController();
   final _controller = Get.find<RegisterController>();
@@ -425,59 +429,102 @@ class ImageSelector extends StatelessWidget {
             child: SizedBox(
               child: Center(
                 child: GestureDetector(
+                  onTap: () async {
+                    var file = await ImagePicker.platform
+                        .getImageFromSource(source: ImageSource.gallery);
+                    if (file != null) {
+                      _controller.setImage(File(file.path));
+                    }
+                  },
                   child: Center(
-                    child: CircleAvatar(
-                      radius: 60.sp,
-                      backgroundColor: purble4,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.camera_alt,
-                              color: purble2,
-                              size: 25.sp,
-                            ),
-                            Text('أختر صورة',
-                                style: TextStyle(
-                                  color: purble2,
-                                  fontSize: 12.sp,
-                                  fontFamily: bj,
-                                  fontWeight: FontWeight.w500,
-                                ))
-                          ]),
-                    ),
-                  ),
+                      child: GetBuilder<RegisterController>(
+                    init: RegisterController(),
+                    id: 'image_select',
+                    builder: (_) {
+                      return CircleAvatar(
+                          radius: 60.sp,
+                          backgroundColor: purble4,
+                          child: _controller.selectedImage == null
+                              ? Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                      Icon(
+                                        Icons.camera_alt,
+                                        color: purble2,
+                                        size: 25.sp,
+                                      ),
+                                      Text('أختر صورة',
+                                          style: TextStyle(
+                                            color: purble2,
+                                            fontSize: 12.sp,
+                                            fontFamily: bj,
+                                            fontWeight: FontWeight.w500,
+                                          ))
+                                    ])
+                              : Stack(
+                                  children: [
+                                    SizedBox(
+                                      width: 140.sp,
+                                      height: 140.sp,
+                                    ),
+                                    ClipOval(
+                                        child: Image.file(
+                                      _controller.selectedImage,
+                                      width: 140.sp,
+                                      height: 140.sp,
+                                      fit: BoxFit.cover,
+                                    ))
+                                  ],
+                                ));
+                    },
+                  )),
                 ),
               ),
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 3,
             child: SizedBox(
-              // width: 70.w,
-              // height: 30.h,
-              child: ListView.builder(
-                controller: _imageScrollController,
-                scrollDirection: Axis.horizontal,
-                itemCount: avatarList.length, // Provide a list of avatar images
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      // Handle avatar selection
-                      _controller.image = avatarList[index];
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.all(15.sp),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(avatarList[index]),
-                        radius: 50.sp,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: GetBuilder<RegisterController>(
+                      init: RegisterController(),
+                      id: 'avatar',
+                      builder: (_) {
+                        return Row(
+                          children: List.generate(avatarList.length, (index) {
+                            return GestureDetector(
+                              onTap: () async {
+                                // Handle avatar selection
+                                _controller.setAvatar(index, avatarList[index]);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.all(15.sp),
+                                child: Container(
+                                  width: 40.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(avatarList[index]),
+                                        fit: BoxFit.scaleDown,
+                                      ),
+                                      shape: BoxShape.circle,
+                                      border: index ==
+                                              _controller.imageSelectedIndex
+                                          ? Border.all(
+                                              color: Colors.green,
+                                              width: 2,
+                                              strokeAlign:
+                                                  BorderSide.strokeAlignCenter)
+                                          : null),
+                                ),
+                              ),
+                            );
+                          }),
+                        );
+                      },
+                    ))),
           ),
         ],
       ),

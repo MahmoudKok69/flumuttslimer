@@ -9,15 +9,30 @@ import 'package:sizer/sizer.dart';
 class SHomeScreen extends StatelessWidget {
   SHomeScreen({super.key});
   var home = [
-    MainPages(name: 'القرأن', image: '', page: AppPages.sQuran),
-    MainPages(name: 'الأذكار', image: '', page: AppPages.sAzkar),
-    MainPages(name: 'الأخلاق و الجمال', image: '', page: AppPages.beuati),
-    MainPages(name: 'مركزي', image: '', page: AppPages.rank),
-    MainPages(name: 'القرأن', image: '', page: ''),
-    MainPages(name: 'القرأن', image: '', page: ''),
-    MainPages(name: 'القرأن', image: '', page: ''),
-    MainPages(name: 'القرأن', image: '', page: ''),
-    MainPages(name: 'القرأن', image: '', page: ''),
+    MainPages(
+        name: 'القرأن',
+        image: 'assets/images/home/Quran.png',
+        page: AppPages.sQuran),
+    MainPages(
+        name: 'الأذكار',
+        image: 'assets/images/home/Azkar.png',
+        page: AppPages.sAzkar),
+    MainPages(
+        name: 'الأخلاق و الجمال',
+        image: 'assets/images/home/test.png',
+        page: AppPages.beuati),
+    MainPages(
+        name: 'مركزي',
+        image: 'assets/images/home/group.png',
+        page: AppPages.rank),
+    MainPages(
+        name: 'الجوائز',
+        image: 'assets/images/prize.png',
+        page: AppPages.prizes),
+    MainPages(
+        name: 'الجوائز',
+        image: 'assets/images/prize.png',
+        page: AppPages.sregister),
   ];
 
   @override
@@ -93,20 +108,21 @@ class SHomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0.sp),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10.sp,
-            crossAxisSpacing: 10.sp,
-          ),
-          itemCount: home.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              decoration: BoxDecoration(
-                color: purble2,
-                borderRadius: BorderRadius.circular(10.sp),
-              ),
-              child: FittedBox(
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10.sp,
+              crossAxisSpacing: 10.sp,
+            ),
+            itemCount: home.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                decoration: BoxDecoration(
+                  // color: purble2,
+                  borderRadius: BorderRadius.circular(10.sp),
+                ),
                 child: GestureDetector(
                   onTap: () {
                     Get.toNamed(home[index].page!);
@@ -114,27 +130,36 @@ class SHomeScreen extends StatelessWidget {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(
-                          width: 25.w,
-                          height: 20.h,
-                          decoration: BoxDecoration(color: orange1),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(home[index].image!),
+                                    fit: BoxFit.contain)),
+                          ),
                         ),
                         SizedBox(
                           height: 3.h,
                         ),
-                        Text(
-                          home[index].name!,
-                          style: TextStyle(
-                              color: white,
-                              fontSize: 20.sp,
-                              fontFamily: bj,
-                              fontWeight: FontWeight.w600),
+                        Expanded(
+                          child: FittedBox(
+                            child: Text(
+                              home[index].name!,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: purble1,
+                                  fontSize: 20.sp,
+                                  fontFamily: bj,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
                         )
                       ]),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

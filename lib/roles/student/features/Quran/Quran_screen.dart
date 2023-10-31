@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class QuranScreen extends StatelessWidget {
           backgroundColor: purble2,
           title: Center(
             child: Text(
-              'الأذكار',
+              'القرأن الكريم',
               style: TextStyle(
                 fontSize: 25.sp,
                 fontFamily: bj,
@@ -39,15 +40,6 @@ class QuranScreen extends StatelessWidget {
               Get.back();
             },
           ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.search,
-                  color: white,
-                  size: 20.sp,
-                ))
-          ],
           bottom: TabBar(
               indicatorColor: purble1,
               automaticIndicatorColorAdjustment: false,
@@ -93,7 +85,7 @@ class QuranScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.sp)),
                             title: Padding(
-                              padding: EdgeInsets.only(bottom: 15.0.sp),
+                              padding: EdgeInsets.only(bottom: 8.0.sp),
                               child: Text(
                                 item.name!,
                                 textAlign: TextAlign.right,
@@ -105,7 +97,7 @@ class QuranScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            tileColor: purble4,
+                            tileColor: purble4.withOpacity(0.8),
                             subtitle: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -163,7 +155,7 @@ class QuranScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(5.sp),
+              padding: EdgeInsets.all(0.sp),
               child: ListView.builder(
                 itemCount: _controller.alSour.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -172,44 +164,16 @@ class QuranScreen extends StatelessWidget {
                     padding: EdgeInsets.only(top: 1.h),
                     child: ListTile(
                       visualDensity: const VisualDensity(vertical: 3),
-                      leading: SizedBox(
-                        height: 40.h,
-                        width: 30.w,
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 35.sp,
-                              width: 35.sp,
-                              decoration: BoxDecoration(
-                                color: purble1,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  item.number!,
-                                  textAlign: TextAlign.right,
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                      color: white,
-                                      fontFamily: bj,
-                                      fontSize: 18.sp,
-                                      fontWeight: FontWeight.bold),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 2.w,
-                            ),
-                            Container(
-                              height: 35.sp,
-                              width: 35.sp,
-                              decoration: BoxDecoration(
-                                color: purble1,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                          ],
+                      leading: Container(
+                        height: 35.sp,
+                        width: 35.sp,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: Quran[index]['type_en'] == 'meccan'
+                                ? AssetImage('assets/images/sorah/mka.png')
+                                : AssetImage('assets/images/sorah/mdn.png'),
+                          ),
+                          shape: BoxShape.circle,
                         ),
                       ),
                       onTap: () {
@@ -218,19 +182,19 @@ class QuranScreen extends StatelessWidget {
                         });
                       },
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.sp)),
+                          borderRadius: BorderRadius.circular(5.sp)),
                       title: Text(
-                        item.name!,
+                        '${index + 1}- ${item!}',
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: black,
-                          fontFamily: bj,
-                          fontSize: 20.sp,
-                        ),
+                            color: black,
+                            fontFamily: um,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      tileColor: purble4,
+                      tileColor: purble5,
                     ),
                   );
                 },

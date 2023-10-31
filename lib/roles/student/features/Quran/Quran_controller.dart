@@ -1,26 +1,10 @@
+import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/Quran_card_model.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/Quran_event_model.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class QuranController extends GetxController {
-  var alSour = [
-    QuranCardModel(
-      name: 'الفاتحة',
-      number: '1',
-    ),
-    QuranCardModel(
-      name: 'البقرة',
-      number: '2',
-    ),
-    QuranCardModel(
-      name: 'ال عمران',
-      number: '3',
-    ),
-    QuranCardModel(
-      name: 'النساء',
-      number: '4',
-    ),
-  ];
+  var alSour = Quran.map((element) => element['name']).toList();
   var events = [
     QuranEventModel(
       name: "تسميع سورة يس",

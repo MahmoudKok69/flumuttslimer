@@ -11,6 +11,8 @@ class RegisterController extends GetxController {
   String confirmPassword = '';
   List<String> countries = ['سوريا', "العراق", "اليمن", "السعودية", "مصر"];
   String image = '';
+  int imageSelectedIndex = -1;
+  var selectedImage;
   bool obscure = true;
   bool obscureConfi = true;
   void setName(String value) {
@@ -58,6 +60,17 @@ class RegisterController extends GetxController {
   changeObscureConfi() {
     obscureConfi = !obscureConfi;
     update(['confiPassword_field']);
+  }
+
+  setImage(file) {
+    selectedImage = file;
+    update(['image_select']);
+  }
+
+  setAvatar(index, newImage) {
+    imageSelectedIndex = index;
+    image = newImage;
+    update(['avatar']);
   }
 
   regester() {

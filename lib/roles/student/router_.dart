@@ -2,6 +2,7 @@ import 'package:flumuttslimer/roles/student/bindings/azkar_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/home_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/login_bindings.dart';
+import 'package:flumuttslimer/roles/student/bindings/prizes_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/quran_Binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/register_bindings.dart';
@@ -14,6 +15,7 @@ import 'package:flumuttslimer/roles/student/features/auth/register/register_scre
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
+import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
 import 'package:get/get.dart';
 
@@ -30,6 +32,7 @@ class AppPages {
   static const beuati = '/beuati';
   static const rank = '/rank';
   static const sorah = '/sorah';
+  static const prizes = '/prizes';
 
   static final routes = [
     GetPage(
@@ -79,5 +82,6 @@ class AppPages {
       name: sorah,
       page: () => SorahScreen(),
     ),
+    GetPage(name: prizes, page: () => PrizesScreen(), binding: PrizesBinding()),
   ];
 }
