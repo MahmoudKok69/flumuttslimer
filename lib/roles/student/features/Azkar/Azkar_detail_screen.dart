@@ -17,12 +17,12 @@ class AzkarDetailScreen extends StatelessWidget {
           child: Column(
         children: [
           Container(
-            height: 30.h,
+            height: 20.h,
             decoration: BoxDecoration(
                 color: purble2,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10.sp),
-                  bottomRight: Radius.circular(10.sp),
+                  bottomLeft: Radius.circular(6.sp),
+                  bottomRight: Radius.circular(6.sp),
                 )),
             child: Center(
               child: Row(
@@ -31,11 +31,12 @@ class AzkarDetailScreen extends StatelessWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: EdgeInsets.all(12.sp),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
                       child: IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios_new_rounded,
-                          size: 20.sp,
+                          size: 12.sp,
                           color: white,
                         ),
                         onPressed: () {
@@ -52,7 +53,7 @@ class AzkarDetailScreen extends StatelessWidget {
                     style: TextStyle(
                       color: white,
                       fontFamily: bj,
-                      fontSize: 50.sp,
+                      fontSize: 20.sp,
                     ),
                   ),
                   const Spacer(),
@@ -69,20 +70,23 @@ class AzkarDetailScreen extends StatelessWidget {
                 style: TextStyle(
                   color: purble1,
                   fontFamily: bj,
-                  fontSize: 25.sp,
+                  fontSize: 20.sp,
                 ),
               ),
               SizedBox(
                 height: 1.h,
               ),
-              Text(
-                data['content']!,
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: purble2,
-                  fontFamily: bj,
-                  fontSize: 15.sp,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                child: Text(
+                  data['content']!,
+                  textAlign: TextAlign.center,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    color: purble2,
+                    fontFamily: bj,
+                    fontSize: 14.sp,
+                  ),
                 ),
               ),
             ],

@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_styles.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
+import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
@@ -22,8 +24,6 @@ class NewAccountForm extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
-          // Age Slider
-
           TextFormField(
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
@@ -35,12 +35,30 @@ class NewAccountForm extends StatelessWidget {
           SizedBox(
             height: 2.h,
           ),
+          // Age Slider
+          Padding(
+            padding: EdgeInsets.all(2.w),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                'العمر',
+                style: TextStyle(
+                  color: purble2,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15.sp,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 1.h,
+          ),
           GetBuilder<RegisterController>(
               init: RegisterController(),
               id: 'age_field',
               builder: (_) {
                 return Padding(
-                  padding: EdgeInsets.all(2.sp),
+                  padding: EdgeInsets.all(2.w),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -60,7 +78,7 @@ class NewAccountForm extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: CircleAvatar(
-                          radius: 20.sp,
+                          radius: 15.sp,
                           backgroundColor: purble4,
                           child: Text(
                             '${_controller.age}',
@@ -99,17 +117,18 @@ class NewAccountForm extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  width: 3.sp,
+                                  width: 1.sp,
                                   color: purble2,
                                 ),
-                                borderRadius: BorderRadius.circular(10.sp),
+                                borderRadius: BorderRadius.circular(5.sp),
                                 color: _controller.gender ? purble2 : white),
                             child: Center(
                               child: Text(
                                 'ذكر',
+                                maxLines: 1,
                                 style: TextStyle(
                                   color: _controller.gender ? white : purble2,
-                                  fontSize: 25.sp,
+                                  fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -131,18 +150,19 @@ class NewAccountForm extends StatelessWidget {
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.all(
-                                width: 3.sp,
+                                width: 1.sp,
                                 color: purble2,
                               ),
-                              borderRadius: BorderRadius.circular(10.sp),
+                              borderRadius: BorderRadius.circular(5.sp),
                               color: _controller.gender ? white : purble2,
                             ),
                             child: Center(
                               child: Text(
                                 'أنثى',
+                                maxLines: 1,
                                 style: TextStyle(
                                   color: _controller.gender ? purble2 : white,
-                                  fontSize: 25.sp,
+                                  fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -162,11 +182,12 @@ class NewAccountForm extends StatelessWidget {
               init: RegisterController(),
               builder: (_) {
                 return SizedBox(
-                  height: 10.h,
+                  height: 12.h,
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0.sp),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
                       child: DropdownButton<String>(
                         isExpanded: true,
                         alignment: Alignment.centerRight,
@@ -181,7 +202,7 @@ class NewAccountForm extends StatelessWidget {
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
                                     color: purble2,
-                                    fontSize: 15.sp,
+                                    fontSize: 12.sp,
                                     fontFamily: bj),
                               ));
                         }).toList(),
@@ -204,7 +225,7 @@ class NewAccountForm extends StatelessWidget {
                 child: TextFormField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
-                  decoration: inputDecorationStyle('رمز دولتك', '+xxx'),
+                  decoration: inputDecorationStyle('الرمز', '+xxx'),
                 ),
               ),
               SizedBox(
@@ -377,14 +398,20 @@ class NewAccountForm extends StatelessWidget {
 
           SizedBox(
             width: 40.w,
-            child: MaterialButton(
+            height: 6.h,
+            child: ElevatedButton(
               onPressed: () {
+                Get.toNamed(AppPages.shome);
+
                 if (_formKey.currentState!.validate()) {
                   print('Ok');
                   _controller.regester();
+                  // Get.toNamed(AppPages.shome);
                 }
               },
-              color: purble2,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(purble2),
+              ),
               child: Center(
                 child: Text(
                   'إنشاء الحساب',
@@ -442,7 +469,7 @@ class ImageSelector extends StatelessWidget {
                     id: 'image_select',
                     builder: (_) {
                       return CircleAvatar(
-                          radius: 60.sp,
+                          radius: min(40.w, 40.h) / 2,
                           backgroundColor: purble4,
                           child: _controller.selectedImage == null
                               ? Column(
@@ -500,7 +527,7 @@ class ImageSelector extends StatelessWidget {
                                 _controller.setAvatar(index, avatarList[index]);
                               },
                               child: Padding(
-                                padding: EdgeInsets.all(15.sp),
+                                padding: EdgeInsets.only(right: 15.sp),
                                 child: Container(
                                   width: 40.w,
                                   height: 30.h,

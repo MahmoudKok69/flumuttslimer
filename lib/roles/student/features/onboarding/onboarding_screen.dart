@@ -191,6 +191,8 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Get.size.width);
+    print(Get.size.height);
     return Scaffold(
       body: SafeArea(
         child: IntroductionScreen(
@@ -201,7 +203,7 @@ class OnBoardingScreen extends StatelessWidget {
           next: Icon(
             Icons.arrow_forward_ios_rounded,
             color: white,
-            size: 30.sp,
+            size: 20.sp,
           ),
           // showDoneButton: true,
 
@@ -212,7 +214,7 @@ class OnBoardingScreen extends StatelessWidget {
                 'الدخول',
                 style: TextStyle(
                   color: white,
-                  fontSize: 50.sp,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Bahij',
                 ),
@@ -224,7 +226,7 @@ class OnBoardingScreen extends StatelessWidget {
           skip: Icon(
             Icons.double_arrow_rounded,
             color: white,
-            size: 30.sp,
+            size: 20.sp,
           ),
           onSkip: () {
             Get.toNamed(AppPages.sLogin);

@@ -10,6 +10,7 @@ InputDecoration inputDecorationStyle(String label, String hint) {
         label,
         textDirection: TextDirection.rtl,
         style: TextStyle(
+          fontSize: 12.sp,
           color: purble1,
           fontFamily: 'Bahij',
           fontWeight: FontWeight.w300,
@@ -18,6 +19,10 @@ InputDecoration inputDecorationStyle(String label, String hint) {
       ),
     ),
     hintText: hint,
+    hintStyle: TextStyle(
+      fontSize: 6.sp,
+      color: grey,
+    ),
     alignLabelWithHint: true,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.all(

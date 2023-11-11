@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/roles/student/features/rank/rank_components.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,289 +33,8 @@ class RankScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: EdgeInsets.all(12.sp),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_back_ios_rounded,
-                              color: white,
-                              size: 20.sp,
-                            ),
-                            onPressed: () {
-                              Get.back();
-                            },
-                          ),
-                          const CustomSwitcher(),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 58.h,
-                    width: Get.size.width,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      fit: StackFit.loose,
-                      children: [
-                        Align(
-                          alignment: Alignment.topCenter,
-                          child: SizedBox(
-                            height: 60.h,
-                            width: 40.w,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: SizedBox(
-                                    child: Image.asset(
-                                      'assets/images/gifs/crown.gif',
-                                      fit: BoxFit.cover,
-                                      width: 35.w,
-                                      height: 12.h,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    _controller.users[0].name!,
-                                    style: TextStyle(
-                                      color: white,
-                                      fontFamily: bj,
-                                      fontSize: 25.sp,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: SizedBox(
-                                    height: 20.h,
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Container(
-                                          width: 60.w,
-                                          height: 20.h,
-                                          decoration: BoxDecoration(
-                                            color: orange1,
-                                            shape: BoxShape.circle,
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: Container(
-                                            width: 12.w,
-                                            height: 6.h,
-                                            decoration: BoxDecoration(
-                                                color: white,
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  color: Colors.green.shade500,
-                                                  width: 4,
-                                                  strokeAlign: BorderSide
-                                                      .strokeAlignOutside,
-                                                )),
-                                            child: Center(
-                                                child: Text(
-                                              '1',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: purble2,
-                                                  fontSize: 18.sp,
-                                                  fontFamily: bj,
-                                                  fontWeight: FontWeight.bold),
-                                            )),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Text(
-                                    _controller.users[0].points.toString(),
-                                    style: TextStyle(
-                                      color: white,
-                                      fontFamily: bj,
-                                      fontSize: 25.sp,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15.0.sp),
-                          child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: SizedBox(
-                              height: 30.h,
-                              width: 20.w,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      _controller.users[1].name!,
-                                      style: TextStyle(
-                                        color: white,
-                                        fontFamily: bj,
-                                        fontSize: 18.sp,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 4,
-                                    child: SizedBox(
-                                      height: 14.h,
-                                      child: Stack(
-                                        alignment: Alignment.center,
-                                        children: [
-                                          Container(
-                                            width: 40.w,
-                                            height: 15.h,
-                                            decoration: BoxDecoration(
-                                              color: white,
-                                              shape: BoxShape.circle,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: Alignment.bottomCenter,
-                                            child: Container(
-                                              width: 8.w,
-                                              height: 4.h,
-                                              decoration: BoxDecoration(
-                                                  color: white,
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                    color:
-                                                        Colors.green.shade500,
-                                                    width: 4,
-                                                    strokeAlign: BorderSide
-                                                        .strokeAlignOutside,
-                                                  )),
-                                              child: Center(
-                                                  child: Text(
-                                                '2',
-                                                style: TextStyle(
-                                                    color: purble2,
-                                                    fontSize: 14.sp,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontFamily: bj),
-                                              )),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      _controller.users[1].points.toString(),
-                                      style: TextStyle(
-                                        color: white,
-                                        fontFamily: bj,
-                                        fontSize: 25.sp,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(15.sp),
-                          child: Align(
-                            alignment: Alignment.bottomLeft,
-                            child: SizedBox(
-                              height: 30.h,
-                              width: 20.w,
-                              child: Column(
-                                children: [
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      _controller.users[2].name!,
-                                      style: TextStyle(
-                                        color: white,
-                                        fontFamily: bj,
-                                        fontSize: 18.sp,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 4,
-                                    child: SizedBox(
-                                      height: 16.h,
-                                      child: Stack(
-                                        alignment: Alignment.center,
-                                        children: [
-                                          Container(
-                                            width: 40.w,
-                                            height: 15.h,
-                                            decoration: BoxDecoration(
-                                              color: white,
-                                              shape: BoxShape.circle,
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: Alignment.bottomCenter,
-                                            child: Container(
-                                              width: 8.w,
-                                              height: 4.h,
-                                              decoration: BoxDecoration(
-                                                  color: white,
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
-                                                    color:
-                                                        Colors.green.shade500,
-                                                    width: 4,
-                                                    strokeAlign: BorderSide
-                                                        .strokeAlignOutside,
-                                                  )),
-                                              child: Center(
-                                                  child: Text(
-                                                '3',
-                                                style: TextStyle(
-                                                    color: purble2,
-                                                    fontSize: 14.sp,
-                                                    fontFamily: bj,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              )),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Text(
-                                    _controller.users[2].points.toString(),
-                                    style: TextStyle(
-                                      color: white,
-                                      fontFamily: bj,
-                                      fontSize: 25.sp,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const RankUpSection(),
+                  FirstThreeUser(),
                 ],
               ),
             ),
@@ -406,6 +126,39 @@ class RankScreen extends StatelessWidget {
                     )),
               );
             }),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RankUpSection extends StatelessWidget {
+  const RankUpSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: Padding(
+        padding: EdgeInsets.all(12.sp),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios_rounded,
+                color: white,
+                size: 20.sp,
+              ),
+              onPressed: () {
+                Get.back();
+              },
+            ),
+            const CustomSwitcher(),
           ],
         ),
       ),

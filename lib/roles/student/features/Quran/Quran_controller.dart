@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class QuranController extends GetxController {
   var alSour = Quran.map((element) => element['name']).toList();
+  String ayaName = '';
   var events = [
     QuranEventModel(
       name: "تسميع سورة يس",

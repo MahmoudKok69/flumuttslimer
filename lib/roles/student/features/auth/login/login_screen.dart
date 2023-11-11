@@ -1,4 +1,3 @@
-
 import 'package:flumuttslimer/roles/student/features/auth/login/widgets/screen_components.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -11,7 +10,7 @@ class LoginScreen extends StatelessWidget {
     print('its rebuild everything');
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const UpImage(),
           SizedBox(height: 10.h),
@@ -19,7 +18,7 @@ class LoginScreen extends StatelessWidget {
           const Spacer(),
           const NewAccountPhase(),
           SizedBox(
-            height: 10.h,
+            height: 5.h,
           )
         ],
       ),

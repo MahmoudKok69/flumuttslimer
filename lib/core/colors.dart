@@ -16,5 +16,6 @@ Color orange3 = const Color(0xffFFE0C2);
 
 //other colors
 Color white = const Color(0xffFFFFFF);
+Color grey = const Color.fromARGB(255, 158, 158, 158);
 Color black = const Color(0xff000000);
 Color pink = const Color(0xffFF78D7);

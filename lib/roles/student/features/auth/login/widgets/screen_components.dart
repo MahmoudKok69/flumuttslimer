@@ -23,7 +23,7 @@ class NewAccountPhase extends StatelessWidget {
             style: TextStyle(
                 color: black,
                 fontFamily: bj,
-                fontSize: 10.sp,
+                fontSize: 7.sp,
                 fontWeight: FontWeight.w500),
           ),
           TextSpan(
@@ -31,7 +31,7 @@ class NewAccountPhase extends StatelessWidget {
             style: TextStyle(
                 color: purble2,
                 fontFamily: bj,
-                fontSize: 10.sp,
+                fontSize: 7.sp,
                 fontWeight: FontWeight.w500,
                 decoration: TextDecoration.underline),
             recognizer: TapGestureRecognizer()
@@ -56,7 +56,7 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0.sp),
+      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 8.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -88,7 +88,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 2.h,
+                  height: 1.h,
                 ),
                 GetBuilder<LoginController>(
                   id: 'password_field',
@@ -106,12 +106,12 @@ class LoginForm extends StatelessWidget {
                                 ? Icon(
                                     Icons.visibility_off,
                                     color: purble2,
-                                    size: 20.sp,
+                                    size: 12.sp,
                                   )
                                 : Icon(
                                     Icons.visibility,
                                     color: purble2,
-                                    size: 20.sp,
+                                    size: 12.sp,
                                   ),
                             onPressed: () {
                               _controller.changObscure();
@@ -163,14 +163,18 @@ class LoginForm extends StatelessWidget {
                 SizedBox(height: 2.0.h),
                 SizedBox(
                   width: 40.w,
-                  child: MaterialButton(
+                  height: 5.h,
+                  child: ElevatedButton(
                     onPressed: () {
+                      Get.toNamed(AppPages.shome);
                       if (_formKey.currentState!.validate()) {
                         print('is valid');
                         _controller.login();
+                        // Get.toNamed(AppPages.shome);
                       }
                     },
-                    color: purble2,
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(purble2)),
                     child: Center(
                       child: Text(
                         'تسجيل الدخول',
