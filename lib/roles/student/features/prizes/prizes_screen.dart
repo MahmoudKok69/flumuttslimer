@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_components.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
@@ -28,7 +28,7 @@ class PrizesScreen extends StatelessWidget {
         child: Text(
           'الجوائز',
           style: TextStyle(
-            fontSize: 25.sp,
+            fontSize: 16.sp,
             fontFamily: bj,
             fontWeight: FontWeight.w500,
             color: white,
@@ -39,7 +39,7 @@ class PrizesScreen extends StatelessWidget {
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
           color: white,
-          size: 20.sp,
+          size: 12.sp,
         ),
         onPressed: () {
           Get.back();
@@ -59,7 +59,7 @@ class PrizesScreen extends StatelessWidget {
                   color: white,
                   fontFamily: bj,
                   fontWeight: FontWeight.w400,
-                  fontSize: 20.sp),
+                  fontSize: 12.sp),
             ),
             Text(
               'الجوائز',
@@ -67,7 +67,7 @@ class PrizesScreen extends StatelessWidget {
                 color: white,
                 fontFamily: bj,
                 fontWeight: FontWeight.w400,
-                fontSize: 20.sp,
+                fontSize: 12.sp,
               ),
             ),
           ]),

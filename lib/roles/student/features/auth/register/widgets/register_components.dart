@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';

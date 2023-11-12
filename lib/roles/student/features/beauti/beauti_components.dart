@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beauti_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,34 +15,43 @@ class BeautiCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0.sp),
+      padding: EdgeInsets.symmetric(horizontal: 2.h, vertical: 2.h),
       child: GestureDetector(
         onTap: () {
           _controller.check(index);
         },
         child: Container(
           width: Get.size.width,
-          height: 40.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.sp),
-            color: purble5,
+            color: white,
+            boxShadow: [
+              BoxShadow(
+                color: black.withOpacity(0.4),
+                blurRadius: 1,
+                offset: const Offset(2, 3),
+                spreadRadius: 1,
+              )
+            ],
+            borderRadius: BorderRadius.circular(5.sp),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8.sp),
+            padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
             child: Row(
               children: [
                 Expanded(
-                  flex: 5,
-                  child: SizedBox(
-                    // width: 70.w,
+                  flex: 4,
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 2.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         GetBuilder<BeuatiController>(
                             init: BeuatiController(),
                             builder: (_) {
                               return Text(
                                 item.name!,
+                                textDirection: TextDirection.rtl,
                                 style: TextStyle(
                                   color: purble1,
                                   fontFamily: bj,
@@ -53,22 +62,22 @@ class BeautiCard extends StatelessWidget {
                                 ),
                               );
                             }),
+                        Text(
+                          item.describe!,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(
+                              color: purble2, fontFamily: bj, fontSize: 8.sp),
+                          maxLines: 20,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                         SizedBox(
-                          height: Get.size.height * 0.25 * 0.5,
-                          child: Text(
-                            item.describe!,
-                            style: TextStyle(
-                                color: purble2,
-                                fontFamily: bj,
-                                fontSize: 10.sp),
-                            maxLines: 20,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                          height: 5.h,
                         ),
                         Text(
-                          item.points.toString(),
+                          '${item.points} نقطة',
+                          textDirection: TextDirection.rtl,
                           style: TextStyle(
-                              color: purble1, fontFamily: bj, fontSize: 10.sp),
+                              color: purble1, fontFamily: bj, fontSize: 12.sp),
                         ),
                       ],
                     ),
@@ -80,11 +89,11 @@ class BeautiCard extends StatelessWidget {
                       init: BeuatiController(),
                       builder: (_) {
                         return Container(
-                          // width: 30.w,
+                          height: Get.size.height * 0.3,
+                          width: Get.size.width * 0.4,
                           decoration: BoxDecoration(
                               color: orange1,
                               borderRadius: BorderRadius.circular(10.sp)),
-
                           child: item.isChecked!
                               ? Center(
                                   child: Container(
@@ -103,7 +112,7 @@ class BeautiCard extends StatelessWidget {
                                         child: Icon(
                                           Icons.check,
                                           color: white,
-                                          size: 30.sp,
+                                          size: 20.sp,
                                         ),
                                       ),
                                     ),

@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -74,7 +74,7 @@ class FirstUser extends StatelessWidget {
                 style: TextStyle(
                   color: white,
                   fontFamily: bj,
-                  fontSize: 25.sp,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
@@ -112,7 +112,7 @@ class FirstUser extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               color: purble2,
-                              fontSize: 18.sp,
+                              fontSize: 14.sp,
                               fontFamily: bj,
                               fontWeight: FontWeight.bold),
                         )),
@@ -129,7 +129,7 @@ class FirstUser extends StatelessWidget {
                 style: TextStyle(
                   color: white,
                   fontFamily: bj,
-                  fontSize: 25.sp,
+                  fontSize: 18.sp,
                 ),
               ),
             ),
@@ -167,7 +167,7 @@ class OtherUser extends StatelessWidget {
                   style: TextStyle(
                     color: white,
                     fontFamily: bj,
-                    fontSize: 18.sp,
+                    fontSize: 14.sp,
                   ),
                 ),
               ),
@@ -204,7 +204,7 @@ class OtherUser extends StatelessWidget {
                             number.toString(),
                             style: TextStyle(
                                 color: purble2,
-                                fontSize: 14.sp,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: bj),
                           )),
@@ -221,7 +221,7 @@ class OtherUser extends StatelessWidget {
                   style: TextStyle(
                     color: white,
                     fontFamily: bj,
-                    fontSize: 25.sp,
+                    fontSize: 14.sp,
                   ),
                 ),
               ),

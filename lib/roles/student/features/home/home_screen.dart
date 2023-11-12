@@ -1,5 +1,7 @@
+import 'dart:math';
+
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_model/main_pages.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +35,11 @@ class SHomeScreen extends StatelessWidget {
         name: 'الجوائز',
         image: 'assets/images/prize.png',
         page: AppPages.sregister),
+    MainPages(
+      name: 'همسة',
+      image: 'assets/images/prize.png',
+      page: AppPages.hamsa,
+    ),
   ];
 
   @override
@@ -51,60 +58,20 @@ class SHomeScreen extends StatelessWidget {
             ),
           ),
         ),
+        leading: IconButton(
+          icon: Icon(Icons.notifications),
+          iconSize: 16.sp,
+          color: white,
+          onPressed: () {
+            Get.toNamed(AppPages.sNews);
+          },
+        ),
         actionsIconTheme: IconThemeData(color: white),
         automaticallyImplyLeading: false,
       ),
       endDrawer: SizedBox(
         width: 70.w,
-        child: Drawer(
-            backgroundColor: white,
-            child: Padding(
-              padding: EdgeInsets.all(8.0.sp),
-              child: Column(
-                children: [
-                  Container(
-                    height: 30.h,
-                    width: 70.w,
-                    decoration: BoxDecoration(
-                      color: purble2,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.person,
-                      color: white,
-                      size: 152.24.sp,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 1.h,
-                  ),
-                  DrawerOption(
-                      "الخيار الأول",
-                      Icon(
-                        Icons.onetwothree_outlined,
-                        size: 30.sp,
-                      ),
-                      'page'),
-                  DrawerOption(
-                      "الخيار الثاني",
-                      Icon(
-                        Icons.onetwothree_outlined,
-                        size: 30.sp,
-                      ),
-                      'page'),
-                  DrawerOption(
-                      "الخيار الثالث",
-                      Icon(
-                        Icons.onetwothree_outlined,
-                        size: 30.sp,
-                      ),
-                      'page'),
-                  Divider(
-                    thickness: 1.sp,
-                  ),
-                ],
-              ),
-            )),
+        child: _homeDrawer(),
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0.sp),
@@ -164,9 +131,60 @@ class SHomeScreen extends StatelessWidget {
       ),
     );
   }
+
+  Drawer _homeDrawer() {
+    return Drawer(
+        backgroundColor: white,
+        child: Padding(
+          padding: EdgeInsets.all(8.0.sp),
+          child: Column(
+            children: [
+              CircleAvatar(
+                  radius: min(Get.size.width * 0.4, Get.size.height * 0.4) / 2,
+                  backgroundColor: white,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.person,
+                      color: purble1,
+                      size:
+                          min(Get.size.width * 0.6, Get.size.height * 0.6) / 2,
+                    ),
+                    onPressed: () {},
+                  )),
+              SizedBox(
+                height: 1.h,
+              ),
+              drawerOption(
+                  "الخيار الأول",
+                  Icon(
+                    Icons.onetwothree_outlined,
+                    size: 30.sp,
+                  ),
+                  'page'),
+              drawerOption(
+                  "الخيار الثاني",
+                  Icon(
+                    Icons.onetwothree_outlined,
+                    size: 30.sp,
+                  ),
+                  'page'),
+              drawerOption(
+                  "الخيار الثالث",
+                  Icon(
+                    Icons.onetwothree_outlined,
+                    size: 30.sp,
+                  ),
+                  'page'),
+              Divider(
+                thickness: 1.sp,
+              ),
+            ],
+          ),
+        ));
+  }
 }
 
-DrawerOption(String name, Icon icon, String page) {
+drawerOption(String name, Icon icon, String page) {
   return Column(
     children: [
       Divider(

@@ -164,7 +164,7 @@ class OnBoardingScreen extends StatelessWidget {
             maxLines: 3,
             style: TextStyle(
               color: white,
-              fontSize: 60.sp,
+              fontSize: 40.sp,
               fontWeight: FontWeight.w500,
               fontFamily: 'Amiri',
             ),

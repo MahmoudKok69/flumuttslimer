@@ -20,8 +20,7 @@ InputDecoration inputDecorationStyle(String label, String hint) {
     ),
     hintText: hint,
     hintStyle: TextStyle(
-      fontSize: 6.sp,
-      color: grey,
+      fontSize: 10.sp,
     ),
     alignLabelWithHint: true,
     border: OutlineInputBorder(

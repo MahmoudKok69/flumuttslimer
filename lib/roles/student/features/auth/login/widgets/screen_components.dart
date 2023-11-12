@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
@@ -23,7 +23,7 @@ class NewAccountPhase extends StatelessWidget {
             style: TextStyle(
                 color: black,
                 fontFamily: bj,
-                fontSize: 7.sp,
+                fontSize: 10.sp,
                 fontWeight: FontWeight.w500),
           ),
           TextSpan(
@@ -31,7 +31,7 @@ class NewAccountPhase extends StatelessWidget {
             style: TextStyle(
                 color: purble2,
                 fontFamily: bj,
-                fontSize: 7.sp,
+                fontSize: 10.sp,
                 fontWeight: FontWeight.w500,
                 decoration: TextDecoration.underline),
             recognizer: TapGestureRecognizer()
@@ -106,12 +106,12 @@ class LoginForm extends StatelessWidget {
                                 ? Icon(
                                     Icons.visibility_off,
                                     color: purble2,
-                                    size: 12.sp,
+                                    size: 14.sp,
                                   )
                                 : Icon(
                                     Icons.visibility,
                                     color: purble2,
-                                    size: 12.sp,
+                                    size: 14.sp,
                                   ),
                             onPressed: () {
                               _controller.changObscure();
@@ -206,15 +206,17 @@ class UpImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 30.0.h,
+      width: Get.size.width,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10.sp),
-          bottomRight: Radius.circular(10.sp),
-        ),
+        // borderRadius: BorderRadius.only(
+        //   bottomLeft: Radius.circular(10.sp),
+        //   bottomRight: Radius.circular(10.sp),
+        // ),
         color: purble2,
       ),
       child: Image.asset(
         'assets/images/login.jpg',
+        fit: BoxFit.cover,
       ),
     );
   }

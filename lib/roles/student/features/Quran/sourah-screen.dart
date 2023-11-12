@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/strings.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/Quran_model.dart';
@@ -63,13 +63,16 @@ class SorahScreen extends StatelessWidget {
                           'assets/images/sorah/headFrame_G_line.png',
                           fit: BoxFit.cover,
                         ),
-                        Center(
-                          child: Text(BESMILAH,
-                              style: TextStyle(
-                                fontFamily: um,
-                                fontSize: 30.sp,
-                                fontWeight: FontWeight.bold,
-                              )),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 1.h),
+                          child: Center(
+                            child: Text(BESMILAH,
+                                style: TextStyle(
+                                  fontFamily: um,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ),
                         ),
                         Image.asset(
                           'assets/images/sorah/headFrame_G_line.png',
@@ -144,13 +147,16 @@ class SorahScreen extends StatelessWidget {
                           'assets/images/sorah/headFrame_G_line.png',
                           fit: BoxFit.cover,
                         ),
-                        Center(
-                          child: Text(SADAKALLAH,
-                              style: TextStyle(
-                                fontFamily: um,
-                                fontSize: 30.sp,
-                                fontWeight: FontWeight.bold,
-                              )),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 1.h),
+                          child: Center(
+                            child: Text(SADAKALLAH,
+                                style: TextStyle(
+                                  fontFamily: um,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ),
                         ),
                         Image.asset(
                           'assets/images/sorah/headFrame_G_line.png',

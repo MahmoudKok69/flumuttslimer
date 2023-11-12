@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../core/font_styles.dart';
+import '../../../../../core/font_family.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

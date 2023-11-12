@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_components.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart';

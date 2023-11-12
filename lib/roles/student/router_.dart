@@ -2,6 +2,7 @@ import 'package:flumuttslimer/roles/student/bindings/azkar_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/home_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/login_bindings.dart';
+import 'package:flumuttslimer/roles/student/bindings/news_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/prizes_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/quran_Binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
@@ -13,7 +14,9 @@ import 'package:flumuttslimer/roles/student/features/Quran/sourah-screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_screen.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
+import 'package:flumuttslimer/roles/student/features/hamsat/hamsat_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
+import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
@@ -33,6 +36,8 @@ class AppPages {
   static const rank = '/rank';
   static const sorah = '/sorah';
   static const prizes = '/prizes';
+  static const hamsa = '/hamsa';
+  static const sNews = '/snews';
 
   static final routes = [
     GetPage(
@@ -82,6 +87,19 @@ class AppPages {
       name: sorah,
       page: () => SorahScreen(),
     ),
-    GetPage(name: prizes, page: () => PrizesScreen(), binding: PrizesBinding()),
+    GetPage(
+      name: prizes,
+      page: () => PrizesScreen(),
+      binding: PrizesBinding(),
+    ),
+    GetPage(
+      name: hamsa,
+      page: () => HamsatScreen(),
+    ),
+    GetPage(
+      name: sNews,
+      page: () => NewsScreen(),
+      binding: NewsBinding(),
+    ),
   ];
 }

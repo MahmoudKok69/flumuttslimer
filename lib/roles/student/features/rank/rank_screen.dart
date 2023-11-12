@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_components.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_controller.dart';
 import 'package:flutter/material.dart';
@@ -42,88 +42,103 @@ class RankScreen extends StatelessWidget {
               userInde++;
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.sp),
-                    ),
-                    tileColor: purble5,
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: purble1),
-                                  shape: BoxShape.circle),
-                              child: Center(
-                                child: Text(
-                                  '${4}',
-                                  style: TextStyle(
-                                      fontSize: 20.sp,
-                                      color: orange1,
-                                      fontWeight: FontWeight.bold),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: black.withOpacity(0.4),
+                        blurRadius: 1,
+                        offset: const Offset(2, 3),
+                        spreadRadius: 1,
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(5.sp),
+                  ),
+                  child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.sp),
+                      ),
+                      tileColor: white,
+                      style: ListTileStyle.list,
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: purble1),
+                                    shape: BoxShape.circle),
+                                child: Center(
+                                  child: Text(
+                                    '${userInde}',
+                                    style: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: orange1,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              e.name!,
-                              style: TextStyle(
-                                color: black,
-                                fontFamily: bj,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w500,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                e.name!,
+                                style: TextStyle(
+                                  color: black,
+                                  fontFamily: bj,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'العمر : ${e.age.toString()}',
-                              textAlign: TextAlign.right,
-                              textDirection: TextDirection.rtl,
-                              style: TextStyle(
-                                color: black,
-                                fontFamily: bj,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w500,
+                              Text(
+                                'العمر : ${e.age.toString()}',
+                                textAlign: TextAlign.right,
+                                textDirection: TextDirection.rtl,
+                                style: TextStyle(
+                                  color: black,
+                                  fontFamily: bj,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'عدد النقاط :${e.points.toString()}',
-                              style: TextStyle(
-                                color: black,
-                                fontFamily: bj,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w500,
+                              Text(
+                                'عدد النقاط :${e.points.toString()}',
+                                style: TextStyle(
+                                  color: black,
+                                  fontFamily: bj,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'اسم المعلم: ${e.teacherName!}',
-                              style: TextStyle(
-                                color: black,
-                                fontFamily: bj,
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w500,
+                              Text(
+                                'اسم المعلم: ${e.teacherName!}',
+                                style: TextStyle(
+                                  color: black,
+                                  fontFamily: bj,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Container(
-                            height: 100.sp,
-                            width: 100.sp,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle, color: purble4),
+                            ],
                           ),
-                        ),
-                      ],
-                    )),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              height: 100.sp,
+                              width: 100.sp,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle, color: purble4),
+                            ),
+                          ),
+                        ],
+                      )),
+                ),
               );
             }),
           ],
@@ -152,7 +167,7 @@ class RankUpSection extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back_ios_rounded,
                 color: white,
-                size: 20.sp,
+                size: 12.sp,
               ),
               onPressed: () {
                 Get.back();
@@ -227,7 +242,7 @@ class _CustomSwitcherState extends State<CustomSwitcher> {
                         child: Icon(
                           Icons.group,
                           color: purble2,
-                          size: 15.sp,
+                          size: 12.sp,
                         ),
                       ),
                       onPressed: () {

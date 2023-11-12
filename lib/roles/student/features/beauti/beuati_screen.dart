@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/font_styles.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beauti_components.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beauti_controller.dart';
 import 'package:flutter/material.dart';
@@ -32,16 +32,16 @@ class BeuatiScreen extends StatelessWidget {
         child: Text(
           'الأخلاق و الجمال',
           style: TextStyle(
-            fontFamily: bj,
-            fontWeight: FontWeight.w500,
-            color: white,
-          ),
+              fontFamily: bj,
+              fontWeight: FontWeight.w500,
+              color: white,
+              fontSize: 16.sp),
         ),
       ),
       leading: IconButton(
         icon: Icon(
           Icons.arrow_back_ios_rounded,
-          size: 20.sp,
+          size: 12.sp,
           color: white,
         ),
         onPressed: () {
