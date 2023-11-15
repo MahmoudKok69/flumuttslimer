@@ -1,0 +1,3 @@
+class StudentProfileServices {
+  getStudentInfo() {}
+}

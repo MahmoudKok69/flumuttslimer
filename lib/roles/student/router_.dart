@@ -7,6 +7,7 @@ import 'package:flumuttslimer/roles/student/bindings/prizes_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/quran_Binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/register_bindings.dart';
+import 'package:flumuttslimer/roles/student/bindings/student_profile_binding.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_detail_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
@@ -20,7 +21,6 @@ import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
-import 'package:flumuttslimer/roles/student/features/refrences/refrences_screen.dart';
 import 'package:get/get.dart';
 
 class AppPages {
@@ -39,7 +39,6 @@ class AppPages {
   static const prizes = '/prizes';
   static const hamsa = '/hamsa';
   static const sNews = '/snews';
-  static const refrences = '/refrences';
 
   static final routes = [
     GetPage(
@@ -102,11 +101,6 @@ class AppPages {
       name: sNews,
       page: () => NewsScreen(),
       binding: NewsBinding(),
-    ),
-    GetPage(
-      name: refrences,
-      page: () => RefrencesScreen(),
-      binding: RegisterBinding(),
     ),
   ];
 }
