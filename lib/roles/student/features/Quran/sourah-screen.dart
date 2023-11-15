@@ -1,3 +1,4 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/strings.dart';
@@ -19,7 +20,7 @@ class SorahScreen extends StatelessWidget {
         backgroundColor: purble2,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
+            AppIcons.back_icon,
             color: white,
           ),
           onPressed: () {

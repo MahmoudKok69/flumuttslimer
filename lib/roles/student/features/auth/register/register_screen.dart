@@ -1,3 +1,4 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/widgets/register_components.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class RegisterScreen extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: Icon(Icons.arrow_back_ios_new_rounded, color: white),
+        icon: Icon(AppIcons.back_icon, color: white),
         onPressed: () {
           Get.back();
         },

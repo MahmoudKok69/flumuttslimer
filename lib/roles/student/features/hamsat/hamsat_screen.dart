@@ -1,3 +1,4 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/layout.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class HamsatScreen extends StatelessWidget {
     return Scaffold(
       // appBar: buildAppBar(
       //     text: 'همسة اليوم',
-      //     leadingIcon: Icons.arrow_back_ios_new_rounded,
+      //     leadingIcon: AppIcons.back_icon,
       //     actionIcon: null,
       //     onTapLeadingIcon: () {
       //       Get.back();
@@ -42,7 +43,7 @@ class HamsatScreen extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: IconButton(
                         icon: Icon(
-                          Icons.arrow_back_ios_new_rounded,
+                          AppIcons.back_icon,
                           color: white,
                           size: 16.sp,
                         ),

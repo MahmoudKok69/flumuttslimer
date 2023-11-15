@@ -1,3 +1,4 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/layout.dart';
@@ -16,7 +17,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
         appBar: buildAppBar(
             text: 'الإعلانات',
-            leadingIcon: Icons.arrow_back_ios_new_rounded,
+            leadingIcon: AppIcons.back_icon,
             actionIcon: null,
             onTapLeadingIcon: () {
               Get.back();
