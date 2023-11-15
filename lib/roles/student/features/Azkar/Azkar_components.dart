@@ -84,52 +84,60 @@ class AllAzkar extends StatelessWidget {
                 id: 'azkary_tile',
                 init: AzkarController(),
                 builder: (_) {
-                  return ListTile(
-                    onTap: () {
-                      Get.toNamed(AppPages.sAzkardetail, parameters: {
-                        'name': item.name!,
-                        'content': item.descirbe!,
-                        'time': 'الصباح'
-                      });
-                    },
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.sp)),
-                    title: Text(
-                      item.name!,
-                      textAlign: TextAlign.right,
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: black,
-                        fontFamily: bj,
-                        fontSize: 12.sp,
-                        decoration:
-                            item.isChecked! ? TextDecoration.lineThrough : null,
+                  return PhysicalModel(
+                    elevation: 5,
+                    color: white,
+                    borderRadius: BorderRadius.circular(5.sp),
+                    child: ListTile(
+                      shape: BeveledRectangleBorder(
+                        side: BorderSide(width: 0.01.w),
+                        borderRadius: BorderRadius.circular(5.sp),
                       ),
-                    ),
-                    tileColor: item.isChecked! ? purble3 : purble4,
-                    subtitle: Text(
-                      '${item.points} نقطة',
-                      textAlign: TextAlign.right,
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: purble1,
-                        fontFamily: bj,
-                        fontSize: 10.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    leading: CustomCheckBox(
-                      height: 12.sp,
-                      width: 12.sp,
-                      selectColor: purble2,
-                      unselectColor: purble5,
-                      iconColor: white,
-                      borderRadius: 1.sp,
-                      isChecked: item.isChecked,
-                      iconSize: 12.sp,
-                      onchange: () {
-                        _controller.checkAzkar(index);
+                      onTap: () {
+                        Get.toNamed(AppPages.sAzkardetail, parameters: {
+                          'name': item.name!,
+                          'content': item.descirbe!,
+                          'time': 'الصباح'
+                        });
                       },
+                      title: Text(
+                        item.name!,
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                          color: black,
+                          fontFamily: bj,
+                          fontSize: 12.sp,
+                          decoration: item.isChecked!
+                              ? TextDecoration.lineThrough
+                              : null,
+                        ),
+                      ),
+                      tileColor: item.isChecked! ? purble3 : purble4,
+                      subtitle: Text(
+                        '${item.points} نقطة',
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(
+                          color: purble1,
+                          fontFamily: bj,
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      leading: CustomCheckBox(
+                        height: 12.sp,
+                        width: 12.sp,
+                        selectColor: purble2,
+                        unselectColor: purble4,
+                        iconColor: white,
+                        borderRadius: 1.sp,
+                        isChecked: item.isChecked,
+                        iconSize: 12.sp,
+                        onchange: () {
+                          _controller.checkAzkar(index);
+                        },
+                      ),
                     ),
                   );
                 },
@@ -153,38 +161,45 @@ class MyAzkar extends StatelessWidget {
           var item = _controller.azkar[index];
           return Padding(
             padding: EdgeInsets.only(top: 1.h),
-            child: ListTile(
-              onTap: () {
-                Get.toNamed(AppPages.sAzkardetail, parameters: {
-                  'name': item.name!,
-                  'content': item.descirbe!,
-                  'time': 'الصباح'
-                });
-              },
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.sp)),
-              title: Text(
-                item.name!,
-                textAlign: TextAlign.right,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: black,
-                  fontFamily: bj,
-                  fontSize: 12.sp,
+            child: PhysicalModel(
+              elevation: 5,
+              color: white,
+              borderRadius: BorderRadius.circular(5.sp),
+              child: ListTile(
+                shape: BeveledRectangleBorder(
+                  side: BorderSide(width: 0.01.w),
+                  borderRadius: BorderRadius.circular(5.sp),
                 ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              tileColor: purble4,
-              subtitle: Text(
-                item.descirbe!,
-                textAlign: TextAlign.right,
-                textDirection: TextDirection.rtl,
-                style: TextStyle(
-                  color: black,
-                  fontFamily: bj,
-                  fontSize: 8.sp,
+                onTap: () {
+                  Get.toNamed(AppPages.sAzkardetail, parameters: {
+                    'name': item.name!,
+                    'content': item.descirbe!,
+                    'time': 'الصباح'
+                  });
+                },
+                title: Text(
+                  item.name!,
+                  textAlign: TextAlign.right,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    color: black,
+                    fontFamily: bj,
+                    fontSize: 12.sp,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
-                overflow: TextOverflow.ellipsis,
+                tileColor: purble4,
+                subtitle: Text(
+                  item.descirbe!,
+                  textAlign: TextAlign.right,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    color: black,
+                    fontFamily: bj,
+                    fontSize: 8.sp,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           );

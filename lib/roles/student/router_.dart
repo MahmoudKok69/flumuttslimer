@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/roles/student/bindings/azkar_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
+import 'package:flumuttslimer/roles/student/bindings/groups_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/home_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/login_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/news_bindings.dart';
@@ -16,6 +17,7 @@ import 'package:flumuttslimer/roles/student/features/Quran/sourah-screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_screen.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
+import 'package:flumuttslimer/roles/student/features/groups/groups_screen.dart';
 import 'package:flumuttslimer/roles/student/features/hamsat/hamsat_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
@@ -44,6 +46,7 @@ class AppPages {
   static const sNews = '/snews';
   static const student_profile = '/studnetprofile';
   static const refrences = '/refrences';
+  static const sgroup = '/sgroup';
 
   static final routes = [
     GetPage(
@@ -116,6 +119,11 @@ class AppPages {
       name: refrences,
       page: () => RefrencesScreen(),
       binding: RefrencesBinding(),
+    ),
+    GetPage(
+      name: sgroup,
+      page: () => SGroupsScreen(),
+      binding: sGroupsBinding(),
     ),
   ];
 }

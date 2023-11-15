@@ -45,6 +45,11 @@ class SHomeScreen extends StatelessWidget {
       image: 'assets/images/prize.png',
       page: AppPages.refrences,
     ),
+    MainPages(
+      name: 'المجموعات العامة',
+      image: 'assets/images/prize.png',
+      page: AppPages.sgroup,
+    ),
   ];
 
   @override

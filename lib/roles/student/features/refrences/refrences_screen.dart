@@ -20,13 +20,15 @@ class RefrencesScreen extends StatelessWidget {
             Get.back();
           },
           onTapActionIcon: null),
-      body: Column(
-        children: [
-          SizedBox(height: 3.h),
-          PdfSection(),
-          SizedBox(height: 3.h),
-          VideosSection(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 3.h),
+            PdfSection(),
+            SizedBox(height: 10.h),
+            VideosSection(),
+          ],
+        ),
       ),
     );
   }
