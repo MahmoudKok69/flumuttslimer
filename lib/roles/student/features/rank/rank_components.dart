@@ -6,7 +6,9 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class FirstThreeUser extends StatelessWidget {
-  var _controller = Get.find<RankController>();
+  final _controller = Get.find<RankController>();
+
+  FirstThreeUser({super.key});
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -141,7 +143,7 @@ class FirstUser extends StatelessWidget {
 }
 
 class OtherUser extends StatelessWidget {
-  OtherUser(
+  const OtherUser(
       {super.key, this.image, this.name, this.number, this.points, this.align});
   final name;
   final image;

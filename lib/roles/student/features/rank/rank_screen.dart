@@ -74,7 +74,7 @@ class RankScreen extends StatelessWidget {
                                     shape: BoxShape.circle),
                                 child: Center(
                                   child: Text(
-                                    '${userInde}',
+                                    '$userInde',
                                     style: TextStyle(
                                         fontSize: 12.sp,
                                         color: orange1,
@@ -236,7 +236,7 @@ class _CustomSwitcherState extends State<CustomSwitcher> {
                   Expanded(
                     flex: 1,
                     child: IconButton(
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       hoverColor: white.withOpacity(0),
                       icon: Center(
                         child: Icon(
@@ -256,7 +256,7 @@ class _CustomSwitcherState extends State<CustomSwitcher> {
                     flex: 1,
                     child: IconButton(
                       hoverColor: white.withOpacity(0),
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       icon: Center(
                         child: Icon(
                           Icons.public_rounded,

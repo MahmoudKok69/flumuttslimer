@@ -1,4 +1,3 @@
-import 'package:flumuttslimer/roles/student/features/prizes/models/my_prize_model.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/models/prize_model.dart';
 import 'package:get/get.dart';
 

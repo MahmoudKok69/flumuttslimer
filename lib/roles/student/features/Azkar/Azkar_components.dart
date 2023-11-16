@@ -4,7 +4,6 @@ import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomCheckBox extends StatelessWidget {
@@ -55,7 +54,9 @@ class CustomCheckBox extends StatelessWidget {
 }
 
 class AzkarBody extends StatelessWidget {
-  var _controller = Get.find<AzkarController>();
+  final _controller = Get.find<AzkarController>();
+
+  AzkarBody({super.key});
   @override
   Widget build(BuildContext context) {
     return TabBarView(
@@ -69,7 +70,7 @@ class AzkarBody extends StatelessWidget {
 
 class AllAzkar extends StatelessWidget {
   AllAzkar({super.key});
-  var _controller = Get.find<AzkarController>();
+  final _controller = Get.find<AzkarController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -150,7 +151,7 @@ class AllAzkar extends StatelessWidget {
 
 class MyAzkar extends StatelessWidget {
   MyAzkar({super.key});
-  var _controller = Get.find<AzkarController>();
+  final _controller = Get.find<AzkarController>();
   @override
   Widget build(BuildContext context) {
     return Padding(

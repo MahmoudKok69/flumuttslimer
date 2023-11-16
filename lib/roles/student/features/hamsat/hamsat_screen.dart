@@ -1,6 +1,5 @@
 import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/core/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';

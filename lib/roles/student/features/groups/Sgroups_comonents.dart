@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
@@ -13,7 +12,7 @@ class SGroupsBody extends StatelessWidget {
     super.key,
   });
 
-  var _controller = Get.find<SGroupsController>();
+  final _controller = Get.find<SGroupsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class SGroupsBody extends StatelessWidget {
 }
 
 class SGroupCard extends StatelessWidget {
-  SGroupCard({super.key, required this.item});
+  const SGroupCard({super.key, required this.item});
 
   final item;
 
@@ -52,7 +51,7 @@ class SGroupCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               InkWell(
@@ -90,7 +89,7 @@ class SGroupCard extends StatelessWidget {
                       ),
                     )),
                   )),
-              Spacer(
+              const Spacer(
                 flex: 5,
               ),
               FittedBox(

@@ -5,12 +5,12 @@ import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:sizer/sizer.dart';
 
 class QuranBody extends StatelessWidget {
-  var _controller = Get.find<QuranController>();
+  final _controller = Get.find<QuranController>();
+
+  QuranBody({super.key});
   @override
   Widget build(BuildContext context) {
     return TabBarView(
@@ -24,7 +24,7 @@ class QuranBody extends StatelessWidget {
 
 class TheQuran extends StatelessWidget {
   TheQuran({super.key});
-  var _controller = Get.find<QuranController>();
+  final _controller = Get.find<QuranController>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +52,8 @@ class TheQuran extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: Quran[index]['type_en'] == 'meccan'
-                          ? AssetImage('assets/images/sorah/mka.png')
-                          : AssetImage('assets/images/sorah/mdn.png'),
+                          ? const AssetImage('assets/images/sorah/mka.png')
+                          : const AssetImage('assets/images/sorah/mdn.png'),
                     ),
                     shape: BoxShape.circle,
                   ),
@@ -85,7 +85,7 @@ class TheQuran extends StatelessWidget {
 
 class QuranEvents extends StatelessWidget {
   QuranEvents({super.key});
-  var _controller = Get.find<QuranController>();
+  final _controller = Get.find<QuranController>();
   @override
   Widget build(BuildContext context) {
     return Padding(

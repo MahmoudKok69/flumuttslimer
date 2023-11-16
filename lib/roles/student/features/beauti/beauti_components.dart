@@ -3,7 +3,6 @@ import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beauti_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 class BeautiCard extends StatelessWidget {

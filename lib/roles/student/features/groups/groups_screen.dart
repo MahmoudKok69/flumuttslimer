@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class SGroupsScreen extends StatelessWidget {
-  SGroupsScreen({super.key});
+  const SGroupsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

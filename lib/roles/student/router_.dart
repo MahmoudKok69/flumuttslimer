@@ -70,7 +70,7 @@ class AppPages {
     ),
     GetPage(
       name: sAzkar,
-      page: () => AzkarScreen(),
+      page: () => const AzkarScreen(),
       binding: SAzkarBinding(),
     ),
     GetPage(
@@ -79,12 +79,12 @@ class AppPages {
     ),
     GetPage(
       name: sQuran,
-      page: () => QuranScreen(),
+      page: () => const QuranScreen(),
       binding: SQuranBinding(),
     ),
     GetPage(
       name: beuati,
-      page: () => BeuatiScreen(),
+      page: () => const BeuatiScreen(),
       binding: BeuatiBinding(),
     ),
     GetPage(
@@ -103,7 +103,7 @@ class AppPages {
     ),
     GetPage(
       name: hamsa,
-      page: () => HamsatScreen(),
+      page: () => const HamsatScreen(),
     ),
     GetPage(
       name: sNews,
@@ -117,12 +117,12 @@ class AppPages {
     ),
     GetPage(
       name: refrences,
-      page: () => RefrencesScreen(),
+      page: () => const RefrencesScreen(),
       binding: RefrencesBinding(),
     ),
     GetPage(
       name: sgroup,
-      page: () => SGroupsScreen(),
+      page: () => const SGroupsScreen(),
       binding: sGroupsBinding(),
     ),
   ];

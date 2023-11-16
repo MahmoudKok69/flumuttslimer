@@ -1,7 +1,6 @@
 import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
-import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_components.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
@@ -10,14 +9,40 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class QuranScreen extends StatelessWidget {
-  QuranScreen({super.key});
+  const QuranScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       initialIndex: 0,
-      child: Scaffold(appBar: _buildAppBar(), body: QuranBody()),
+      child: Scaffold(
+          appBar: _buildAppBar(),
+          floatingActionButton: InkWell(
+            onTap: () {
+              Get.find<QuranController>().onInit();
+              Get.toNamed(AppPages.sorah);
+            },
+            child: Container(
+              width: 30.w,
+              height: 10.h,
+              decoration: BoxDecoration(
+                color: purble3,
+                borderRadius: BorderRadius.circular(10.sp),
+              ),
+              child: Center(
+                  child: Text(
+                'متابعة القراءة',
+                maxLines: 1,
+                style: TextStyle(
+                    color: white,
+                    fontFamily: bj,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12.sp),
+              )),
+            ),
+          ),
+          body: QuranBody()),
     );
   }
 

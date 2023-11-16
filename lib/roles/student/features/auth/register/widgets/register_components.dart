@@ -7,7 +7,6 @@ import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';

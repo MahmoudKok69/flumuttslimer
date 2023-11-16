@@ -13,7 +13,7 @@ class PdfSection extends StatelessWidget {
   PdfSection({
     super.key,
   });
-  var _controller = Get.find<RefrencesController>();
+  final _controller = Get.find<RefrencesController>();
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ class VideosSection extends StatelessWidget {
   VideosSection({
     super.key,
   });
-  var _controller = Get.find<RefrencesController>();
+  final _controller = Get.find<RefrencesController>();
 
   @override
   Widget build(BuildContext context) {

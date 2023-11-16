@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 
 class StudentProfileScreen extends StatelessWidget {
   StudentProfileScreen({super.key});
-  var _controller = Get.find<StudentProfileController>();
+  final _controller = Get.find<StudentProfileController>();
   @override
   Widget build(BuildContext context) {
     print(Get.size.width);
