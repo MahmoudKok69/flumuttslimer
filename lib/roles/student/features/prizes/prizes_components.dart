@@ -5,13 +5,11 @@ import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:sizer/sizer.dart';
 
 class PrizesBody extends StatelessWidget {
   PrizesBody({super.key});
-  var _controller = Get.find<PrizesController>();
+  final _controller = Get.find<PrizesController>();
   @override
   Widget build(BuildContext context) {
     return TabBarView(
@@ -69,7 +67,7 @@ class MyPrizes extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Expanded(
                                   flex: 3,
                                   child: CircleAvatar(
@@ -78,7 +76,7 @@ class MyPrizes extends StatelessWidget {
                                         min(Get.width * 0.5, Get.height * 0.5) /
                                             2,
                                   )),
-                              Spacer(),
+                              const Spacer(),
                               Expanded(
                                 flex: 2,
                                 child: Container(
@@ -99,7 +97,7 @@ class MyPrizes extends StatelessWidget {
                                   )),
                                 ),
                               ),
-                              Spacer(),
+                              const Spacer(),
                             ],
                           ),
                         )),
@@ -151,7 +149,7 @@ class MyPrizes extends StatelessWidget {
                                   fontSize: 14.sp),
                             ),
                           ),
-                          Spacer(),
+                          const Spacer(),
                         ],
                       ),
                     ),
@@ -222,7 +220,7 @@ class AllPrizes extends StatelessWidget {
                         flex: 5,
                         child: Column(
                           children: [
-                            Spacer(),
+                            const Spacer(),
                             Row(
                               children: [
                                 Expanded(
@@ -271,7 +269,7 @@ class AllPrizes extends StatelessWidget {
                             SizedBox(
                               height: 2.h,
                             ),
-                            Spacer(),
+                            const Spacer(),
                             SizedBox(
                               child: SizedBox(
                                 width: 50.w,
@@ -306,7 +304,7 @@ class AllPrizes extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Spacer(),
+                                  const Spacer(),
                                   Text(
                                     "75 نقطة",
                                     style: TextStyle(
@@ -315,7 +313,7 @@ class AllPrizes extends StatelessWidget {
                                         fontFamily: bj,
                                         fontSize: 9.sp),
                                   ),
-                                  Spacer(
+                                  const Spacer(
                                     flex: 5,
                                   ),
                                   Text(
@@ -326,7 +324,7 @@ class AllPrizes extends StatelessWidget {
                                         fontFamily: bj,
                                         fontSize: 9.sp),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                 ],
                               ),
                             )

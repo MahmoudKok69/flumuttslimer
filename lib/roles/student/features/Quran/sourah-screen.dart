@@ -1,7 +1,9 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/strings.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran.dart';
+import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/Quran_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,20 +12,30 @@ import 'package:sizer/sizer.dart';
 class SorahScreen extends StatelessWidget {
   SorahScreen({super.key});
   var data = Get.parameters;
+  int index = 0;
 
+  final _controller = Get.find<QuranController>();
   @override
   Widget build(BuildContext context) {
-    var item = QuranModel.fromJson(Quran[int.parse(data['number']!)]);
+    if (data['number'] == null) {
+      index = _controller.sorahNum;
+    } else {
+      index = int.parse(data['number']!);
+    }
+    var item = QuranModel.fromJson(Quran[index]);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: purble2,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
+            AppIcons.back_icon,
             color: white,
           ),
           onPressed: () {
             Get.back();
+
+            // _controller.saveValues();
           },
         ),
         title: Align(
@@ -38,8 +50,30 @@ class SorahScreen extends StatelessWidget {
                 fontSize: 20.sp),
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                _controller.sorahNum = index;
+                _controller.scrollPos =
+                    _controller.scrollController.value.position.pixels;
+                await _controller.changeMarked();
+              },
+              icon: GetBuilder<QuranController>(
+                id: 'add_mark',
+                init: QuranController(),
+                builder: (_) {
+                  return Icon(
+                    _controller.isMarked
+                        ? Icons.bookmark
+                        : Icons.bookmark_border,
+                    color: white,
+                  );
+                },
+              ))
+        ],
       ),
       body: SingleChildScrollView(
+        controller: _controller.scrollController.value,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -220,7 +254,7 @@ String insertIndexInsideAyahMarker(int index) {
   String arabicIndex = indexToArabic(index, arabicDigits);
 
   // Create the modified ayah marker with the Arabic index inside
-  String modifiedAyahMarker = "$arabicIndex";
+  String modifiedAyahMarker = arabicIndex;
 
   return modifiedAyahMarker;
 }

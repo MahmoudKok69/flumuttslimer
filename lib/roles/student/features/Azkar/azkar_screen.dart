@@ -1,13 +1,14 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart';
-import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class AzkarScreen extends StatelessWidget {
+  const AzkarScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -36,7 +37,7 @@ class AzkarScreen extends StatelessWidget {
       ),
       leading: IconButton(
         icon: Icon(
-          Icons.arrow_back_ios_new_rounded,
+          AppIcons.back_icon,
           color: white,
           size: 16.sp,
         ),

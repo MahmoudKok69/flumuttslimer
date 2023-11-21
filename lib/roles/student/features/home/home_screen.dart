@@ -25,11 +25,11 @@ class SHomeScreen extends StatelessWidget {
         page: AppPages.beuati),
     MainPages(
         name: 'مركزي',
-        image: 'assets/images/home/group.png',
+        image: 'assets/images/home/rank.png',
         page: AppPages.rank),
     MainPages(
         name: 'الجوائز',
-        image: 'assets/images/prize.png',
+        image: 'assets/images/home/prize.png',
         page: AppPages.prizes),
     MainPages(
         name: 'الجوائز',
@@ -37,13 +37,18 @@ class SHomeScreen extends StatelessWidget {
         page: AppPages.hometeacher),
     MainPages(
       name: 'همسة',
-      image: 'assets/images/prize.png',
+      image: 'assets/images/home/hamsa.png',
       page: AppPages.hamsa,
     ),
     MainPages(
-      name: 'بروفايل',
-      image: 'assets/images/prize.png',
-      page: AppPages.student_profile,
+      name: 'المكتبة',
+      image: 'assets/images/home/refrences.png',
+      page: AppPages.refrences,
+    ),
+    MainPages(
+      name: 'المجموعات العامة',
+      image: 'assets/images/home/group.png',
+      page: AppPages.sgroup,
     ),
   ];
 
@@ -64,7 +69,7 @@ class SHomeScreen extends StatelessWidget {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.notifications),
+          icon: const Icon(Icons.notifications),
           iconSize: 16.sp,
           color: white,
           onPressed: () {
@@ -154,7 +159,9 @@ class SHomeScreen extends StatelessWidget {
                       size:
                           min(Get.size.width * 0.6, Get.size.height * 0.6) / 2,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppPages.student_profile);
+                    },
                   )),
               SizedBox(
                 height: 1.h,

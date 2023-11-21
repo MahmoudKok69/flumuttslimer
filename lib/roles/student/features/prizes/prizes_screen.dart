@@ -1,15 +1,15 @@
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_components.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_controller.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class PrizesScreen extends StatelessWidget {
   PrizesScreen({super.key});
-  var _controller = Get.find<PrizesController>();
+  final _controller = Get.find<PrizesController>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class PrizesScreen extends StatelessWidget {
       ),
       leading: IconButton(
         icon: Icon(
-          Icons.arrow_back_ios_new_rounded,
+          AppIcons.back_icon,
           color: white,
           size: 12.sp,
         ),

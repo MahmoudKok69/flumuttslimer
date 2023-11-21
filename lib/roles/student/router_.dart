@@ -1,11 +1,13 @@
 import 'package:flumuttslimer/roles/student/bindings/azkar_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
+import 'package:flumuttslimer/roles/student/bindings/groups_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/home_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/login_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/news_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/prizes_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/quran_Binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
+import 'package:flumuttslimer/roles/student/bindings/refrences_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/register_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/student_profile_binding.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_detail_screen.dart';
@@ -15,12 +17,14 @@ import 'package:flumuttslimer/roles/student/features/Quran/sourah-screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_screen.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_screen.dart';
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
+import 'package:flumuttslimer/roles/student/features/groups/groups_screen.dart';
 import 'package:flumuttslimer/roles/student/features/hamsat/hamsat_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
+import 'package:flumuttslimer/roles/student/features/refrences/refrences_screen.dart';
 import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_screen.dart';
 import 'package:flumuttslimer/roles/teacher/ad/ad_screen.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/login_teacher_screen.dart';
@@ -64,6 +68,10 @@ class AppPages {
   static const newgroup = '/newgroup';
   static const update_info_group = '/update_info_group';
   static const profile_student = '/profile_student';
+  static const tstudent_profile = '/tstudent_profile';
+  static const refrences = '/refrences';
+  static const sgroup = '/sgroup';
+
   static final routes = [
     GetPage(
       name: INITIAL,
@@ -86,7 +94,7 @@ class AppPages {
     ),
     GetPage(
       name: sAzkar,
-      page: () => AzkarScreen(),
+      page: () => const AzkarScreen(),
       binding: SAzkarBinding(),
     ),
     GetPage(
@@ -95,12 +103,12 @@ class AppPages {
     ),
     GetPage(
       name: sQuran,
-      page: () => QuranScreen(),
+      page: () => const QuranScreen(),
       binding: SQuranBinding(),
     ),
     GetPage(
       name: beuati,
-      page: () => BeuatiScreen(),
+      page: () => const BeuatiScreen(),
       binding: BeuatiBinding(),
     ),
     GetPage(
@@ -119,7 +127,7 @@ class AppPages {
     ),
     GetPage(
       name: hamsa,
-      page: () => HamsatScreen(),
+      page: () => const HamsatScreen(),
     ),
     GetPage(
       name: sNews,
@@ -167,9 +175,19 @@ class AppPages {
       binding: Add_groupBinding(),
     ),
     GetPage(
-      name: profile_student,
+      name: tstudent_profile,
       page: () => Profile_StudentScreen(),
       binding: Profile_studentBinding(),
+    ),
+    GetPage(
+      name: refrences,
+      page: () => const RefrencesScreen(),
+      binding: RefrencesBinding(),
+    ),
+    GetPage(
+      name: sgroup,
+      page: () => const SGroupsScreen(),
+      binding: sGroupsBinding(),
     ),
   ];
 }

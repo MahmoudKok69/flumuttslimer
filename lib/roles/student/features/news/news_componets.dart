@@ -3,12 +3,11 @@ import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 class NewsBody extends StatelessWidget {
   NewsBody({super.key});
-  var _controller = Get.find<NewsController>();
+  final _controller = Get.find<NewsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class NewsCard extends StatelessWidget {
   NewsCard({super.key, this.index});
   final index;
 
-  var _controller = Get.find<NewsController>();
+  final _controller = Get.find<NewsController>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +39,10 @@ class NewsCard extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 2.h, left: 2.w, right: 2.w),
       child: Container(
           decoration: BoxDecoration(
-              color: purble5,
-              border: Border.all(width: 1, color: purble1.withOpacity(0.5)),
+              color: white,
+              border: Border.all(width: 0.25.w, color: black),
               boxShadow: [
-                BoxShadow(
-                    color: black.withOpacity(0.4),
-                    offset: Offset(2, 3),
-                    blurRadius: 1),
+                BoxShadow(color: black.withOpacity(0.4), blurRadius: 1),
               ],
               borderRadius: BorderRadius.circular(5.sp)),
           child: Padding(
@@ -108,8 +104,8 @@ class NewsCard extends StatelessWidget {
                                     _controller.changeNewsExpand(index);
                                   },
                                   child: item.isExpanded
-                                      ? Text('قراءة المزيد')
-                                      : Text('قراءة أقل')),
+                                      ? const Text('قراءة المزيد')
+                                      : const Text('قراءة أقل')),
                             ),
                           ),
                         ],

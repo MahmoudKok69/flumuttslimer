@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class BeuatiScreen extends StatelessWidget {
-  BeuatiScreen({super.key});
+  const BeuatiScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
