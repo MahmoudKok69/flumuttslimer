@@ -45,7 +45,6 @@ class QuranController extends GetxController {
     });
   }
 
-
   void scrollToPosition() {
     if (scrollController.value.hasClients) {
       scrollController.value.jumpTo(scrollPos);
@@ -68,11 +67,10 @@ class QuranController extends GetxController {
   }
 
   Future<void> saveValues() async {
-    // Save values without directly accessing position
     var newValues = QuranPosModel()
       ..sorahNum = sorahNum
       ..scrollPos = scrollPos
-      ..isMarked = isMarked; // Save isMarked
+      ..isMarked = isMarked;
 
     await box.put('lastValues', newValues);
   }
@@ -82,7 +80,7 @@ class QuranController extends GetxController {
     if (lastValues != null) {
       sorahNum = lastValues.sorahNum ?? 0;
       scrollPos = lastValues.scrollPos ?? 0.0;
-      isMarked = lastValues.isMarked ?? false; // Load isMarked
+      isMarked = lastValues.isMarked ?? false;
     }
   }
 }

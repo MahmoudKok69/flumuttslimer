@@ -14,16 +14,8 @@ class RankController extends GetxController {
     RankStudensModel(name: 'سليمان', teacherName: 'كامل', points: 400, age: 10),
     RankStudensModel(name: 'سليمان', teacherName: 'عبدو', points: 400, age: 10),
   ];
-
-  var circlColors = [orange1, Colors.red, Colors.black];
-  int colorIndex = 0;
-  changeColor() {
-    colorIndex++;
-    colorIndex = colorIndex % circlColors.length;
-    Future.delayed(const Duration(milliseconds: 500));
-    if (colorIndex < 3) {
-      print(colorIndex);
-      update(['circle']);
-    }
-  }
+  var world_users = [];
+  var city_users = [];
+  var inistu_users = [];
+  var group_users = [];
 }

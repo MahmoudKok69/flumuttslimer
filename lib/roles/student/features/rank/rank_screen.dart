@@ -33,7 +33,9 @@ class RankScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  const RankUpSection(),
+                  RankUpSection(
+                    title: '',
+                  ),
                   FirstThreeUser(),
                 ],
               ),
@@ -149,9 +151,11 @@ class RankScreen extends StatelessWidget {
 }
 
 class RankUpSection extends StatelessWidget {
-  const RankUpSection({
+  RankUpSection({
     super.key,
+    this.title,
   });
+  String? title;
 
   @override
   Widget build(BuildContext context) {

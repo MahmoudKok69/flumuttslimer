@@ -19,17 +19,20 @@ class QuranPosModelAdapter extends TypeAdapter<QuranPosModel> {
     return QuranPosModel(
       sorahNum: fields[0] as int?,
       scrollPos: fields[1] as double?,
+      isMarked: fields[2] as bool?,
     );
   }
 
   @override
   void write(BinaryWriter writer, QuranPosModel obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.sorahNum)
       ..writeByte(1)
-      ..write(obj.scrollPos);
+      ..write(obj.scrollPos)
+      ..writeByte(2)
+      ..write(obj.isMarked);
   }
 
   @override
