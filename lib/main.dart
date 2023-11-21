@@ -3,6 +3,8 @@ import 'package:flumuttslimer/roles/student/features/Quran/models/QuranPos_model
 import 'package:flumuttslimer/roles/student/features/auth/public_info_model.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/router_.dart';
+import 'package:flumuttslimer/roles/teacher/home_teacher/home_teacher_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: purble2),
           useMaterial3: true,
         ),
-        home: SHomeScreen(),
+        home: Home_teacher(),
       ),
     );
   }
