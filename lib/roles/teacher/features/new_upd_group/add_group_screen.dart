@@ -2,6 +2,7 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/router_.dart';
+import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -95,7 +96,7 @@ class AddGroupScreen extends StatelessWidget {
                               flex: 3,
                               child: RichText(
                                 textAlign: TextAlign.end,
-                                text: const TextSpan(
+                                text: TextSpan(
                                   text: 'تعيين العدد الأعظمي',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -124,7 +125,7 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' نوع المجموعة ',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -248,7 +249,7 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' إتاحية المجموعة ',
                                 style: TextStyle(
                                   color: Colors.black,

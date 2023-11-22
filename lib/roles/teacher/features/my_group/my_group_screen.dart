@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/roles/student/features/beauti/beauti_components.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/widgets/my_group_components.dart';
@@ -107,8 +108,8 @@ class TeacherGroupsScreen extends StatelessWidget {
                     Get.toNamed(AppPages.profile_student, parameters: {
                       'path_image': e.path_image!,
                       'name_student': e.name_student!,
-                      'age': e.age.toString(),
-                      'points': e.points.toString(),
+                      'age': e.age.toString()!,
+                      'points': e.points.toString()!,
                       'country': e.country!,
                     });
                   },
@@ -130,7 +131,7 @@ class TeacherGroupsScreen extends StatelessWidget {
                                 shape: BoxShape.circle),
                             child: Center(
                               child: Text(
-                                '$userInde',
+                                '${userInde}',
                                 style: TextStyle(
                                     fontSize: 12.sp,
                                     color: orange1,

@@ -1,4 +1,3 @@
-import 'package:flumuttslimer/roles/student/features/auth/login/widgets/screen_components.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/widgets/login_teacher_components.dart';
 
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class Login_teacherScreen extends StatelessWidget {
               SizedBox(
                 height: 6.h,
               ),
-              welcome(),
+              const welcome(),
             ],
           ),
           SizedBox(

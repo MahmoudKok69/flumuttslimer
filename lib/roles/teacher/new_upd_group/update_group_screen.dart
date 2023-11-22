@@ -1,17 +1,16 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
-import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class Update_group_screen extends StatelessWidget {
-  Update_group_screen({super.key});
-  final _controller = Get.find<Addgroub_Controller>();
+class UpdateGroupScreen extends StatelessWidget {
+  UpdateGroupScreen({super.key});
+  final _controller = Get.find<AddGroupController>();
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController categ = TextEditingController();
@@ -35,6 +34,7 @@ class Update_group_screen extends StatelessWidget {
     isAvailable.text = data.isAvailable;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
@@ -118,7 +118,7 @@ class Update_group_screen extends StatelessWidget {
                                 color: purble2,
                                 borderRadius: BorderRadius.circular(5.sp),
                               ),
-                              margin: EdgeInsets.only(right: 5),
+                              margin: const EdgeInsets.only(right: 5),
                               child: IconButton(
                                 icon: Icon(
                                   Icons.content_copy,
@@ -127,10 +127,28 @@ class Update_group_screen extends StatelessWidget {
                                 onPressed: () {
                                   Clipboard.setData(
                                       ClipboardData(text: invite_url.text));
-                                  final snackBar =
-                                      SnackBar(content: Text('تم نسخ النص'));
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
+
+                                  Get.showSnackbar(GetSnackBar(
+                                    duration: const Duration(seconds: 2),
+                                    backgroundColor: white,
+                                    snackStyle: SnackStyle.GROUNDED,
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 1.h, horizontal: 3.w),
+                                    boxShadows: [
+                                      BoxShadow(color: black, blurRadius: 5)
+                                    ],
+                                    animationDuration:
+                                        const Duration(milliseconds: 500),
+                                    messageText: Text(
+                                      'تم نسخ النص',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                        color: grey1,
+                                        fontFamily: bj,
+                                        fontSize: 16.sp,
+                                      ),
+                                    ),
+                                  ));
                                 },
                               ),
                             ),
@@ -138,7 +156,7 @@ class Update_group_screen extends StatelessWidget {
                               child: TextFormField(
                                 controller: invite_url,
                                 readOnly: true,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   hintText: 'www.hhyy.com',
                                 ),
@@ -174,7 +192,7 @@ class Update_group_screen extends StatelessWidget {
                               flex: 3,
                               child: RichText(
                                 textAlign: TextAlign.end,
-                                text: TextSpan(
+                                text: const TextSpan(
                                   text: 'تغيير العدد الأعظمي',
                                   style: TextStyle(
                                     color: Colors.black,
@@ -200,35 +218,36 @@ class Update_group_screen extends StatelessWidget {
                           height: 2.h,
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            RichText(
-                              textAlign: TextAlign.end,
-                              text: TextSpan(
-                                text: ' نوع المجموعة ',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text:
-                                        '\n     نوع المجموعة يحدد في ما إذا كان الطالب قادر على الدخول إلى هذه المجموعة بدون رابط دخول  , في حال كانت المجموعة عامة ستظهر لجميع الطلاب  في التطبيق . ',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
+                            Text(
+                              ' نوع المجموعة ',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: bj,
+                              ),
+                            ),
+                            Text(
+                              'نوع المجموعة يحدد في ما إذا كان الطالب قادر على الدخول إلى هذه المجموعة بدون رابط دخول  , في حال كانت المجموعة عامة ستظهر لجميع الطلاب  في التطبيق . ',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: bj,
                               ),
                             ),
                             SizedBox(
-                              height: 2.h,
+                              height: 1.h,
                             ),
-                            GetBuilder<Addgroub_Controller>(
+                            GetBuilder<AddGroupController>(
                                 id: 'isPrivate_field',
-                                init: Addgroub_Controller(),
+                                init: AddGroupController(),
                                 builder: (_) {
                                   return SizedBox(
                                     height: 10.h,
@@ -324,35 +343,36 @@ class Update_group_screen extends StatelessWidget {
                           ],
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            RichText(
-                              textAlign: TextAlign.end,
-                              text: TextSpan(
-                                text: ' إتاحية المجموعة ',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text:
-                                        '\n إتاحية المجموعة تحدد فيما إذا كانت المجموعة تستقبل طلبات إنضمام حالياً , جعلها متاحة سيسمح للطلاب بالإنضمام مباشرة بدوم رابط أو من خلال رابط بحال كانت المجموعة خاصة',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
+                            Text(
+                              ' إتاحية المجموعة ',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: bj,
+                              ),
+                            ),
+                            Text(
+                              'إتاحية المجموعة تحدد فيما إذا كانت المجموعة تستقبل طلبات إنضمام حالياً , جعلها متاحة سيسمح للطلاب بالإنضمام مباشرة بدوم رابط أو من خلال رابط بحال كانت المجموعة خاصة',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.normal,
+                                fontFamily: bj,
                               ),
                             ),
                             SizedBox(
-                              height: 2.h,
+                              height: 1.h,
                             ),
-                            GetBuilder<Addgroub_Controller>(
+                            GetBuilder<AddGroupController>(
                                 id: 'isAvailable_field',
-                                init: Addgroub_Controller(),
+                                init: AddGroupController(),
                                 builder: (_) {
                                   return SizedBox(
                                     height: 10.h,
@@ -363,9 +383,7 @@ class Update_group_screen extends StatelessWidget {
                                         Expanded(
                                           child: GestureDetector(
                                             onTap: () {
-                                              if (!_controller.isPrivate) {
-                                                print(_controller.isAvailable
-                                                    .toString());
+                                              if (!_controller.isAvailable) {
                                                 _controller
                                                     .setisAvailable(true);
                                               }
@@ -408,8 +426,6 @@ class Update_group_screen extends StatelessWidget {
                                           child: GestureDetector(
                                             onTap: () {
                                               if (_controller.isAvailable) {
-                                                print(_controller.isAvailable
-                                                    .toString());
                                                 _controller
                                                     .setisAvailable(false);
                                               }

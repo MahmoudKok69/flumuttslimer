@@ -1,8 +1,8 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
-import 'package:flumuttslimer/roles/teacher/home_teacher/home_teacher_controller.dart';
+import 'package:flumuttslimer/router_.dart';
+import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,7 +10,7 @@ import 'package:sizer/sizer.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class celander extends StatelessWidget {
-  celander({
+  const celander({
     super.key,
     required DateTime focusedDay,
     required CalendarFormat calendarFormat,
@@ -28,6 +28,18 @@ class celander extends StatelessWidget {
     return TableCalendar(
       firstDay: DateTime.utc(2021, 1, 1),
       lastDay: DateTime.utc(2029, 12, 31),
+      calendarStyle: CalendarStyle(
+          defaultTextStyle: TextStyle(
+            fontFamily: bj,
+            fontSize: 14.sp,
+          ),
+          todayTextStyle: TextStyle(
+              fontFamily: bj,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold,
+              color: white),
+          todayDecoration:
+              BoxDecoration(color: purble3, shape: BoxShape.circle)),
       focusedDay: _focusedDay,
       calendarFormat: _calendarFormat,
       onFormatChanged: (format) {
@@ -103,7 +115,10 @@ class scroll_groups extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             DropdownButton<String>(
-                              hint: Text('اختر إنجازًا'),
+                              hint: Text(
+                                'اختر إنجازًا',
+                                style: TextStyle(fontFamily: bj),
+                              ),
                               onChanged: (String? value) {
                                 print('تم اختيار $value');
                                 setState(() {
@@ -118,7 +133,7 @@ class scroll_groups extends StatelessWidget {
                               items: _controller.list_Achievements.map((e) {
                                 return DropdownMenuItem<String>(
                                   value: e.name_Achievement,
-                                  child: Text('${e.name_Achievement}'),
+                                  child: Text(e.name_Achievement),
                                 );
                               }).toList(),
                             ),
@@ -138,8 +153,7 @@ class scroll_groups extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  height: 25.h,
+                  padding: const EdgeInsets.all(10),
                   width: 35.w,
                   decoration: BoxDecoration(
                     color: white,
@@ -154,38 +168,56 @@ class scroll_groups extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text('${e.categ}'),
-                          Icon(Icons.person_2_outlined),
+                          Text(
+                            '${e.categ}',
+                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Icon(Icons.person_2_outlined),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text('${e.count_students}'),
-                          Icon(Icons.group),
+                          Text(
+                            '${e.count_students}',
+                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Icon(Icons.group),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text('${e.name_institute}'),
-                          Icon(Icons.school_outlined),
+                          Text(
+                            '${e.name_institute}',
+                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Icon(Icons.school_outlined),
                         ],
                       ),
-                      Container(
-                        padding: EdgeInsets.all(12),
-                        child: Text(
-                          '${e.name_group}',
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: bj),
-                        ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Text(
+                        '${e.name_group}',
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: bj),
                       )
                     ],
                   ),
@@ -291,7 +323,7 @@ class Form_memorizing extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -301,14 +333,14 @@ class Form_memorizing extends StatelessWidget {
               _controller.add_achievement_memorizing();
               Get.back();
             },
-            child: Text(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: purble2,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
+            ),
+            child: const Text(
               'إضافة',
               style: TextStyle(color: Colors.white),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: purble2,
-              padding: EdgeInsets.symmetric(
-                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
             ),
           ),
         ),
@@ -434,7 +466,7 @@ class Form_reciting extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // Obx(
                 //   () => Text(
                 //     'النجمة المختارة: ${_controller.selectedStar.value}',
@@ -467,14 +499,14 @@ class Form_reciting extends StatelessWidget {
                 Get.back();
               }
             },
-            child: Text(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: purble2,
+              padding: const EdgeInsets.symmetric(
+                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
+            ),
+            child: const Text(
               'إضافة',
               style: TextStyle(color: Colors.white),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: purble2,
-              padding: EdgeInsets.symmetric(
-                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
             ),
           ),
         ],

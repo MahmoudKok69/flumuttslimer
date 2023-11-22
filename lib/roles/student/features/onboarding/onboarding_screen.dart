@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';

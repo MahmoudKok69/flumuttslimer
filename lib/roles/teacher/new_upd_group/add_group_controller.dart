@@ -1,7 +1,6 @@
-import 'package:flumuttslimer/roles/teacher/my_group/models/my_group_model.dart';
 import 'package:get/get.dart';
 
-class Addgroub_Controller extends GetxController {
+class AddGroupController extends GetxController {
   String name_group = '';
   String description = '';
   int max_members = 0;

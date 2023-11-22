@@ -2,17 +2,39 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/router_.dart';
+import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class AddGroupScreen extends StatelessWidget {
-  AddGroupScreen({super.key});
+class UpdateGroupScreen extends StatelessWidget {
+  UpdateGroupScreen({super.key});
   final _controller = Get.find<AddGroupController>();
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController categ = TextEditingController();
+  TextEditingController count_students = TextEditingController();
+  TextEditingController name_institute = TextEditingController();
+  TextEditingController name_group = TextEditingController();
+  TextEditingController invite_url = TextEditingController();
+  TextEditingController max_members = TextEditingController();
+  TextEditingController isPrivate = TextEditingController();
+  TextEditingController isAvailable = TextEditingController();
+  final data = Get.arguments;
   @override
+  void initState() {
+    categ.text = data.categ;
+    count_students.text = data.count_students;
+    name_institute.text = data.name_institute;
+    name_group.text = data.name_group;
+    invite_url.text = data.invite_url;
+    max_members.text = data.max_members;
+    isPrivate.text = data.isPrivate;
+    isAvailable.text = data.isAvailable;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
@@ -68,6 +90,63 @@ class AddGroupScreen extends StatelessWidget {
                         SizedBox(
                           height: 2.h,
                         ),
+                        Text(
+                          'توليد رابط جديد',
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontFamily: bj,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                Icons.replay,
+                                color: purble3,
+                              ),
+                              onPressed: () {
+                                print(data);
+
+                                _controller.new_url();
+                              },
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: purble2,
+                                borderRadius: BorderRadius.circular(5.sp),
+                              ),
+                              margin: EdgeInsets.only(right: 5),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.content_copy,
+                                  color: white,
+                                ),
+                                onPressed: () {
+                                  Clipboard.setData(
+                                      ClipboardData(text: invite_url.text));
+                                  final snackBar =
+                                      SnackBar(content: Text('تم نسخ النص'));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                },
+                              ),
+                            ),
+                            Expanded(
+                              child: TextFormField(
+                                controller: invite_url,
+                                readOnly: true,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'www.hhyy.com',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 2.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -95,8 +174,8 @@ class AddGroupScreen extends StatelessWidget {
                               flex: 3,
                               child: RichText(
                                 textAlign: TextAlign.end,
-                                text: const TextSpan(
-                                  text: 'تعيين العدد الأعظمي',
+                                text: TextSpan(
+                                  text: 'تغيير العدد الأعظمي',
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20.0,
@@ -124,7 +203,7 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' نوع المجموعة ',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -248,7 +327,7 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' إتاحية المجموعة ',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -381,11 +460,9 @@ class AddGroupScreen extends StatelessWidget {
                             height: 6.h,
                             child: ElevatedButton(
                               onPressed: () {
-                                // Get.toNamed(AppPages.hometeacher);
-
                                 if (_formKey.currentState!.validate()) {
                                   print('Ok');
-                                  _controller.add_gruop();
+                                  _controller.update_info_group();
                                   Get.toNamed(AppPages.hometeacher);
                                 }
                               },
@@ -395,7 +472,7 @@ class AddGroupScreen extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  'إنشاء المجموعة',
+                                  ' حفظ التغييرات ',
                                   style: TextStyle(
                                     color: white,
                                     fontFamily: 'Bahij',
@@ -422,7 +499,7 @@ AppBar _buildAppBar() {
     backgroundColor: purble2,
     title: Center(
       child: Text(
-        ' إنشاء مجموعة جديدة ',
+        ' تعديل معلومات المجموعة  ',
         style: TextStyle(
             fontFamily: bj,
             fontWeight: FontWeight.w500,

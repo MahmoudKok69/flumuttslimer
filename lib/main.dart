@@ -1,9 +1,7 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/QuranPos_model.dart';
 import 'package:flumuttslimer/roles/student/features/auth/public_info_model.dart';
-import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
-import 'package:flumuttslimer/roles/teacher/home_teacher/home_teacher_screen.dart';
+import 'package:flumuttslimer/router_.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +9,8 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:sizer/sizer.dart';
+
+import 'roles/teacher/Home_teacher/home_teacher_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: purble2),
           useMaterial3: true,
         ),
-        home: Home_teacher(),
+        home: TeacherHomeScreen(),
       ),
     );
   }

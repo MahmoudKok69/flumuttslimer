@@ -4,6 +4,6 @@ import 'package:get/get.dart';
 class MyGroupBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<Mygroub_Controller>(() => Mygroub_Controller());
+    Get.lazyPut<TeacherGroupsController>(() => TeacherGroupsController());
   }
 }

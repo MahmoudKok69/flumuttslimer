@@ -1,6 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/login_teacher_controller.dart';
 
 import 'package:flutter/material.dart';
@@ -18,14 +18,14 @@ class welcome extends StatelessWidget {
       children: [
         Container(
           alignment: Alignment.centerRight,
-          padding: EdgeInsets.only(right: 20),
+          padding: const EdgeInsets.only(right: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
                 height: 10.h,
                 width: 10.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('assets/images/home/Quran.png'),
                         fit: BoxFit.contain)),
@@ -42,7 +42,7 @@ class welcome extends StatelessWidget {
         ),
         Container(
           alignment: Alignment.centerRight,
-          padding: EdgeInsets.only(right: 20),
+          padding: const EdgeInsets.only(right: 20),
           child: Text(
             "! تابع رحلتك التنافسية في الطاعات مع تلاميذتك ",
             style: TextStyle(fontSize: 10.sp),

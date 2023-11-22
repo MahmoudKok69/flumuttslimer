@@ -1,11 +1,10 @@
-import 'package:flumuttslimer/roles/student/features/home/home_controller.dart';
-import 'package:flumuttslimer/roles/teacher/Home_teacher/Home_teacher_controller.dart';
-
 import 'package:get/get.dart';
+
+import '../Home_teacher/home_teacher_controller.dart';
 
 class HometeacherBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeTeacherController>(() => HomeTeacherController());
+    Get.put<HomeTeacherController>(HomeTeacherController());
   }
 }

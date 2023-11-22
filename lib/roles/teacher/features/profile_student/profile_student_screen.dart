@@ -1,4 +1,9 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/roles/student/features/beauti/beauti_components.dart';
+import 'package:flumuttslimer/router_.dart';
+import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
+import 'package:flumuttslimer/roles/teacher/my_group/widgets/my_group_components.dart';
 import 'package:flumuttslimer/roles/teacher/profile_student/profile_student_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +43,7 @@ class TStudentProfileScreen extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(35),
+        padding: EdgeInsets.all(35),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.start,
           // mainAxisSize: MainAxisSize.max,
@@ -67,7 +72,7 @@ class TStudentProfileScreen extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 12,
             ),
             Row(
@@ -111,7 +116,7 @@ class TStudentProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
+            SizedBox(
               height: 15,
             ),
             Center(

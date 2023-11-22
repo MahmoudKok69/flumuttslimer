@@ -2,11 +2,8 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart';
-import 'package:flumuttslimer/roles/student/features/beauti/beauti_components.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/ad/ad_controller.dart';
-import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
-import 'package:flumuttslimer/roles/teacher/my_group/widgets/my_group_components.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -89,7 +86,7 @@ class AdScreen extends StatelessWidget {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Text('الكل'),
+                                      const Text('الكل'),
                                       SizedBox(
                                         width: 3.w,
                                       ),

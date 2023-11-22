@@ -1,6 +1,4 @@
-import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/features/rank/models/rank_model.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RankController extends GetxController {

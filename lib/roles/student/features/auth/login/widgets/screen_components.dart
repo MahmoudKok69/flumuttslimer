@@ -2,7 +2,7 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/login/login_controller.dart';
-import 'package:flumuttslimer/roles/student/router_.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

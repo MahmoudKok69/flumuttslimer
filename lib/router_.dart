@@ -34,7 +34,7 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/home_teacher_binding
 import 'package:flumuttslimer/roles/teacher/binding_teacher/login_teacher_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
-import 'package:flumuttslimer/roles/teacher/home_teacher/home_teacher_screen.dart';
+import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
 
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_screen.dart';
@@ -141,22 +141,22 @@ class AppPages {
     ),
     GetPage(
       name: login_teacher,
-      page: () => Login_teacherScreen(),
+      page: () => const Login_teacherScreen(),
       binding: LoginteacherBinding(),
     ),
     GetPage(
       name: hometeacher,
-      page: () => Home_teacher(),
+      page: () => TeacherHomeScreen(),
       binding: HometeacherBinding(),
     ),
     GetPage(
       name: mygroup,
-      page: () => MyGroupScreen(),
+      page: () => TeacherGroupsScreen(),
       binding: MyGroupBinding(),
     ),
     GetPage(
       name: add_group,
-      page: () => Add_group(),
+      page: () => AddGroupScreen(),
       binding: Add_groupBinding(),
     ),
     GetPage(
@@ -166,17 +166,17 @@ class AppPages {
     ),
     GetPage(
       name: newgroup,
-      page: () => Add_group(),
+      page: () => AddGroupScreen(),
       binding: Add_groupBinding(),
     ),
     GetPage(
       name: update_info_group,
-      page: () => Update_group_screen(),
+      page: () => UpdateGroupScreen(),
       binding: Add_groupBinding(),
     ),
     GetPage(
       name: tstudent_profile,
-      page: () => Profile_StudentScreen(),
+      page: () => TStudentProfileScreen(),
       binding: Profile_studentBinding(),
     ),
     GetPage(
