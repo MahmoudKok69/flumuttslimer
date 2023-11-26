@@ -41,6 +41,11 @@ class SHomeScreen extends StatelessWidget {
       page: AppPages.hamsa,
     ),
     MainPages(
+      name: 'كويزات',
+      image: 'assets/images/home/hamsa.png',
+      page: AppPages.squizes,
+    ),
+    MainPages(
       name: 'المكتبة',
       image: 'assets/images/home/refrences.png',
       page: AppPages.refrences,
