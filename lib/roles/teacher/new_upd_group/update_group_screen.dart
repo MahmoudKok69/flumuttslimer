@@ -21,17 +21,17 @@ class UpdateGroupScreen extends StatelessWidget {
   TextEditingController max_members = TextEditingController();
   TextEditingController isPrivate = TextEditingController();
   TextEditingController isAvailable = TextEditingController();
-  final data = Get.arguments;
+  final data = Get.parameters;
   @override
   void initState() {
-    categ.text = data.categ;
-    count_students.text = data.count_students;
-    name_institute.text = data.name_institute;
-    name_group.text = data.name_group;
-    invite_url.text = data.invite_url;
-    max_members.text = data.max_members;
-    isPrivate.text = data.isPrivate;
-    isAvailable.text = data.isAvailable;
+    categ.text = data['categ']!;
+    count_students.text = data['count_students']!;
+    name_institute.text = data['name_institute']!;
+    name_group.text = data['name_group']!;
+    invite_url.text = data['invite_url']!;
+    max_members.text = data['max_members']!;
+    isPrivate.text = data['isPrivate']!;
+    isAvailable.text = data['isAvailable']!;
   }
 
   @override
@@ -50,13 +50,14 @@ class UpdateGroupScreen extends StatelessWidget {
                         Text(
                           'الإسم',
                           style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 14.sp,
                             fontFamily: bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(height: 2.h),
                         TextFormField(
+                          controller: categ,
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.right,
                           decoration: inputDecorationStyle(
@@ -71,7 +72,7 @@ class UpdateGroupScreen extends StatelessWidget {
                         Text(
                           'الوصف',
                           style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 14.sp,
                             fontFamily: bj,
                             fontWeight: FontWeight.w500,
                           ),
@@ -93,7 +94,7 @@ class UpdateGroupScreen extends StatelessWidget {
                         Text(
                           'توليد رابط جديد',
                           style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 14.sp,
                             fontFamily: bj,
                             fontWeight: FontWeight.w500,
                           ),
@@ -192,19 +193,20 @@ class UpdateGroupScreen extends StatelessWidget {
                               flex: 3,
                               child: RichText(
                                 textAlign: TextAlign.end,
-                                text: const TextSpan(
+                                text: TextSpan(
                                   text: 'تغيير العدد الأعظمي',
                                   style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14.sp,
+                                    fontFamily: bj,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
                                       text: '\nالعدد الأعظمي لأعضاء المجموعة',
                                       style: TextStyle(
                                         color: Colors.grey,
-                                        fontSize: 16.0,
+                                        fontSize: 14.sp,
+                                        fontFamily: bj,
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
@@ -225,10 +227,9 @@ class UpdateGroupScreen extends StatelessWidget {
                               textAlign: TextAlign.right,
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 14.sp,
                                 fontFamily: bj,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
@@ -237,9 +238,9 @@ class UpdateGroupScreen extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.normal,
+                                fontSize: 14.sp,
                                 fontFamily: bj,
+                                fontWeight: FontWeight.normal,
                               ),
                             ),
                             SizedBox(
@@ -350,10 +351,9 @@ class UpdateGroupScreen extends StatelessWidget {
                               textAlign: TextAlign.right,
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 14.sp,
                                 fontFamily: bj,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
@@ -362,9 +362,9 @@ class UpdateGroupScreen extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.normal,
+                                fontSize: 14.sp,
                                 fontFamily: bj,
+                                fontWeight: FontWeight.normal,
                               ),
                             ),
                             SizedBox(

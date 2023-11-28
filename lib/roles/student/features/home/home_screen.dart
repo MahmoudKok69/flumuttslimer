@@ -22,7 +22,7 @@ class SHomeScreen extends StatelessWidget {
     MainPages(
         name: 'الأخلاق و الجمال',
         image: 'assets/images/home/test.png',
-        page: AppPages.beuati),
+        page: AppPages.hometeacher),
     MainPages(
         name: 'مركزي',
         image: 'assets/images/home/rank.png',

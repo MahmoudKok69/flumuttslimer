@@ -26,21 +26,28 @@ class celander extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TableCalendar(
+      rowHeight: 5.h,
+      focusedDay: _focusedDay,
       firstDay: DateTime.utc(2021, 1, 1),
       lastDay: DateTime.utc(2029, 12, 31),
       calendarStyle: CalendarStyle(
           defaultTextStyle: TextStyle(
             fontFamily: bj,
-            fontSize: 14.sp,
+            fontSize: 10.sp,
+            fontWeight: FontWeight.bold,
           ),
           todayTextStyle: TextStyle(
               fontFamily: bj,
-              fontSize: 16.sp,
+              fontSize: 10.sp,
               fontWeight: FontWeight.bold,
               color: white),
+          weekendTextStyle: TextStyle(
+              fontFamily: bj,
+              fontSize: 10.sp,
+              fontWeight: FontWeight.bold,
+              color: black),
           todayDecoration:
               BoxDecoration(color: purble3, shape: BoxShape.circle)),
-      focusedDay: _focusedDay,
       calendarFormat: _calendarFormat,
       onFormatChanged: (format) {
         // setState(() {
@@ -57,6 +64,49 @@ class celander extends StatelessWidget {
         return isSameDay(_selectedDay, day);
       },
     );
+    // return TableCalendar(
+    //   firstDay: DateTime.utc(2021, 1, 1),
+    //   lastDay: DateTime.utc(2029, 12, 31),
+    //   focusedDay: _focusedDay,
+    //   calendarStyle: CalendarStyle(
+    //     cellMargin: EdgeInsets.all(0.0),
+    //     outsideDaysVisible: false,
+    //     // weekendStyle: TextStyle().copyWith(color: Colors.blue),
+    //     // holidayStyle: TextStyle().copyWith(color: Colors.blue),
+    //     // todayStyle: TextStyle().copyWith(color: Colors.red),
+    //     // selectedStyle: TextStyle().copyWith(color: Colors.white),
+    //     todayDecoration: BoxDecoration(
+    //       color: Colors.purple,
+    //       shape: BoxShape.circle,
+    //     ),
+    //   ),
+    //   calendarBuilders: CalendarBuilders(
+    //     defaultBuilder: (context, date, _) {
+    //       return Container(
+    //         margin: EdgeInsets.all(2),
+    //         alignment: Alignment.center,
+    //         child: Text(
+    //           '${date.day}',
+    //           style: TextStyle(fontSize: 12),
+    //         ),
+    //       );
+    //     },
+    //     todayBuilder: (context, date, _) {
+    //       return Container(
+    //         margin: EdgeInsets.all(2),
+    //         alignment: Alignment.center,
+    //         decoration: BoxDecoration(
+    //           color: Colors.blue, // لون اليوم الحالي
+    //           shape: BoxShape.circle,
+    //         ),
+    //         child: Text(
+    //           '${date.day}',
+    //           style: TextStyle(fontSize: 14, color: Colors.white),
+    //         ),
+    //       );
+    //     },
+    //   ),
+    // );
   }
 }
 
@@ -65,6 +115,7 @@ class scroll_groups extends StatelessWidget {
     super.key,
   });
   final _controller = Get.find<HomeTeacherController>();
+
   var groupIndex = 0;
   final _formKey = GlobalKey<FormState>();
   bool isButtonVisible = false;
@@ -78,6 +129,7 @@ class scroll_groups extends StatelessWidget {
         child: Row(children: [
           ..._controller.groups.map((e) {
             groupIndex++;
+            var r = e.isPrivate;
             return Padding(
               padding: const EdgeInsets.all(12.0),
               child: MaterialButton(
@@ -106,55 +158,10 @@ class scroll_groups extends StatelessWidget {
                       // }
                       );
                 },
-                onLongPress: () {
-                  Get.defaultDialog(
-                    title: 'إضافة إنجاز',
-                    content: StatefulBuilder(
-                      builder: (BuildContext context, StateSetter setState) {
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            DropdownButton<String>(
-                              hint: Text(
-                                'اختر إنجازًا',
-                                style: TextStyle(fontFamily: bj),
-                              ),
-                              onChanged: (String? value) {
-                                print('تم اختيار $value');
-                                setState(() {
-                                  // عند اختيار العنصر الأول، قم بتعيين حالة الزر للظهور
-                                  _controller.select(value!);
-                                });
-                              },
-                              value:
-                                  _controller.selectedAchievement.value.isEmpty
-                                      ? null
-                                      : _controller.selectedAchievement.value,
-                              items: _controller.list_Achievements.map((e) {
-                                return DropdownMenuItem<String>(
-                                  value: e.name_Achievement,
-                                  child: Text(e.name_Achievement),
-                                );
-                              }).toList(),
-                            ),
-                            if (_controller.selectedAchievement.value ==
-                                _controller
-                                    .list_Achievements[0].name_Achievement)
-                              Form_reciting(
-                                  controller: _controller, formKey: _formKey),
-                            if (_controller.selectedAchievement.value ==
-                                _controller
-                                    .list_Achievements[1].name_Achievement)
-                              Form_memorizing(controller: _controller),
-                          ],
-                        );
-                      },
-                    ),
-                  );
-                },
                 child: Container(
-                  padding: const EdgeInsets.all(10),
-                  width: 35.w,
+                  padding: const EdgeInsets.all(8),
+                  width: 40.w,
+                  height: 30.h,
                   decoration: BoxDecoration(
                     color: white,
                     boxShadow: [
@@ -168,14 +175,16 @@ class scroll_groups extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             '${e.categ}',
-                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
                           ),
                           SizedBox(
                             width: 2.w,
@@ -188,7 +197,9 @@ class scroll_groups extends StatelessWidget {
                         children: [
                           Text(
                             '${e.count_students}',
-                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
                           ),
                           SizedBox(
                             width: 2.w,
@@ -201,7 +212,9 @@ class scroll_groups extends StatelessWidget {
                         children: [
                           Text(
                             '${e.name_institute}',
-                            style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
                           ),
                           SizedBox(
                             width: 2.w,
@@ -209,13 +222,30 @@ class scroll_groups extends StatelessWidget {
                           const Icon(Icons.school_outlined),
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            e.isPrivate! ? 'خاصة' : 'عامة',
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Icon(Icons.lock),
+                        ],
+                      ),
                       SizedBox(
-                        height: 2.h,
+                        height: 2,
                       ),
                       Text(
                         '${e.name_group}',
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
                             fontFamily: bj),
                       )
@@ -226,290 +256,6 @@ class scroll_groups extends StatelessWidget {
             );
           })
         ]),
-      ),
-    );
-  }
-}
-
-class Form_memorizing extends StatelessWidget {
-  const Form_memorizing({
-    super.key,
-    required HomeTeacherController controller,
-  }) : _controller = controller;
-
-  final HomeTeacherController _controller;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          'رقم الجزء',
-          style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, fontFamily: bj),
-        ),
-        GetBuilder<HomeTeacherController>(
-            init: HomeTeacherController(),
-            id: 'selected_part',
-            builder: (_) {
-              return Padding(
-                padding: EdgeInsets.all(2.w),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 6,
-                      child: Slider(
-                        divisions: 19,
-                        value: _controller.selected_part.toDouble(),
-                        min: 1,
-                        max: 30,
-                        onChanged: (value) {
-                          _controller.set_part(value.toInt());
-                        },
-                        label: _controller.selected_part.toString(),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: CircleAvatar(
-                        radius: 15.sp,
-                        backgroundColor: purble4,
-                        child: Text(
-                          '${_controller.selected_part}',
-                          style: TextStyle(
-                            color: purble2,
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              );
-            }),
-        SizedBox(
-          height: 1.h,
-        ),
-        Text(
-          textAlign: TextAlign.end,
-          ':تقييم الطالب',
-          style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, fontFamily: bj),
-        ),
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    5,
-                    (index) => GestureDetector(
-                      onTap: () {
-                        _controller.selectStar(index + 1);
-                      },
-                      child: Icon(
-                        Icons.star,
-                        size: 40,
-                        color: index < _controller.selectedStar.value
-                            ? Colors.orange
-                            : Colors.grey,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-            ],
-          ),
-        ),
-        Center(
-          child: ElevatedButton(
-            onPressed: () {
-              _controller.add_achievement_memorizing();
-              Get.back();
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: purble2,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
-            ),
-            child: const Text(
-              'إضافة',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class Form_reciting extends StatelessWidget {
-  const Form_reciting({
-    super.key,
-    required HomeTeacherController controller,
-    required GlobalKey<FormState> formKey,
-  })  : _controller = controller,
-        _formKey = formKey;
-
-  final HomeTeacherController _controller;
-  final GlobalKey<FormState> _formKey;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(
-                flex: 1,
-                child: TextFormField(
-                  textDirection: TextDirection.rtl,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle('رقم الصفحة', ''),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // يقبل أرقام فقط
-                  keyboardType: TextInputType.number, // يظهر لوحة مفاتيح أعداد
-                  onChanged: (value) {
-                    int parsedValue = int.tryParse(value) ?? 0;
-                    _controller.setfrom_the_page(parsedValue);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Text(
-                  textAlign: TextAlign.end,
-                  'من الصفحة',
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: bj),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Expanded(
-                flex: 1,
-                child: TextFormField(
-                  textDirection: TextDirection.rtl,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle('رقم الصفحة', ''),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly
-                  ], // يقبل أرقام فقط
-                  keyboardType: TextInputType.number, // يظهر لوحة مفاتيح أعداد
-                  onChanged: (value) {
-                    int parsedValue = int.tryParse(value) ?? 0;
-                    _controller.setto_the_page(parsedValue);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Text(
-                  textAlign: TextAlign.end,
-                  'إلى الصفحة',
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: bj),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
-          Text(
-            textAlign: TextAlign.end,
-            ':تقييم الطالب',
-            style: TextStyle(
-                fontSize: 22, fontWeight: FontWeight.bold, fontFamily: bj),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Obx(
-                  () => Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      5,
-                      (index) => GestureDetector(
-                        onTap: () {
-                          _controller.selectStar(index + 1);
-                        },
-                        child: Icon(
-                          Icons.star,
-                          size: 40,
-                          color: index < _controller.selectedStar.value
-                              ? Colors.orange
-                              : Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                // Obx(
-                //   () => Text(
-                //     'النجمة المختارة: ${_controller.selectedStar.value}',
-                //     style: TextStyle(fontSize: 20),
-                //   ),
-                // ),
-              ],
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              // if (_controller.from_the_page > _controller.to_the_page) {
-              //   Get.defaultDialog(
-              //     //   title: 'Dialog Title',
-              //     content: Column(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       mainAxisSize: MainAxisSize.min,
-              //       children: [
-              //         Text(
-              //           'المدخلات غير منطقية',
-              //           style: TextStyle(fontSize: 18),
-              //         ),
-              //       ],
-              //     ),
-              //   );
-              // }
-              if (_formKey.currentState!.validate()) {
-                print('Ok');
-                _controller.add_achievement_reciting();
-                Get.back();
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: purble2,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 50, vertical: 20), // زيادة حجم الحشو داخل الزر
-            ),
-            child: const Text(
-              'إضافة',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ],
       ),
     );
   }
