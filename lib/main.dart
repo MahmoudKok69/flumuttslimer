@@ -1,9 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/QuranPos_model.dart';
 import 'package:flumuttslimer/roles/student/features/auth/public_info_model.dart';
-import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
-
-import 'package:flumuttslimer/roles/teacher/home_teacher/home_teacher_screen.dart';
 import 'package:flumuttslimer/router_.dart';
 
 import 'package:flutter/material.dart';

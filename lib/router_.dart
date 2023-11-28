@@ -10,6 +10,7 @@ import 'package:flumuttslimer/roles/student/bindings/rank_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/refrences_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/register_bindings.dart';
 import 'package:flumuttslimer/roles/student/bindings/student_profile_binding.dart';
+import 'package:flumuttslimer/roles/student/bindings/student_quizes_binding.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_detail_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
@@ -23,6 +24,8 @@ import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/quiz_start_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/student_quizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
 import 'package:flumuttslimer/roles/student/features/refrences/refrences_screen.dart';
 import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_screen.dart';
@@ -71,6 +74,8 @@ class AppPages {
   static const tstudent_profile = '/tstudent_profile';
   static const refrences = '/refrences';
   static const sgroup = '/sgroup';
+  static const squizes = '/squizes';
+  static const squizstart = '/squizstart';
 
   static final routes = [
     GetPage(
@@ -188,6 +193,15 @@ class AppPages {
       name: sgroup,
       page: () => const SGroupsScreen(),
       binding: sGroupsBinding(),
+    ),
+    GetPage(
+      name: squizes,
+      page: () => const StudentQuizesScreen(),
+      binding: StudentQuizesBinding(),
+    ),
+    GetPage(
+      name: squizstart,
+      page: () => StudentQuizStartScreen(),
     ),
   ];
 }

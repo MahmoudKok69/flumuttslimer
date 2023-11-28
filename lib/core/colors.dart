@@ -8,6 +8,7 @@ Color purble2 = const Color(0xff594EC8);
 Color purble3 = const Color(0xff8377FF);
 Color purble4 = const Color(0xffC4C0E9);
 Color purble5 = const Color(0xffEDEBFF);
+Color purblegradient = const Color(0xFF9D92FF);
 
 //orange
 Color orange1 = const Color(0xffF39C47);
