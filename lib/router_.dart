@@ -31,6 +31,7 @@ import 'package:flumuttslimer/roles/student/features/refrences/refrences_screen.
 import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_screen.dart';
 import 'package:flumuttslimer/roles/teacher/ad/ad_screen.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/login_teacher_screen.dart';
+import 'package:flumuttslimer/roles/teacher/auth/login_teacher/widgets/login_teacher_components.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/ad_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/add_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/home_teacher_binding.dart';
@@ -38,11 +39,13 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/login_teacher_bindin
 import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
+import 'package:flumuttslimer/roles/teacher/binding_teacher/welcome_binding.dart';
 
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/update_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/profile_student/profile_student_screen.dart';
+import 'package:flumuttslimer/roles/teacher/welcome/welcomescreen.dart';
 
 import 'package:get/get.dart';
 
@@ -76,7 +79,7 @@ class AppPages {
   static const sgroup = '/sgroup';
   static const squizes = '/squizes';
   static const squizstart = '/squizstart';
-
+  static const welcome = '/welcome';
   static final routes = [
     GetPage(
       name: INITIAL,
@@ -202,6 +205,11 @@ class AppPages {
     GetPage(
       name: squizstart,
       page: () => StudentQuizStartScreen(),
+    ),
+    GetPage(
+      name: welcome,
+      page: () => WelcomeScreen(),
+      binding: WelcomeBinding(),
     ),
   ];
 }

@@ -33,12 +33,12 @@ class celander extends StatelessWidget {
       calendarStyle: CalendarStyle(
           defaultTextStyle: TextStyle(
             fontFamily: bj,
-            fontSize: 10.sp,
+            fontSize: 8.sp,
             fontWeight: FontWeight.bold,
           ),
           todayTextStyle: TextStyle(
               fontFamily: bj,
-              fontSize: 10.sp,
+              fontSize: 6.sp,
               fontWeight: FontWeight.bold,
               color: white),
           weekendTextStyle: TextStyle(
@@ -249,6 +249,101 @@ class scroll_groups extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             fontFamily: bj),
                       )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          })
+        ]),
+      ),
+    );
+  }
+}
+
+class scroll_quizes extends StatelessWidget {
+  const scroll_quizes({
+    super.key,
+    required HomeTeacherController controller,
+  }) : _controller = controller;
+
+  final HomeTeacherController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [
+          ..._controller.quizes.map((e) {
+            return Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: MaterialButton(
+                onPressed: () {
+                  Get.toNamed(
+                    AppPages.mygroup,
+                    parameters: {
+                      // 'categ': e.categ!,
+                      // 'count_students': e.count_students.toString(),
+                      // 'name_institute': e.name_institute!,
+                      // 'name_group': e.name_group!,
+                      // 'invite_url': e.invite_url!,
+                      // 'max_members': e.max_members.toString(),
+                      // 'isPrivate': e.isPrivate,
+                      // 'isAvailable': e.isAvailable
+                    },
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  width: 40.w,
+                  height: 20.h,
+                  decoration: BoxDecoration(
+                    color: white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: black.withOpacity(0.4),
+                        blurRadius: 1,
+                        offset: const Offset(2, 3),
+                        spreadRadius: 1,
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(5.sp),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          e.name_quiz!,
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            '${e.count_Questions!.toString()}سؤال ',
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
+                          ),
+                          SizedBox(
+                            width: 3.w,
+                          ),
+                          Text(
+                            ' ${e.count_points!.toString()}نقطة',
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),

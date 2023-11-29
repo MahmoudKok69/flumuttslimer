@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_controller.dart';
@@ -9,20 +11,97 @@ import 'package:table_calendar/table_calendar.dart';
 
 import 'widgets/home_teacher_components.dart';
 
-class TeacherHomeScreen extends StatelessWidget {
-  TeacherHomeScreen({super.key});
+class TeacherHomeScreen extends StatefulWidget {
+  TeacherHomeScreen({Key? key}) : super(key: key);
 
+  @override
+  _TeacherHomeScreenState createState() => _TeacherHomeScreenState();
+}
+
+class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
   final _controller = Get.find<HomeTeacherController>();
   final CalendarFormat _calendarFormat = CalendarFormat.month;
   final DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
   var groupIndex = 0;
+  var _selectedValue = 'تغيير الصورة';
+  var _usStates = ["تسجيل الخروج", "تغيير الصورة"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: purble2,
+        actions: [
+          PopupMenuButton<String>(
+            initialValue: _selectedValue,
+            onSelected: (String value) {
+              if (value == 'تسجيل الخروج') {
+                exit(0);
+              } else if (value == 'تغيير الصورة') {
+                // قم بتنفيذ عملية تغيير الصورة
+              }
+              setState(() {
+                _selectedValue = value;
+              });
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              PopupMenuItem<String>(
+                value: 'تسجيل الخروج',
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.logout,
+                      color: black,
+                    ),
+                    SizedBox(width: 8), // توسيع المسافة حسب الحاجة
+                    Text('تسجيل الخروج'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'تغيير الصورة',
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.image,
+                      color: black,
+                    ),
+                    SizedBox(width: 8), // توسيع المسافة حسب الحاجة
+                    Text('تغيير الصورة'),
+                  ],
+                ),
+              ),
+            ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.person,
+                    size: 30,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
         title: Center(
           child: Text(
             'الواجهة الرئيسية ',
@@ -117,7 +196,7 @@ class TeacherHomeScreen extends StatelessWidget {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppPages.add_group);
+                      Get.toNamed(AppPages.welcome);
                     },
                     child: Center(
                       child: const Text(
@@ -143,97 +222,14 @@ class TeacherHomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(children: [
-                ..._controller.quizes.map((e) {
-                  groupIndex++;
-                  return Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: MaterialButton(
-                      onPressed: () {
-                        Get.toNamed(
-                          AppPages.mygroup,
-                          parameters: {
-                            // 'categ': e.categ!,
-                            // 'count_students': e.count_students.toString(),
-                            // 'name_institute': e.name_institute!,
-                            // 'name_group': e.name_group!,
-                            // 'invite_url': e.invite_url!,
-                            // 'max_members': e.max_members.toString(),
-                            // 'isPrivate': e.isPrivate,
-                            // 'isAvailable': e.isAvailable
-                          },
-                        );
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 40.w,
-                        height: 20.h,
-                        decoration: BoxDecoration(
-                          color: white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: black.withOpacity(0.4),
-                              blurRadius: 1,
-                              offset: const Offset(2, 3),
-                              spreadRadius: 1,
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(5.sp),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Center(
-                              child: Text(
-                                e.name_quiz!,
-                                textAlign: TextAlign.right,
-                                textDirection: TextDirection.rtl,
-                                style:
-                                    TextStyle(fontFamily: bj, fontSize: 16.sp),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  '${e.count_Questions!.toString()}سؤال ',
-                                  textAlign: TextAlign.right,
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                      fontFamily: bj, fontSize: 14.sp),
-                                ),
-                                SizedBox(
-                                  width: 3.w,
-                                ),
-                                Text(
-                                  ' ${e.count_points!.toString()}نقطة',
-                                  textAlign: TextAlign.right,
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                      fontFamily: bj, fontSize: 14.sp),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                })
-              ]),
-            ),
-          )
+          scroll_quizes(controller: _controller)
         ],
       ),
     );
   }
 }
+
+
 
 // عرض اليوم الحالي
           // Padding(

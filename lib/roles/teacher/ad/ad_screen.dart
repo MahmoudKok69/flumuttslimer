@@ -204,8 +204,52 @@ class AdScreen extends StatelessWidget {
                     height: 6.h,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.toNamed(AppPages.shome);
-
+                        Get.defaultDialog(
+                          title: 'تم إضافة الإعلان بنجاح ',
+                          content: StatefulBuilder(
+                            builder:
+                                (BuildContext context, StateSetter setState) {
+                              return Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text('بارك الله جهودك أستاذ فلان'),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(AppPages.shome);
+                                    },
+                                    child: Container(
+                                      height: 6.h,
+                                      width: 18.w,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 1.sp,
+                                            color: purble2,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.sp),
+                                          color: purble2),
+                                      child: Center(
+                                        child: Text(
+                                          'إغلاق',
+                                          maxLines: 1,
+                                          style: TextStyle(
+                                            color: white,
+                                            fontSize: 10.sp,
+                                            fontFamily: 'Bahij',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          ),
+                        );
                         if (_formKey.currentState!.validate()) {
                           print('Ok');
                           // _controller.regeste();
