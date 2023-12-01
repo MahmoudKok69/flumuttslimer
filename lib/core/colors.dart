@@ -23,3 +23,7 @@ Color grey3 = const Color(0xFF9A9A9A);
 Color grey4 = const Color(0xFFBBBBBB);
 Color black = const Color(0xff000000);
 Color pink = const Color(0xffFF78D7);
+
+Color red1 = const Color(0xffE85353);
+Color green1 = const Color(0xff72D447);
+Color green2 = const Color(0xffA1FF77);

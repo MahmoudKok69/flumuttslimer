@@ -3,6 +3,7 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/student_quizes_controller.dart';
+import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -106,7 +107,13 @@ class StudentQuizStartScreen extends StatelessWidget {
               ),
               Spacer(),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _controller.fillAnswersList(index);
+                  _controller.quizIndex = index;
+                  Get.toNamed(AppPages.squizquestion, parameters: {
+                    'index': index.toString(),
+                  });
+                },
                 child: Container(
                   height: 6.h,
                   width: 25.w,

@@ -16,23 +16,28 @@ class QuizesGridView extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
       child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: 2.h,
-            crossAxisCount: 2,
-            crossAxisSpacing: 3.w,
-          ),
-          itemCount: _controller.quizes.length,
-          itemBuilder: (BuildContext context, int index) {
-            QuizModel item = _controller.quizes[index];
-            return QuizCard(
-              item: item,
-              index: index,
-            );
-          },
-        ),
-      ),
+          textDirection: TextDirection.rtl,
+          child: GetBuilder<StudentQuizesController>(
+            id: 'finish_quiz',
+            init: StudentQuizesController(),
+            builder: (_) {
+              return GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 2.h,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 3.w,
+                ),
+                itemCount: _controller.quizes.length,
+                itemBuilder: (BuildContext context, int index) {
+                  QuizModel item = _controller.quizes[index];
+                  return QuizCard(
+                    item: item,
+                    index: index,
+                  );
+                },
+              );
+            },
+          )),
     );
   }
 }
