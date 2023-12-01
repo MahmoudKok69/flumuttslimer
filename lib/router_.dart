@@ -41,11 +41,13 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/login_teacher_bindin
 import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
+import 'package:flumuttslimer/roles/teacher/binding_teacher/welcome_binding.dart';
 
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/update_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/profile_student/profile_student_screen.dart';
+import 'package:flumuttslimer/roles/teacher/welcome/welcomescreen.dart';
 
 import 'package:get/get.dart';
 
@@ -82,7 +84,7 @@ class AppPages {
   static const squizquestion = '/squizquestion';
   static const squizresult = '/squizresult';
   static const squizcheck = '/squizcheck';
-
+  static const welcome = '/welcome';
   static final routes = [
     GetPage(
       name: INITIAL,
@@ -199,6 +201,32 @@ class AppPages {
       name: sgroup,
       page: () => const SGroupsScreen(),
       binding: sGroupsBinding(),
+    ),
+    GetPage(
+      name: squizes,
+      page: () => const StudentQuizesScreen(),
+      binding: StudentQuizesBinding(),
+    ),
+    GetPage(
+      name: squizstart,
+      page: () => StudentQuizStartScreen(),
+    ),
+    GetPage(
+      name: squizquestion,
+      page: () => StudentQuizQuestionsScreen(),
+    ),
+    GetPage(
+      name: squizresult,
+      page: () => QuizResultScreen(),
+    ),
+    GetPage(
+      name: squizcheck,
+      page: () => StudentQuizCheckScreen(),
+    ),
+    GetPage(
+      name: welcome,
+      page: () => WelcomeScreen(),
+      binding: WelcomeBinding(),
     ),
   ];
 }

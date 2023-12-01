@@ -8,14 +8,15 @@ class GroupesTeachModel {
   int? max_members;
   bool? isPrivate;
   bool? isAvailable;
-  GroupesTeachModel({
-    this.categ,
-    this.count_students,
-    this.name_institute,
-    this.name_group,
-    this.invite_url,
-    this.max_members,
-    this.isPrivate,
-    this.isAvailable,
-  });
+  bool? isChecked;
+  GroupesTeachModel(
+      {this.categ,
+      this.count_students,
+      this.name_institute,
+      this.name_group,
+      this.invite_url,
+      this.max_members,
+      this.isPrivate,
+      this.isAvailable,
+      this.isChecked});
 }

@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -39,19 +40,29 @@ class info_group extends StatelessWidget {
             Text(
               data['name_group']!,
               style: TextStyle(
-                  fontSize: 12.sp, color: white, fontWeight: FontWeight.bold),
+                fontSize: 12.sp,
+                color: white,
+                fontWeight: FontWeight.bold,
+                fontFamily: bj,
+              ),
             ),
             SizedBox(height: 3.h),
             Text(
               'الفئة العمرية : ${data['categ']!}',
               style: TextStyle(
-                  fontSize: 12.sp, color: white, fontWeight: FontWeight.bold),
+                  fontSize: 12.sp,
+                  color: white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: bj),
             ),
             SizedBox(height: 3.h),
             Text(
               data['name_institute']!,
               style: TextStyle(
-                  fontSize: 12.sp, color: white, fontWeight: FontWeight.bold),
+                  fontSize: 12.sp,
+                  color: white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: bj),
             ),
           ],
         ),

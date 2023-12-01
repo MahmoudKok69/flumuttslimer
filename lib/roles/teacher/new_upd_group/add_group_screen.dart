@@ -28,7 +28,7 @@ class AddGroupScreen extends StatelessWidget {
                         Text(
                           'الإسم',
                           style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 14.sp,
                             fontFamily: bj,
                             fontWeight: FontWeight.w500,
                           ),
@@ -49,7 +49,7 @@ class AddGroupScreen extends StatelessWidget {
                         Text(
                           'الوصف',
                           style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 14.sp,
                             fontFamily: bj,
                             fontWeight: FontWeight.w500,
                           ),
@@ -95,11 +95,12 @@ class AddGroupScreen extends StatelessWidget {
                               flex: 3,
                               child: RichText(
                                 textAlign: TextAlign.end,
-                                text: const TextSpan(
+                                text: TextSpan(
                                   text: 'تعيين العدد الأعظمي',
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 20.0,
+                                    fontSize: 14.sp,
+                                    fontFamily: bj,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   children: <TextSpan>[
@@ -107,7 +108,8 @@ class AddGroupScreen extends StatelessWidget {
                                       text: '\nالعدد الأعظمي لأعضاء المجموعة',
                                       style: TextStyle(
                                         color: Colors.grey,
-                                        fontSize: 16.0,
+                                        fontSize: 14.sp,
+                                        fontFamily: bj,
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
@@ -124,11 +126,12 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' نوع المجموعة ',
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 20.0,
+                                  fontSize: 14.sp,
+                                  fontFamily: bj,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 children: <TextSpan>[
@@ -137,7 +140,8 @@ class AddGroupScreen extends StatelessWidget {
                                         '\n     نوع المجموعة يحدد في ما إذا كان الطالب قادر على الدخول إلى هذه المجموعة بدون رابط دخول  , في حال كانت المجموعة عامة ستظهر لجميع الطلاب  في التطبيق . ',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 16.0,
+                                      fontSize: 14.sp,
+                                      fontFamily: bj,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -188,7 +192,8 @@ class AddGroupScreen extends StatelessWidget {
                                                     color: _controller.isPrivate
                                                         ? white
                                                         : purble2,
-                                                    fontSize: 15.sp,
+                                                    fontSize: 14.sp,
+                                                    fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -231,6 +236,7 @@ class AddGroupScreen extends StatelessWidget {
                                                         ? purble2
                                                         : white,
                                                     fontSize: 15.sp,
+                                                    fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -248,12 +254,12 @@ class AddGroupScreen extends StatelessWidget {
                           children: [
                             RichText(
                               textAlign: TextAlign.end,
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: ' إتاحية المجموعة ',
                                 style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14.sp,
+                                  fontFamily: bj,
+                                  fontWeight: FontWeight.w500,
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
@@ -261,7 +267,8 @@ class AddGroupScreen extends StatelessWidget {
                                         '\n إتاحية المجموعة تحدد فيما إذا كانت المجموعة تستقبل طلبات إنضمام حالياً , جعلها متاحة سيسمح للطلاب بالإنضمام مباشرة بدوم رابط أو من خلال رابط بحال كانت المجموعة خاصة',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 16.0,
+                                      fontSize: 14.sp,
+                                      fontFamily: bj,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -315,6 +322,7 @@ class AddGroupScreen extends StatelessWidget {
                                                             ? white
                                                             : purble2,
                                                     fontSize: 15.sp,
+                                                    fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -359,6 +367,7 @@ class AddGroupScreen extends StatelessWidget {
                                                             ? purble2
                                                             : white,
                                                     fontSize: 15.sp,
+                                                    fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
