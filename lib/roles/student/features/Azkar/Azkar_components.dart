@@ -60,10 +60,7 @@ class AzkarBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBarView(
-      children: [
-        AllAzkar(),
-        MyAzkar(),
-      ],
+      children: [AllAzkar(), MyAzkar()],
     );
   }
 }
