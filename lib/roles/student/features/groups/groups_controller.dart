@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/roles/student/features/groups/models/groups_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SGroupsController extends GetxController {
@@ -36,4 +37,5 @@ class SGroupsController extends GetxController {
         description:
             'نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص نص '),
   ];
+  TextEditingController groubLinkController = TextEditingController();
 }

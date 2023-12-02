@@ -24,14 +24,16 @@ import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/quiz_result_screen.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/screens/quiz_start_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/student_quiz_check_screen.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/screens/student_quizes_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/studnet_quiz_question_screen.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_screen.dart';
 import 'package:flumuttslimer/roles/student/features/refrences/refrences_screen.dart';
 import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_screen.dart';
 import 'package:flumuttslimer/roles/teacher/ad/ad_screen.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/login_teacher_screen.dart';
-import 'package:flumuttslimer/roles/teacher/auth/login_teacher/widgets/login_teacher_components.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/ad_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/add_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/home_teacher_binding.dart';
@@ -81,6 +83,9 @@ class AppPages {
   static const sgroup = '/sgroup';
   static const squizes = '/squizes';
   static const squizstart = '/squizstart';
+  static const squizquestion = '/squizquestion';
+  static const squizresult = '/squizresult';
+  static const squizcheck = '/squizcheck';
   static const welcome = '/welcome';
   static const quizes_teacher = '/quizes_teacher';
   static final routes = [
@@ -208,6 +213,18 @@ class AppPages {
     GetPage(
       name: squizstart,
       page: () => StudentQuizStartScreen(),
+    ),
+    GetPage(
+      name: squizquestion,
+      page: () => StudentQuizQuestionsScreen(),
+    ),
+    GetPage(
+      name: squizresult,
+      page: () => QuizResultScreen(),
+    ),
+    GetPage(
+      name: squizcheck,
+      page: () => StudentQuizCheckScreen(),
     ),
     GetPage(
       name: welcome,

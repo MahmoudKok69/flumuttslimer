@@ -40,3 +40,77 @@ buildAppBar(
     ],
   );
 }
+
+class ArabicText extends StatelessWidget {
+  ArabicText(
+      {super.key,
+      this.color,
+      this.fontSize,
+      this.fontWeight,
+      this.fontdecortion,
+      this.maxLine,
+      this.text});
+  final text;
+  final color;
+  final fontSize;
+  final fontWeight;
+  final fontdecortion;
+  final maxLine;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      maxLines: maxLine ?? 1,
+      textAlign: TextAlign.right,
+      textDirection: TextDirection.rtl,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontFamily: bj,
+      ),
+    );
+  }
+}
+
+class BorderedContainer extends StatelessWidget {
+  BorderedContainer({
+    super.key,
+    this.borderColor,
+    this.borderRadius,
+    this.borderWidth,
+    this.child,
+    this.color,
+    this.height,
+    this.width,
+  });
+  final width;
+  final height;
+  final child;
+  final color;
+  final borderColor;
+  final borderWidth;
+  final borderRadius;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+          color: color ?? white,
+          borderRadius: BorderRadius.circular(borderRadius ?? 10.sp),
+          border: Border.all(
+            width: borderWidth ?? 0.1.w,
+            color: borderColor ?? grey4,
+          ),
+          boxShadow: [
+            BoxShadow(color: black, blurRadius: 2, offset: const Offset(-1, 1)),
+            BoxShadow(
+                color: black, blurRadius: 1, offset: const Offset(0.2, -0.2))
+          ]),
+      child: child,
+    );
+  }
+}
