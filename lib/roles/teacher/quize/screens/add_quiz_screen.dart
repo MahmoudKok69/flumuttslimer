@@ -6,7 +6,8 @@ import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/Home_teacher_controller.dart';
 import 'package:flumuttslimer/roles/teacher/quize/add_quiz_components.dart';
-import 'package:flumuttslimer/roles/teacher/quize/quiz_controller.dart';
+import 'package:flumuttslimer/roles/teacher/quize/controllers/share_quiz_controller.dart';
+
 import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/widgets/my_group_components.dart';
@@ -21,7 +22,7 @@ class AddQuizScreen extends StatelessWidget {
     super.key,
   });
 
-  final _controller = Get.find<QuizController>();
+  final _controller = Get.find<ShareQuizController>();
   final _formKey = GlobalKey<FormState>();
   int selectedValue = 1;
   @override
@@ -35,6 +36,7 @@ class AddQuizScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: TabBarView(
               children: [
+                //  Container(),
                 The_Question(controller: _controller, formKey: _formKey),
                 Add_Question(selectedValue: selectedValue),
               ],
@@ -47,12 +49,12 @@ class AddQuizScreen extends StatelessWidget {
 class The_Question extends StatelessWidget {
   const The_Question({
     super.key,
-    required QuizController controller,
+    required ShareQuizController controller,
     required GlobalKey<FormState> formKey,
   })  : _controller = controller,
         _formKey = formKey;
 
-  final QuizController _controller;
+  final ShareQuizController _controller;
   final GlobalKey<FormState> _formKey;
 
   @override
@@ -81,9 +83,9 @@ class The_Question extends StatelessWidget {
                     SizedBox(
                       width: 3.w,
                     ),
-                    GetBuilder<QuizController>(
+                    GetBuilder<ShareQuizController>(
                       id: 'checked_all_groups',
-                      init: QuizController(),
+                      init: ShareQuizController(),
                       builder: (_) {
                         return CustomCheckBox(
                           height: 12.sp,
@@ -141,9 +143,9 @@ class The_Question extends StatelessWidget {
                         var item = _controller.groups[index];
                         return Padding(
                             padding: EdgeInsets.only(top: 1.h),
-                            child: GetBuilder<QuizController>(
+                            child: GetBuilder<ShareQuizController>(
                               id: 'group_check',
-                              init: QuizController(),
+                              init: ShareQuizController(),
                               builder: (_) {
                                 return PhysicalModel(
                                   elevation: 5,

@@ -42,13 +42,14 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dar
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/quiz_binding.dart';
+import 'package:flumuttslimer/roles/teacher/binding_teacher/share_quiz_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/welcome_binding.dart';
 
 import 'package:flumuttslimer/roles/teacher/new_upd_group/add_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/new_upd_group/update_group_screen.dart';
 import 'package:flumuttslimer/roles/teacher/profile_student/profile_student_screen.dart';
-import 'package:flumuttslimer/roles/teacher/quize/add_quiz_screen.dart';
+import 'package:flumuttslimer/roles/teacher/quize/screens/add_quiz_screen.dart';
 import 'package:flumuttslimer/roles/teacher/welcome/welcomescreen.dart';
 
 import 'package:get/get.dart';
@@ -234,7 +235,7 @@ class AppPages {
     GetPage(
       name: quizes_teacher,
       page: () => AddQuizScreen(),
-      binding: QuizBinding(),
+      binding: ShareQuizBinding(),
     ),
   ];
 }
