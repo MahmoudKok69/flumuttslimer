@@ -1,6 +1,7 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 
 buildAppBar(
@@ -111,6 +112,19 @@ class BorderedContainer extends StatelessWidget {
                 color: black, blurRadius: 1, offset: const Offset(0.2, -0.2))
           ]),
       child: child,
+    );
+  }
+}
+
+class PointIcon extends StatelessWidget {
+  const PointIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      'assets/images/point.svg',
+      width: 15.sp,
+      height: 15.sp,
     );
   }
 }

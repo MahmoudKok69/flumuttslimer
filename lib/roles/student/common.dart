@@ -19,6 +19,7 @@ InputDecoration inputDecorationStyle(String label, String hint) {
       ),
     ),
     hintText: hint,
+    counterText: '',
     hintStyle: TextStyle(
       fontSize: 10.sp,
     ),

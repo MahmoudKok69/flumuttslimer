@@ -1,6 +1,8 @@
 import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/student_quizes_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -88,17 +90,22 @@ class StudentQuizStartScreen extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text(
-                                '${item.points} نقطة',
-                                textAlign: TextAlign.right,
-                                textDirection: TextDirection.rtl,
-                                style: TextStyle(
-                                  color: white,
-                                  fontSize: 19.sp,
-                                  fontFamily: bj,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    '${item.points}',
+                                    textAlign: TextAlign.right,
+                                    textDirection: TextDirection.rtl,
+                                    style: TextStyle(
+                                      color: white,
+                                      fontSize: 19.sp,
+                                      fontFamily: bj,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ).pSymmetric(horizontal: 1.w),
+                                  const PointIcon(),
+                                ],
+                              ).rightDirction(),
                             ],
                           ),
                         ),
@@ -144,7 +151,7 @@ class StudentQuizStartScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),

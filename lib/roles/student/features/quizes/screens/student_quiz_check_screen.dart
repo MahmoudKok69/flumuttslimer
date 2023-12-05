@@ -72,11 +72,8 @@ class StudentQuizCheckScreen extends StatelessWidget {
       backgroundColor: purblegradient,
       leading: IconButton(
         onPressed: () {
-          _controller.resetValues();
-          _controller.quizAnswers = [];
-          _controller.quizes.removeAt(quizIndex);
+          _controller.resetQuiz();
           Get.until((route) => Get.currentRoute == AppPages.squizes);
-          // Get.back();
         },
         icon: Icon(
           AppIcons.back_icon,

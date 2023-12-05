@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/student_quizes_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -84,7 +85,7 @@ class QuizCard extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
                     color: black,
-                    fontSize: 16.sp,
+                    fontSize: 18.sp,
                     fontFamily: bj,
                     fontWeight: FontWeight.bold,
                   ),
@@ -105,7 +106,8 @@ class QuizCard extends StatelessWidget {
                   child: Directionality(
                     textDirection: TextDirection.rtl,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
                           '${item.questions!.length} سؤال',
@@ -119,7 +121,7 @@ class QuizCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${item.points} نقطة',
+                          '|',
                           textAlign: TextAlign.right,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
@@ -128,6 +130,22 @@ class QuizCard extends StatelessWidget {
                             fontFamily: bj,
                             fontWeight: FontWeight.bold,
                           ),
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '${item.points}',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                color: grey2,
+                                fontSize: 14.sp,
+                                fontFamily: bj,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const PointIcon(),
+                          ],
                         ),
                       ],
                     ),

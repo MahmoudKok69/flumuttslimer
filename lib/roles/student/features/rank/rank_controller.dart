@@ -16,4 +16,21 @@ class RankController extends GetxController {
   var city_users = [];
   var inistu_users = [];
   var group_users = [];
+
+  List<String> filters = [];
+  int selectedFilter = 0;
+
+  List<String> with_insistu = ['العالم', 'المدينة', "المعهد", "المجموعة"];
+  List<String> without_insistu = ['العالم', 'المدينة', "المجموعة"];
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    filters = with_insistu;
+  }
+
+  selectFilter(int index) {
+    selectedFilter = index;
+    update(['select_filter']);
+  }
 }

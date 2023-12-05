@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -61,15 +62,15 @@ class AzkarBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: [
-        AllAzkar(),
         MyAzkar(),
+        AllAzkar(),
       ],
     );
   }
 }
 
-class AllAzkar extends StatelessWidget {
-  AllAzkar({super.key});
+class MyAzkar extends StatelessWidget {
+  MyAzkar({super.key});
   final _controller = Get.find<AzkarController>();
   @override
   Widget build(BuildContext context) {
@@ -98,7 +99,9 @@ class AllAzkar extends StatelessWidget {
                         Get.toNamed(AppPages.sAzkardetail, parameters: {
                           'name': item.name!,
                           'content': item.descirbe!,
-                          'time': 'الصباح'
+                          'time': 'الصباح',
+                          'isWithCheck': '1',
+                          'index': '$index'
                         });
                       },
                       title: Text(
@@ -126,19 +129,6 @@ class AllAzkar extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      leading: CustomCheckBox(
-                        height: 12.sp,
-                        width: 12.sp,
-                        selectColor: purble2,
-                        unselectColor: purble4,
-                        iconColor: white,
-                        borderRadius: 1.sp,
-                        isChecked: item.isChecked,
-                        iconSize: 12.sp,
-                        onchange: () {
-                          _controller.checkAzkar(index);
-                        },
-                      ),
                     ),
                   );
                 },
@@ -149,8 +139,8 @@ class AllAzkar extends StatelessWidget {
   }
 }
 
-class MyAzkar extends StatelessWidget {
-  MyAzkar({super.key});
+class AllAzkar extends StatelessWidget {
+  AllAzkar({super.key});
   final _controller = Get.find<AzkarController>();
   @override
   Widget build(BuildContext context) {
@@ -175,20 +165,22 @@ class MyAzkar extends StatelessWidget {
                   Get.toNamed(AppPages.sAzkardetail, parameters: {
                     'name': item.name!,
                     'content': item.descirbe!,
-                    'time': 'الصباح'
+                    'time': 'الصباح',
+                    'isWithCheck': '0',
+                    'index': '$index'
                   });
                 },
                 title: Text(
                   item.name!,
-                  textAlign: TextAlign.right,
-                  textDirection: TextDirection.rtl,
+                  // textAlign: TextAlign.right,
+                  // textDirection: TextDirection.rtl,
                   style: TextStyle(
                     color: black,
                     fontFamily: bj,
                     fontSize: 12.sp,
                   ),
                   overflow: TextOverflow.ellipsis,
-                ),
+                ).arabicText(),
                 tileColor: purble4,
                 subtitle: Text(
                   item.descirbe!,
