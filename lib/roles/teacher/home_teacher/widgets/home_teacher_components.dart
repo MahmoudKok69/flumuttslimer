@@ -46,6 +46,11 @@ class celander extends StatelessWidget {
               fontSize: 10.sp,
               fontWeight: FontWeight.bold,
               color: black),
+          outsideTextStyle: TextStyle(
+              fontFamily: bj,
+              fontSize: 10.sp,
+              fontWeight: FontWeight.bold,
+              color: black),
           todayDecoration:
               BoxDecoration(color: purble3, shape: BoxShape.circle)),
       calendarFormat: _calendarFormat,

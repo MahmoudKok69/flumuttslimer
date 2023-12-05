@@ -127,7 +127,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
       body: ListView(
         children: [
           Container(
-            height: 43.h,
+            height: 45.h,
             child: celander(
                 focusedDay: _focusedDay,
                 calendarFormat: _calendarFormat,
@@ -196,7 +196,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   ),
                   child: GestureDetector(
                     onTap: () {
-                      Get.toNamed(AppPages.welcome);
+                      Get.toNamed(AppPages.quizes_teacher);
                     },
                     child: Center(
                       child: const Text(
