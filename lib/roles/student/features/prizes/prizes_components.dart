@@ -57,6 +57,7 @@ class MyPrizes extends StatelessWidget {
                         spreadRadius: 1,
                       )
                     ],
+                    border: Border.all(color: grey4, width: 1),
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: Row(children: [
@@ -92,8 +93,8 @@ class MyPrizes extends StatelessWidget {
                                     style: TextStyle(
                                         color: purble2,
                                         fontFamily: bj,
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.bold),
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w900),
                                   )),
                                 ),
                               ),
@@ -107,6 +108,7 @@ class MyPrizes extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
+                          Spacer(),
                           Text(
                             '${item.name}',
                             textDirection: TextDirection.rtl,
@@ -117,6 +119,7 @@ class MyPrizes extends StatelessWidget {
                                 fontFamily: bj,
                                 fontSize: 12.sp),
                           ),
+                          SizedBox(height: 1.h),
                           Text(
                             'الفئة العمرية: ${item.age}',
                             textDirection: TextDirection.rtl,
@@ -127,6 +130,7 @@ class MyPrizes extends StatelessWidget {
                                 fontFamily: bj,
                                 fontSize: 12.sp),
                           ),
+                          SizedBox(height: 1.h),
                           Text(
                             ' ${item.points} نقطة',
                             textDirection: TextDirection.rtl,
@@ -137,6 +141,7 @@ class MyPrizes extends StatelessWidget {
                                 fontFamily: bj,
                                 fontSize: 12.sp),
                           ),
+                          SizedBox(height: 2.h),
                           SizedBox(
                             width: 25.w,
                             child: Text(

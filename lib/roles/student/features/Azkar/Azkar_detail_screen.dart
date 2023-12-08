@@ -1,6 +1,9 @@
 import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
+import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart';
+import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
@@ -11,6 +14,7 @@ class AzkarDetailScreen extends StatelessWidget {
   String? time;
   String? content;
   var data = Get.parameters;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +45,7 @@ class AzkarDetailScreen extends StatelessWidget {
                           color: white,
                         ),
                         onPressed: () {
+                          //TODO:"Add request logic when you close this window"
                           Get.back();
                         },
                       ),
@@ -87,6 +92,49 @@ class AzkarDetailScreen extends StatelessWidget {
                     color: purble2,
                     fontFamily: bj,
                     fontSize: 14.sp,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Visibility(
+                visible: data['isWithCheck'] == '1',
+                child: Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Row(
+                    children: [
+                      ArabicText(
+                        text: 'هل أتممت قراءة الذكر؟',
+                        color: black,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      Spacer(),
+                      GetBuilder(
+                          id: 'azkary_tile',
+                          init: AzkarController(),
+                          builder: (_) {
+                            return CustomCheckBox(
+                              height: 24.sp,
+                              width: 24.sp,
+                              selectColor: purble2,
+                              unselectColor: purble4,
+                              iconColor: white,
+                              borderRadius: 1.sp,
+                              isChecked: Get.find<AzkarController>()
+                                  .azkary[int.tryParse(data['index']!) ?? 0]
+                                  .isChecked,
+                              iconSize: 24.sp,
+                              onchange: () {
+                                print(data['index']);
+                                Get.find<AzkarController>().checkAzkar(
+                                    int.tryParse(data['index']!) ?? 0);
+                              },
+                            );
+                          }),
+                      Spacer(),
+                    ],
                   ),
                 ),
               ),

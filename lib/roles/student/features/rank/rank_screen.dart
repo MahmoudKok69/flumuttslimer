@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_components.dart';
 import 'package:flumuttslimer/roles/student/features/rank/rank_controller.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class RankScreen extends StatelessWidget {
                 ],
               ),
             ),
-            ..._controller.users.skip(3).map((e) {
+            ..._controller.users.skip(3).map((user) {
               userInde++;
               return Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -90,7 +91,7 @@ class RankScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                e.name!,
+                                user.name!,
                                 style: TextStyle(
                                   color: black,
                                   fontFamily: bj,
@@ -99,7 +100,7 @@ class RankScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'العمر : ${e.age.toString()}',
+                                'العمر : ${user.age.toString()}',
                                 textAlign: TextAlign.right,
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
@@ -110,7 +111,7 @@ class RankScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'عدد النقاط :${e.points.toString()}',
+                                'عدد النقاط :${user.points.toString()}',
                                 style: TextStyle(
                                   color: black,
                                   fontFamily: bj,
@@ -119,7 +120,7 @@ class RankScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'اسم المعلم: ${e.teacherName!}',
+                                'اسم المعلم: ${user.teacherName!}',
                                 style: TextStyle(
                                   color: black,
                                   fontFamily: bj,
@@ -159,15 +160,14 @@ class RankUpSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
-      child: Padding(
-        padding: EdgeInsets.all(12.sp),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
+    return SizedBox(
+      width: Get.size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios_rounded,
                 color: white,
@@ -177,110 +177,168 @@ class RankUpSection extends StatelessWidget {
                 Get.back();
               },
             ),
-            const CustomSwitcher(),
-          ],
-        ),
+          ),
+          CustomSwitcher(),
+        ],
       ),
     );
   }
 }
 
-class CustomSwitcher extends StatefulWidget {
-  const CustomSwitcher({super.key});
-
-  @override
-  State<CustomSwitcher> createState() => _CustomSwitcherState();
-}
-
-class _CustomSwitcherState extends State<CustomSwitcher> {
-  var isEnable = false;
-  final animationDuration = const Duration(milliseconds: 200);
-  var _alignmentController;
-  final _alignments = [
-    Alignment.centerLeft,
-    Alignment.centerRight,
-  ];
-  var alignIndex = 0;
+class CustomSwitcher extends StatelessWidget {
+  CustomSwitcher({super.key});
+  RankController _controller = Get.find<RankController>();
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      height: 5.h,
-      width: 18.w,
-      decoration: BoxDecoration(
-          color: white,
-          borderRadius: BorderRadius.circular(20.sp),
-          border: Border.all(color: white, width: 1.sp),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.shade400, spreadRadius: 2, blurRadius: 10)
-          ]),
-      duration: animationDuration,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 1.w),
-        child: Stack(
-          children: [
-            AnimatedAlign(
-              alignment: _alignments[alignIndex],
-              duration: animationDuration,
-              child: Container(
-                height: 5.h,
-                width: 8.w,
-                decoration: BoxDecoration(
-                    color: purble4.withOpacity(0.7), shape: BoxShape.circle),
-              ),
-            ),
-            SizedBox(
-              height: 5.h,
-              width: 18.w,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                      padding: const EdgeInsets.all(0),
-                      hoverColor: white.withOpacity(0),
-                      icon: Center(
-                        child: Icon(
-                          Icons.group,
-                          color: purble2,
-                          size: 12.sp,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 1.w),
+      child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: GetBuilder(
+              id: 'select_filter',
+              init: RankController(),
+              builder: (_) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(_controller.filters.length, (index) {
+                    int selectedIndex = _controller.selectedFilter;
+                    List<String> filters = _controller.filters;
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      child: InkWell(
+                        onTap: () {
+                          _controller.selectFilter(index);
+                        },
+                        child: Transform.scale(
+                          scale: selectedIndex == index ? 1.05 : 1,
+                          child: Container(
+                            width: 20.w,
+                            decoration: BoxDecoration(
+                              color: selectedIndex == index ? orange1 : white,
+                              borderRadius: BorderRadius.circular(5.sp),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 2.w, vertical: 1.h),
+                              child: Center(
+                                child: ArabicText(
+                                  text: filters[index],
+                                  color:
+                                      selectedIndex == index ? white : purble3,
+                                  fontSize:
+                                      selectedIndex == index ? 12.sp : 10.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          alignIndex = 0;
-                        });
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: IconButton(
-                      hoverColor: white.withOpacity(0),
-                      padding: const EdgeInsets.all(0),
-                      icon: Center(
-                        child: Icon(
-                          Icons.public_rounded,
-                          color: purble2,
-                          size: 15.sp,
-                        ),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          alignIndex = 1;
-                        });
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+                    );
+                  }),
+                );
+              })),
     );
   }
 }
+
+// class CustomSwitcher extends StatefulWidget {
+//   const CustomSwitcher({super.key});
+
+//   @override
+//   State<CustomSwitcher> createState() => _CustomSwitcherState();
+// }
+
+// class _CustomSwitcherState extends State<CustomSwitcher> {
+//   var isEnable = false;
+//   final animationDuration = const Duration(milliseconds: 200);
+//   var _alignmentController;
+//   final _alignments = [
+//     Alignment.centerLeft,
+//     Alignment.centerRight,
+//   ];
+//   var alignIndex = 0;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return AnimatedContainer(
+//       height: 5.h,
+//       width: 18.w,
+//       decoration: BoxDecoration(
+//           color: white,
+//           borderRadius: BorderRadius.circular(20.sp),
+//           border: Border.all(color: white, width: 1.sp),
+//           boxShadow: [
+//             BoxShadow(
+//                 color: Colors.grey.shade400, spreadRadius: 2, blurRadius: 10)
+//           ]),
+//       duration: animationDuration,
+//       child: Padding(
+//         padding: EdgeInsets.symmetric(horizontal: 1.w),
+//         child: Stack(
+//           children: [
+//             AnimatedAlign(
+//               alignment: _alignments[alignIndex],
+//               duration: animationDuration,
+//               child: Container(
+//                 height: 5.h,
+//                 width: 8.w,
+//                 decoration: BoxDecoration(
+//                     color: purble4.withOpacity(0.7), shape: BoxShape.circle),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 5.h,
+//               width: 18.w,
+//               child: Row(
+//                 crossAxisAlignment: CrossAxisAlignment.center,
+//                 mainAxisAlignment: MainAxisAlignment.end,
+//                 children: [
+//                   Expanded(
+//                     flex: 1,
+//                     child: IconButton(
+//                       padding: const EdgeInsets.all(0),
+//                       hoverColor: white.withOpacity(0),
+//                       icon: Center(
+//                         child: Icon(
+//                           Icons.group,
+//                           color: purble2,
+//                           size: 12.sp,
+//                         ),
+//                       ),
+//                       onPressed: () {
+//                         setState(() {
+//                           alignIndex = 0;
+//                         });
+//                       },
+//                     ),
+//                   ),
+//                   Expanded(
+//                     flex: 1,
+//                     child: IconButton(
+//                       hoverColor: white.withOpacity(0),
+//                       padding: const EdgeInsets.all(0),
+//                       icon: Center(
+//                         child: Icon(
+//                           Icons.public_rounded,
+//                           color: purble2,
+//                           size: 15.sp,
+//                         ),
+//                       ),
+//                       onPressed: () {
+//                         setState(() {
+//                           alignIndex = 1;
+//                         });
+//                       },
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

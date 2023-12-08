@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -23,6 +25,16 @@ class NewAccountForm extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: ArabicText(
+              text: 'أخبرنا عن نفسك؟',
+              color: black,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 3.h),
           TextFormField(
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
@@ -173,7 +185,9 @@ class NewAccountForm extends StatelessWidget {
                   ),
                 );
               }),
-
+          SizedBox(height: 3.h),
+          //Image selector
+          ImageSelector(),
           // Country Dropdown
           SizedBox(height: 3.h),
           GetBuilder<RegisterController>(
@@ -224,6 +238,12 @@ class NewAccountForm extends StatelessWidget {
                 child: TextFormField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
+                  maxLength: 3,
+                  onChanged: (value) {
+                    if (value.length == 3) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
                   decoration: inputDecorationStyle('الرمز', '+xxx'),
                 ),
               ),
@@ -249,6 +269,7 @@ class NewAccountForm extends StatelessWidget {
             height: 10.h,
             child: TextFormField(
               textAlign: TextAlign.right,
+              keyboardType: TextInputType.emailAddress,
               decoration: inputDecorationStyle(
                   'البريد الألكتروني', 'أدخل البريد الألكتروني'),
               validator: (value) {
@@ -279,6 +300,7 @@ class NewAccountForm extends StatelessWidget {
                   child: TextFormField(
                     textAlign: TextAlign.right,
                     textDirection: TextDirection.rtl,
+                    keyboardType: TextInputType.visiblePassword,
                     decoration: InputDecoration(
                       prefix: IconButton(
                         icon: _controller.obscure
@@ -377,7 +399,7 @@ class NewAccountForm extends StatelessWidget {
                       alignLabelWithHint: true,
                       labelStyle: TextStyle(
                         color: purble1,
-                        fontFamily: 'Bahij',
+                        fontFamily: bj,
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
@@ -431,13 +453,6 @@ class NewAccountForm extends StatelessWidget {
 }
 
 class ImageSelector extends StatelessWidget {
-  var avatarList = [
-    'assets/images/avatars/avatar1.png',
-    'assets/images/avatars/avatar2.png',
-    'assets/images/avatars/avatar3.png',
-    'assets/images/avatars/avatar4.png',
-    'assets/images/avatars/avatar5.png',
-  ];
   final ScrollController _imageScrollController = ScrollController();
   final _controller = Get.find<RegisterController>();
 
@@ -446,113 +461,119 @@ class ImageSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30.h, // Adjust the height as needed
+      height: 30.h,
       width: MediaQuery.of(context).size.width,
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: SizedBox(
-              child: Center(
-                child: GestureDetector(
-                  onTap: () async {
-                    var file = await ImagePicker.platform
-                        .getImageFromSource(source: ImageSource.gallery);
-                    if (file != null) {
-                      _controller.setImage(File(file.path));
-                    }
-                  },
-                  child: Center(
-                      child: GetBuilder<RegisterController>(
-                    init: RegisterController(),
-                    id: 'image_select',
-                    builder: (_) {
-                      return CircleAvatar(
-                          radius: min(40.w, 40.h) / 2,
-                          backgroundColor: purble4,
-                          child: _controller.selectedImage == null
-                              ? Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                      Icon(
-                                        Icons.camera_alt,
-                                        color: purble2,
-                                        size: 25.sp,
-                                      ),
-                                      Text('أختر صورة',
-                                          style: TextStyle(
-                                            color: purble2,
-                                            fontSize: 12.sp,
-                                            fontFamily: bj,
-                                            fontWeight: FontWeight.w500,
-                                          ))
-                                    ])
-                              : Stack(
-                                  children: [
-                                    SizedBox(
-                                      width: 140.sp,
-                                      height: 140.sp,
-                                    ),
-                                    ClipOval(
-                                        child: Image.file(
-                                      _controller.selectedImage,
-                                      width: 140.sp,
-                                      height: 140.sp,
-                                      fit: BoxFit.cover,
-                                    ))
-                                  ],
-                                ));
+      child: GetBuilder<RegisterController>(
+        init: RegisterController(),
+        id: 'avatar',
+        builder: (_) {
+          return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: _controller.avatars.length,
+              itemBuilder: (BuildContext context, int index) {
+                if (index == 0) {
+                  return Padding(
+                    padding: EdgeInsets.only(right: 10.w),
+                    child: SizedBox(
+                      child: Center(
+                        child: GestureDetector(
+                          onTap: () async {
+                            var file = await ImagePicker.platform
+                                .getImageFromSource(
+                                    source: ImageSource.gallery);
+                            if (file != null) {
+                              _controller.setImage(File(file.path));
+                            }
+                          },
+                          child: Center(
+                              child: GetBuilder<RegisterController>(
+                            init: RegisterController(),
+                            id: 'image_select',
+                            builder: (_) {
+                              return CircleAvatar(
+                                  radius: min(40.w, 40.h) / 2,
+                                  backgroundColor: purble4,
+                                  child: _controller.selectedImage == null
+                                      ? Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                              Icon(
+                                                Icons.camera_alt,
+                                                color: purble2,
+                                                size: 25.sp,
+                                              ),
+                                              Text('أختر صورة',
+                                                  style: TextStyle(
+                                                    color: purble2,
+                                                    fontSize: 12.sp,
+                                                    fontFamily: bj,
+                                                    fontWeight: FontWeight.w500,
+                                                  ))
+                                            ])
+                                      : Stack(
+                                          children: [
+                                            SizedBox(
+                                              width: 140.sp,
+                                              height: 140.sp,
+                                            ),
+                                            ClipOval(
+                                                child: Image.file(
+                                              _controller.selectedImage,
+                                              width: 140.sp,
+                                              height: 140.sp,
+                                              fit: BoxFit.cover,
+                                            ))
+                                          ],
+                                        ));
+                            },
+                          )),
+                        ),
+                      ),
+                    ),
+                  );
+                } else {
+                  return GestureDetector(
+                    onTap: () async {
+                      // Handle avatar selection
+                      _controller.setAvatar(index);
                     },
-                  )),
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: SizedBox(
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: GetBuilder<RegisterController>(
-                      init: RegisterController(),
-                      id: 'avatar',
-                      builder: (_) {
-                        return Row(
-                          children: List.generate(avatarList.length, (index) {
-                            return GestureDetector(
-                              onTap: () async {
-                                // Handle avatar selection
-                                _controller.setAvatar(index, avatarList[index]);
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(right: 15.sp),
-                                child: Container(
-                                  width: 40.w,
-                                  height: 30.h,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(avatarList[index]),
-                                        fit: BoxFit.scaleDown,
-                                      ),
-                                      shape: BoxShape.circle,
-                                      border: index ==
-                                              _controller.imageSelectedIndex
-                                          ? Border.all(
-                                              color: Colors.green,
-                                              width: 2,
-                                              strokeAlign:
-                                                  BorderSide.strokeAlignCenter)
-                                          : null),
-                                ),
+                    child: Padding(
+                        padding: EdgeInsets.only(right: 10.w),
+                        child: Container(
+                          width: 40.w,
+                          height: 30.h,
+                          padding: EdgeInsets.all(
+                              index == _controller.selectedAvatatarIndex
+                                  ? 3.sp
+                                  : 0),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                purble2,
+                                purble3,
+                                purble4,
+                                purblegradient
+                              ],
+                            ),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(_controller.avatars[index]),
+                                fit: BoxFit.cover,
                               ),
-                            );
-                          }),
-                        );
-                      },
-                    ))),
-          ),
-        ],
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        )),
+                  );
+                }
+              });
+        },
       ),
     );
   }

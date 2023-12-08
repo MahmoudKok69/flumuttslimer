@@ -4,6 +4,7 @@ import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/models/QuranPos_model.dart';
 import 'package:flumuttslimer/roles/student/features/auth/public_info_model.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
+import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/router_.dart';
 
 import 'package:flutter/material.dart';
@@ -42,12 +43,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         // initialRoute: AppPages.shome,
         getPages: AppPages.routes,
-        title: 'Flutter Demo',
+        title: 'Muslim Habits',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: purble2),
           useMaterial3: true,
         ),
-        home: SHomeScreen(),
+        home: OnBoardingScreen(),
       ),
     );
   }

@@ -18,14 +18,9 @@ class RegisterScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.all(2.0.h),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // 1. Avatars - A Scrollable Row of Circles
-              ImageSelector(),
-              SizedBox(height: 2.0.h),
-              // 2. Registration Form
-              NewAccountForm(),
-            ],
+          child: Padding(
+            padding: EdgeInsets.only(top: 2.h),
+            child: NewAccountForm(),
           ),
         ),
       ),

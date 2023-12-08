@@ -11,12 +11,25 @@ class RegisterController extends GetxController {
   String confirmPassword = '';
   List<String> countries = ['سوريا', "العراق", "اليمن", "السعودية", "مصر"];
   String image = '';
-  int imageSelectedIndex = -1;
+  int selectedAvatatarIndex = -1;
   var selectedImage;
   bool obscure = true;
   bool obscureConfi = true;
   void setName(String value) {
     name = value;
+  }
+
+  List<String> male_avatars = List.generate(
+      11, (index) => 'assets/images/avatars/male_avatars/${index + 1}.png');
+  List<String> female_avatars = List.generate(
+      12, (index) => 'assets/images/avatars/female_avatars/${index + 1}.png');
+  List<String> avatars = [];
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    avatars = male_avatars;
+    print(avatars);
   }
 
   void setAge(int value) {
@@ -28,7 +41,13 @@ class RegisterController extends GetxController {
 
   void setGender(bool value) {
     gender = value;
-    update(['gender_field']);
+    if (value) {
+      avatars = male_avatars;
+    } else {
+      avatars = female_avatars;
+    }
+    print(avatars);
+    update(['gender_field', 'avatar']);
   }
 
   void setCountry(String value) {
@@ -64,12 +83,13 @@ class RegisterController extends GetxController {
 
   setImage(file) {
     selectedImage = file;
+    selectedAvatatarIndex = -1;
     update(['image_select']);
   }
 
-  setAvatar(index, newImage) {
-    imageSelectedIndex = index;
-    image = newImage;
+  setAvatar(index) {
+    selectedAvatatarIndex = index;
+    image = avatars[index];
     update(['avatar']);
   }
 

@@ -24,22 +24,25 @@ class QuranScreen extends StatelessWidget {
               Get.toNamed(AppPages.sorah);
             },
             child: Container(
-              width: 30.w,
-              height: 10.h,
+              width: 32.w,
+              height: 8.h,
               decoration: BoxDecoration(
                 color: purble3,
                 borderRadius: BorderRadius.circular(10.sp),
               ),
-              child: Center(
-                  child: Text(
-                'متابعة القراءة',
-                maxLines: 1,
-                style: TextStyle(
-                    color: white,
-                    fontFamily: bj,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12.sp),
-              )),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 2.w),
+                child: Center(
+                    child: Text(
+                  'متابعة القراءة',
+                  maxLines: 1,
+                  style: TextStyle(
+                      color: white,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10.sp),
+                )),
+              ),
             ),
           ),
           body: QuranBody()),
