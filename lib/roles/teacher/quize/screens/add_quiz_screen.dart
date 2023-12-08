@@ -35,37 +35,156 @@ class AddQuizScreen extends StatelessWidget {
         length: 3,
         initialIndex: 0,
         child: Scaffold(
-          appBar: _buildAppBar(),
-          floatingActionButton: InkWell(
-            onTap: () {},
-            child: Opacity(
-              opacity: 0.9,
-              child: Container(
-                width: 26.w,
-                height: 8.h,
-                decoration: BoxDecoration(
-                  color: purble3,
-                  borderRadius: BorderRadius.circular(10.sp),
+          appBar: AppBar(
+            backgroundColor: purble2,
+            title: Center(
+              child: Text(
+                'إضافة إختبار',
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontFamily: bj,
+                  fontWeight: FontWeight.w500,
+                  color: white,
                 ),
-                child: Center(
-                    child: Text(
-                  ' إرسال الإختبار',
-                  maxLines: 1,
-                  style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 8.sp),
-                )),
               ),
             ),
+            leading: IconButton(
+              icon: Icon(
+                AppIcons.back_icon,
+                color: white,
+                size: 16.sp,
+              ),
+              onPressed: () {
+                if (_controller.List_Questions.length > 0) {
+                  Get.defaultDialog(
+                    title: 'تحذير',
+                    content: StatefulBuilder(
+                      builder: (BuildContext context, StateSetter setState) {
+                        return Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.warning_rounded,
+                              color: Colors.red,
+                              size: 30.sp,
+                            ),
+                            Text(
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.center,
+                              'بحال وافقت على الرجوع سيتم حذف الإختبار  الذي أدخلته',
+                              style: TextStyle(
+                                color: black,
+                                fontSize: 10.sp,
+                                fontFamily: 'Bahij',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppPages.hometeacher);
+                              },
+                              child: Container(
+                                height: 6.h,
+                                width: 18.w,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1.sp,
+                                      color: purble2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.sp),
+                                    color: purble2),
+                                child: Center(
+                                  child: Text(
+                                    'رجوع',
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      color: white,
+                                      fontSize: 10.sp,
+                                      fontFamily: 'Bahij',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                  _controller.List_Questions.clear();
+                } else
+                  Get.toNamed(AppPages.hometeacher);
+              },
+            ),
+            bottom: TabBar(
+                indicatorColor: white,
+                automaticIndicatorColorAdjustment: true,
+                overlayColor: MaterialStateProperty.all(purble3),
+                labelColor: white,
+                unselectedLabelColor: grey2,
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: [
+                  Text(
+                    'الأسئلة',
+                    style: TextStyle(
+                        color: white,
+                        fontFamily: bj,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12.sp),
+                  ),
+                  Text(
+                    'إضافة سؤال',
+                    style: TextStyle(
+                      color: white,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                  Text(
+                    'إرسال',
+                    style: TextStyle(
+                      color: white,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ]),
           ),
+          // floatingActionButton: InkWell(
+          //   onTap: () {},
+          //   child: Opacity(
+          //     opacity: 0.9,
+          //     child: Container(
+          //       width: 26.w,
+          //       height: 8.h,
+          //       decoration: BoxDecoration(
+          //         color: purble3,
+          //         borderRadius: BorderRadius.circular(10.sp),
+          //       ),
+          //       child: Center(
+          //           child: Text(
+          //         ' إرسال الإختبار',
+          //         maxLines: 1,
+          //         style: TextStyle(
+          //             color: white,
+          //             fontFamily: bj,
+          //             fontWeight: FontWeight.bold,
+          //             fontSize: 8.sp),
+          //       )),
+          //     ),
+          //   ),
+          // ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: TabBarView(
               children: [
-                //  Container(),
-
+                //  Container(),ذ
                 view_Questions(controller: _controller),
                 Add_Question(),
                 The_Question(
@@ -382,9 +501,8 @@ class The_Question extends StatelessWidget {
                                         color: black,
                                         fontFamily: bj,
                                         fontSize: 12.sp,
-                                        decoration: item.isChecked!
-                                            ? TextDecoration.lineThrough
-                                            : null,
+                                        decoration:
+                                            item.isChecked! ? null : null,
                                       ),
                                     ),
                                     tileColor:
@@ -418,7 +536,107 @@ class The_Question extends StatelessWidget {
                 width: 70.w,
                 height: 6.h,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //_controller.addQuiz
+                    Get.defaultDialog(
+                      title: '',
+                      content: StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 12, left: 12, right: 12),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                  ' هل انت متأكد من إرسال الإختبار',
+                                  style: TextStyle(
+                                    color: black,
+                                    fontSize: 13.sp,
+                                    fontFamily: 'Bahij',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Icon(
+                                  Icons.warning_rounded,
+                                  color: Colors.green,
+                                  size: 30.sp,
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                      ' ${_controller.List_Questions.length}',
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 13.sp,
+                                        fontFamily: 'Bahij',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                      'عدد الأسئلة :',
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 13.sp,
+                                        fontFamily: 'Bahij',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    _controller.addQuiz();
+                                  },
+                                  child: Container(
+                                    height: 6.h,
+                                    width: 18.w,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                          width: 1.sp,
+                                          color: purble2,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.sp),
+                                        color: purble2),
+                                    child: Center(
+                                      child: Text(
+                                        'إرسال',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          color: white,
+                                          fontSize: 10.sp,
+                                          fontFamily: 'Bahij',
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(purble2),
                   ),
@@ -783,124 +1001,4 @@ class Add_Question extends StatelessWidget {
       ),
     );
   }
-}
-
-AppBar _buildAppBar() {
-  return AppBar(
-    backgroundColor: purble2,
-    title: Center(
-      child: Text(
-        'إضافة إختبار',
-        style: TextStyle(
-          fontSize: 18.sp,
-          fontFamily: bj,
-          fontWeight: FontWeight.w500,
-          color: white,
-        ),
-      ),
-    ),
-    leading: IconButton(
-      icon: Icon(
-        AppIcons.back_icon,
-        color: white,
-        size: 16.sp,
-      ),
-      onPressed: () {
-        Get.defaultDialog(
-          title: 'تحذير',
-          content: StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.warning_rounded,
-                    color: Colors.red,
-                    size: 30.sp,
-                  ),
-                  Text(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    'بحال وافقت على الرجوع سيتم حذف الإختبار  الذي أدخلته',
-                    style: TextStyle(
-                      color: black,
-                      fontSize: 10.sp,
-                      fontFamily: 'Bahij',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(AppPages.shome);
-                    },
-                    child: Container(
-                      height: 6.h,
-                      width: 18.w,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1.sp,
-                            color: purble2,
-                          ),
-                          borderRadius: BorderRadius.circular(5.sp),
-                          color: purble2),
-                      child: Center(
-                        child: Text(
-                          'رجوع',
-                          maxLines: 1,
-                          style: TextStyle(
-                            color: white,
-                            fontSize: 10.sp,
-                            fontFamily: 'Bahij',
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
-        );
-      },
-    ),
-    bottom: TabBar(
-        indicatorColor: white,
-        automaticIndicatorColorAdjustment: true,
-        overlayColor: MaterialStateProperty.all(purble3),
-        labelColor: white,
-        unselectedLabelColor: grey2,
-        indicatorSize: TabBarIndicatorSize.label,
-        tabs: [
-          Text(
-            'الأسئلة',
-            style: TextStyle(
-                color: white,
-                fontFamily: bj,
-                fontWeight: FontWeight.w400,
-                fontSize: 12.sp),
-          ),
-          Text(
-            'إضافة سؤال',
-            style: TextStyle(
-              color: white,
-              fontFamily: bj,
-              fontWeight: FontWeight.w400,
-              fontSize: 12.sp,
-            ),
-          ),
-          Text(
-            'إرسال',
-            style: TextStyle(
-              color: white,
-              fontFamily: bj,
-              fontWeight: FontWeight.w400,
-              fontSize: 12.sp,
-            ),
-          ),
-        ]),
-  );
 }

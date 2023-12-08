@@ -59,6 +59,7 @@ class QuizController extends GetxController {
     update(['group_check']);
   }
 
+  void addQuiz() {}
   void checked_all_groups() {
     ischecked_all = !ischecked_all!;
     if (ischecked_all == true) {
