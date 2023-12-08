@@ -235,7 +235,10 @@ class AppPages {
     GetPage(
       name: quizes_teacher,
       page: () => AddQuizScreen(),
-      binding: ShareQuizBinding(),
+      bindings: [
+        QuizBinding(),
+        ShareQuizBinding(),
+      ],
     ),
   ];
 }
