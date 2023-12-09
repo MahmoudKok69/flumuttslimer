@@ -302,7 +302,7 @@ class scroll_quizes extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   width: 40.w,
-                  height: 20.h,
+                  height: 30.h,
                   decoration: BoxDecoration(
                     color: white,
                     boxShadow: [

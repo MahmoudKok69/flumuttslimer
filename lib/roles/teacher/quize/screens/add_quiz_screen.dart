@@ -1,12 +1,16 @@
 import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/models/question_model.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/Home_teacher_controller.dart';
 import 'package:flumuttslimer/roles/teacher/quize/add_quiz_components.dart';
+import 'package:flumuttslimer/roles/teacher/quize/controllers/quiz_controller.dart';
 import 'package:flumuttslimer/roles/teacher/quize/controllers/share_quiz_controller.dart';
+import 'package:flumuttslimer/roles/teacher/quize/models/Add_QuizModel.dart';
 
 import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/my_group/my_group_controller.dart';
@@ -22,23 +26,171 @@ class AddQuizScreen extends StatelessWidget {
     super.key,
   });
 
-  final _controller = Get.find<ShareQuizController>();
+  final _controller = Get.find<QuizController>();
   final _formKey = GlobalKey<FormState>();
-  int selectedValue = 1;
+  var questionInde = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 2,
+        length: 3,
         initialIndex: 0,
         child: Scaffold(
-          appBar: _buildAppBar(),
+          appBar: AppBar(
+            backgroundColor: purble2,
+            title: Center(
+              child: Text(
+                'إضافة إختبار',
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontFamily: bj,
+                  fontWeight: FontWeight.w500,
+                  color: white,
+                ),
+              ),
+            ),
+            leading: IconButton(
+              icon: Icon(
+                AppIcons.back_icon,
+                color: white,
+                size: 16.sp,
+              ),
+              onPressed: () {
+                if (_controller.List_Questions.length > 0) {
+                  Get.defaultDialog(
+                    title: 'تحذير',
+                    content: StatefulBuilder(
+                      builder: (BuildContext context, StateSetter setState) {
+                        return Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.warning_rounded,
+                              color: Colors.red,
+                              size: 30.sp,
+                            ),
+                            Text(
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.center,
+                              'بحال وافقت على الرجوع سيتم حذف الإختبار  الذي أدخلته',
+                              style: TextStyle(
+                                color: black,
+                                fontSize: 10.sp,
+                                fontFamily: 'Bahij',
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed(AppPages.hometeacher);
+                              },
+                              child: Container(
+                                height: 6.h,
+                                width: 18.w,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                      width: 1.sp,
+                                      color: purble2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.sp),
+                                    color: purble2),
+                                child: Center(
+                                  child: Text(
+                                    'رجوع',
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      color: white,
+                                      fontSize: 10.sp,
+                                      fontFamily: 'Bahij',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                  _controller.List_Questions.clear();
+                } else
+                  Get.toNamed(AppPages.hometeacher);
+              },
+            ),
+            bottom: TabBar(
+                indicatorColor: white,
+                automaticIndicatorColorAdjustment: true,
+                overlayColor: MaterialStateProperty.all(purble3),
+                labelColor: white,
+                unselectedLabelColor: grey2,
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: [
+                  Text(
+                    'الأسئلة',
+                    style: TextStyle(
+                        color: white,
+                        fontFamily: bj,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12.sp),
+                  ),
+                  Text(
+                    'إضافة سؤال',
+                    style: TextStyle(
+                      color: white,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                  Text(
+                    'إرسال',
+                    style: TextStyle(
+                      color: white,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ]),
+          ),
+          // floatingActionButton: InkWell(
+          //   onTap: () {},
+          //   child: Opacity(
+          //     opacity: 0.9,
+          //     child: Container(
+          //       width: 26.w,
+          //       height: 8.h,
+          //       decoration: BoxDecoration(
+          //         color: purble3,
+          //         borderRadius: BorderRadius.circular(10.sp),
+          //       ),
+          //       child: Center(
+          //           child: Text(
+          //         ' إرسال الإختبار',
+          //         maxLines: 1,
+          //         style: TextStyle(
+          //             color: white,
+          //             fontFamily: bj,
+          //             fontWeight: FontWeight.bold,
+          //             fontSize: 8.sp),
+          //       )),
+          //     ),
+          //   ),
+          // ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: TabBarView(
               children: [
-                //  Container(),
-                The_Question(controller: _controller, formKey: _formKey),
-                Add_Question(selectedValue: selectedValue),
+                //  Container(),ذ
+                view_Questions(controller: _controller),
+                Add_Question(),
+                The_Question(
+                  formKey: _formKey,
+                  quiz_name: _controller.name_quiz,
+                ),
               ],
             ),
           ),
@@ -46,23 +198,192 @@ class AddQuizScreen extends StatelessWidget {
   }
 }
 
-class The_Question extends StatelessWidget {
-  const The_Question({
+class view_Questions extends StatelessWidget {
+  view_Questions({
     super.key,
-    required ShareQuizController controller,
-    required GlobalKey<FormState> formKey,
-  })  : _controller = controller,
-        _formKey = formKey;
+    required QuizController controller,
+  }) : _controller = controller;
 
-  final ShareQuizController _controller;
+  final QuizController _controller;
+  var questionInde = 0;
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder(
+        //id: 'setvalue_choose',
+        init: _controller,
+        builder: (_) {
+          return ListView(
+            children: [
+              ..._controller.List_Questions.map((e) {
+                return Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Container(
+                        decoration: BoxDecoration(
+                          color: white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: black.withOpacity(0.4),
+                              blurRadius: 1,
+                              offset: const Offset(2, 3),
+                              spreadRadius: 1,
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(5.sp),
+                        ),
+                        child: ListTile(
+                            tileColor: white,
+                            style: ListTileStyle.list,
+                            title: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.delete_outline_rounded,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                    ArabicText(
+                                      text: 'السؤال : ${++questionInde}',
+                                      fontSize: 14.sp,
+                                      // fontFamily: bj,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ],
+                                ),
+                                ArabicText(
+                                  text: ' ${e['question']}',
+                                  fontSize: 14.sp,
+                                  // fontFamily: bj,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ArabicText(
+                                      text: ' ${e['option1']}',
+                                      fontSize: 14.sp,
+                                      // fontFamily: bj,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    Icon(
+                                      Icons.circle,
+                                      color: e['correctAnswer'] == 1
+                                          ? green1
+                                          : Colors.red,
+                                      size: 10.sp,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ArabicText(
+                                      text: ' ${e['option2']}',
+                                      fontSize: 14.sp,
+                                      // fontFamily: bj,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    Icon(
+                                      Icons.circle,
+                                      color: e['correctAnswer'] == 2
+                                          ? green1
+                                          : Colors.red,
+                                      size: 10.sp,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ArabicText(
+                                      text: ' ${e['option3']}',
+                                      fontSize: 14.sp,
+                                      // fontFamily: bj,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    Icon(
+                                      Icons.circle,
+                                      color: e['correctAnswer'] == 3
+                                          ? green1
+                                          : Colors.red,
+                                      size: 10.sp,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ArabicText(
+                                      text: ' ${e['option4']}',
+                                      fontSize: 14.sp,
+                                      // fontFamily: bj,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    Icon(
+                                      Icons.circle,
+                                      color: e['correctAnswer'] == 4
+                                          ? green1
+                                          : Colors.red,
+                                      size: 10.sp,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ))));
+              }),
+              SizedBox(
+                height: 20.h,
+              )
+            ],
+          );
+        });
+  }
+}
+
+class The_Question extends StatelessWidget {
+  The_Question(
+      {super.key, required GlobalKey<FormState> formKey, required quiz_name})
+      : _formKey = formKey,
+        _quiz_name = quiz_name;
+
   final GlobalKey<FormState> _formKey;
-
+  String _quiz_name;
+  final _controller = Get.find<QuizController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
+          Expanded(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                _controller.name_quiz,
+                style: TextStyle(
+                  color: black,
+                  fontSize: 12.sp,
+                  fontFamily: 'Bahij',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                ':إسم الإختبار',
+                style: TextStyle(
+                  color: black,
+                  fontSize: 12.sp,
+                  fontFamily: 'Bahij',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )),
           Expanded(
             flex: 1,
             child: Row(
@@ -83,9 +404,9 @@ class The_Question extends StatelessWidget {
                     SizedBox(
                       width: 3.w,
                     ),
-                    GetBuilder<ShareQuizController>(
+                    GetBuilder<QuizController>(
                       id: 'checked_all_groups',
-                      init: ShareQuizController(),
+                      init: QuizController(),
                       builder: (_) {
                         return CustomCheckBox(
                           height: 12.sp,
@@ -143,9 +464,9 @@ class The_Question extends StatelessWidget {
                         var item = _controller.groups[index];
                         return Padding(
                             padding: EdgeInsets.only(top: 1.h),
-                            child: GetBuilder<ShareQuizController>(
+                            child: GetBuilder<QuizController>(
                               id: 'group_check',
-                              init: ShareQuizController(),
+                              init: QuizController(),
                               builder: (_) {
                                 return PhysicalModel(
                                   elevation: 5,
@@ -180,9 +501,8 @@ class The_Question extends StatelessWidget {
                                         color: black,
                                         fontFamily: bj,
                                         fontSize: 12.sp,
-                                        decoration: item.isChecked!
-                                            ? TextDecoration.lineThrough
-                                            : null,
+                                        decoration:
+                                            item.isChecked! ? null : null,
                                       ),
                                     ),
                                     tileColor:
@@ -216,7 +536,107 @@ class The_Question extends StatelessWidget {
                 width: 70.w,
                 height: 6.h,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //_controller.addQuiz
+                    Get.defaultDialog(
+                      title: '',
+                      content: StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 12, left: 12, right: 12),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.center,
+                                  ' هل انت متأكد من إرسال الإختبار',
+                                  style: TextStyle(
+                                    color: black,
+                                    fontSize: 13.sp,
+                                    fontFamily: 'Bahij',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Icon(
+                                  Icons.warning_rounded,
+                                  color: Colors.green,
+                                  size: 30.sp,
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                      ' ${_controller.List_Questions.length}',
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 13.sp,
+                                        fontFamily: 'Bahij',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.center,
+                                      'عدد الأسئلة :',
+                                      style: TextStyle(
+                                        color: black,
+                                        fontSize: 13.sp,
+                                        fontFamily: 'Bahij',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    _controller.addQuiz();
+                                  },
+                                  child: Container(
+                                    height: 6.h,
+                                    width: 18.w,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                          width: 1.sp,
+                                          color: purble2,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.sp),
+                                        color: purble2),
+                                    child: Center(
+                                      child: Text(
+                                        'إرسال',
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          color: white,
+                                          fontSize: 10.sp,
+                                          fontFamily: 'Bahij',
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(purble2),
                   ),
@@ -244,332 +664,341 @@ class The_Question extends StatelessWidget {
 }
 
 class Add_Question extends StatelessWidget {
-  const Add_Question({
+  Add_Question({
     super.key,
-    required this.selectedValue,
   });
-
-  final int selectedValue;
+  final _controller = Get.find<QuizController>();
+  final TextEditingController _questionController = TextEditingController();
+  final TextEditingController _Option1_Controller = TextEditingController();
+  final TextEditingController _Option2_Controller = TextEditingController();
+  final TextEditingController _Option3_Controller = TextEditingController();
+  final TextEditingController _Option4_Controller = TextEditingController();
+  final selectedValue = 1.obs;
+  final _formKey = GlobalKey<FormState>();
+  var index_question = 0;
 
   @override
   Widget build(BuildContext context) {
+    var length = _controller.List_Questions.length;
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: ListView(
-        //  crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text(
-            'إسم الأختبار',
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontFamily: bj,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: 1.h),
-          TextFormField(
-            textDirection: TextDirection.ltr,
-            textAlign: TextAlign.right,
-            decoration: inputDecorationStyle(
+      child: Form(
+        key: _formKey,
+        child: ListView(
+          //  crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(
               'إسم الأختبار',
-              ' ...أدخل إسم الأختبار  ',
-            ),
-            onChanged: (value) {
-              //  _controller.setname(value);
-            },
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
-          Text(
-            'السؤال :1 ',
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontFamily: bj,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          SizedBox(height: 1.h),
-          TextFormField(
-            textDirection: TextDirection.ltr,
-            textAlign: TextAlign.right,
-            decoration: inputDecorationStyle(
-              'السؤال',
-              ' ...أدخل السؤال  ',
-            ),
-            onChanged: (value) {
-              //  _controller.setname(value);
-            },
-          ),
-          SizedBox(
-            height: 1.h,
-          ),
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: ListTile(
-              title: Text(
-                ' الخيارات',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontFamily: bj,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              subtitle: Text(
-                ' قم بأختيار الجواب الصحيح  و إلا سيتم أختيار الخيار الأول',
-                style: TextStyle(
-                  fontSize: 10.sp,
-                  fontFamily: bj,
-                  color: grey4,
-                  fontWeight: FontWeight.w500,
-                ),
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: bj,
+                fontWeight: FontWeight.w500,
               ),
             ),
-          ),
-          Row(
-            children: [
-              Expanded(
-                flex: 7,
-                child: TextFormField(
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle(
-                    'الخيار الأول',
-                    '...أدخل الخيار الأول',
+            SizedBox(height: 1.h),
+            TextFormField(
+              //  controller: _textFieldController,
+              initialValue: _controller.name_quiz,
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.right,
+              decoration: inputDecorationStyle(
+                'إسم الأختبار',
+                ' ...أدخل إسم الأختبار  ',
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty || value.trim().length < 1) {
+                  return 'يرجى تعبئة الخانة';
+                }
+                return null;
+              },
+              onChanged: (value) {
+                _controller.setname_quiz(value);
+                print(_controller.name_quiz);
+              },
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Text(
+              'السؤال :${++length} ',
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: bj,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            SizedBox(height: 1.h),
+            TextFormField(
+              controller: _questionController,
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.right,
+              decoration: inputDecorationStyle(
+                'السؤال',
+                ' ...أدخل السؤال  ',
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty || value.trim().length < 1) {
+                  return 'يرجى تعبئة الخانة';
+                }
+                return null;
+              },
+              onChanged: (value) {
+                print(_questionController.text);
+              },
+            ),
+            SizedBox(
+              height: 1.h,
+            ),
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: ListTile(
+                title: Text(
+                  ' الخيارات',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontFamily: bj,
+                    fontWeight: FontWeight.w500,
                   ),
-                  onChanged: (value) {
-                    //  _controller.setname(value);
-                  },
+                ),
+                subtitle: Text(
+                  ' قم بأختيار الجواب الصحيح  و إلا سيتم أختيار الخيار الأول',
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    fontFamily: bj,
+                    color: grey4,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Radio(
-                    value: 1,
-                    groupValue: selectedValue,
-                    onChanged: (int? value) {
-                      // setState(() {
-                      //   selectedValue = value!;
-                      // });
-                    },
-                  ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 1.h),
-          Row(
-            children: [
-              Expanded(
-                flex: 7,
-                child: TextFormField(
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle(
-                    'الخيار الثاني',
-                    '...أدخل الخيار الثاني',
-                  ),
-                  onChanged: (value) {
-                    //  _controller.setname(value);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Radio(
-                    value: 2,
-                    groupValue: selectedValue,
-                    onChanged: (int? value) {
-                      // setState(() {
-                      //   selectedValue = value!;
-                      // });
-                    },
-                  ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 1.h),
-          Row(
-            children: [
-              Expanded(
-                flex: 7,
-                child: TextFormField(
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle(
-                    'الخيار الثالت',
-                    '...أدخل الخيار الثالت',
-                  ),
-                  onChanged: (value) {
-                    //  _controller.setname(value);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Radio(
-                    value: 3,
-                    groupValue: selectedValue,
-                    onChanged: (int? value) {
-                      // setState(() {
-                      //   selectedValue = value!;
-                      // });
-                    },
-                  ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 1.h),
-          Row(
-            children: [
-              Expanded(
-                flex: 7,
-                child: TextFormField(
-                  textDirection: TextDirection.ltr,
-                  textAlign: TextAlign.right,
-                  decoration: inputDecorationStyle(
-                    'الخيار الرابع',
-                    '...أدخل الخيار الرابع',
-                  ),
-                  onChanged: (value) {
-                    //  _controller.setname(value);
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Center(
-                  child: Radio(
-                    value: 4,
-                    groupValue: selectedValue,
-                    onChanged: (int? value) {
-                      // setState(() {
-                      //   selectedValue = value!;
-                      // });
-                    },
-                  ),
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-AppBar _buildAppBar() {
-  return AppBar(
-    backgroundColor: purble2,
-    title: Center(
-      child: Text(
-        'إضافة إختبار',
-        style: TextStyle(
-          fontSize: 18.sp,
-          fontFamily: bj,
-          fontWeight: FontWeight.w500,
-          color: white,
-        ),
-      ),
-    ),
-    leading: IconButton(
-      icon: Icon(
-        AppIcons.back_icon,
-        color: white,
-        size: 16.sp,
-      ),
-      onPressed: () {
-        Get.defaultDialog(
-          title: 'تحذير',
-          content: StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.warning_rounded,
-                    color: Colors.red,
-                    size: 30.sp,
-                  ),
-                  Text(
-                    textDirection: TextDirection.rtl,
-                    textAlign: TextAlign.center,
-                    'بحال وافقت على الرجوع سيتم حذف الإختبار  الذي أدخلته',
-                    style: TextStyle(
-                      color: black,
-                      fontSize: 10.sp,
-                      fontFamily: 'Bahij',
-                      fontWeight: FontWeight.bold,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: TextFormField(
+                    controller: _Option1_Controller,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.right,
+                    decoration: inputDecorationStyle(
+                      'الخيار الأول',
+                      '...أدخل الخيار الأول',
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(AppPages.shome);
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          value.trim().length < 1) {
+                        return 'يرجى تعبئة الخانة';
+                      }
+                      return null;
                     },
-                    child: Container(
-                      height: 6.h,
-                      width: 18.w,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1.sp,
-                            color: purble2,
-                          ),
-                          borderRadius: BorderRadius.circular(5.sp),
-                          color: purble2),
-                      child: Center(
-                        child: Text(
-                          'رجوع',
-                          maxLines: 1,
+                    onChanged: (value) {
+                      //  _controller.setname(value);
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Obx(() => Radio<int>(
+                          value: 1,
+                          groupValue: selectedValue.value,
+                          onChanged: (value) {
+                            selectedValue.value = value!;
+                          },
+                        )),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 1.h),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: TextFormField(
+                    controller: _Option2_Controller,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.right,
+                    decoration: inputDecorationStyle(
+                      'الخيار الثاني',
+                      '...أدخل الخيار الثاني',
+                    ),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          value.trim().length < 1) {
+                        return 'يرجى تعبئة الخانة';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) {
+                      //  _controller.setname(value);
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Obx(() => Radio<int>(
+                          value: 2,
+                          groupValue: selectedValue.value,
+                          onChanged: (value) {
+                            selectedValue.value = value!;
+                            print(selectedValue.value);
+                          },
+                        )),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 1.h),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: TextFormField(
+                    controller: _Option3_Controller,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.right,
+                    decoration: inputDecorationStyle(
+                      'الخيار الثالت',
+                      '...أدخل الخيار الثالت',
+                    ),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          value.trim().length < 1) {
+                        return 'يرجى تعبئة الخانة';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) {
+                      //  _controller.setname(value);
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Obx(() => Radio<int>(
+                          value: 3,
+                          groupValue: selectedValue.value,
+                          onChanged: (value) {
+                            selectedValue.value = value!;
+                          },
+                        )),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 1.h),
+            Row(
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: TextFormField(
+                    controller: _Option4_Controller,
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.right,
+                    decoration: inputDecorationStyle(
+                      'الخيار الرابع',
+                      '...أدخل الخيار الرابع',
+                    ),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          value.trim().length < 1) {
+                        return 'يرجى تعبئة الخانة';
+                      }
+                      return null;
+                    },
+                    onChanged: (value) {
+                      //  _controller.setname(value);
+                    },
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Center(
+                    child: Obx(() => Radio<int>(
+                          value: 4,
+                          groupValue: selectedValue.value,
+                          onChanged: (value) {
+                            selectedValue.value = value!;
+                          },
+                        )),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 5.h),
+            Center(
+              child: SizedBox(
+                width: 35.w,
+                height: 6.h,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _controller.addToQuestionList(AddQuizModel(
+                        name_quiz: _controller.name_quiz,
+                        question: _questionController.text,
+                        correctAnswer: selectedValue.value,
+                        option1: _Option1_Controller.text,
+                        option2: _Option2_Controller.text,
+                        option3: _Option3_Controller.text,
+                        option4: _Option4_Controller.text,
+                      ));
+                      print(_controller.List_Questions);
+                      _questionController.text = '';
+                      _Option1_Controller.text = '';
+                      _Option2_Controller.text = '';
+                      _Option3_Controller.text = '';
+                      _Option4_Controller.text = '';
+                      selectedValue.value = 1;
+
+                      Get.showSnackbar(GetSnackBar(
+                        duration: const Duration(seconds: 2),
+                        backgroundColor: white,
+                        snackStyle: SnackStyle.GROUNDED,
+                        padding: EdgeInsets.symmetric(
+                            vertical: 1.h, horizontal: 3.w),
+                        boxShadows: [BoxShadow(color: black, blurRadius: 5)],
+                        animationDuration: const Duration(milliseconds: 500),
+                        messageText: Text(
+                          'تم إضافة السؤال بنجاح',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: white,
-                            fontSize: 10.sp,
-                            fontFamily: 'Bahij',
-                            fontWeight: FontWeight.bold,
+                            color: grey1,
+                            fontFamily: bj,
+                            fontSize: 16.sp,
                           ),
                         ),
+                      ));
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(purble2),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'إضافة السؤال',
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(
+                        color: white,
+                        fontFamily: 'Bahij',
+                        fontSize: 8.sp,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
-                ],
-              );
-            },
-          ),
-        );
-      },
-    ),
-    bottom: TabBar(
-        indicatorColor: white,
-        automaticIndicatorColorAdjustment: true,
-        overlayColor: MaterialStateProperty.all(purble3),
-        labelColor: white,
-        unselectedLabelColor: grey2,
-        indicatorSize: TabBarIndicatorSize.label,
-        tabs: [
-          Text(
-            'الأسئلة',
-            style: TextStyle(
-                color: white,
-                fontFamily: bj,
-                fontWeight: FontWeight.w400,
-                fontSize: 12.sp),
-          ),
-          Text(
-            'إضافة سؤال',
-            style: TextStyle(
-              color: white,
-              fontFamily: bj,
-              fontWeight: FontWeight.w400,
-              fontSize: 12.sp,
+                ),
+              ),
             ),
-          ),
-        ]),
-  );
+            SizedBox(height: 5.h)
+          ],
+        ),
+      ),
+    );
+  }
 }

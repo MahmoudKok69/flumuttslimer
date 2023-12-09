@@ -205,5 +205,39 @@ class AppPages {
       page: () => const SGroupsScreen(),
       binding: sGroupsBinding(),
     ),
+    GetPage(
+      name: squizes,
+      page: () => const StudentQuizesScreen(),
+      binding: StudentQuizesBinding(),
+    ),
+    GetPage(
+      name: squizstart,
+      page: () => StudentQuizStartScreen(),
+    ),
+    GetPage(
+      name: squizquestion,
+      page: () => StudentQuizQuestionsScreen(),
+    ),
+    GetPage(
+      name: squizresult,
+      page: () => QuizResultScreen(),
+    ),
+    GetPage(
+      name: squizcheck,
+      page: () => StudentQuizCheckScreen(),
+    ),
+    GetPage(
+      name: welcome,
+      page: () => WelcomeScreen(),
+      binding: WelcomeBinding(),
+    ),
+    GetPage(
+      name: quizes_teacher,
+      page: () => AddQuizScreen(),
+      bindings: [
+        QuizBinding(),
+        ShareQuizBinding(),
+      ],
+    ),
   ];
 }

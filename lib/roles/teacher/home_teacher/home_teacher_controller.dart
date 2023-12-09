@@ -1,5 +1,5 @@
 import 'package:flumuttslimer/roles/teacher/Home_teacher/models/GroupesTeachModel.dart';
-import 'package:flumuttslimer/roles/teacher/home_teacher/models/QuizTeachModel.dart';
+import 'package:flumuttslimer/roles/teacher/quize/models/QuizTeachModel.dart';
 import 'package:get/get.dart';
 
 class HomeTeacherController extends GetxController {
