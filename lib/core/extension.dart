@@ -7,7 +7,9 @@ extension TextLanguges on Widget {
 
   Widget rightDirction() =>
       Directionality(textDirection: TextDirection.rtl, child: this);
+}
 
+extension WidgetPadding on Widget {
   Widget pSymmetric({double? horizontal, double? vertical}) {
     return Padding(
       padding: EdgeInsets.symmetric(

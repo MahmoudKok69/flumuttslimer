@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+class BottomNavBarController extends GetxController {
   int index = 0;
-
-  updateNavBar(int newIndex) {
+  selectIndex(int newIndex) {
     index = newIndex;
     update(['nav_bar']);
   }

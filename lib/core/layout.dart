@@ -9,9 +9,11 @@ buildAppBar(
     required leadingIcon,
     required actionIcon,
     required onTapLeadingIcon,
-    required onTapActionIcon}) {
+    required onTapActionIcon,
+    bottom}) {
   return AppBar(
     backgroundColor: purble2,
+    bottom: bottom,
     title: Center(
       child: Text(
         text,
