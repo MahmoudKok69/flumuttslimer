@@ -14,9 +14,18 @@ class QuizController extends GetxController {
 
   var List_Questions = [];
 
+  deletQuestion(index) {
+    List_Questions.removeAt(index);
+    update();
+  }
+
+  int currentQuestionIndex = 1;
+
   void addToQuestionList(AddQuizModel addQuizModel) {
     List_Questions.add(addQuizModel.toJson());
     print(List_Questions);
+    ++currentQuestionIndex;
+    update(['add_question']);
   }
 
 ////////*************************************///////////////////////// */

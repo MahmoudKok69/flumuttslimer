@@ -130,3 +130,31 @@ class PointIcon extends StatelessWidget {
     );
   }
 }
+
+class SvgIcon extends StatelessWidget {
+  final String iconTitle;
+  final Color? color;
+  final double? h;
+  final double? w;
+  final bool isDierctional;
+
+  const SvgIcon({
+    super.key,
+    required this.iconTitle,
+    this.color,
+    this.h,
+    this.w,
+    this.isDierctional = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      iconTitle,
+      height: h,
+      width: w,
+      matchTextDirection: isDierctional,
+      color: color,
+    );
+  }
+}

@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/teacher/welcome/welcome_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -20,8 +22,6 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final _controller = Get.find<WelcomeController>();
-  var _selectedValue = 'تغيير الصورة';
-  var _usStates = ["تسجيل الخروج", "تغيير الصورة"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           height: 2,
                         ),
                         Text(
-                          ' ما  هي صفتك التي تستخدمها في التطبيق',
+                          ' ما  هي صفتك التي تستخدمها في التطبيق؟',
                           style: TextStyle(
                               color: white,
                               fontFamily: bj,
@@ -83,33 +83,31 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   init: WelcomeController(),
                   builder: (_) {
                     return Row(
-                      //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 230.sp,
-                          width: 140.sp,
-                          decoration: BoxDecoration(
-                            border: _controller.isStudent ? Border.all() : null,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: GestureDetector(
-                            onTap: () {
-                              if (_controller.isTeacher) {
-                                _controller.setvalue_choose();
-                              }
-                            },
+                        Expanded(
+                          child: Center(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Expanded(
-                                  flex: 2,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: const AssetImage(
-                                            'assets/images/student.png'),
-                                      ),
-                                    ),
+                                Container(
+                                  height: min(100.w, 100.h) / 2,
+                                  width: min(100.w, 100.h) / 2,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: _controller.isStudent
+                                        ? Border.all(
+                                            color: purble1, width: 5.sp)
+                                        : null,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/welcome_screen/student1.png'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (!_controller.isStudent) {
+                                        _controller.setvalue_choose();
+                                      }
+                                    },
                                   ),
                                 ),
                                 SizedBox(
@@ -121,7 +119,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     style: TextStyle(
                                         color: white,
                                         fontFamily: bj,
-                                        fontSize: 14.sp,
+                                        fontSize: 20.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -132,31 +130,30 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         SizedBox(
                           width: 5.sp,
                         ),
-                        Container(
-                          height: 230.sp,
-                          width: 140.sp,
-                          decoration: BoxDecoration(
-                            border: _controller.isTeacher ? Border.all() : null,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: GestureDetector(
-                            onTap: () {
-                              if (_controller.isStudent) {
-                                _controller.setvalue_choose();
-                              }
-                            },
+                        Expanded(
+                          child: Center(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Expanded(
-                                  flex: 2,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: const AssetImage(
-                                            'assets/images/tecaher.png'),
-                                      ),
-                                    ),
+                                Container(
+                                  height: min(100.w, 100.h) / 2,
+                                  width: min(100.w, 100.h) / 2,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: !_controller.isStudent
+                                        ? Border.all(
+                                            color: purble1, width: 5.sp)
+                                        : null,
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/welcome_screen/teacher1.png'),
+                                        fit: BoxFit.cover),
+                                  ),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      if (_controller.isStudent) {
+                                        _controller.setvalue_choose();
+                                      }
+                                    },
                                   ),
                                 ),
                                 SizedBox(
@@ -168,7 +165,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     style: TextStyle(
                                         color: white,
                                         fontFamily: bj,
-                                        fontSize: 14.sp,
+                                        fontSize: 20.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -182,7 +179,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 10.h,
               ),
               Expanded(
                 flex: 1,
@@ -191,32 +188,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     onTap: () {
                       if (_controller.isStudent) {
                         Get.toNamed(AppPages.shome);
-                      }
-                      if (_controller.isTeacher) {
+                      } else {
                         Get.toNamed(AppPages.hometeacher);
                       }
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(5),
+                    child: BorderedContainer(
                       height: 8.h,
                       width: 30.w,
-                      decoration: BoxDecoration(
-                        color: white,
-                        border: Border.all(
-                          width: 1.sp,
-                          color: purble2,
-                        ),
-                        borderRadius: BorderRadius.circular(5.sp),
-                      ),
+                      color: white,
+                      borderWidth: 0.0,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.arrow_back_ios),
+                          Icon(AppIcons.back_icon),
                           Text(
                             'متابعة ',
                             maxLines: 1,
                             style: TextStyle(
                               fontSize: 14.sp,
-                              fontFamily: 'Bahij',
+                              fontFamily: bj,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

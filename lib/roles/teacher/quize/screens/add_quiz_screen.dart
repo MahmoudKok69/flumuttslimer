@@ -84,7 +84,7 @@ class AddQuizScreen extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Get.toNamed(AppPages.hometeacher);
+                                Get.back();
                               },
                               child: Container(
                                 height: 6.h,
@@ -115,9 +115,10 @@ class AddQuizScreen extends StatelessWidget {
                       },
                     ),
                   );
-                  _controller.List_Questions.clear();
-                } else
-                  Get.toNamed(AppPages.hometeacher);
+                  // _controller.List_Questions.clear();
+                } else {
+                  Get.back();
+                }
               },
             ),
             bottom: TabBar(
@@ -719,14 +720,19 @@ class Add_Question extends StatelessWidget {
             SizedBox(
               height: 1.h,
             ),
-            Text(
-              'السؤال :${++length} ',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontFamily: bj,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            GetBuilder<QuizController>(
+                id: 'add_question',
+                init: QuizController(),
+                builder: (_) {
+                  return Text(
+                    'السؤال :${_controller.currentQuestionIndex} ',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontFamily: bj,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  );
+                }),
             SizedBox(height: 1.h),
             TextFormField(
               controller: _questionController,

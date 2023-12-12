@@ -1,3 +1,5 @@
+import 'package:flumuttslimer/core/bottom_nagigation_bar/bottom_nav_bar_binding.dart';
+import 'package:flumuttslimer/core/bottom_nagigation_bar/bottom_nav_bar_screen.dart';
 import 'package:flumuttslimer/roles/student/bindings/azkar_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/beuati_binding.dart';
 import 'package:flumuttslimer/roles/student/bindings/groups_binding.dart';
@@ -20,7 +22,6 @@ import 'package:flumuttslimer/roles/student/features/auth/register/register_scre
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
 import 'package:flumuttslimer/roles/student/features/groups/groups_screen.dart';
 import 'package:flumuttslimer/roles/student/features/hamsat/hamsat_screen.dart';
-import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
@@ -41,6 +42,7 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/login_teacher_bindin
 import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
+import 'package:flumuttslimer/roles/teacher/binding_teacher/quiz_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/share_quiz_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/welcome_binding.dart';
 
@@ -105,8 +107,8 @@ class AppPages {
     ),
     GetPage(
       name: shome,
-      page: () => BottomNavScreen(),
-      binding: SHomeBinding(),
+      page: () => BottomNavBarScreen(),
+      binding: BottomNavBarBinding(),
     ),
     GetPage(
       name: sAzkar,
@@ -232,12 +234,8 @@ class AppPages {
       binding: WelcomeBinding(),
     ),
     GetPage(
-      name: quizes_teacher,
-      page: () => AddQuizScreen(),
-      bindings: [
-        QuizBinding(),
-        ShareQuizBinding(),
-      ],
-    ),
+        name: quizes_teacher,
+        page: () => AddQuizScreen(),
+        binding: QuizBinding()),
   ];
 }

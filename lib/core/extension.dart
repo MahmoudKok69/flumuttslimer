@@ -28,3 +28,7 @@ extension WidgetPadding on Widget {
         child: this);
   }
 }
+
+extension StringExtension on String {
+  String get SvgIconsPath => 'assets/icons/$this.svg';
+}

@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
+import 'package:flumuttslimer/core/AppIcons.dart';
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
@@ -17,14 +20,14 @@ import 'package:sizer/sizer.dart';
 class SHomeScreen extends StatelessWidget {
   SHomeScreen({super.key});
   var home = [
-    MainPages(
-        name: 'القرأن',
-        image: 'assets/images/home/Quran.png',
-        page: AppPages.sQuran),
-    MainPages(
-        name: 'الأذكار',
-        image: 'assets/images/home/Azkar.png',
-        page: AppPages.sAzkar),
+    // MainPages(
+    //     name: 'القرأن',
+    //     image: 'assets/images/home/Quran.png',
+    //     page: AppPages.sQuran),
+    // MainPages(
+    //     name: 'الأذكار',
+    //     image: 'assets/images/home/Azkar.png',
+    //     page: AppPages.sAzkar),
     MainPages(
         name: 'الأخلاق و الجمال',
         image: 'assets/images/home/beuati.png',
@@ -79,16 +82,19 @@ class SHomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.notifications),
-          iconSize: 16.sp,
-          color: white,
-          onPressed: () {
+        leadingWidth: 12.w,
+        leading: GestureDetector(
+          onTap: () {
             Get.toNamed(AppPages.sNews);
           },
+          child: SvgIcon(
+            iconTitle: AppIcons.notifications,
+            w: 5.w,
+            h: 5.h,
+          ).pOnly(left: 2.w),
         ),
-        actionsIconTheme: IconThemeData(color: white),
         automaticallyImplyLeading: false,
+        actionsIconTheme: IconThemeData(color: white),
       ),
       endDrawer: SizedBox(
         width: 70.w,

@@ -5,6 +5,8 @@ import 'package:flumuttslimer/roles/student/features/Quran/models/QuranPos_model
 import 'package:flumuttslimer/roles/student/features/auth/public_info_model.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
+import 'package:flumuttslimer/roles/teacher/welcome/welcome_controller.dart';
+import 'package:flumuttslimer/roles/teacher/welcome/welcomescreen.dart';
 import 'package:flumuttslimer/router_.dart';
 
 import 'package:flutter/material.dart';
@@ -19,6 +21,9 @@ void main() async {
 
   await setupHive();
   setupHiveAdapters();
+  Get.lazyPut(
+    () => WelcomeController(),
+  );
   runApp(const MyApp());
 }
 
@@ -50,7 +55,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: purble2),
           useMaterial3: true,
         ),
-        home: OnBoardingScreen(),
+        home: WelcomeScreen(),
       ),
     );
   }
