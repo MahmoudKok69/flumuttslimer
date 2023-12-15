@@ -191,8 +191,8 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.size.width);
-    print(Get.size.height);
+    print('width:${Get.size.width}');
+    print('width:${Get.size.height}');
     return Scaffold(
       body: SafeArea(
         child: IntroductionScreen(

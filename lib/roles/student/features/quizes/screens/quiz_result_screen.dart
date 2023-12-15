@@ -27,63 +27,8 @@ class QuizResultScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // const Spacer(),
-              Center(
-                child: BorderedContainer(
-                  width: 95.w,
-                  height: 20.h,
-                  color: white,
-                  borderWidth: 0.0,
-                  child: Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              ArabicText(
-                                text:
-                                    'الأجابات الصحيحة: ${_controller.quizResult}',
-                                color: green1,
-                                fontSize: 16.sp,
-                              ).pOnly(left: 1.w),
-                              Icon(
-                                Icons.check,
-                                color: green1,
-                                size: 16.sp,
-                              ),
-                            ],
-                          ).rightDirction(),
-                          // Spacer(),
-                          Row(
-                            children: [
-                              ArabicText(
-                                text:
-                                    'الأجابات الخاطئة: ${_controller.quizes[quizIndex].questions!.length - _controller.quizResult}',
-                                color: red1,
-                                fontSize: 16.sp,
-                              ).pOnly(left: 1.w),
-                              Icon(
-                                Icons.close,
-                                color: red1,
-                                size: 16.sp,
-                              ),
-                            ],
-                          ).rightDirction(),
-                        ],
-                      ).pSymmetric(horizontal: 2.w, vertical: 2.h),
-                      // Spacer(),
-                      Expanded(
-                        child: Center(
-                          child: Image.asset(
-                            'assets/images/quiz/result.png',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ).rightDirction(),
-                ),
-              ),
+              WrongAndCorrectAnswers(
+                  controller: _controller, quizIndex: quizIndex),
               Center(
                 child: QuizIndicator(
                     correctAnswers: _controller.quizResult,
@@ -93,83 +38,197 @@ class QuizResultScreen extends StatelessWidget {
               SizedBox(
                 height: 2.h,
               ),
-              RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text:
-                        "لقد أنهيت الأختبار و أجبت على ${_controller.quizResult} سؤال من ${_controller.quizes[quizIndex].questions!.length} أسئلة, لقد حصلت على ${_controller.quizResult * 1.5}",
-                    // maxLine: 5,
-                    style: TextStyle(
-                        color: grey1,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20.sp,
-                        fontFamily: bj)),
-                const WidgetSpan(child: PointIcon()),
-              ])),
+              FinishingTheQuizphase(
+                  controller: _controller, quizIndex: quizIndex),
               SizedBox(
                 height: 10.h,
               ),
-              ArabicText(
-                text: 'هل تريد التحقق من نتائجك؟',
-                maxLine: 5,
-                color: grey2,
-                fontWeight: FontWeight.w400,
-                fontSize: 18.sp,
-              ),
+              CheckResultPhase(),
               SizedBox(height: 2.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      _controller.resetValues();
-                      Get.toNamed(AppPages.squizcheck,
-                          parameters: {'index': quizIndex.toString()});
-                    },
-                    child: Container(
-                      width: 35.w,
-                      decoration: BoxDecoration(
-                        color: purble3,
-                        borderRadius: BorderRadius.circular(5.sp),
-                      ),
-                      child: Center(
-                        child: ArabicText(
-                          text: 'نعم',
-                          color: white,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ).pSymmetric(vertical: 1.h),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      _controller.resetQuiz();
-                      Get.until(
-                          (route) => Get.currentRoute == AppPages.squizes);
-                    },
-                    child: Container(
-                      width: 35.w,
-                      decoration: BoxDecoration(
-                        color: purble3,
-                        borderRadius: BorderRadius.circular(5.sp),
-                      ),
-                      child: Center(
-                        child: ArabicText(
-                          text: 'لا',
-                          color: white,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ).pSymmetric(vertical: 1.h),
-                    ),
-                  ),
-                ],
-              ),
+              CheckButtons(controller: _controller, quizIndex: quizIndex),
               // const Spacer(),
             ],
           ).rightDirction().pSymmetric(vertical: 1.h),
         ),
+      ),
+    );
+  }
+}
+
+class CheckButtons extends StatelessWidget {
+  const CheckButtons({
+    super.key,
+    required StudentQuizesController controller,
+    required this.quizIndex,
+  }) : _controller = controller;
+
+  final StudentQuizesController _controller;
+  final int quizIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        InkWell(
+          onTap: () {
+            _controller.resetValues();
+            Get.toNamed(AppPages.squizcheck,
+                parameters: {'index': quizIndex.toString()});
+          },
+          child: Container(
+            width: 35.w,
+            decoration: BoxDecoration(
+              color: purble3,
+              borderRadius: BorderRadius.circular(5.sp),
+            ),
+            child: Center(
+              child: ArabicText(
+                text: 'نعم',
+                color: white,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+              ),
+            ).pSymmetric(vertical: 1.h),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            _controller.resetQuiz();
+            Get.until((route) => Get.currentRoute == AppPages.squizes);
+          },
+          child: Container(
+            width: 35.w,
+            decoration: BoxDecoration(
+              color: purble3,
+              borderRadius: BorderRadius.circular(5.sp),
+            ),
+            child: Center(
+              child: ArabicText(
+                text: 'لا',
+                color: white,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w400,
+              ),
+            ).pSymmetric(vertical: 1.h),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CheckResultPhase extends StatelessWidget {
+  const CheckResultPhase({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ArabicText(
+      text: 'هل تريد التحقق من نتائجك؟',
+      maxLine: 5,
+      color: grey2,
+      fontWeight: FontWeight.w400,
+      fontSize: 18.sp,
+    );
+  }
+}
+
+class FinishingTheQuizphase extends StatelessWidget {
+  const FinishingTheQuizphase({
+    super.key,
+    required StudentQuizesController controller,
+    required this.quizIndex,
+  }) : _controller = controller;
+
+  final StudentQuizesController _controller;
+  final int quizIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+        text: TextSpan(children: [
+      TextSpan(
+          text:
+              "لقد أنهيت الأختبار و أجبت على ${_controller.quizResult} سؤال من ${_controller.quizes[quizIndex].questions!.length} أسئلة, لقد حصلت على ${_controller.quizResult * 1.5}",
+          // maxLine: 5,
+          style: TextStyle(
+              color: grey1,
+              fontWeight: FontWeight.w400,
+              fontSize: 20.sp,
+              fontFamily: bj)),
+      const WidgetSpan(child: PointIcon()),
+    ]));
+  }
+}
+
+class WrongAndCorrectAnswers extends StatelessWidget {
+  const WrongAndCorrectAnswers({
+    super.key,
+    required StudentQuizesController controller,
+    required this.quizIndex,
+  }) : _controller = controller;
+
+  final StudentQuizesController _controller;
+  final int quizIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: BorderedContainer(
+        width: 95.w,
+        height: 20.h,
+        color: white,
+        borderWidth: 0.0,
+        child: Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    ArabicText(
+                      text: 'الأجابات الصحيحة: ${_controller.quizResult}',
+                      color: green1,
+                      fontSize: 16.sp,
+                    ).pOnly(left: 1.w),
+                    Icon(
+                      Icons.check,
+                      color: green1,
+                      size: 16.sp,
+                    ),
+                  ],
+                ).rightDirction(),
+                // Spacer(),
+                Row(
+                  children: [
+                    ArabicText(
+                      text:
+                          'الأجابات الخاطئة: ${_controller.quizes[quizIndex].questions!.length - _controller.quizResult}',
+                      color: red1,
+                      fontSize: 16.sp,
+                    ).pOnly(left: 1.w),
+                    Icon(
+                      Icons.close,
+                      color: red1,
+                      size: 16.sp,
+                    ),
+                  ],
+                ).rightDirction(),
+              ],
+            ).pSymmetric(horizontal: 2.w, vertical: 2.h),
+            // Spacer(),
+            Expanded(
+              child: Center(
+                child: Image.asset(
+                  'assets/images/quiz/result.png',
+                ),
+              ),
+            ),
+          ],
+        ).rightDirction(),
       ),
     );
   }

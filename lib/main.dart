@@ -38,6 +38,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(Get.size.width);
     // print(Get.size.height);
+    final GetMaterialController controller = Get.put(GetMaterialController());
+
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         debugShowCheckedModeBanner: false,

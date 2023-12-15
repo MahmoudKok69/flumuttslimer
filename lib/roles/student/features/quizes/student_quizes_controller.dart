@@ -1,3 +1,4 @@
+import 'package:flumuttslimer/roles/student/features/quizes/models/my_quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/question_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/quiz_model.dart';
 import 'package:get/get.dart';
@@ -72,6 +73,33 @@ class StudentQuizesController extends GetxController {
           ),
         ])
   ];
+  List<MyQuizModel> my_quizes = [
+    MyQuizModel(
+      teacher_name: 'Miguel Cox',
+      quiz_name: 'Ethan',
+      result: 18.389,
+      id: '3',
+    ),
+    MyQuizModel(
+      teacher_name: 'Joshua Mills',
+      quiz_name: 'Adrian',
+      result: 11.3621,
+      id: '1',
+    ),
+    MyQuizModel(
+      teacher_name: 'Fred Jenkins',
+      quiz_name: 'Maurice',
+      result: 2.0018,
+      id: '3',
+    ),
+    MyQuizModel(
+      teacher_name: 'Maria Lee',
+      quiz_name: 'Leila',
+      result: 16.2708,
+      id: '1',
+    ),
+  ];
+
   List<String>? quizAnswers;
   fillAnswersList(quizIndex) {
     quizAnswers = List.filled(quizes[quizIndex].questions!.length, '');

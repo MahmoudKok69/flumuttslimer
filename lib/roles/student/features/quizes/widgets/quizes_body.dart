@@ -1,6 +1,8 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/layout.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/models/my_quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/models/quiz_model.dart';
 import 'package:flumuttslimer/roles/student/features/quizes/student_quizes_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -8,9 +10,119 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-class QuizesGridView extends StatelessWidget {
-  QuizesGridView({super.key});
+class QuizBody extends StatelessWidget {
+  QuizBody({super.key});
   StudentQuizesController _controller = Get.find<StudentQuizesController>();
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBarView(children: [
+      AllQuizes(controller: _controller),
+      MyQuizes(controller: _controller),
+    ]);
+  }
+}
+
+class MyQuizes extends StatelessWidget {
+  const MyQuizes({
+    super.key,
+    required StudentQuizesController controller,
+  }) : _controller = controller;
+
+  final StudentQuizesController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 3.w),
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: Get.size.width > 500 ? 3 : 2,
+            crossAxisSpacing: 8.0,
+            mainAxisSpacing: 8.0,
+          ),
+          itemCount: _controller.my_quizes.length,
+          itemBuilder: (context, index) {
+            MyQuizModel item = _controller.my_quizes[index];
+            return GridItem(
+              title: item.quiz_name!,
+              middleText: item.teacher_name!,
+              subtitle: item.result.toString(),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class GridItem extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String middleText;
+
+  GridItem({
+    required this.title,
+    required this.subtitle,
+    required this.middleText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        color: white,
+        border: Border.all(color: Colors.grey, width: 0.1),
+        borderRadius: BorderRadius.circular(8.0),
+        boxShadow: [BoxShadow(color: black, blurRadius: 2)],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ArabicText(
+            text: title,
+            color: black,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+          ),
+          const SizedBox(height: 8.0),
+          ArabicText(
+            text: middleText,
+            color: purble2,
+            fontSize: 12.sp,
+            fontWeight: FontWeight.w400,
+          ),
+          const SizedBox(height: 8.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ArabicText(
+                text: 'النتيجة: $subtitle',
+                color: grey2,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
+              ),
+              const SizedBox(width: 4.0),
+              const PointIcon(),
+            ],
+          ).rightDirction(),
+        ],
+      ).rightDirction(),
+    );
+  }
+}
+
+class AllQuizes extends StatelessWidget {
+  const AllQuizes({
+    super.key,
+    required StudentQuizesController controller,
+  }) : _controller = controller;
+
+  final StudentQuizesController _controller;
 
   @override
   Widget build(BuildContext context) {

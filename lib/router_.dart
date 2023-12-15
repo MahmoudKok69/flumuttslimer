@@ -41,7 +41,6 @@ import 'package:flumuttslimer/roles/teacher/binding_teacher/login_teacher_bindin
 import 'package:flumuttslimer/roles/teacher/binding_teacher/my_group_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/profile_student_binding.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_screen.dart';
-import 'package:flumuttslimer/roles/teacher/binding_teacher/quiz_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/share_quiz_binding.dart';
 import 'package:flumuttslimer/roles/teacher/binding_teacher/welcome_binding.dart';
 
@@ -106,12 +105,12 @@ class AppPages {
     ),
     GetPage(
       name: shome,
-      page: () => SHomeScreen(),
+      page: () => BottomNavScreen(),
       binding: SHomeBinding(),
     ),
     GetPage(
       name: sAzkar,
-      page: () => const AzkarScreen(),
+      page: () => AzkarScreen(),
       binding: SAzkarBinding(),
     ),
     GetPage(
