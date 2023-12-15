@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_controller.dart';
@@ -329,26 +330,27 @@ class scroll_quizes extends StatelessWidget {
                       SizedBox(
                         height: 5.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            '${e.count_Questions!.toString()}سؤال ',
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Text(
-                            ' ${e.count_points!.toString()}نقطة',
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
-                          ),
-                        ],
+                      Text(
+                        '${e.count_Questions!.toString()}سؤال ',
+                        textAlign: TextAlign.right,
+                        textDirection: TextDirection.rtl,
+                        style: TextStyle(fontFamily: bj, fontSize: 14.sp),
                       ),
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      RichText(
+                          text: TextSpan(children: [
+                        const WidgetSpan(child: PointIcon()),
+                        TextSpan(
+                            text: " ${e.count_points!.toString()}",
+                            // maxLine: 5,
+                            style: TextStyle(
+                                color: grey1,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 20.sp,
+                                fontFamily: bj)),
+                      ])),
                     ],
                   ),
                 ),

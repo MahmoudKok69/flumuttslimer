@@ -1,5 +1,6 @@
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
+import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/Home_teacher_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -214,15 +215,18 @@ class TeacherGroupsScreen extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Text(
-                            'عدد النقاط :${e.points.toString()}',
-                            style: TextStyle(
-                              color: black,
-                              fontFamily: bj,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
+                          RichText(
+                              text: TextSpan(children: [
+                            const WidgetSpan(child: PointIcon()),
+                            TextSpan(
+                                text: "عدد النقاط :${e.points.toString()}",
+                                // maxLine: 5,
+                                style: TextStyle(
+                                    color: grey1,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14.sp,
+                                    fontFamily: bj)),
+                          ])),
                         ],
                       ),
                       Expanded(

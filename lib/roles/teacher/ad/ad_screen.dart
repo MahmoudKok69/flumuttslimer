@@ -168,9 +168,8 @@ class AdScreen extends StatelessWidget {
                                           color: black,
                                           fontFamily: bj,
                                           fontSize: 12.sp,
-                                          decoration: item.isChecked!
-                                              ? TextDecoration.lineThrough
-                                              : null,
+                                          decoration:
+                                              item.isChecked! ? null : null,
                                         ),
                                       ),
                                       tileColor:
