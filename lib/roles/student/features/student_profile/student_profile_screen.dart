@@ -17,7 +17,7 @@ class StudentProfileScreen extends StatelessWidget {
           onPressed: () {
             _controller.changeText();
           },
-          backgroundColor: purble2,
+          backgroundColor: AppColors.purble2,
         ),
         appBar: buildAppBar(
             text: 'بروفايل',
@@ -34,7 +34,7 @@ class StudentProfileScreen extends StatelessWidget {
                 id: 'update_text',
                 init: StudentProfileController(),
                 builder: (_) {
-                  return ImageSelecter(color: orange1);
+                  return ImageSelecter(color: AppColors.orange1);
                 },
               ),
               GetBuilder(
@@ -42,7 +42,7 @@ class StudentProfileScreen extends StatelessWidget {
                 init: StudentProfileController(),
                 builder: (_) {
                   return ImageSelecter(
-                    color: pink,
+                    color: AppColors.pink,
                   );
                 },
               ),

@@ -29,7 +29,7 @@ class NewAccountForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: ArabicText(
               text: 'أخبرنا عن نفسك؟',
-              color: black,
+              color: AppColors.black,
               fontSize: 24.sp,
               fontWeight: FontWeight.bold,
             ),
@@ -54,7 +54,7 @@ class NewAccountForm extends StatelessWidget {
               child: Text(
                 'العمر',
                 style: TextStyle(
-                  color: purble2,
+                  color: AppColors.purble2,
                   fontWeight: FontWeight.w500,
                   fontSize: 15.sp,
                 ),
@@ -90,11 +90,11 @@ class NewAccountForm extends StatelessWidget {
                         flex: 1,
                         child: CircleAvatar(
                           radius: 15.sp,
-                          backgroundColor: purble4,
+                          backgroundColor: AppColors.purble4,
                           child: Text(
                             '${_controller.age}',
                             style: TextStyle(
-                              color: purble2,
+                              color: AppColors.purble2,
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -129,16 +129,20 @@ class NewAccountForm extends StatelessWidget {
                             decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 1.sp,
-                                  color: purble2,
+                                  color: AppColors.purble2,
                                 ),
                                 borderRadius: BorderRadius.circular(5.sp),
-                                color: _controller.gender ? purble2 : white),
+                                color: _controller.gender
+                                    ? AppColors.purble2
+                                    : AppColors.white),
                             child: Center(
                               child: Text(
                                 'ذكر',
                                 maxLines: 1,
                                 style: TextStyle(
-                                  color: _controller.gender ? white : purble2,
+                                  color: _controller.gender
+                                      ? AppColors.white
+                                      : AppColors.purble2,
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -162,17 +166,21 @@ class NewAccountForm extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border.all(
                                 width: 1.sp,
-                                color: purble2,
+                                color: AppColors.purble2,
                               ),
                               borderRadius: BorderRadius.circular(5.sp),
-                              color: _controller.gender ? white : purble2,
+                              color: _controller.gender
+                                  ? AppColors.white
+                                  : AppColors.purble2,
                             ),
                             child: Center(
                               child: Text(
                                 'أنثى',
                                 maxLines: 1,
                                 style: TextStyle(
-                                  color: _controller.gender ? purble2 : white,
+                                  color: _controller.gender
+                                      ? AppColors.purble2
+                                      : AppColors.white,
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -204,7 +212,7 @@ class NewAccountForm extends StatelessWidget {
                       child: DropdownButton<String>(
                         isExpanded: true,
                         alignment: Alignment.centerRight,
-                        dropdownColor: purble5,
+                        dropdownColor: AppColors.purble5,
                         value: _controller.country,
                         items: _controller.countries.map((String value) {
                           return DropdownMenuItem<String>(
@@ -214,9 +222,9 @@ class NewAccountForm extends StatelessWidget {
                                 value,
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
-                                    color: purble2,
+                                    color: AppColors.purble2,
                                     fontSize: 12.sp,
-                                    fontFamily: bj),
+                                    fontFamily: AppFonts.bj),
                               ));
                         }).toList(),
                         onChanged: (String? value) {
@@ -306,12 +314,12 @@ class NewAccountForm extends StatelessWidget {
                         icon: _controller.obscure
                             ? Icon(
                                 Icons.visibility_off,
-                                color: purble2,
+                                color: AppColors.purble2,
                                 size: 20.sp,
                               )
                             : Icon(
                                 Icons.visibility,
-                                color: purble2,
+                                color: AppColors.purble2,
                                 size: 20.sp,
                               ),
                         onPressed: () {
@@ -324,7 +332,7 @@ class NewAccountForm extends StatelessWidget {
                           'كلمة المرور',
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            color: purble1,
+                            color: AppColors.purble1,
                             fontFamily: 'Bahij',
                             fontWeight: FontWeight.w300,
                           ),
@@ -334,7 +342,7 @@ class NewAccountForm extends StatelessWidget {
                       hintText: 'أدخل كلمة المرور',
                       alignLabelWithHint: true,
                       labelStyle: TextStyle(
-                        color: purble1,
+                        color: AppColors.purble1,
                         fontFamily: 'Bahij',
                         fontWeight: FontWeight.w300,
                       ),
@@ -370,12 +378,12 @@ class NewAccountForm extends StatelessWidget {
                         icon: _controller.obscureConfi
                             ? Icon(
                                 Icons.visibility_off,
-                                color: purble2,
+                                color: AppColors.purble2,
                                 size: 20.sp,
                               )
                             : Icon(
                                 Icons.visibility,
-                                color: purble2,
+                                color: AppColors.purble2,
                                 size: 20.sp,
                               ),
                         onPressed: () {
@@ -388,7 +396,7 @@ class NewAccountForm extends StatelessWidget {
                           ' تأكيد كلمة المرور',
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            color: purble1,
+                            color: AppColors.purble1,
                             fontFamily: 'Bahij',
                             fontWeight: FontWeight.w300,
                           ),
@@ -398,8 +406,8 @@ class NewAccountForm extends StatelessWidget {
                       hintText: 'أدخل كلمة المرور',
                       alignLabelWithHint: true,
                       labelStyle: TextStyle(
-                        color: purble1,
-                        fontFamily: bj,
+                        color: AppColors.purble1,
+                        fontFamily: AppFonts.bj,
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
@@ -431,13 +439,13 @@ class NewAccountForm extends StatelessWidget {
                 }
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(purble2),
+                backgroundColor: MaterialStateProperty.all(AppColors.purble2),
               ),
               child: Center(
                 child: Text(
                   'إنشاء الحساب',
                   style: TextStyle(
-                    color: white,
+                    color: AppColors.white,
                     fontFamily: 'Bahij',
                     fontSize: 10.sp,
                     fontWeight: FontWeight.w700,
@@ -492,7 +500,7 @@ class ImageSelector extends StatelessWidget {
                             builder: (_) {
                               return CircleAvatar(
                                   radius: min(40.w, 40.h) / 2,
-                                  backgroundColor: purble4,
+                                  backgroundColor: AppColors.purble4,
                                   child: _controller.selectedImage == null
                                       ? Column(
                                           mainAxisAlignment:
@@ -502,14 +510,14 @@ class ImageSelector extends StatelessWidget {
                                           children: [
                                               Icon(
                                                 Icons.camera_alt,
-                                                color: purble2,
+                                                color: AppColors.purble2,
                                                 size: 25.sp,
                                               ),
                                               Text('أختر صورة',
                                                   style: TextStyle(
-                                                    color: purble2,
+                                                    color: AppColors.purble2,
                                                     fontSize: 12.sp,
-                                                    fontFamily: bj,
+                                                    fontFamily: AppFonts.bj,
                                                     fontWeight: FontWeight.w500,
                                                   ))
                                             ])
@@ -552,10 +560,10 @@ class ImageSelector extends StatelessWidget {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                purble2,
-                                purble3,
-                                purble4,
-                                purblegradient
+                                AppColors.purble2,
+                                AppColors.purble3,
+                                AppColors.purble4,
+                                AppColors.purblegradient
                               ],
                             ),
                             shape: BoxShape.circle,

@@ -21,16 +21,16 @@ class NewAccountPhase extends StatelessWidget {
           TextSpan(
             text: 'ليس لديك حساب ؟ ',
             style: TextStyle(
-                color: black,
-                fontFamily: bj,
+                color: AppColors.black,
+                fontFamily: AppFonts.bj,
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w500),
           ),
           TextSpan(
             text: 'إنشاء حساب جديد',
             style: TextStyle(
-                color: purble2,
-                fontFamily: bj,
+                color: AppColors.purble2,
+                fontFamily: AppFonts.bj,
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w500,
                 decoration: TextDecoration.underline),
@@ -105,12 +105,12 @@ class LoginForm extends StatelessWidget {
                             icon: _controller.obscure
                                 ? Icon(
                                     Icons.visibility_off,
-                                    color: purble2,
+                                    color: AppColors.purble2,
                                     size: 14.sp,
                                   )
                                 : Icon(
                                     Icons.visibility,
-                                    color: purble2,
+                                    color: AppColors.purble2,
                                     size: 14.sp,
                                   ),
                             onPressed: () {
@@ -123,7 +123,7 @@ class LoginForm extends StatelessWidget {
                               'كلمة المرور',
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                color: purble1,
+                                color: AppColors.purble1,
                                 fontFamily: 'Bahij',
                                 fontWeight: FontWeight.w300,
                               ),
@@ -133,7 +133,7 @@ class LoginForm extends StatelessWidget {
                           hintText: 'أدخل كلمة المرور',
                           alignLabelWithHint: true,
                           labelStyle: TextStyle(
-                            color: purble1,
+                            color: AppColors.purble1,
                             fontFamily: 'Bahij',
                             fontWeight: FontWeight.w300,
                           ),
@@ -174,12 +174,13 @@ class LoginForm extends StatelessWidget {
                       }
                     },
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(purble2)),
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.purble2)),
                     child: Center(
                       child: Text(
                         'تسجيل الدخول',
                         style: TextStyle(
-                          color: white,
+                          color: AppColors.white,
                           fontFamily: 'Bahij',
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w700,
@@ -212,7 +213,7 @@ class UpImage extends StatelessWidget {
         //   bottomLeft: Radius.circular(10.sp),
         //   bottomRight: Radius.circular(10.sp),
         // ),
-        color: purble2,
+        color: AppColors.purble2,
       ),
       child: Image.asset(
         'assets/images/login.jpg',

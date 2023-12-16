@@ -79,13 +79,13 @@ class CheckButtons extends StatelessWidget {
           child: Container(
             width: 35.w,
             decoration: BoxDecoration(
-              color: purble3,
+              color: AppColors.purble3,
               borderRadius: BorderRadius.circular(5.sp),
             ),
             child: Center(
               child: ArabicText(
                 text: 'نعم',
-                color: white,
+                color: AppColors.white,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
               ),
@@ -100,13 +100,13 @@ class CheckButtons extends StatelessWidget {
           child: Container(
             width: 35.w,
             decoration: BoxDecoration(
-              color: purble3,
+              color: AppColors.purble3,
               borderRadius: BorderRadius.circular(5.sp),
             ),
             child: Center(
               child: ArabicText(
                 text: 'لا',
-                color: white,
+                color: AppColors.white,
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
               ),
@@ -128,7 +128,7 @@ class CheckResultPhase extends StatelessWidget {
     return ArabicText(
       text: 'هل تريد التحقق من نتائجك؟',
       maxLine: 5,
-      color: grey2,
+      color: AppColors.grey2,
       fontWeight: FontWeight.w400,
       fontSize: 18.sp,
     );
@@ -154,10 +154,10 @@ class FinishingTheQuizphase extends StatelessWidget {
               "لقد أنهيت الأختبار و أجبت على ${_controller.quizResult} سؤال من ${_controller.quizes[quizIndex].questions!.length} أسئلة, لقد حصلت على ${_controller.quizResult * 1.5}",
           // maxLine: 5,
           style: TextStyle(
-              color: grey1,
+              color: AppColors.grey1,
               fontWeight: FontWeight.w400,
               fontSize: 20.sp,
-              fontFamily: bj)),
+              fontFamily: AppFonts.bj)),
       const WidgetSpan(child: PointIcon()),
     ]));
   }
@@ -179,7 +179,7 @@ class WrongAndCorrectAnswers extends StatelessWidget {
       child: BorderedContainer(
         width: 95.w,
         height: 20.h,
-        color: white,
+        color: AppColors.white,
         borderWidth: 0.0,
         child: Row(
           children: [
@@ -191,12 +191,12 @@ class WrongAndCorrectAnswers extends StatelessWidget {
                   children: [
                     ArabicText(
                       text: 'الأجابات الصحيحة: ${_controller.quizResult}',
-                      color: green1,
+                      color: AppColors.green1,
                       fontSize: 16.sp,
                     ).pOnly(left: 1.w),
                     Icon(
                       Icons.check,
-                      color: green1,
+                      color: AppColors.green1,
                       size: 16.sp,
                     ),
                   ],
@@ -207,12 +207,12 @@ class WrongAndCorrectAnswers extends StatelessWidget {
                     ArabicText(
                       text:
                           'الأجابات الخاطئة: ${_controller.quizes[quizIndex].questions!.length - _controller.quizResult}',
-                      color: red1,
+                      color: AppColors.red1,
                       fontSize: 16.sp,
                     ).pOnly(left: 1.w),
                     Icon(
                       Icons.close,
-                      color: red1,
+                      color: AppColors.red1,
                       size: 16.sp,
                     ),
                   ],
@@ -251,7 +251,7 @@ class QuizIndicator extends StatelessWidget {
     String ratePhase = '';
 
     if (percentage > 0.75) {
-      fillColor = green1;
+      fillColor = AppColors.green1;
       rate = 'ممتاز';
       ratePhase = 'أحسنت! بارك الله في علمك👏';
     } else if (percentage > 0.5) {
@@ -259,11 +259,11 @@ class QuizIndicator extends StatelessWidget {
       rate = 'جيد جداً';
       ratePhase = 'نتيجة رائعة! يمكنك دوماً أن تقدم الأفضل🙏';
     } else if (percentage > 0.25) {
-      fillColor = orange1;
+      fillColor = AppColors.orange1;
       rate = 'متوسط';
       ratePhase = 'لا تيأس! بعد كل تعثر نصبح أقوى💪';
     } else {
-      fillColor = red1;
+      fillColor = AppColors.red1;
       rate = 'بحاجة لمزيد من الدراسة';
       ratePhase = 'نتيجتك لا تحدد مستواك, بأنتظار نتائجك المبهرة👌';
     }
@@ -278,14 +278,14 @@ class QuizIndicator extends StatelessWidget {
             children: [
               ArabicText(
                 text: rate,
-                color: grey1,
+                color: AppColors.grey1,
                 fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
               ),
               ArabicText(
                 text: ratePhase,
                 maxLine: 5,
-                color: grey3,
+                color: AppColors.grey3,
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
               ),
@@ -302,14 +302,15 @@ class QuizIndicator extends StatelessWidget {
               child: Center(
                 child: CircleAvatar(
                   radius: min(30.w, 30.h) / 2,
-                  backgroundColor: white,
+                  backgroundColor: AppColors.white,
                   child: Center(
                     child: Text(
                       '${(percentage * 100).toInt()}%',
                       style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black, // Change the text color as needed
+                        color:
+                            AppColors.black, // Change the text color as needed
                       ),
                     ),
                   ),

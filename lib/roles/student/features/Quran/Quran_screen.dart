@@ -27,7 +27,7 @@ class QuranScreen extends StatelessWidget {
               width: 32.w,
               height: 8.h,
               decoration: BoxDecoration(
-                color: purble3,
+                color: AppColors.purble3,
                 borderRadius: BorderRadius.circular(10.sp),
               ),
               child: Padding(
@@ -37,8 +37,8 @@ class QuranScreen extends StatelessWidget {
                   'متابعة القراءة',
                   maxLines: 1,
                   style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
+                      color: AppColors.white,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.bold,
                       fontSize: 10.sp),
                 )),
@@ -51,22 +51,22 @@ class QuranScreen extends StatelessWidget {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: purble2,
+      backgroundColor: AppColors.purble2,
       title: Center(
         child: Text(
           'القرأن الكريم',
           style: TextStyle(
             fontSize: 18.sp,
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w400,
-            color: white,
+            color: AppColors.white,
           ),
         ),
       ),
       leading: IconButton(
         icon: Icon(
           AppIcons.back_icon,
-          color: white,
+          color: AppColors.white,
           size: 20.sp,
         ),
         onPressed: () {
@@ -74,19 +74,19 @@ class QuranScreen extends StatelessWidget {
         },
       ),
       bottom: TabBar(
-          indicatorColor: purble1,
+          indicatorColor: AppColors.purble1,
           automaticIndicatorColorAdjustment: false,
-          overlayColor: MaterialStateProperty.all(purble3),
-          labelColor: white,
-          unselectedLabelColor: orange2,
+          overlayColor: MaterialStateProperty.all(AppColors.purble3),
+          labelColor: AppColors.white,
+          unselectedLabelColor: AppColors.orange2,
           indicatorSize: TabBarIndicatorSize.tab,
           tabs: [
             Text(
               'إنجازاتي',
               maxLines: 1,
               style: TextStyle(
-                  color: white,
-                  fontFamily: bj,
+                  color: AppColors.white,
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp),
             ),
@@ -94,8 +94,8 @@ class QuranScreen extends StatelessWidget {
               'المصحف الشريف',
               maxLines: 1,
               style: TextStyle(
-                color: white,
-                fontFamily: bj,
+                color: AppColors.white,
+                fontFamily: AppFonts.bj,
                 fontWeight: FontWeight.w400,
                 fontSize: 12.sp,
               ),

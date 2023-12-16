@@ -27,14 +27,14 @@ class BeuatiScreen extends StatelessWidget {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: purble2,
+      backgroundColor: AppColors.purble2,
       title: Center(
         child: Text(
           'الأخلاق و الجمال',
           style: TextStyle(
-              fontFamily: bj,
+              fontFamily: AppFonts.bj,
               fontWeight: FontWeight.w500,
-              color: white,
+              color: AppColors.white,
               fontSize: 16.sp),
         ),
       ),
@@ -42,7 +42,7 @@ class BeuatiScreen extends StatelessWidget {
         icon: Icon(
           Icons.arrow_back_ios_rounded,
           size: 12.sp,
-          color: white,
+          color: AppColors.white,
         ),
         onPressed: () {
           Get.back();

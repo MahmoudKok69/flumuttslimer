@@ -26,7 +26,7 @@ class TheQuestionSection extends StatelessWidget {
         child: ArabicText(
           text: item.questions![_controller.currentQuestion].label,
           fontSize: 14.sp,
-          color: grey1,
+          color: AppColors.grey1,
         ),
       ),
     );
@@ -57,7 +57,7 @@ class NumberOfQuestion extends StatelessWidget {
               ArabicText(
                 text:
                     'السؤال رقم ${_controller.currentQuestion + 1}    /    ${_controller.quizes[quizIndex].questions!.length}',
-                color: grey1,
+                color: AppColors.grey1,
                 fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
               ),

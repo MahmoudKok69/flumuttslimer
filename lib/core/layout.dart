@@ -12,23 +12,23 @@ buildAppBar(
     required onTapActionIcon,
     bottom}) {
   return AppBar(
-    backgroundColor: purble2,
+    backgroundColor: AppColors.purble2,
     bottom: bottom,
     title: Center(
       child: Text(
         text,
         style: TextStyle(
           fontSize: 18.sp,
-          fontFamily: bj,
+          fontFamily: AppFonts.bj,
           fontWeight: FontWeight.w500,
-          color: white,
+          color: AppColors.white,
         ),
       ),
     ),
     leading: IconButton(
         icon: Icon(
           leadingIcon,
-          color: white,
+          color: AppColors.white,
           size: 16.sp,
         ),
         onPressed: onTapLeadingIcon),
@@ -37,7 +37,7 @@ buildAppBar(
           onPressed: onTapActionIcon,
           icon: Icon(
             actionIcon,
-            color: white,
+            color: AppColors.white,
             size: 16.sp,
           ))
     ],
@@ -71,7 +71,7 @@ class ArabicText extends StatelessWidget {
         color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
-        fontFamily: bj,
+        fontFamily: AppFonts.bj,
       ),
     );
   }
@@ -102,16 +102,21 @@ class BorderedContainer extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-          color: color ?? white,
+          color: color ?? AppColors.white,
           borderRadius: BorderRadius.circular(borderRadius ?? 10.sp),
           border: Border.all(
             width: borderWidth ?? 0.1.w,
-            color: borderColor ?? grey4,
+            color: borderColor ?? AppColors.grey4,
           ),
           boxShadow: [
-            BoxShadow(color: black, blurRadius: 2, offset: const Offset(-1, 1)),
             BoxShadow(
-                color: black, blurRadius: 1, offset: const Offset(0.2, -0.2))
+                color: AppColors.black,
+                blurRadius: 2,
+                offset: const Offset(-1, 1)),
+            BoxShadow(
+                color: AppColors.black,
+                blurRadius: 1,
+                offset: const Offset(0.2, -0.2))
           ]),
       child: child,
     );

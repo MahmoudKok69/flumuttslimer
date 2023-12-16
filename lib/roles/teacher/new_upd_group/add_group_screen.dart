@@ -29,7 +29,7 @@ class AddGroupScreen extends StatelessWidget {
                           'الإسم',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -50,7 +50,7 @@ class AddGroupScreen extends StatelessWidget {
                           'الوصف',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -98,9 +98,9 @@ class AddGroupScreen extends StatelessWidget {
                                 text: TextSpan(
                                   text: 'تعيين العدد الأعظمي',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: AppColors.black,
                                     fontSize: 14.sp,
-                                    fontFamily: bj,
+                                    fontFamily: AppFonts.bj,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   children: <TextSpan>[
@@ -109,7 +109,7 @@ class AddGroupScreen extends StatelessWidget {
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14.sp,
-                                        fontFamily: bj,
+                                        fontFamily: AppFonts.bj,
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
@@ -129,9 +129,9 @@ class AddGroupScreen extends StatelessWidget {
                               text: TextSpan(
                                 text: ' نوع المجموعة ',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: AppColors.black,
                                   fontSize: 14.sp,
-                                  fontFamily: bj,
+                                  fontFamily: AppFonts.bj,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 children: <TextSpan>[
@@ -141,7 +141,7 @@ class AddGroupScreen extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 14.sp,
-                                      fontFamily: bj,
+                                      fontFamily: AppFonts.bj,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -176,22 +176,22 @@ class AddGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                     width: 1.sp,
-                                                    color: purble2,
+                                                    color: AppColors.purble2,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.sp),
                                                   color: _controller.isPrivate
-                                                      ? purble2
-                                                      : white),
+                                                      ? AppColors.purble2
+                                                      : AppColors.white),
                                               child: Center(
                                                 child: Text(
                                                   'خاصة',
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                     color: _controller.isPrivate
-                                                        ? white
-                                                        : purble2,
+                                                        ? AppColors.white
+                                                        : AppColors.purble2,
                                                     fontSize: 14.sp,
                                                     fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
@@ -219,13 +219,13 @@ class AddGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 border: Border.all(
                                                   width: 1.sp,
-                                                  color: purble2,
+                                                  color: AppColors.purble2,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(5.sp),
                                                 color: _controller.isPrivate
-                                                    ? white
-                                                    : purble2,
+                                                    ? AppColors.white
+                                                    : AppColors.purble2,
                                               ),
                                               child: Center(
                                                 child: Text(
@@ -233,8 +233,8 @@ class AddGroupScreen extends StatelessWidget {
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                     color: _controller.isPrivate
-                                                        ? purble2
-                                                        : white,
+                                                        ? AppColors.purble2
+                                                        : AppColors.white,
                                                     fontSize: 15.sp,
                                                     fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
@@ -258,7 +258,7 @@ class AddGroupScreen extends StatelessWidget {
                                 text: ' إتاحية المجموعة ',
                                 style: TextStyle(
                                   fontSize: 14.sp,
-                                  fontFamily: bj,
+                                  fontFamily: AppFonts.bj,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 children: <TextSpan>[
@@ -268,7 +268,7 @@ class AddGroupScreen extends StatelessWidget {
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 14.sp,
-                                      fontFamily: bj,
+                                      fontFamily: AppFonts.bj,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -304,14 +304,14 @@ class AddGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                     width: 1.sp,
-                                                    color: purble2,
+                                                    color: AppColors.purble2,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.sp),
                                                   color: _controller.isAvailable
-                                                      ? purble2
-                                                      : white),
+                                                      ? AppColors.purble2
+                                                      : AppColors.white),
                                               child: Center(
                                                 child: Text(
                                                   'متاحة',
@@ -319,8 +319,8 @@ class AddGroupScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                     color:
                                                         _controller.isAvailable
-                                                            ? white
-                                                            : purble2,
+                                                            ? AppColors.white
+                                                            : AppColors.purble2,
                                                     fontSize: 15.sp,
                                                     fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
@@ -349,13 +349,13 @@ class AddGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 border: Border.all(
                                                   width: 1.sp,
-                                                  color: purble2,
+                                                  color: AppColors.purble2,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(5.sp),
                                                 color: _controller.isAvailable
-                                                    ? white
-                                                    : purble2,
+                                                    ? AppColors.white
+                                                    : AppColors.purble2,
                                               ),
                                               child: Center(
                                                 child: Text(
@@ -364,8 +364,8 @@ class AddGroupScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                     color:
                                                         _controller.isAvailable
-                                                            ? purble2
-                                                            : white,
+                                                            ? AppColors.purble2
+                                                            : AppColors.white,
                                                     fontSize: 15.sp,
                                                     fontFamily: 'Bahij',
                                                     fontWeight: FontWeight.bold,
@@ -399,14 +399,14 @@ class AddGroupScreen extends StatelessWidget {
                                 }
                               },
                               style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(purble2),
+                                backgroundColor: MaterialStateProperty.all(
+                                    AppColors.purble2),
                               ),
                               child: Center(
                                 child: Text(
                                   'إنشاء المجموعة',
                                   style: TextStyle(
-                                    color: white,
+                                    color: AppColors.white,
                                     fontFamily: 'Bahij',
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w700,
@@ -428,14 +428,14 @@ class AddGroupScreen extends StatelessWidget {
 
 AppBar _buildAppBar() {
   return AppBar(
-    backgroundColor: purble2,
+    backgroundColor: AppColors.purble2,
     title: Center(
       child: Text(
         ' إنشاء مجموعة جديدة ',
         style: TextStyle(
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w500,
-            color: white,
+            color: AppColors.white,
             fontSize: 16.sp),
       ),
     ),
@@ -443,7 +443,7 @@ AppBar _buildAppBar() {
       icon: Icon(
         Icons.arrow_back_ios_rounded,
         size: 12.sp,
-        color: white,
+        color: AppColors.white,
       ),
       onPressed: () {
         Get.back();

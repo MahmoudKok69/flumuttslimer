@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flumuttslimer/core/AppIcons.dart';
+import 'package:flumuttslimer/core/app_image.dart';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
@@ -11,6 +12,7 @@ import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_controller.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_model/main_pages.dart';
+import 'package:flumuttslimer/roles/student/features/home/widgets/home_cards.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/material.dart';
@@ -70,13 +72,13 @@ class SHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: purble2,
+        backgroundColor: AppColors.purble2,
         title: Center(
           child: Text(
             'الواجهة الرئيسية ',
             style: TextStyle(
-              color: white,
-              fontFamily: bj,
+              color: AppColors.white,
+              fontFamily: AppFonts.bj,
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
             ),
@@ -94,7 +96,7 @@ class SHomeScreen extends StatelessWidget {
           ).pOnly(left: 2.w),
         ),
         automaticallyImplyLeading: false,
-        actionsIconTheme: IconThemeData(color: white),
+        actionsIconTheme: IconThemeData(color: AppColors.white),
       ),
       endDrawer: SizedBox(
         width: 70.w,
@@ -104,55 +106,68 @@ class SHomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0.sp),
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.sp,
-              crossAxisSpacing: 10.sp,
-            ),
-            itemCount: home.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  // color: purble2,
-                  borderRadius: BorderRadius.circular(10.sp),
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.toNamed(home[index].page!);
-                  },
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(home[index].image!),
-                                    fit: BoxFit.contain)),
-                          ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                HomeCards(),
+                SizedBox(
+                  height: SizerUtil.height * 0.75,
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10.sp,
+                      crossAxisSpacing: 10.sp,
+                    ),
+                    itemCount: home.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          // color: AppColors.purble2,
+                          borderRadius: BorderRadius.circular(10.sp),
                         ),
-                        SizedBox(
-                          height: 3.h,
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed(home[index].page!);
+                          },
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image:
+                                                AssetImage(home[index].image!),
+                                            fit: BoxFit.contain)),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Expanded(
+                                  child: FittedBox(
+                                    child: Text(
+                                      home[index].name!,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: AppColors.purble1,
+                                          fontSize: 20.sp,
+                                          fontFamily: AppFonts.bj,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                )
+                              ]),
                         ),
-                        Expanded(
-                          child: FittedBox(
-                            child: Text(
-                              home[index].name!,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: purble1,
-                                  fontSize: 20.sp,
-                                  fontFamily: bj,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        )
-                      ]),
+                      );
+                    },
+                  ).pOnly(bottom: 2.h),
                 ),
-              );
-            },
+              ],
+            ).pOnly(bottom: 5.h),
           ),
         ),
       ),
@@ -161,18 +176,18 @@ class SHomeScreen extends StatelessWidget {
 
   Drawer _homeDrawer() {
     return Drawer(
-        backgroundColor: white,
+        backgroundColor: AppColors.white,
         child: Padding(
           padding: EdgeInsets.all(8.0.sp),
           child: Column(
             children: [
               CircleAvatar(
                   radius: min(Get.size.width * 0.4, Get.size.height * 0.4) / 2,
-                  backgroundColor: white,
+                  backgroundColor: AppColors.white,
                   child: IconButton(
                     icon: Icon(
                       Icons.person,
-                      color: purble1,
+                      color: AppColors.purble1,
                       size:
                           min(Get.size.width * 0.6, Get.size.height * 0.6) / 2,
                     ),
@@ -233,8 +248,8 @@ drawerOption(String name, Icon icon, String page) {
             Text(
               name,
               style: TextStyle(
-                color: purble1,
-                fontFamily: bj,
+                color: AppColors.purble1,
+                fontFamily: AppFonts.bj,
                 fontSize: 20.sp,
               ),
             ),
@@ -256,13 +271,13 @@ class BottomNavScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: purble2,
+          backgroundColor: AppColors.purble2,
           title: Center(
             child: Text(
               'الواجهة الرئيسية ',
               style: TextStyle(
-                color: white,
-                fontFamily: bj,
+                color: AppColors.white,
+                fontFamily: AppFonts.bj,
                 fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
               ),
@@ -271,12 +286,12 @@ class BottomNavScreen extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.notifications),
             iconSize: 16.sp,
-            color: white,
+            color: AppColors.white,
             onPressed: () {
               Get.toNamed(AppPages.sNews);
             },
           ),
-          actionsIconTheme: IconThemeData(color: white),
+          actionsIconTheme: IconThemeData(color: AppColors.white),
           automaticallyImplyLeading: false,
         ),
         endDrawer: SizedBox(
@@ -294,61 +309,3 @@ class BottomNavScreen extends StatelessWidget {
             }));
   }
 }
-/**
- * Padding(
-        padding: EdgeInsets.all(8.0.sp),
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.sp,
-              crossAxisSpacing: 10.sp,
-            ),
-            itemCount: home.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  // color: purble2,
-                  borderRadius: BorderRadius.circular(10.sp),
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.toNamed(home[index].page!);
-                  },
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(home[index].image!),
-                                    fit: BoxFit.contain)),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        Expanded(
-                          child: FittedBox(
-                            child: Text(
-                              home[index].name!,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: purble1,
-                                  fontSize: 20.sp,
-                                  fontFamily: bj,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        )
-                      ]),
-                ),
-              );
-            },
-          ),
-        ),
-      ),
- */

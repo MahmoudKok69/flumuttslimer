@@ -60,7 +60,8 @@ class CheckQuestionNextButton extends StatelessWidget {
       child: InkWell(
         child: Container(
           decoration: BoxDecoration(
-              color: purble3, borderRadius: BorderRadius.circular(4.sp)),
+              color: AppColors.purble3,
+              borderRadius: BorderRadius.circular(4.sp)),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -71,7 +72,7 @@ class CheckQuestionNextButton extends StatelessWidget {
                             item.questions!.length - 1
                         ? 'التالي'
                         : 'الخروج',
-                    color: white,
+                    color: AppColors.white,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
                   ),
@@ -79,7 +80,7 @@ class CheckQuestionNextButton extends StatelessWidget {
                     flipX: false,
                     child: Icon(
                       AppIcons.back_icon,
-                      color: white,
+                      color: AppColors.white,
                     ),
                   ),
                 ],
@@ -111,7 +112,8 @@ class CheckQuestionPreviousButton extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-              color: purble3, borderRadius: BorderRadius.circular(4.sp)),
+              color: AppColors.purble3,
+              borderRadius: BorderRadius.circular(4.sp)),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -121,12 +123,12 @@ class CheckQuestionPreviousButton extends StatelessWidget {
                     flipX: true,
                     child: Icon(
                       AppIcons.back_icon,
-                      color: white,
+                      color: AppColors.white,
                     ),
                   ),
                   ArabicText(
                     text: 'السابق',
-                    color: white,
+                    color: AppColors.white,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
                   ),

@@ -88,7 +88,7 @@ class MyAzkar extends StatelessWidget {
                 builder: (_) {
                   return PhysicalModel(
                     elevation: 5,
-                    color: white,
+                    color: AppColors.white,
                     borderRadius: BorderRadius.circular(5.sp),
                     child: ListTile(
                       shape: BeveledRectangleBorder(
@@ -109,22 +109,24 @@ class MyAzkar extends StatelessWidget {
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: black,
-                          fontFamily: bj,
+                          color: AppColors.black,
+                          fontFamily: AppFonts.bj,
                           fontSize: 12.sp,
                           decoration: item.isChecked!
                               ? TextDecoration.lineThrough
                               : null,
                         ),
                       ),
-                      tileColor: item.isChecked! ? purble3 : purble4,
+                      tileColor: item.isChecked!
+                          ? AppColors.purble3
+                          : AppColors.purble4,
                       subtitle: Text(
                         '${item.points} نقطة',
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: purble1,
-                          fontFamily: bj,
+                          color: AppColors.purble1,
+                          fontFamily: AppFonts.bj,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -154,7 +156,7 @@ class AllAzkar extends StatelessWidget {
             padding: EdgeInsets.only(top: 1.h),
             child: PhysicalModel(
               elevation: 5,
-              color: white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(5.sp),
               child: ListTile(
                 shape: BeveledRectangleBorder(
@@ -175,20 +177,20 @@ class AllAzkar extends StatelessWidget {
                   // textAlign: TextAlign.right,
                   // textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    color: black,
-                    fontFamily: bj,
+                    color: AppColors.black,
+                    fontFamily: AppFonts.bj,
                     fontSize: 12.sp,
                   ),
                   overflow: TextOverflow.ellipsis,
                 ).arabicText(),
-                tileColor: purble4,
+                tileColor: AppColors.purble4,
                 subtitle: Text(
                   item.descirbe!,
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    color: black,
-                    fontFamily: bj,
+                    color: AppColors.black,
+                    fontFamily: AppFonts.bj,
                     fontSize: 8.sp,
                   ),
                   overflow: TextOverflow.ellipsis,

@@ -1,4 +1,3 @@
-
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/features/groups/groups_controller.dart';
@@ -39,12 +38,12 @@ class SGroupCard extends StatelessWidget {
           width: 96.w,
           height: 15.h,
           decoration: BoxDecoration(
-              border: Border.all(color: black, width: 0.01.w),
-              color: white,
+              border: Border.all(color: AppColors.black, width: 0.01.w),
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(5.sp),
               boxShadow: [
                 BoxShadow(
-                  color: black,
+                  color: AppColors.black,
                   blurRadius: 1,
                 ),
               ]),
@@ -64,7 +63,9 @@ class SGroupCard extends StatelessWidget {
                     width: 25.w,
                     height: 5.h,
                     decoration: BoxDecoration(
-                      color: item.isAvailable! ? purble3 : grey2,
+                      color: item.isAvailable!
+                          ? AppColors.purble3
+                          : AppColors.grey2,
                       borderRadius: BorderRadius.circular(5.sp),
                     ),
                     child: Center(
@@ -74,14 +75,14 @@ class SGroupCard extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.add,
-                            color: white,
+                            color: AppColors.white,
                           ),
                           Text(
                             'إنضمام',
                             style: TextStyle(
-                              color: white,
+                              color: AppColors.white,
                               fontWeight: FontWeight.bold,
-                              fontFamily: bj,
+                              fontFamily: AppFonts.bj,
                               fontSize: 15.sp,
                             ),
                           ),
@@ -101,8 +102,8 @@ class SGroupCard extends StatelessWidget {
                       Text(
                         item.name!,
                         style: TextStyle(
-                          color: grey1,
-                          fontFamily: bj,
+                          color: AppColors.grey1,
+                          fontFamily: AppFonts.bj,
                           fontWeight: FontWeight.bold,
                           fontSize: 15.sp,
                         ),
@@ -110,8 +111,8 @@ class SGroupCard extends StatelessWidget {
                       Text(
                         'عدد الطلاب: ${item.maxNumber}/${item.number}',
                         style: TextStyle(
-                          color: grey1,
-                          fontFamily: bj,
+                          color: AppColors.grey1,
+                          fontFamily: AppFonts.bj,
                           fontWeight: FontWeight.w500,
                           fontSize: 15.sp,
                         ),
@@ -119,8 +120,8 @@ class SGroupCard extends StatelessWidget {
                       Text(
                         'المعلم: ${item.teacher_name}',
                         style: TextStyle(
-                          color: grey1,
-                          fontFamily: bj,
+                          color: AppColors.grey1,
+                          fontFamily: AppFonts.bj,
                           fontWeight: FontWeight.w500,
                           fontSize: 15.sp,
                         ),
@@ -144,12 +145,12 @@ lastCheckDialog(SGroupCardModel item) {
   return Get.defaultDialog(
       title: item.name!,
       titleStyle: TextStyle(
-        color: grey1,
-        fontFamily: bj,
+        color: AppColors.grey1,
+        fontFamily: AppFonts.bj,
         fontWeight: FontWeight.bold,
         fontSize: 15.sp,
       ),
-      backgroundColor: white,
+      backgroundColor: AppColors.white,
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -163,8 +164,8 @@ lastCheckDialog(SGroupCardModel item) {
               overflow: TextOverflow.ellipsis,
               maxLines: 10,
               style: TextStyle(
-                color: grey2,
-                fontFamily: bj,
+                color: AppColors.grey2,
+                fontFamily: AppFonts.bj,
                 fontWeight: FontWeight.bold,
                 fontSize: 12.sp,
               ),
@@ -178,8 +179,8 @@ lastCheckDialog(SGroupCardModel item) {
             overflow: TextOverflow.ellipsis,
             maxLines: 10,
             style: TextStyle(
-              color: grey2,
-              fontFamily: bj,
+              color: AppColors.grey2,
+              fontFamily: AppFonts.bj,
               fontWeight: FontWeight.bold,
               fontSize: 15.sp,
             ),
@@ -192,8 +193,8 @@ lastCheckDialog(SGroupCardModel item) {
             overflow: TextOverflow.ellipsis,
             maxLines: 10,
             style: TextStyle(
-              color: grey3,
-              fontFamily: bj,
+              color: AppColors.grey3,
+              fontFamily: AppFonts.bj,
               fontWeight: FontWeight.bold,
               fontSize: 10.sp,
             ),
@@ -204,7 +205,7 @@ lastCheckDialog(SGroupCardModel item) {
             child: Container(
               height: 5.h,
               decoration: BoxDecoration(
-                color: purble3,
+                color: AppColors.purble3,
                 borderRadius: BorderRadius.circular(5.sp),
               ),
               child: Center(
@@ -214,14 +215,14 @@ lastCheckDialog(SGroupCardModel item) {
                   children: [
                     Icon(
                       Icons.add,
-                      color: white,
+                      color: AppColors.white,
                     ),
                     Text(
                       'إنضمام',
                       style: TextStyle(
-                        color: white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
-                        fontFamily: bj,
+                        fontFamily: AppFonts.bj,
                         fontSize: 15.sp,
                       ),
                     ),

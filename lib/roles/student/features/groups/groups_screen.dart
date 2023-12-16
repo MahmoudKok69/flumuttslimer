@@ -32,7 +32,7 @@ class SGroupsScreen extends StatelessWidget {
           width: 25.w,
           height: 8.h,
           decoration: BoxDecoration(
-            color: purble3,
+            color: AppColors.purble3,
             borderRadius: BorderRadius.circular(5.sp),
           ),
           child: FittedBox(
@@ -44,7 +44,7 @@ class SGroupsScreen extends StatelessWidget {
                   children: [
                     ArabicText(
                       text: 'رابط',
-                      color: white,
+                      color: AppColors.white,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                     ),
@@ -55,7 +55,7 @@ class SGroupsScreen extends StatelessWidget {
                         angle: 45,
                         child: Icon(
                           Icons.link,
-                          color: white,
+                          color: AppColors.white,
                           size: 20.sp,
                         ))
                   ],

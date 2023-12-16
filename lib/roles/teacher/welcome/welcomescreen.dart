@@ -25,7 +25,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: purble3,
+        backgroundColor: AppColors.purble3,
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -43,8 +43,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Text(
                           ' 👋 مرحباً يا صديقي ',
                           style: TextStyle(
-                              color: white,
-                              fontFamily: bj,
+                              color: AppColors.white,
+                              fontFamily: AppFonts.bj,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.bold),
                         ),
@@ -54,8 +54,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Text(
                           ' ما هو دورك ؟ ',
                           style: TextStyle(
-                              color: white,
-                              fontFamily: bj,
+                              color: AppColors.white,
+                              fontFamily: AppFonts.bj,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.bold),
                         ),
@@ -65,8 +65,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Text(
                           ' ما  هي صفتك التي تستخدمها في التطبيق؟',
                           style: TextStyle(
-                              color: white,
-                              fontFamily: bj,
+                              color: AppColors.white,
+                              fontFamily: AppFonts.bj,
                               fontSize: 6.sp,
                               fontWeight: FontWeight.bold),
                         ),
@@ -95,7 +95,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     shape: BoxShape.circle,
                                     border: _controller.isStudent
                                         ? Border.all(
-                                            color: purble1, width: 5.sp)
+                                            color: AppColors.purble1,
+                                            width: 5.sp)
                                         : null,
                                     image: DecorationImage(
                                         image: AssetImage(
@@ -117,8 +118,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   child: Text(
                                     '🎓طالب',
                                     style: TextStyle(
-                                        color: white,
-                                        fontFamily: bj,
+                                        color: AppColors.white,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -141,7 +142,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                     shape: BoxShape.circle,
                                     border: !_controller.isStudent
                                         ? Border.all(
-                                            color: purble1, width: 5.sp)
+                                            color: AppColors.purble1,
+                                            width: 5.sp)
                                         : null,
                                     image: DecorationImage(
                                         image: AssetImage(
@@ -163,8 +165,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   child: Text(
                                     '📖معلم',
                                     style: TextStyle(
-                                        color: white,
-                                        fontFamily: bj,
+                                        color: AppColors.white,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
@@ -195,7 +197,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: BorderedContainer(
                       height: 8.h,
                       width: 30.w,
-                      color: white,
+                      color: AppColors.white,
                       borderWidth: 0.0,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -206,7 +208,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             maxLines: 1,
                             style: TextStyle(
                               fontSize: 14.sp,
-                              fontFamily: bj,
+                              fontFamily: AppFonts.bj,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

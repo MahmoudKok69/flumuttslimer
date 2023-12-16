@@ -19,7 +19,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 35.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Bahij',
@@ -29,7 +29,7 @@ class OnBoardingScreen extends StatelessWidget {
         'تطبيق أذكار , التطبيق الأول المهتم بمتابعة تقدمك في الأذكار و حفظ القرأن',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Bahij',
@@ -44,7 +44,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Bahij',
@@ -54,7 +54,7 @@ class OnBoardingScreen extends StatelessWidget {
         'أمكانية تلاوة القرأن الكريم داخل التطبيق و مراجعة الأحداث و التقدم',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Bahij',
@@ -70,7 +70,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Bahij',
@@ -80,7 +80,7 @@ class OnBoardingScreen extends StatelessWidget {
         'تتنافس الطلاب في الطاعات و التفوق في حفظ القرأن و الأذكار و اختبارها',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Bahij',
@@ -95,7 +95,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Bahij',
@@ -105,7 +105,7 @@ class OnBoardingScreen extends StatelessWidget {
         'تعليم الأخلاق السليمة و العادات الجمالية للمسلمين',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Bahij',
@@ -120,7 +120,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Bahij',
@@ -130,7 +130,7 @@ class OnBoardingScreen extends StatelessWidget {
         'معلمين يتابعون الطلاب في نشاطهم و يقومون بتقييمهم و إعطاء الدرجات',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Bahij',
@@ -143,7 +143,7 @@ class OnBoardingScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.bold,
           fontFamily: 'Amiri',
@@ -155,7 +155,7 @@ class OnBoardingScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: CircleAvatar(
               radius: 100.sp,
-              backgroundColor: purble4.withOpacity(0.1),
+              backgroundColor: AppColors.purble4.withOpacity(0.1),
             ),
           ),
           Text(
@@ -163,7 +163,7 @@ class OnBoardingScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             maxLines: 3,
             style: TextStyle(
-              color: white,
+              color: AppColors.white,
               fontSize: 40.sp,
               fontWeight: FontWeight.w500,
               fontFamily: 'Amiri',
@@ -175,7 +175,7 @@ class OnBoardingScreen extends StatelessWidget {
         'صَدَقَ اللهُ العَظيمُ',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: white,
+          color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
           fontFamily: 'Amiri',
@@ -185,7 +185,8 @@ class OnBoardingScreen extends StatelessWidget {
           bodyFlex: 6,
           footerFlex: 0,
           boxDecoration: BoxDecoration(
-              gradient: RadialGradient(colors: [purble3, purble2]))),
+              gradient: RadialGradient(
+                  colors: [AppColors.purble3, AppColors.purble2]))),
     ),
   ];
 
@@ -198,11 +199,11 @@ class OnBoardingScreen extends StatelessWidget {
         child: IntroductionScreen(
           pages: pages,
           scrollPhysics: const BouncingScrollPhysics(),
-          globalBackgroundColor: purble2,
+          globalBackgroundColor: AppColors.purble2,
           showSkipButton: true,
           next: Icon(
             Icons.arrow_forward_ios_rounded,
-            color: white,
+            color: AppColors.white,
             size: 20.sp,
           ),
           // showDoneButton: true,
@@ -213,7 +214,7 @@ class OnBoardingScreen extends StatelessWidget {
               child: Text(
                 'الدخول',
                 style: TextStyle(
-                  color: white,
+                  color: AppColors.white,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Bahij',
@@ -222,10 +223,11 @@ class OnBoardingScreen extends StatelessWidget {
             ),
           ),
           showDoneButton: true,
-          doneStyle: ElevatedButton.styleFrom(backgroundColor: purble1),
+          doneStyle:
+              ElevatedButton.styleFrom(backgroundColor: AppColors.purble1),
           skip: Icon(
             Icons.double_arrow_rounded,
-            color: white,
+            color: AppColors.white,
             size: 20.sp,
           ),
           onSkip: () {
@@ -236,8 +238,8 @@ class OnBoardingScreen extends StatelessWidget {
           },
           dotsFlex: 0,
           dotsDecorator: DotsDecorator(
-            color: purble4,
-            activeColor: purble1,
+            color: AppColors.purble4,
+            activeColor: AppColors.purble1,
             size: const Size(20, 5),
             activeSize: const Size(12, 12),
           ),
@@ -250,6 +252,7 @@ class OnBoardingScreen extends StatelessWidget {
 PageDecoration getPageDecoration() {
   return PageDecoration(
       bodyFlex: 0,
-      boxDecoration:
-          BoxDecoration(gradient: LinearGradient(colors: [purble2, purble3])));
+      boxDecoration: BoxDecoration(
+          gradient:
+              LinearGradient(colors: [AppColors.purble2, AppColors.purble3])));
 }

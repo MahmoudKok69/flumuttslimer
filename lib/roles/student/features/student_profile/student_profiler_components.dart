@@ -20,7 +20,7 @@ class ImageSelecter extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        color: white,
+        color: AppColors.white,
         child: Center(
             child: Text(
           _controller.name,
@@ -28,7 +28,7 @@ class ImageSelecter extends StatelessWidget {
               color: color,
               fontSize: 100.sp,
               fontWeight: FontWeight.bold,
-              fontFamily: bj),
+              fontFamily: AppFonts.bj),
         )),
       ),
     );

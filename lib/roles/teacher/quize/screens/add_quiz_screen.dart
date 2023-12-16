@@ -36,22 +36,22 @@ class AddQuizScreen extends StatelessWidget {
         initialIndex: 0,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: purble2,
+            backgroundColor: AppColors.purble2,
             title: Center(
               child: Text(
                 'إضافة إختبار',
                 style: TextStyle(
                   fontSize: 18.sp,
-                  fontFamily: bj,
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.w500,
-                  color: white,
+                  color: AppColors.white,
                 ),
               ),
             ),
             leading: IconButton(
               icon: Icon(
                 AppIcons.back_icon,
-                color: white,
+                color: AppColors.white,
                 size: 16.sp,
               ),
               onPressed: () {
@@ -73,7 +73,7 @@ class AddQuizScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                               'بحال وافقت على الرجوع سيتم حذف الإختبار  الذي أدخلته',
                               style: TextStyle(
-                                color: black,
+                                color: AppColors.black,
                                 fontSize: 10.sp,
                                 fontFamily: 'Bahij',
                                 fontWeight: FontWeight.bold,
@@ -92,16 +92,16 @@ class AddQuizScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                       width: 1.sp,
-                                      color: purble2,
+                                      color: AppColors.purble2,
                                     ),
                                     borderRadius: BorderRadius.circular(5.sp),
-                                    color: purble2),
+                                    color: AppColors.purble2),
                                 child: Center(
                                   child: Text(
                                     'رجوع',
                                     maxLines: 1,
                                     style: TextStyle(
-                                      color: white,
+                                      color: AppColors.white,
                                       fontSize: 10.sp,
                                       fontFamily: 'Bahij',
                                       fontWeight: FontWeight.bold,
@@ -122,26 +122,26 @@ class AddQuizScreen extends StatelessWidget {
               },
             ),
             bottom: TabBar(
-                indicatorColor: white,
+                indicatorColor: AppColors.white,
                 automaticIndicatorColorAdjustment: true,
-                overlayColor: MaterialStateProperty.all(purble3),
-                labelColor: white,
-                unselectedLabelColor: grey2,
+                overlayColor: MaterialStateProperty.all(AppColors.purble3),
+                labelColor: AppColors.white,
+                unselectedLabelColor: AppColors.grey2,
                 indicatorSize: TabBarIndicatorSize.label,
                 tabs: [
                   Text(
                     'الأسئلة',
                     style: TextStyle(
-                        color: white,
-                        fontFamily: bj,
+                        color: AppColors.white,
+                        fontFamily: AppFonts.bj,
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp),
                   ),
                   Text(
                     'إضافة سؤال',
                     style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
+                      color: AppColors.white,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
                     ),
@@ -149,8 +149,8 @@ class AddQuizScreen extends StatelessWidget {
                   Text(
                     'إرسال',
                     style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
+                      color: AppColors.white,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp,
                     ),
@@ -165,7 +165,7 @@ class AddQuizScreen extends StatelessWidget {
           //       width: 26.w,
           //       height: 8.h,
           //       decoration: BoxDecoration(
-          //         color: purble3,
+          //         color: AppColors.purble3,
           //         borderRadius: BorderRadius.circular(10.sp),
           //       ),
           //       child: Center(
@@ -173,8 +173,8 @@ class AddQuizScreen extends StatelessWidget {
           //         ' إرسال الإختبار',
           //         maxLines: 1,
           //         style: TextStyle(
-          //             color: white,
-          //             fontFamily: bj,
+          //             color: AppColors.white,
+          //             fontFamily:AppFonts.bj,
           //             fontWeight: FontWeight.bold,
           //             fontSize: 8.sp),
           //       )),
@@ -220,10 +220,10 @@ class view_Questions extends StatelessWidget {
                     padding: EdgeInsets.all(8),
                     child: Container(
                         decoration: BoxDecoration(
-                          color: white,
+                          color: AppColors.white,
                           boxShadow: [
                             BoxShadow(
-                              color: black.withOpacity(0.4),
+                              color: AppColors.black.withOpacity(0.4),
                               blurRadius: 1,
                               offset: const Offset(2, 3),
                               spreadRadius: 1,
@@ -232,7 +232,7 @@ class view_Questions extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5.sp),
                         ),
                         child: ListTile(
-                            tileColor: white,
+                            tileColor: AppColors.white,
                             style: ListTileStyle.list,
                             title: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -251,7 +251,7 @@ class view_Questions extends StatelessWidget {
                                     ArabicText(
                                       text: 'السؤال : ${++questionInde}',
                                       fontSize: 14.sp,
-                                      // fontFamily: bj,
+                                      // fontFamily:AppFonts.bj,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ],
@@ -259,7 +259,7 @@ class view_Questions extends StatelessWidget {
                                 ArabicText(
                                   text: ' ${e['question']}',
                                   fontSize: 14.sp,
-                                  // fontFamily: bj,
+                                  // fontFamily:AppFonts.bj,
                                   fontWeight: FontWeight.w500,
                                 ),
                                 Row(
@@ -268,13 +268,13 @@ class view_Questions extends StatelessWidget {
                                     ArabicText(
                                       text: ' ${e['option1']}',
                                       fontSize: 14.sp,
-                                      // fontFamily: bj,
+                                      // fontFamily:AppFonts.bj,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     Icon(
                                       Icons.circle,
                                       color: e['correctAnswer'] == 1
-                                          ? green1
+                                          ? AppColors.green1
                                           : Colors.red,
                                       size: 10.sp,
                                     ),
@@ -286,13 +286,13 @@ class view_Questions extends StatelessWidget {
                                     ArabicText(
                                       text: ' ${e['option2']}',
                                       fontSize: 14.sp,
-                                      // fontFamily: bj,
+                                      // fontFamily:AppFonts.bj,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     Icon(
                                       Icons.circle,
                                       color: e['correctAnswer'] == 2
-                                          ? green1
+                                          ? AppColors.green1
                                           : Colors.red,
                                       size: 10.sp,
                                     ),
@@ -304,13 +304,13 @@ class view_Questions extends StatelessWidget {
                                     ArabicText(
                                       text: ' ${e['option3']}',
                                       fontSize: 14.sp,
-                                      // fontFamily: bj,
+                                      // fontFamily:AppFonts.bj,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     Icon(
                                       Icons.circle,
                                       color: e['correctAnswer'] == 3
-                                          ? green1
+                                          ? AppColors.green1
                                           : Colors.red,
                                       size: 10.sp,
                                     ),
@@ -322,13 +322,13 @@ class view_Questions extends StatelessWidget {
                                     ArabicText(
                                       text: ' ${e['option4']}',
                                       fontSize: 14.sp,
-                                      // fontFamily: bj,
+                                      // fontFamily:AppFonts.bj,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     Icon(
                                       Icons.circle,
                                       color: e['correctAnswer'] == 4
-                                          ? green1
+                                          ? AppColors.green1
                                           : Colors.red,
                                       size: 10.sp,
                                     ),
@@ -368,7 +368,7 @@ class The_Question extends StatelessWidget {
               Text(
                 _controller.name_quiz,
                 style: TextStyle(
-                  color: black,
+                  color: AppColors.black,
                   fontSize: 12.sp,
                   fontFamily: 'Bahij',
                   fontWeight: FontWeight.bold,
@@ -377,7 +377,7 @@ class The_Question extends StatelessWidget {
               Text(
                 ':إسم الإختبار',
                 style: TextStyle(
-                  color: black,
+                  color: AppColors.black,
                   fontSize: 12.sp,
                   fontFamily: 'Bahij',
                   fontWeight: FontWeight.bold,
@@ -398,7 +398,7 @@ class The_Question extends StatelessWidget {
                       textAlign: TextAlign.right,
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        fontFamily: bj,
+                        fontFamily: AppFonts.bj,
                         fontSize: 15.sp,
                       ),
                     ),
@@ -412,9 +412,9 @@ class The_Question extends StatelessWidget {
                         return CustomCheckBox(
                           height: 12.sp,
                           width: 12.sp,
-                          selectColor: purble2,
-                          unselectColor: purble5,
-                          iconColor: white,
+                          selectColor: AppColors.purble2,
+                          unselectColor: AppColors.purble5,
+                          iconColor: AppColors.white,
                           borderRadius: 1.sp,
                           isChecked: _controller.ischecked_all,
                           iconSize: 12.sp,
@@ -433,7 +433,7 @@ class The_Question extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
                     fontSize: 18.sp,
-                    fontFamily: bj,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -448,9 +448,9 @@ class The_Question extends StatelessWidget {
               child: Container(
                   height: 50.h,
                   decoration: BoxDecoration(
-                      color: white,
+                      color: AppColors.white,
                       borderRadius: BorderRadius.circular(20.sp),
-                      border: Border.all(color: white, width: 1.sp),
+                      border: Border.all(color: AppColors.white, width: 1.sp),
                       boxShadow: [
                         BoxShadow(
                             color: Colors.grey.shade400,
@@ -471,7 +471,7 @@ class The_Question extends StatelessWidget {
                               builder: (_) {
                                 return PhysicalModel(
                                   elevation: 5,
-                                  color: white,
+                                  color: AppColors.white,
                                   borderRadius: BorderRadius.circular(5.sp),
                                   child: ListTile(
                                     shape: BeveledRectangleBorder(
@@ -499,21 +499,22 @@ class The_Question extends StatelessWidget {
                                       textAlign: TextAlign.right,
                                       textDirection: TextDirection.rtl,
                                       style: TextStyle(
-                                        color: black,
-                                        fontFamily: bj,
+                                        color: AppColors.black,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 12.sp,
                                         decoration:
                                             item.isChecked! ? null : null,
                                       ),
                                     ),
-                                    tileColor:
-                                        item.isChecked! ? purble3 : purble4,
+                                    tileColor: item.isChecked!
+                                        ? AppColors.purble3
+                                        : AppColors.purble4,
                                     leading: CustomCheckBox(
                                       height: 12.sp,
                                       width: 12.sp,
-                                      selectColor: purble2,
-                                      unselectColor: purble4,
-                                      iconColor: white,
+                                      selectColor: AppColors.purble2,
+                                      unselectColor: AppColors.purble4,
+                                      iconColor: AppColors.white,
                                       borderRadius: 1.sp,
                                       isChecked: item.isChecked,
                                       iconSize: 12.sp,
@@ -554,7 +555,7 @@ class The_Question extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   ' هل انت متأكد من إرسال الإختبار',
                                   style: TextStyle(
-                                    color: black,
+                                    color: AppColors.black,
                                     fontSize: 13.sp,
                                     fontFamily: 'Bahij',
                                     fontWeight: FontWeight.bold,
@@ -580,7 +581,7 @@ class The_Question extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       ' ${_controller.List_Questions.length}',
                                       style: TextStyle(
-                                        color: black,
+                                        color: AppColors.black,
                                         fontSize: 13.sp,
                                         fontFamily: 'Bahij',
                                         fontWeight: FontWeight.bold,
@@ -591,7 +592,7 @@ class The_Question extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       'عدد الأسئلة :',
                                       style: TextStyle(
-                                        color: black,
+                                        color: AppColors.black,
                                         fontSize: 13.sp,
                                         fontFamily: 'Bahij',
                                         fontWeight: FontWeight.bold,
@@ -612,17 +613,17 @@ class The_Question extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         border: Border.all(
                                           width: 1.sp,
-                                          color: purble2,
+                                          color: AppColors.purble2,
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(5.sp),
-                                        color: purble2),
+                                        color: AppColors.purble2),
                                     child: Center(
                                       child: Text(
                                         'إرسال',
                                         maxLines: 1,
                                         style: TextStyle(
-                                          color: white,
+                                          color: AppColors.white,
                                           fontSize: 10.sp,
                                           fontFamily: 'Bahij',
                                           fontWeight: FontWeight.bold,
@@ -639,7 +640,8 @@ class The_Question extends StatelessWidget {
                     );
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(purble2),
+                    backgroundColor:
+                        MaterialStateProperty.all(AppColors.purble2),
                   ),
                   child: Center(
                     child: Text(
@@ -647,7 +649,7 @@ class The_Question extends StatelessWidget {
                       textAlign: TextAlign.right,
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        color: white,
+                        color: AppColors.white,
                         fontFamily: 'Bahij',
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w700,
@@ -692,7 +694,7 @@ class Add_Question extends StatelessWidget {
               'إسم الأختبار',
               style: TextStyle(
                 fontSize: 14.sp,
-                fontFamily: bj,
+                fontFamily: AppFonts.bj,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -728,7 +730,7 @@ class Add_Question extends StatelessWidget {
                     'السؤال :${_controller.currentQuestionIndex} ',
                     style: TextStyle(
                       fontSize: 14.sp,
-                      fontFamily: bj,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.w500,
                     ),
                   );
@@ -762,7 +764,7 @@ class Add_Question extends StatelessWidget {
                   ' الخيارات',
                   style: TextStyle(
                     fontSize: 14.sp,
-                    fontFamily: bj,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -770,8 +772,8 @@ class Add_Question extends StatelessWidget {
                   ' قم بأختيار الجواب الصحيح  و إلا سيتم أختيار الخيار الأول',
                   style: TextStyle(
                     fontSize: 10.sp,
-                    fontFamily: bj,
-                    color: grey4,
+                    fontFamily: AppFonts.bj,
+                    color: AppColors.grey4,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -964,18 +966,20 @@ class Add_Question extends StatelessWidget {
 
                       Get.showSnackbar(GetSnackBar(
                         duration: const Duration(seconds: 2),
-                        backgroundColor: white,
+                        backgroundColor: AppColors.white,
                         snackStyle: SnackStyle.GROUNDED,
                         padding: EdgeInsets.symmetric(
                             vertical: 1.h, horizontal: 3.w),
-                        boxShadows: [BoxShadow(color: black, blurRadius: 5)],
+                        boxShadows: [
+                          BoxShadow(color: AppColors.black, blurRadius: 5)
+                        ],
                         animationDuration: const Duration(milliseconds: 500),
                         messageText: Text(
                           'تم إضافة السؤال بنجاح',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: grey1,
-                            fontFamily: bj,
+                            color: AppColors.grey1,
+                            fontFamily: AppFonts.bj,
                             fontSize: 16.sp,
                           ),
                         ),
@@ -983,7 +987,8 @@ class Add_Question extends StatelessWidget {
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(purble2),
+                    backgroundColor:
+                        MaterialStateProperty.all(AppColors.purble2),
                   ),
                   child: Center(
                     child: Text(
@@ -991,7 +996,7 @@ class Add_Question extends StatelessWidget {
                       textAlign: TextAlign.right,
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        color: white,
+                        color: AppColors.white,
                         fontFamily: 'Bahij',
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w700,

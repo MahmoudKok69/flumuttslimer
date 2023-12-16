@@ -37,11 +37,11 @@ class TeacherGroupsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: purble2,
+        backgroundColor: AppColors.purble2,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: white,
+            color: AppColors.white,
             size: 16.sp,
           ),
           onPressed: () {
@@ -53,7 +53,7 @@ class TeacherGroupsScreen extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.link,
-                color: white,
+                color: AppColors.white,
                 size: 16.sp,
               )),
           IconButton(
@@ -72,14 +72,14 @@ class TeacherGroupsScreen extends StatelessWidget {
               },
               icon: Icon(
                 Icons.edit,
-                color: white,
+                color: AppColors.white,
                 size: 16.sp,
               )),
           IconButton(
               onPressed: () {},
               icon: Icon(
                 Icons.search,
-                color: white,
+                color: AppColors.white,
                 size: 16.sp,
               )),
         ],
@@ -92,10 +92,10 @@ class TeacherGroupsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: white,
+                color: AppColors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: black.withOpacity(0.4),
+                    color: AppColors.black.withOpacity(0.4),
                     blurRadius: 1,
                     offset: const Offset(2, 3),
                     spreadRadius: 1,
@@ -116,7 +116,7 @@ class TeacherGroupsScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
-                  tileColor: white,
+                  tileColor: AppColors.white,
                   style: ListTileStyle.list,
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -127,14 +127,14 @@ class TeacherGroupsScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: purble1),
+                                border: Border.all(color: AppColors.purble1),
                                 shape: BoxShape.circle),
                             child: Center(
                               child: Text(
                                 '${userInde}',
                                 style: TextStyle(
                                     fontSize: 12.sp,
-                                    color: orange1,
+                                    color: AppColors.orange1,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -147,8 +147,8 @@ class TeacherGroupsScreen extends StatelessWidget {
                           Text(
                             e.name_student!,
                             style: TextStyle(
-                              color: black,
-                              fontFamily: bj,
+                              color: AppColors.black,
+                              fontFamily: AppFonts.bj,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
@@ -158,8 +158,8 @@ class TeacherGroupsScreen extends StatelessWidget {
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
                             style: TextStyle(
-                              color: black,
-                              fontFamily: bj,
+                              color: AppColors.black,
+                              fontFamily: AppFonts.bj,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
@@ -167,8 +167,8 @@ class TeacherGroupsScreen extends StatelessWidget {
                           Text(
                             'عدد النقاط :${e.points.toString()}',
                             style: TextStyle(
-                              color: black,
-                              fontFamily: bj,
+                              color: AppColors.black,
+                              fontFamily: AppFonts.bj,
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                             ),
@@ -181,7 +181,7 @@ class TeacherGroupsScreen extends StatelessWidget {
                           height: 100.sp,
                           width: 100.sp,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: purble4),
+                              shape: BoxShape.circle, color: AppColors.purble4),
                         ),
                       ),
                     ],

@@ -22,14 +22,14 @@ class StudentQuizStartScreen extends StatelessWidget {
     var item = _controller.quizes[index];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: purblegradient,
+        backgroundColor: AppColors.purblegradient,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
           icon: Icon(
             AppIcons.back_icon,
-            color: white,
+            color: AppColors.white,
             size: 16.sp,
           ),
         ),
@@ -37,7 +37,7 @@ class StudentQuizStartScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [purblegradient, purble3],
+                colors: [AppColors.purblegradient, AppColors.purble3],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft)),
         child: Center(
@@ -55,9 +55,9 @@ class StudentQuizStartScreen extends StatelessWidget {
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: white,
+                          color: AppColors.white,
                           fontSize: 20.sp,
-                          fontFamily: bj,
+                          fontFamily: AppFonts.bj,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -66,9 +66,9 @@ class StudentQuizStartScreen extends StatelessWidget {
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: white,
+                          color: AppColors.white,
                           fontSize: 15.sp,
-                          fontFamily: bj,
+                          fontFamily: AppFonts.bj,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -84,9 +84,9 @@ class StudentQuizStartScreen extends StatelessWidget {
                                 textAlign: TextAlign.right,
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
-                                  color: white,
+                                  color: AppColors.white,
                                   fontSize: 19.sp,
-                                  fontFamily: bj,
+                                  fontFamily: AppFonts.bj,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -97,9 +97,9 @@ class StudentQuizStartScreen extends StatelessWidget {
                                     textAlign: TextAlign.right,
                                     textDirection: TextDirection.rtl,
                                     style: TextStyle(
-                                      color: white,
+                                      color: AppColors.white,
                                       fontSize: 19.sp,
-                                      fontFamily: bj,
+                                      fontFamily: AppFonts.bj,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ).pSymmetric(horizontal: 1.w),
@@ -125,7 +125,7 @@ class StudentQuizStartScreen extends StatelessWidget {
                   height: 6.h,
                   width: 25.w,
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Directionality(
@@ -136,15 +136,15 @@ class StudentQuizStartScreen extends StatelessWidget {
                         Text(
                           'بدأ',
                           style: TextStyle(
-                            color: purble3,
+                            color: AppColors.purble3,
                             fontWeight: FontWeight.bold,
                             fontSize: 18.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                           ),
                         ),
                         Icon(
                           AppIcons.back_icon,
-                          color: purble3,
+                          color: AppColors.purble3,
                         )
                       ],
                     ),

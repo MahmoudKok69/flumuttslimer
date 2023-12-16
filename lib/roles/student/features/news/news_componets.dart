@@ -39,10 +39,11 @@ class NewsCard extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 2.h, left: 2.w, right: 2.w),
       child: Container(
           decoration: BoxDecoration(
-              color: white,
-              border: Border.all(width: 0.25.w, color: black),
+              color: AppColors.white,
+              border: Border.all(width: 0.25.w, color: AppColors.black),
               boxShadow: [
-                BoxShadow(color: black.withOpacity(0.4), blurRadius: 1),
+                BoxShadow(
+                    color: AppColors.black.withOpacity(0.4), blurRadius: 1),
               ],
               borderRadius: BorderRadius.circular(5.sp)),
           child: Padding(
@@ -56,20 +57,20 @@ class NewsCard extends StatelessWidget {
                     item.author!,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
-                        color: black,
+                        color: AppColors.black,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
-                        fontFamily: bj),
+                        fontFamily: AppFonts.bj),
                   ),
                 ),
                 Text(
                   '${item.date!.year}/${item.date!.month}/${item.date!.day}',
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                      color: grey2,
+                      color: AppColors.grey2,
                       fontSize: 9.sp,
                       fontWeight: FontWeight.bold,
-                      fontFamily: bj),
+                      fontFamily: AppFonts.bj),
                 ),
                 SizedBox(
                   height: 0.5.h,
@@ -89,10 +90,10 @@ class NewsCard extends StatelessWidget {
                               maxLines: item.isExpanded ? 3 : 100,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                  color: grey1,
+                                  color: AppColors.grey1,
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w500,
-                                  fontFamily: bj),
+                                  fontFamily: AppFonts.bj),
                             ),
                           ),
                           Visibility(

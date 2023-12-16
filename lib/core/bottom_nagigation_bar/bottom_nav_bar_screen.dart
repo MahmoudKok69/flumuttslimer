@@ -19,7 +19,7 @@ class BottomNavBarScreen extends StatelessWidget {
   var pages = [
     SHomeScreen(),
     AzkarScreen(),
-    QuranScreen(),
+    const QuranScreen(),
     StudentProfileScreen(),
   ];
 
@@ -39,7 +39,7 @@ class BottomNavBarScreen extends StatelessWidget {
                   itemPadding:
                       EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                   margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-                  backgroundColor: purble5,
+                  backgroundColor: AppColors.purble5,
                   currentIndex: Get.find<BottomNavBarController>().index,
                   onTap: (index) {
                     Get.find<BottomNavBarController>().selectIndex(index);

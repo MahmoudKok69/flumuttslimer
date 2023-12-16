@@ -30,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: Icon(AppIcons.back_icon, color: white),
+        icon: Icon(AppIcons.back_icon, color: AppColors.white),
         onPressed: () {
           Get.back();
         },
@@ -41,12 +41,12 @@ class RegisterScreen extends StatelessWidget {
           'إنشاء حساب جديد',
           textAlign: TextAlign.start,
           style: TextStyle(
-            color: white,
-            fontFamily: bj,
+            color: AppColors.white,
+            fontFamily: AppFonts.bj,
           ),
         ),
       ),
-      backgroundColor: purble2,
+      backgroundColor: AppColors.purble2,
     );
   }
 }

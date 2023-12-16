@@ -26,11 +26,11 @@ class SorahScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: purble2,
+        backgroundColor: AppColors.purble2,
         leading: IconButton(
           icon: Icon(
             AppIcons.back_icon,
-            color: white,
+            color: AppColors.white,
           ),
           onPressed: () {
             Get.back();
@@ -44,8 +44,8 @@ class SorahScreen extends StatelessWidget {
             'سورة ${item.name}',
             textAlign: TextAlign.right,
             style: TextStyle(
-                color: white,
-                fontFamily: um,
+                color: AppColors.white,
+                fontFamily: AppFonts.um,
                 fontWeight: FontWeight.bold,
                 fontSize: 20.sp),
           ),
@@ -66,7 +66,7 @@ class SorahScreen extends StatelessWidget {
                     _controller.isMarked
                         ? Icons.bookmark
                         : Icons.bookmark_border,
-                    color: white,
+                    color: AppColors.white,
                   );
                 },
               ))
@@ -102,7 +102,7 @@ class SorahScreen extends StatelessWidget {
                           child: Center(
                             child: Text(BESMILAH,
                                 style: TextStyle(
-                                  fontFamily: um,
+                                  fontFamily: AppFonts.um,
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 )),
@@ -133,7 +133,7 @@ class SorahScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
-                    fontFamily: um,
+                    fontFamily: AppFonts.um,
                     fontSize: 25.sp,
                     fontWeight: FontWeight.w700),
               ),
@@ -148,13 +148,13 @@ class SorahScreen extends StatelessWidget {
             //             children: [
             //               Icon(
             //                 Icons.star,
-            //                 color: black,
+            //                 color: AppColors.black,
             //               ),
             //               Text(
             //                 textAlign: TextAlign.center,
             //                 textDirection: TextDirection.rtl,
             //                 element.ar.toString(),
-            //                 style: TextStyle(fontFamily: um, fontSize: 15.sp),
+            //                 style: TextStyle(fontFamily:AppFonts.um, fontSize: 15.sp),
             //               ),
             //             ],
             //           ))
@@ -186,7 +186,7 @@ class SorahScreen extends StatelessWidget {
                           child: Center(
                             child: Text(SADAKALLAH,
                                 style: TextStyle(
-                                  fontFamily: um,
+                                  fontFamily: AppFonts.um,
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 )),

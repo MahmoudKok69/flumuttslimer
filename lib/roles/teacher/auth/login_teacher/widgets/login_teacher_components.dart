@@ -113,12 +113,12 @@ class Login_teacherForm extends StatelessWidget {
                             icon: _controller.obscure
                                 ? Icon(
                                     Icons.visibility_off,
-                                    color: purble2,
+                                    color: AppColors.purble2,
                                     size: 14.sp,
                                   )
                                 : Icon(
                                     Icons.visibility,
-                                    color: purble2,
+                                    color: AppColors.purble2,
                                     size: 14.sp,
                                   ),
                             onPressed: () {
@@ -131,7 +131,7 @@ class Login_teacherForm extends StatelessWidget {
                               'كلمة المرور',
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                color: purble1,
+                                color: AppColors.purble1,
                                 fontFamily: 'Bahij',
                                 fontWeight: FontWeight.w300,
                               ),
@@ -141,7 +141,7 @@ class Login_teacherForm extends StatelessWidget {
                           hintText: 'أدخل كلمة المرور',
                           alignLabelWithHint: true,
                           labelStyle: TextStyle(
-                            color: purble1,
+                            color: AppColors.purble1,
                             fontFamily: 'Bahij',
                             fontWeight: FontWeight.w300,
                           ),
@@ -182,12 +182,13 @@ class Login_teacherForm extends StatelessWidget {
                       }
                     },
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(purble2)),
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.purble2)),
                     child: Center(
                       child: Text(
                         'تسجيل الدخول',
                         style: TextStyle(
-                          color: white,
+                          color: AppColors.white,
                           fontFamily: 'Bahij',
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w700,

@@ -74,10 +74,10 @@ class GridItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: white,
+        color: AppColors.white,
         border: Border.all(color: Colors.grey, width: 0.1),
         borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [BoxShadow(color: black, blurRadius: 2)],
+        boxShadow: [BoxShadow(color: AppColors.black, blurRadius: 2)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,14 +85,14 @@ class GridItem extends StatelessWidget {
         children: [
           ArabicText(
             text: title,
-            color: black,
+            color: AppColors.black,
             fontSize: 16.sp,
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 8.0),
           ArabicText(
             text: middleText,
-            color: purble2,
+            color: AppColors.purble2,
             fontSize: 12.sp,
             fontWeight: FontWeight.w400,
           ),
@@ -102,7 +102,7 @@ class GridItem extends StatelessWidget {
             children: [
               ArabicText(
                 text: 'النتيجة: $subtitle',
-                color: grey2,
+                color: AppColors.grey2,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
               ),
@@ -176,14 +176,14 @@ class QuizCard extends StatelessWidget {
       child: Container(
         width: 46.w,
         decoration: BoxDecoration(
-            color: white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               width: 0.1.w,
-              color: grey3,
+              color: AppColors.grey3,
             ),
             boxShadow: [
-              BoxShadow(blurRadius: 3, color: black),
+              BoxShadow(blurRadius: 3, color: AppColors.black),
             ]),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
@@ -196,9 +196,9 @@ class QuizCard extends StatelessWidget {
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    color: black,
+                    color: AppColors.black,
                     fontSize: 18.sp,
-                    fontFamily: bj,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -207,9 +207,9 @@ class QuizCard extends StatelessWidget {
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    color: black,
+                    color: AppColors.black,
                     fontSize: 11.sp,
-                    fontFamily: bj,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -226,9 +226,9 @@ class QuizCard extends StatelessWidget {
                           textAlign: TextAlign.right,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            color: grey2,
+                            color: AppColors.grey2,
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -237,9 +237,9 @@ class QuizCard extends StatelessWidget {
                           textAlign: TextAlign.right,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            color: grey2,
+                            color: AppColors.grey2,
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -250,9 +250,9 @@ class QuizCard extends StatelessWidget {
                               textAlign: TextAlign.right,
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
-                                color: grey2,
+                                color: AppColors.grey2,
                                 fontSize: 14.sp,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

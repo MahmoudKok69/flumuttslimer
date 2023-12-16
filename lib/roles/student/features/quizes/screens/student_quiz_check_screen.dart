@@ -65,11 +65,11 @@ class StudentQuizCheckScreen extends StatelessWidget {
       centerTitle: true,
       title: ArabicText(
         text: item.title,
-        color: white,
+        color: AppColors.white,
         fontSize: 16.sp,
         fontWeight: FontWeight.bold,
       ),
-      backgroundColor: purblegradient,
+      backgroundColor: AppColors.purblegradient,
       leading: IconButton(
         onPressed: () {
           _controller.resetQuiz();
@@ -77,7 +77,7 @@ class StudentQuizCheckScreen extends StatelessWidget {
         },
         icon: Icon(
           AppIcons.back_icon,
-          color: white,
+          color: AppColors.white,
           size: 16.sp,
         ),
       ),

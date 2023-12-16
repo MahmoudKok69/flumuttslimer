@@ -62,11 +62,11 @@ class StudentQuizQuestionsScreen extends StatelessWidget {
       centerTitle: true,
       title: ArabicText(
         text: item.title,
-        color: white,
+        color: AppColors.white,
         fontSize: 16.sp,
         fontWeight: FontWeight.bold,
       ),
-      backgroundColor: purblegradient,
+      backgroundColor: AppColors.purblegradient,
       leading: IconButton(
         onPressed: () {
           Get.defaultDialog(
@@ -75,7 +75,10 @@ class StudentQuizQuestionsScreen extends StatelessWidget {
                 'في حال الرجوع سيتم خسارة تقدمك في الاختبار, هل أنت متأكد أنك تريد الخروج؟',
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
-                style: TextStyle(color: grey2, fontFamily: bj, fontSize: 12.sp),
+                style: TextStyle(
+                    color: AppColors.grey2,
+                    fontFamily: AppFonts.bj,
+                    fontSize: 12.sp),
               ),
               textConfirm: 'نعم',
               onConfirm: () {
@@ -87,7 +90,7 @@ class StudentQuizQuestionsScreen extends StatelessWidget {
         },
         icon: Icon(
           AppIcons.back_icon,
-          color: white,
+          color: AppColors.white,
           size: 16.sp,
         ),
       ),

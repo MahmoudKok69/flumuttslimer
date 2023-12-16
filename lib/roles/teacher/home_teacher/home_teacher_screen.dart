@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/teacher/Home_teacher/home_teacher_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -26,13 +27,12 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
 
   var groupIndex = 0;
   var _selectedValue = 'تغيير الصورة';
-  var _usStates = ["تسجيل الخروج", "تغيير الصورة"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: purble2,
+        backgroundColor: AppColors.purble2,
         actions: [
           PopupMenuButton<String>(
             initialValue: _selectedValue,
@@ -53,10 +53,16 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   children: [
                     Icon(
                       Icons.logout,
-                      color: black,
+                      color: AppColors.black,
                     ),
                     SizedBox(width: 8), // توسيع المسافة حسب الحاجة
-                    Text('تسجيل الخروج'),
+                    Text(
+                      'تسجيل الخروج',
+                      style: TextStyle(
+                          color: AppColors.grey1,
+                          fontFamily: AppFonts.bj,
+                          fontSize: 16.sp),
+                    ).arabicText(),
                   ],
                 ),
               ),
@@ -66,10 +72,16 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   children: [
                     Icon(
                       Icons.image,
-                      color: black,
+                      color: AppColors.black,
                     ),
-                    SizedBox(width: 8), // توسيع المسافة حسب الحاجة
-                    Text('تغيير الصورة'),
+                    const SizedBox(width: 8), // توسيع المسافة حسب الحاجة
+                    Text(
+                      'تغيير الصورة',
+                      style: TextStyle(
+                          color: AppColors.grey1,
+                          fontFamily: AppFonts.bj,
+                          fontSize: 16.sp),
+                    ).arabicText(),
                   ],
                 ),
               ),
@@ -81,21 +93,21 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                 height: 30,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white,
+                  color: AppColors.white,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
                 child: Center(
                   child: Icon(
                     Icons.person,
-                    size: 30,
-                    color: Colors.black,
+                    size: 22.sp,
+                    color: AppColors.purble1,
                   ),
                 ),
               ),
@@ -106,8 +118,8 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
           child: Text(
             'الواجهة الرئيسية ',
             style: TextStyle(
-              color: white,
-              fontFamily: bj,
+              color: AppColors.white,
+              fontFamily: AppFonts.bj,
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
             ),
@@ -116,17 +128,17 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
         leading: IconButton(
           icon: const Icon(Icons.notification_add_sharp),
           iconSize: 16.sp,
-          color: white,
+          color: AppColors.white,
           onPressed: () {
             Get.toNamed(AppPages.ad);
           },
         ),
-        actionsIconTheme: IconThemeData(color: white),
+        actionsIconTheme: IconThemeData(color: AppColors.white),
         automaticallyImplyLeading: false,
       ),
       body: ListView(
         children: [
-          Container(
+          SizedBox(
             height: 45.h,
             child: celander(
                 focusedDay: _focusedDay,
@@ -144,9 +156,9 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.sp,
-                      color: purble2,
+                      color: AppColors.purble2,
                     ),
-                    color: purble2,
+                    color: AppColors.purble2,
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: GestureDetector(
@@ -154,10 +166,10 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                       Get.toNamed(AppPages.add_group);
                     },
                     child: Center(
-                      child: const Text(
+                      child: Text(
                         ' إنشاء مجموعة جديدة',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontFamily: 'Bahij',
                         ),
                       ),
@@ -169,10 +181,10 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
-                      color: grey2,
-                      fontFamily: bj),
+                      color: AppColors.grey2,
+                      fontFamily: AppFonts.bj),
                 ),
               ],
             ),
@@ -189,9 +201,9 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 1.sp,
-                      color: purble2,
+                      color: AppColors.purble2,
                     ),
-                    color: purble2,
+                    color: AppColors.purble2,
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: GestureDetector(
@@ -199,10 +211,10 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                       Get.toNamed(AppPages.quizes_teacher);
                     },
                     child: Center(
-                      child: const Text(
+                      child: Text(
                         ' إنشاء إختبار ',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontFamily: 'Bahij',
                         ),
                       ),
@@ -216,8 +228,8 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: grey2,
-                      fontFamily: bj),
+                      color: AppColors.grey2,
+                      fontFamily: AppFonts.bj),
                 ),
               ],
             ),

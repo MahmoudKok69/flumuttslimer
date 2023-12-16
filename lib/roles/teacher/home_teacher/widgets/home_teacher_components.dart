@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -32,27 +33,27 @@ class celander extends StatelessWidget {
       lastDay: DateTime.utc(2029, 12, 31),
       calendarStyle: CalendarStyle(
           defaultTextStyle: TextStyle(
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontSize: 8.sp,
             fontWeight: FontWeight.bold,
           ),
           todayTextStyle: TextStyle(
-              fontFamily: bj,
+              fontFamily: AppFonts.bj,
               fontSize: 6.sp,
               fontWeight: FontWeight.bold,
-              color: white),
+              color: AppColors.white),
           weekendTextStyle: TextStyle(
-              fontFamily: bj,
+              fontFamily: AppFonts.bj,
               fontSize: 10.sp,
               fontWeight: FontWeight.bold,
-              color: black),
+              color: AppColors.black),
           outsideTextStyle: TextStyle(
-              fontFamily: bj,
+              fontFamily: AppFonts.bj,
               fontSize: 10.sp,
               fontWeight: FontWeight.bold,
-              color: black),
+              color: AppColors.black),
           todayDecoration:
-              BoxDecoration(color: purble3, shape: BoxShape.circle)),
+              BoxDecoration(color: AppColors.purble3, shape: BoxShape.circle)),
       calendarFormat: _calendarFormat,
       onFormatChanged: (format) {
         // setState(() {
@@ -79,7 +80,7 @@ class celander extends StatelessWidget {
     //     // weekendStyle: TextStyle().copyWith(color: Colors.blue),
     //     // holidayStyle: TextStyle().copyWith(color: Colors.blue),
     //     // todayStyle: TextStyle().copyWith(color: Colors.red),
-    //     // selectedStyle: TextStyle().copyWith(color: Colors.white),
+    //     // selectedStyle: TextStyle().copyWith(color: Colors.AppColors.white),
     //     todayDecoration: BoxDecoration(
     //       color: Colors.purple,
     //       shape: BoxShape.circle,
@@ -106,7 +107,7 @@ class celander extends StatelessWidget {
     //         ),
     //         child: Text(
     //           '${date.day}',
-    //           style: TextStyle(fontSize: 14, color: Colors.white),
+    //           style: TextStyle(fontSize: 14, color: Colors.AppColors.white),
     //         ),
     //       );
     //     },
@@ -122,19 +123,16 @@ class scroll_groups extends StatelessWidget {
   final _controller = Get.find<HomeTeacherController>();
 
   var groupIndex = 0;
-  final _formKey = GlobalKey<FormState>();
   bool isButtonVisible = false;
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(children: [
           ..._controller.groups.map((e) {
             groupIndex++;
-            var r = e.isPrivate;
             return Padding(
               padding: const EdgeInsets.all(12.0),
               child: MaterialButton(
@@ -165,13 +163,12 @@ class scroll_groups extends StatelessWidget {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),
-                  width: 40.w,
-                  height: 30.h,
+                  width: 80.w,
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: black.withOpacity(0.4),
+                        color: AppColors.black.withOpacity(0.4),
                         blurRadius: 1,
                         offset: const Offset(2, 3),
                         spreadRadius: 1,
@@ -189,12 +186,16 @@ class scroll_groups extends StatelessWidget {
                             '${e.categ}',
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
+                            style: TextStyle(
+                                fontFamily: AppFonts.bj, fontSize: 22.sp),
                           ),
                           SizedBox(
                             width: 2.w,
                           ),
-                          const Icon(Icons.person_2_outlined),
+                          Icon(
+                            Icons.person_2_outlined,
+                            size: 18.sp,
+                          ),
                         ],
                       ),
                       Row(
@@ -204,12 +205,16 @@ class scroll_groups extends StatelessWidget {
                             '${e.count_students}',
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
+                            style: TextStyle(
+                                fontFamily: AppFonts.bj, fontSize: 18.sp),
                           ),
                           SizedBox(
                             width: 2.w,
                           ),
-                          const Icon(Icons.group),
+                          Icon(
+                            Icons.group,
+                            size: 18.sp,
+                          ),
                         ],
                       ),
                       Row(
@@ -219,12 +224,16 @@ class scroll_groups extends StatelessWidget {
                             '${e.name_institute}',
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
+                            style: TextStyle(
+                                fontFamily: AppFonts.bj, fontSize: 18.sp),
                           ),
                           SizedBox(
                             width: 2.w,
                           ),
-                          const Icon(Icons.school_outlined),
+                          Icon(
+                            Icons.school_outlined,
+                            size: 18.sp,
+                          ),
                         ],
                       ),
                       Row(
@@ -234,25 +243,29 @@ class scroll_groups extends StatelessWidget {
                             e.isPrivate! ? 'خاصة' : 'عامة',
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 11.sp),
+                            style: TextStyle(
+                                fontFamily: AppFonts.bj, fontSize: 18.sp),
                           ),
                           SizedBox(
                             width: 2.w,
                           ),
-                          const Icon(Icons.lock),
+                          Icon(
+                            Icons.lock,
+                            size: 18.sp,
+                          ),
                         ],
                       ),
                       SizedBox(
-                        height: 2,
+                        height: 2.h,
                       ),
                       Text(
                         '${e.name_group}',
                         textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 22.sp,
                             fontWeight: FontWeight.bold,
-                            fontFamily: bj),
+                            fontFamily: AppFonts.bj),
                       )
                     ],
                   ),
@@ -301,13 +314,11 @@ class scroll_quizes extends StatelessWidget {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(8),
-                  width: 40.w,
-                  height: 30.h,
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: black.withOpacity(0.4),
+                        color: AppColors.black.withOpacity(0.4),
                         blurRadius: 1,
                         offset: const Offset(2, 3),
                         spreadRadius: 1,
@@ -315,41 +326,46 @@ class scroll_quizes extends StatelessWidget {
                     ],
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Text(
-                          e.name_quiz!,
-                          textAlign: TextAlign.right,
-                          textDirection: TextDirection.rtl,
-                          style: TextStyle(fontFamily: bj, fontSize: 16.sp),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5.h),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text(
+                            e.name_quiz!,
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(
+                                fontFamily: AppFonts.bj, fontSize: 22.sp),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
-                            '${e.count_Questions!.toString()}سؤال ',
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
-                          ),
-                          SizedBox(
-                            width: 3.w,
-                          ),
-                          Text(
-                            ' ${e.count_points!.toString()}نقطة',
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                            style: TextStyle(fontFamily: bj, fontSize: 14.sp),
-                          ),
-                        ],
-                      ),
-                    ],
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '${e.count_Questions!.toString()}   سؤال ',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  fontFamily: AppFonts.bj, fontSize: 18.sp),
+                            ),
+                            SizedBox(
+                              width: 3.w,
+                            ),
+                            Text(
+                              ' ${e.count_points!.toString()} نقطة',
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              style: TextStyle(
+                                  fontFamily: AppFonts.bj, fontSize: 18.sp),
+                            ),
+                          ],
+                        ).rightDirction(),
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -25,7 +25,7 @@ class HamsatScreen extends StatelessWidget {
             height: Get.size.height * 0.3,
             decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [purble2, purble3],
+                  colors: [AppColors.purble2, AppColors.purble3],
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
                 ),
@@ -43,7 +43,7 @@ class HamsatScreen extends StatelessWidget {
                       child: IconButton(
                         icon: Icon(
                           AppIcons.back_icon,
-                          color: white,
+                          color: AppColors.white,
                           size: 16.sp,
                         ),
                         onPressed: () {
@@ -55,7 +55,7 @@ class HamsatScreen extends StatelessWidget {
                   Text(
                     'همسة اليوم',
                     style: TextStyle(
-                      color: white,
+                      color: AppColors.white,
                       fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
                     ),
@@ -76,7 +76,7 @@ class HamsatScreen extends StatelessWidget {
                       'اسم الهمسة',
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                          color: purble1,
+                          color: AppColors.purble1,
                           fontSize: 20.sp,
                           fontWeight: FontWeight.bold),
                     ),
@@ -87,7 +87,7 @@ class HamsatScreen extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: black,
+                        color: AppColors.black,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400),
                   )

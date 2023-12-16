@@ -66,7 +66,8 @@ class QuestionNextButton extends StatelessWidget {
       child: InkWell(
         child: Container(
           decoration: BoxDecoration(
-              color: purble3, borderRadius: BorderRadius.circular(4.sp)),
+              color: AppColors.purble3,
+              borderRadius: BorderRadius.circular(4.sp)),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -77,7 +78,7 @@ class QuestionNextButton extends StatelessWidget {
                             item.questions!.length - 1
                         ? 'التالي'
                         : 'أرسال',
-                    color: white,
+                    color: AppColors.white,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
                   ),
@@ -85,7 +86,7 @@ class QuestionNextButton extends StatelessWidget {
                     flipX: false,
                     child: Icon(
                       AppIcons.back_icon,
-                      color: white,
+                      color: AppColors.white,
                     ),
                   ),
                 ],
@@ -101,10 +102,10 @@ class QuestionNextButton extends StatelessWidget {
     return Get.showSnackbar(GetSnackBar(
       animationDuration: const Duration(milliseconds: 500),
       duration: const Duration(seconds: 1),
-      backgroundColor: white,
+      backgroundColor: AppColors.white,
       messageText: ArabicText(
           text: 'عليك الإجابة على جميع الأسئلة لأرسال النتائج',
-          color: grey1,
+          color: AppColors.grey1,
           fontSize: 16.sp,
           fontWeight: FontWeight.w400),
     ));
@@ -114,8 +115,8 @@ class QuestionNextButton extends StatelessWidget {
     return Get.defaultDialog(
       title: 'إرسال النتيجة',
       titleStyle: TextStyle(
-          color: black,
-          fontFamily: bj,
+          color: AppColors.black,
+          fontFamily: AppFonts.bj,
           fontSize: 20.sp,
           fontWeight: FontWeight.w500),
       content: Column(
@@ -123,7 +124,7 @@ class QuestionNextButton extends StatelessWidget {
         children: [
           ArabicText(
             text: 'هل تريد تأكيد أجوبتك و أرسالها ؟',
-            color: grey1,
+            color: AppColors.grey1,
             fontSize: 16.sp,
             fontWeight: FontWeight.w300,
           ),
@@ -134,7 +135,7 @@ class QuestionNextButton extends StatelessWidget {
             text:
                 'تأكد من أجوبتك قبل أرسالها, في حال أرسال النتيجة لن تكون قادر على خوض هذا الأختبار مرة أخرى ',
             maxLine: 5,
-            color: grey3,
+            color: AppColors.grey3,
             fontSize: 13.sp,
             fontWeight: FontWeight.w300,
           ),
@@ -158,14 +159,14 @@ class QuestionNextButton extends StatelessWidget {
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                        color: purble3,
+                        color: AppColors.purble3,
                         borderRadius: BorderRadius.circular(4.sp)),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: ArabicText(
                           text: 'تأكيد',
-                          color: white,
+                          color: AppColors.white,
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                         ),
@@ -181,7 +182,7 @@ class QuestionNextButton extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: ArabicText(
                       text: 'إلغاء',
-                      color: grey2,
+                      color: AppColors.grey2,
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
                     ),
@@ -215,7 +216,8 @@ class QuestionPreviousButton extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-              color: purble3, borderRadius: BorderRadius.circular(4.sp)),
+              color: AppColors.purble3,
+              borderRadius: BorderRadius.circular(4.sp)),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -225,12 +227,12 @@ class QuestionPreviousButton extends StatelessWidget {
                     flipX: true,
                     child: Icon(
                       AppIcons.back_icon,
-                      color: white,
+                      color: AppColors.white,
                     ),
                   ),
                   ArabicText(
                     text: 'السابق',
-                    color: white,
+                    color: AppColors.white,
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
                   ),

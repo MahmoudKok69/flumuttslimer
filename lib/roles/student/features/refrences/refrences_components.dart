@@ -23,9 +23,9 @@ class PdfSection extends StatelessWidget {
         child: Text(
           'الملفات',
           style: TextStyle(
-            color: grey1,
+            color: AppColors.grey1,
             fontWeight: FontWeight.bold,
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontSize: 18.sp,
           ),
         ),
@@ -62,15 +62,15 @@ class RefrencesPdfCard extends StatelessWidget {
       width: 40.w,
       height: 30.h,
       decoration: BoxDecoration(
-          color: white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(5.sp),
           border: Border.all(
-            color: grey1,
+            color: AppColors.grey1,
             width: 0.25.w,
           ),
           boxShadow: [
             BoxShadow(
-              color: black,
+              color: AppColors.black,
               blurRadius: 3,
             )
           ]),
@@ -83,8 +83,8 @@ class RefrencesPdfCard extends StatelessWidget {
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-              fontFamily: bj,
-              color: black,
+              fontFamily: AppFonts.bj,
+              color: AppColors.black,
               fontWeight: FontWeight.bold,
               fontSize: 18.sp),
         ),
@@ -107,9 +107,9 @@ class VideosSection extends StatelessWidget {
         child: Text(
           'الفيديوهات',
           style: TextStyle(
-            color: grey1,
+            color: AppColors.grey1,
             fontWeight: FontWeight.bold,
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontSize: 18.sp,
           ),
         ),
@@ -149,15 +149,15 @@ class RefrencesVideosCard extends StatelessWidget {
           width: 60.w,
           height: 20.h,
           decoration: BoxDecoration(
-              color: white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(5.sp),
               border: Border.all(
-                color: grey1,
+                color: AppColors.grey1,
                 width: 0.25.w,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: black,
+                  color: AppColors.black,
                   blurRadius: 3,
                 )
               ]),
@@ -167,7 +167,7 @@ class RefrencesVideosCard extends StatelessWidget {
                   child: Icon(
                     Icons.play_arrow,
                     size: min(32.w, 14.h) / 2,
-                    color: purble3,
+                    color: AppColors.purble3,
                   ))),
         ),
         SizedBox(height: 1.h),
@@ -179,7 +179,9 @@ class RefrencesVideosCard extends StatelessWidget {
             textDirection: TextDirection.rtl,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-                color: grey1, fontSize: 14.sp, fontWeight: FontWeight.bold),
+                color: AppColors.grey1,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.bold),
           ),
         )
       ],

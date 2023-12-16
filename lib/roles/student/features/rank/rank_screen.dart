@@ -23,7 +23,7 @@ class RankScreen extends StatelessWidget {
               height: 70.h,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [purble2, purble3],
+                  colors: [AppColors.purble2, AppColors.purble3],
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                 ),
@@ -47,10 +47,10 @@ class RankScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: black.withOpacity(0.4),
+                        color: AppColors.black.withOpacity(0.4),
                         blurRadius: 1,
                         offset: const Offset(2, 3),
                         spreadRadius: 1,
@@ -62,7 +62,7 @@ class RankScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.sp),
                       ),
-                      tileColor: white,
+                      tileColor: AppColors.white,
                       style: ListTileStyle.list,
                       title: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -73,14 +73,15 @@ class RankScreen extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: purble1),
+                                    border:
+                                        Border.all(color: AppColors.purble1),
                                     shape: BoxShape.circle),
                                 child: Center(
                                   child: Text(
                                     '$userInde',
                                     style: TextStyle(
                                         fontSize: 12.sp,
-                                        color: orange1,
+                                        color: AppColors.orange1,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
@@ -93,8 +94,8 @@ class RankScreen extends StatelessWidget {
                               Text(
                                 user.name!,
                                 style: TextStyle(
-                                  color: black,
-                                  fontFamily: bj,
+                                  color: AppColors.black,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -104,8 +105,8 @@ class RankScreen extends StatelessWidget {
                                 textAlign: TextAlign.right,
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
-                                  color: black,
-                                  fontFamily: bj,
+                                  color: AppColors.black,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -113,8 +114,8 @@ class RankScreen extends StatelessWidget {
                               Text(
                                 'عدد النقاط :${user.points.toString()}',
                                 style: TextStyle(
-                                  color: black,
-                                  fontFamily: bj,
+                                  color: AppColors.black,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -122,8 +123,8 @@ class RankScreen extends StatelessWidget {
                               Text(
                                 'اسم المعلم: ${user.teacherName!}',
                                 style: TextStyle(
-                                  color: black,
-                                  fontFamily: bj,
+                                  color: AppColors.black,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -136,7 +137,8 @@ class RankScreen extends StatelessWidget {
                               height: 100.sp,
                               width: 100.sp,
                               decoration: BoxDecoration(
-                                  shape: BoxShape.circle, color: purble4),
+                                  shape: BoxShape.circle,
+                                  color: AppColors.purble4),
                             ),
                           ),
                         ],
@@ -170,7 +172,7 @@ class RankUpSection extends StatelessWidget {
             child: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios_rounded,
-                color: white,
+                color: AppColors.white,
                 size: 12.sp,
               ),
               onPressed: () {
@@ -215,7 +217,9 @@ class CustomSwitcher extends StatelessWidget {
                           child: Container(
                             width: 20.w,
                             decoration: BoxDecoration(
-                              color: selectedIndex == index ? orange1 : white,
+                              color: selectedIndex == index
+                                  ? AppColors.orange1
+                                  : AppColors.white,
                               borderRadius: BorderRadius.circular(5.sp),
                             ),
                             child: Padding(
@@ -224,8 +228,9 @@ class CustomSwitcher extends StatelessWidget {
                               child: Center(
                                 child: ArabicText(
                                   text: filters[index],
-                                  color:
-                                      selectedIndex == index ? white : purble3,
+                                  color: selectedIndex == index
+                                      ? AppColors.white
+                                      : AppColors.purble3,
                                   fontSize:
                                       selectedIndex == index ? 12.sp : 10.sp,
                                   fontWeight: FontWeight.w500,
@@ -266,9 +271,9 @@ class CustomSwitcher extends StatelessWidget {
 //       height: 5.h,
 //       width: 18.w,
 //       decoration: BoxDecoration(
-//           color: white,
+//           color: AppColors.white,
 //           borderRadius: BorderRadius.circular(20.sp),
-//           border: Border.all(color: white, width: 1.sp),
+//           border: Border.all(color: AppColors.white, width: 1.sp),
 //           boxShadow: [
 //             BoxShadow(
 //                 color: Colors.grey.shade400, spreadRadius: 2, blurRadius: 10)
@@ -285,7 +290,7 @@ class CustomSwitcher extends StatelessWidget {
 //                 height: 5.h,
 //                 width: 8.w,
 //                 decoration: BoxDecoration(
-//                     color: purble4.withOpacity(0.7), shape: BoxShape.circle),
+//                     color: AppColors.purble4.withOpacity(0.7), shape: BoxShape.circle),
 //               ),
 //             ),
 //             SizedBox(
@@ -299,11 +304,11 @@ class CustomSwitcher extends StatelessWidget {
 //                     flex: 1,
 //                     child: IconButton(
 //                       padding: const EdgeInsets.all(0),
-//                       hoverColor: white.withOpacity(0),
+//                       hoverColor: AppColors.white.withOpacity(0),
 //                       icon: Center(
 //                         child: Icon(
 //                           Icons.group,
-//                           color: purble2,
+//                           color: AppColors.purble2,
 //                           size: 12.sp,
 //                         ),
 //                       ),
@@ -317,12 +322,12 @@ class CustomSwitcher extends StatelessWidget {
 //                   Expanded(
 //                     flex: 1,
 //                     child: IconButton(
-//                       hoverColor: white.withOpacity(0),
+//                       hoverColor: AppColors.white.withOpacity(0),
 //                       padding: const EdgeInsets.all(0),
 //                       icon: Center(
 //                         child: Icon(
 //                           Icons.public_rounded,
-//                           color: purble2,
+//                           color: AppColors.purble2,
 //                           size: 15.sp,
 //                         ),
 //                       ),

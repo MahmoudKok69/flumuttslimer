@@ -25,22 +25,22 @@ class AzkarScreen extends StatelessWidget {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: purble2,
+      backgroundColor: AppColors.purble2,
       title: Center(
         child: Text(
           'الأذكار',
           style: TextStyle(
             fontSize: 18.sp,
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w500,
-            color: white,
+            color: AppColors.white,
           ),
         ),
       ),
       leading: IconButton(
         icon: Icon(
           AppIcons.back_icon,
-          color: white,
+          color: AppColors.white,
           size: 16.sp,
         ),
         onPressed: () {
@@ -52,31 +52,31 @@ class AzkarScreen extends StatelessWidget {
             onPressed: () {},
             icon: Icon(
               Icons.search,
-              color: white,
+              color: AppColors.white,
               size: 16.sp,
             ))
       ],
       bottom: TabBar(
-          indicatorColor: purble1,
+          indicatorColor: AppColors.purble1,
           automaticIndicatorColorAdjustment: false,
-          overlayColor: MaterialStateProperty.all(purble3),
-          labelColor: white,
-          unselectedLabelColor: orange2,
+          overlayColor: MaterialStateProperty.all(AppColors.purble3),
+          labelColor: AppColors.white,
+          unselectedLabelColor: AppColors.orange2,
           indicatorSize: TabBarIndicatorSize.tab,
           tabs: [
             Text(
               'أذكاري',
               style: TextStyle(
-                  color: white,
-                  fontFamily: bj,
+                  color: AppColors.white,
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp),
             ),
             Text(
               'الأذكار',
               style: TextStyle(
-                color: white,
-                fontFamily: bj,
+                color: AppColors.white,
+                fontFamily: AppFonts.bj,
                 fontWeight: FontWeight.w400,
                 fontSize: 12.sp,
               ),

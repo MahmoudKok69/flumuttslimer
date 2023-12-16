@@ -74,8 +74,8 @@ class FirstUser extends StatelessWidget {
               child: Text(
                 name!,
                 style: TextStyle(
-                  color: white,
-                  fontFamily: bj,
+                  color: AppColors.white,
+                  fontFamily: AppFonts.bj,
                   fontSize: 16.sp,
                 ),
               ),
@@ -91,7 +91,7 @@ class FirstUser extends StatelessWidget {
                       width: 60.w,
                       height: 20.h,
                       decoration: BoxDecoration(
-                        color: orange1,
+                        color: AppColors.orange1,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -101,7 +101,7 @@ class FirstUser extends StatelessWidget {
                         width: 12.w,
                         height: 6.h,
                         decoration: BoxDecoration(
-                            color: white,
+                            color: AppColors.white,
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: Colors.green.shade500,
@@ -113,9 +113,9 @@ class FirstUser extends StatelessWidget {
                           '1',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: purble2,
+                              color: AppColors.purble2,
                               fontSize: 14.sp,
-                              fontFamily: bj,
+                              fontFamily: AppFonts.bj,
                               fontWeight: FontWeight.bold),
                         )),
                       ),
@@ -129,8 +129,8 @@ class FirstUser extends StatelessWidget {
               child: Text(
                 points.toString(),
                 style: TextStyle(
-                  color: white,
-                  fontFamily: bj,
+                  color: AppColors.white,
+                  fontFamily: AppFonts.bj,
                   fontSize: 18.sp,
                 ),
               ),
@@ -167,8 +167,8 @@ class OtherUser extends StatelessWidget {
                 child: Text(
                   name!,
                   style: TextStyle(
-                    color: white,
-                    fontFamily: bj,
+                    color: AppColors.white,
+                    fontFamily: AppFonts.bj,
                     fontSize: 14.sp,
                   ),
                 ),
@@ -184,7 +184,7 @@ class OtherUser extends StatelessWidget {
                         width: 40.w,
                         height: 15.h,
                         decoration: BoxDecoration(
-                          color: white,
+                          color: AppColors.white,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -194,7 +194,7 @@ class OtherUser extends StatelessWidget {
                           width: 8.w,
                           height: 4.h,
                           decoration: BoxDecoration(
-                              color: white,
+                              color: AppColors.white,
                               shape: BoxShape.circle,
                               border: Border.all(
                                 color: Colors.green.shade500,
@@ -205,10 +205,10 @@ class OtherUser extends StatelessWidget {
                               child: Text(
                             number.toString(),
                             style: TextStyle(
-                                color: purble2,
+                                color: AppColors.purble2,
                                 fontSize: 10.sp,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: bj),
+                                fontFamily: AppFonts.bj),
                           )),
                         ),
                       ),
@@ -221,8 +221,8 @@ class OtherUser extends StatelessWidget {
                 child: Text(
                   points.toString(),
                   style: TextStyle(
-                    color: white,
-                    fontFamily: bj,
+                    color: AppColors.white,
+                    fontFamily: AppFonts.bj,
                     fontSize: 14.sp,
                   ),
                 ),

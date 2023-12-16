@@ -11,9 +11,9 @@ Future<dynamic> joinGroubByLinkDialog() {
   return Get.defaultDialog(
     title: 'الأنضمام عن طريق الرابط',
     titleStyle: TextStyle(
-        color: black,
+        color: AppColors.black,
         fontSize: 18.sp,
-        fontFamily: bj,
+        fontFamily: AppFonts.bj,
         fontWeight: FontWeight.bold),
     content: SizedBox(
       width: 80.w,
@@ -41,7 +41,7 @@ class JoinButton extends StatelessWidget {
     return Container(
       height: 6.h,
       decoration: BoxDecoration(
-          color: purble3, borderRadius: BorderRadius.circular(5.sp)),
+          color: AppColors.purble3, borderRadius: BorderRadius.circular(5.sp)),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Row(
@@ -50,13 +50,13 @@ class JoinButton extends StatelessWidget {
           children: [
             ArabicText(
               text: 'أنضمام',
-              color: white,
+              color: AppColors.white,
               fontSize: 18.sp,
               fontWeight: FontWeight.w600,
             ),
             Icon(
               Icons.add,
-              color: white,
+              color: AppColors.white,
               size: 18.sp,
             )
           ],
@@ -76,7 +76,7 @@ class WarningPhase extends StatelessWidget {
     return ArabicText(
       text:
           'في حال الأنضمام لهذه المجموعة فسيتم أخراجك من مجموعتك الحالية في حال كنت منضم لمجموعة',
-      color: grey2,
+      color: AppColors.grey2,
       fontSize: 12.sp,
       maxLine: 5,
       fontWeight: FontWeight.w400,
@@ -108,14 +108,15 @@ class AddGroubLinkField extends StatelessWidget {
                   counterText: '',
                   label: ArabicText(text: 'أدخل رابط المجموعة'),
                   labelStyle: TextStyle(
-                      color: grey2,
-                      fontFamily: bj,
+                      color: AppColors.grey2,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.w300),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(5.sp),
                           bottomRight: Radius.circular(5.sp)),
-                      borderSide: BorderSide(color: purble3, width: 2.0.w))),
+                      borderSide:
+                          BorderSide(color: AppColors.purble3, width: 2.0.w))),
             ),
           ),
           InkWell(
@@ -129,14 +130,14 @@ class AddGroubLinkField extends StatelessWidget {
               width: 15.w,
               height: 7.h,
               decoration: BoxDecoration(
-                color: purble3,
+                color: AppColors.purble3,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(5.sp),
                     bottomLeft: Radius.circular(5.sp)),
               ),
               child: Icon(
                 Icons.paste,
-                color: white,
+                color: AppColors.white,
                 size: 18.sp,
               ),
             ),

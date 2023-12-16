@@ -19,7 +19,7 @@ class info_group extends StatelessWidget {
       width: Get.size.width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [purble2, purble3],
+          colors: [AppColors.purble2, AppColors.purble3],
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
         ),
@@ -41,9 +41,9 @@ class info_group extends StatelessWidget {
               data['name_group']!,
               style: TextStyle(
                 fontSize: 12.sp,
-                color: white,
+                color: AppColors.white,
                 fontWeight: FontWeight.bold,
-                fontFamily: bj,
+                fontFamily: AppFonts.bj,
               ),
             ),
             SizedBox(height: 3.h),
@@ -51,18 +51,18 @@ class info_group extends StatelessWidget {
               'الفئة العمرية : ${data['categ']!}',
               style: TextStyle(
                   fontSize: 12.sp,
-                  color: white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: bj),
+                  fontFamily: AppFonts.bj),
             ),
             SizedBox(height: 3.h),
             Text(
               data['name_institute']!,
               style: TextStyle(
                   fontSize: 12.sp,
-                  color: white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: bj),
+                  fontFamily: AppFonts.bj),
             ),
           ],
         ),

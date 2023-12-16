@@ -38,7 +38,7 @@ class TheQuran extends StatelessWidget {
             padding: EdgeInsets.only(top: 1.h),
             child: PhysicalModel(
               elevation: 5,
-              color: white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(5.sp),
               child: ListTile(
                 visualDensity: const VisualDensity(vertical: 3),
@@ -68,8 +68,8 @@ class TheQuran extends StatelessWidget {
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                      color: black,
-                      fontFamily: um,
+                      color: AppColors.black,
+                      fontFamily: AppFonts.um,
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold),
                   overflow: TextOverflow.ellipsis,
@@ -117,7 +117,7 @@ class QuranEventCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return PhysicalModel(
       elevation: 5,
-      color: white,
+      color: AppColors.white,
       borderRadius: BorderRadius.circular(5.sp),
       child: ListTile(
         shape: BeveledRectangleBorder(
@@ -131,13 +131,13 @@ class QuranEventCard extends StatelessWidget {
             textAlign: TextAlign.right,
             textDirection: TextDirection.rtl,
             style: TextStyle(
-              color: black,
-              fontFamily: bj,
+              color: AppColors.black,
+              fontFamily: AppFonts.bj,
               fontSize: 14.sp,
             ),
           ),
         ),
-        tileColor: white,
+        tileColor: AppColors.white,
         subtitle: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -146,38 +146,40 @@ class QuranEventCard extends StatelessWidget {
               textAlign: TextAlign.right,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                color: purble1,
-                fontFamily: bj,
+                color: AppColors.purble1,
+                fontFamily: AppFonts.bj,
                 fontSize: 11.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 2.w),
-              child: CircleAvatar(radius: 2.sp, backgroundColor: black),
+              child:
+                  CircleAvatar(radius: 2.sp, backgroundColor: AppColors.black),
             ),
             Text(
               '${item.date!.year}/${item.date!.month}/${item.date!.day}',
               textAlign: TextAlign.right,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                color: purble1,
-                fontFamily: bj,
+                color: AppColors.purble1,
+                fontFamily: AppFonts.bj,
                 fontSize: 11.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 2.w),
-              child: CircleAvatar(radius: 2.sp, backgroundColor: black),
+              child:
+                  CircleAvatar(radius: 2.sp, backgroundColor: AppColors.black),
             ),
             Text(
               item.teacherName!,
               textAlign: TextAlign.right,
               textDirection: TextDirection.rtl,
               style: TextStyle(
-                color: purble1,
-                fontFamily: bj,
+                color: AppColors.purble1,
+                fontFamily: AppFonts.bj,
                 fontSize: 11.sp,
                 fontWeight: FontWeight.bold,
               ),

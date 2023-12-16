@@ -31,4 +31,7 @@ extension WidgetPadding on Widget {
 
 extension StringExtension on String {
   String get SvgIconsPath => 'assets/icons/$this.svg';
+
+  String get pngAssetsImagePath => 'assets/images/$this.png';
+  String get svgAssetsImagePath => 'assets/images/$this.svg';
 }

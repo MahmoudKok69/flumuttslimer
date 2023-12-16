@@ -22,10 +22,10 @@ class BeautiCard extends StatelessWidget {
         child: Container(
           width: Get.size.width,
           decoration: BoxDecoration(
-            color: white,
+            color: AppColors.white,
             boxShadow: [
               BoxShadow(
-                color: black.withOpacity(0.4),
+                color: AppColors.black.withOpacity(0.4),
                 blurRadius: 1,
                 offset: const Offset(2, 3),
                 spreadRadius: 1,
@@ -52,8 +52,8 @@ class BeautiCard extends StatelessWidget {
                                 item.name!,
                                 textDirection: TextDirection.rtl,
                                 style: TextStyle(
-                                  color: purble1,
-                                  fontFamily: bj,
+                                  color: AppColors.purble1,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 12.sp,
                                   decoration: item.isChecked!
                                       ? TextDecoration.lineThrough
@@ -65,7 +65,9 @@ class BeautiCard extends StatelessWidget {
                           item.describe!,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                              color: purble2, fontFamily: bj, fontSize: 8.sp),
+                              color: AppColors.purble2,
+                              fontFamily: AppFonts.bj,
+                              fontSize: 8.sp),
                           maxLines: 20,
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -76,7 +78,9 @@ class BeautiCard extends StatelessWidget {
                           '${item.points} نقطة',
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                              color: purble1, fontFamily: bj, fontSize: 12.sp),
+                              color: AppColors.purble1,
+                              fontFamily: AppFonts.bj,
+                              fontSize: 12.sp),
                         ),
                       ],
                     ),
@@ -91,7 +95,7 @@ class BeautiCard extends StatelessWidget {
                           height: Get.size.height * 0.3,
                           width: Get.size.width * 0.4,
                           decoration: BoxDecoration(
-                              color: orange1,
+                              color: AppColors.orange1,
                               borderRadius: BorderRadius.circular(10.sp)),
                           child: item.isChecked!
                               ? Center(
@@ -99,7 +103,7 @@ class BeautiCard extends StatelessWidget {
                                     height: Get.size.height * 0.3,
                                     width: Get.size.width * 0.4,
                                     decoration: BoxDecoration(
-                                      color: purble4.withOpacity(0.5),
+                                      color: AppColors.purble4.withOpacity(0.5),
                                       borderRadius:
                                           BorderRadius.circular(10.sp),
                                     ),
@@ -107,10 +111,10 @@ class BeautiCard extends StatelessWidget {
                                       padding: EdgeInsets.all(30.sp),
                                       child: CircleAvatar(
                                         radius: 20.sp,
-                                        backgroundColor: purble1,
+                                        backgroundColor: AppColors.purble1,
                                         child: Icon(
                                           Icons.check,
-                                          color: white,
+                                          color: AppColors.white,
                                           size: 20.sp,
                                         ),
                                       ),

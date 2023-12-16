@@ -23,22 +23,22 @@ class PrizesScreen extends StatelessWidget {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: purble2,
+      backgroundColor: AppColors.purble2,
       title: Center(
         child: Text(
           'الجوائز',
           style: TextStyle(
             fontSize: 16.sp,
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w500,
-            color: white,
+            color: AppColors.white,
           ),
         ),
       ),
       leading: IconButton(
         icon: Icon(
           AppIcons.back_icon,
-          color: white,
+          color: AppColors.white,
           size: 12.sp,
         ),
         onPressed: () {
@@ -46,26 +46,26 @@ class PrizesScreen extends StatelessWidget {
         },
       ),
       bottom: TabBar(
-          indicatorColor: purble1,
+          indicatorColor: AppColors.purble1,
           automaticIndicatorColorAdjustment: false,
-          overlayColor: MaterialStateProperty.all(purble3),
-          labelColor: white,
-          unselectedLabelColor: orange2,
+          overlayColor: MaterialStateProperty.all(AppColors.purble3),
+          labelColor: AppColors.white,
+          unselectedLabelColor: AppColors.orange2,
           indicatorSize: TabBarIndicatorSize.tab,
           tabs: [
             Text(
               'جوائزي',
               style: TextStyle(
-                  color: white,
-                  fontFamily: bj,
+                  color: AppColors.white,
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.w400,
                   fontSize: 12.sp),
             ),
             Text(
               'الجوائز',
               style: TextStyle(
-                color: white,
-                fontFamily: bj,
+                color: AppColors.white,
+                fontFamily: AppFonts.bj,
                 fontWeight: FontWeight.w400,
                 fontSize: 12.sp,
               ),

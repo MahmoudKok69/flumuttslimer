@@ -48,16 +48,16 @@ class MyPrizes extends StatelessWidget {
                   width: Get.size.width,
                   height: 25.h,
                   decoration: BoxDecoration(
-                    color: white,
+                    color: AppColors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: black.withOpacity(0.4),
+                        color: AppColors.black.withOpacity(0.4),
                         blurRadius: 1,
                         offset: const Offset(2, 3),
                         spreadRadius: 1,
                       )
                     ],
-                    border: Border.all(color: grey4, width: 1),
+                    border: Border.all(color: AppColors.grey4, width: 1),
                     borderRadius: BorderRadius.circular(5.sp),
                   ),
                   child: Row(children: [
@@ -72,7 +72,7 @@ class MyPrizes extends StatelessWidget {
                               Expanded(
                                   flex: 3,
                                   child: CircleAvatar(
-                                    backgroundColor: purble3,
+                                    backgroundColor: AppColors.purble3,
                                     radius:
                                         min(Get.width * 0.5, Get.height * 0.5) /
                                             2,
@@ -84,15 +84,15 @@ class MyPrizes extends StatelessWidget {
                                   width: 20.w,
                                   height: 5.h,
                                   decoration: BoxDecoration(
-                                    color: purble4,
+                                    color: AppColors.purble4,
                                     borderRadius: BorderRadius.circular(2.sp),
                                   ),
                                   child: Center(
                                       child: Text(
                                     'مستلمة',
                                     style: TextStyle(
-                                        color: purble2,
-                                        fontFamily: bj,
+                                        color: AppColors.purble2,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 12.sp,
                                         fontWeight: FontWeight.w900),
                                   )),
@@ -114,9 +114,9 @@ class MyPrizes extends StatelessWidget {
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                                color: black,
+                                color: AppColors.black,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontSize: 12.sp),
                           ),
                           SizedBox(height: 1.h),
@@ -125,9 +125,9 @@ class MyPrizes extends StatelessWidget {
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                                color: black,
+                                color: AppColors.black,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontSize: 12.sp),
                           ),
                           SizedBox(height: 1.h),
@@ -136,9 +136,9 @@ class MyPrizes extends StatelessWidget {
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                                color: black,
+                                color: AppColors.black,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontSize: 12.sp),
                           ),
                           SizedBox(height: 2.h),
@@ -148,9 +148,9 @@ class MyPrizes extends StatelessWidget {
                               '!مكتمل',
                               textAlign: TextAlign.right,
                               style: TextStyle(
-                                  color: purble2,
+                                  color: AppColors.purble2,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: bj,
+                                  fontFamily: AppFonts.bj,
                                   fontSize: 14.sp),
                             ),
                           ),
@@ -166,7 +166,7 @@ class MyPrizes extends StatelessWidget {
                           height: 25.h,
                           width: 20.w,
                           decoration: BoxDecoration(
-                              color: purble3,
+                              color: AppColors.purble3,
                               borderRadius: BorderRadius.circular(5.sp)),
                         ),
                       ),
@@ -208,10 +208,10 @@ class AllPrizes extends StatelessWidget {
                     width: Get.size.width,
                     height: 20.h,
                     decoration: BoxDecoration(
-                      color: white,
+                      color: AppColors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: black.withOpacity(0.4),
+                          color: AppColors.black.withOpacity(0.4),
                           blurRadius: 1,
                           offset: const Offset(2, 3),
                           spreadRadius: 1,
@@ -237,7 +237,7 @@ class AllPrizes extends StatelessWidget {
                                       width: 20.w,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-                                        color: pink,
+                                        color: AppColors.pink,
                                       ),
                                     ),
                                   ),
@@ -252,18 +252,18 @@ class AllPrizes extends StatelessWidget {
                                         '${item.name}',
                                         textAlign: TextAlign.right,
                                         style: TextStyle(
-                                            color: black,
+                                            color: AppColors.black,
                                             fontWeight: FontWeight.bold,
-                                            fontFamily: bj,
+                                            fontFamily: AppFonts.bj,
                                             fontSize: 12.sp),
                                       ),
                                       Text(
                                         'الفئة العمرية: ${item.age}',
                                         textAlign: TextAlign.right,
                                         style: TextStyle(
-                                            color: black,
+                                            color: AppColors.black,
                                             fontWeight: FontWeight.bold,
-                                            fontFamily: bj,
+                                            fontFamily: AppFonts.bj,
                                             fontSize: 12.sp),
                                       ),
                                     ],
@@ -284,7 +284,7 @@ class AllPrizes extends StatelessWidget {
                                     Container(
                                       width: Get.size.width,
                                       decoration: BoxDecoration(
-                                        color: purble4,
+                                        color: AppColors.purble4,
                                         borderRadius:
                                             BorderRadius.circular(20.sp),
                                       ),
@@ -293,7 +293,7 @@ class AllPrizes extends StatelessWidget {
                                       //Todo:Points of user
                                       width: (75 / item.points!) * 50.w,
                                       decoration: BoxDecoration(
-                                        color: purble3,
+                                        color: AppColors.purble3,
                                         borderRadius:
                                             BorderRadius.circular(20.sp),
                                       ),
@@ -313,9 +313,9 @@ class AllPrizes extends StatelessWidget {
                                   Text(
                                     "75 نقطة",
                                     style: TextStyle(
-                                        color: purble2,
+                                        color: AppColors.purble2,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: bj,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 9.sp),
                                   ),
                                   const Spacer(
@@ -324,9 +324,9 @@ class AllPrizes extends StatelessWidget {
                                   Text(
                                     '${item.points} نقطة',
                                     style: TextStyle(
-                                        color: purble2,
+                                        color: AppColors.purble2,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: bj,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 9.sp),
                                   ),
                                   const Spacer(),
@@ -344,7 +344,7 @@ class AllPrizes extends StatelessWidget {
                             height: 25.h,
                             width: 20.w,
                             decoration: BoxDecoration(
-                                color: purble3,
+                                color: AppColors.purble3,
                                 borderRadius: BorderRadius.circular(5.sp)),
                           ),
                         ),

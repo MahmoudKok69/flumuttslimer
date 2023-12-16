@@ -33,7 +33,7 @@ class TStudentProfileScreen extends StatelessWidget {
       width: Get.size.width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [purble3, purble4],
+          colors: [AppColors.purble3, AppColors.purble4],
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
         ),
@@ -54,12 +54,13 @@ class TStudentProfileScreen extends StatelessWidget {
             Container(
               height: 70.sp,
               width: 70.sp,
-              decoration: BoxDecoration(shape: BoxShape.circle, color: purble4),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: AppColors.purble4),
             ),
             Text(
               data['name_student']!,
               style: TextStyle(
-                color: Colors.black,
+                color: AppColors.black,
                 fontSize: 15.0.sp,
                 fontWeight: FontWeight.bold,
               ),
@@ -84,14 +85,14 @@ class TStudentProfileScreen extends StatelessWidget {
                       Text(
                         'عام ${data['age']!}',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: AppColors.black,
                           fontSize: 10.0.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Icon(
                         Icons.date_range_sharp,
-                        color: purble3,
+                        color: AppColors.purble3,
                       ),
                     ],
                   ),
@@ -102,14 +103,14 @@ class TStudentProfileScreen extends StatelessWidget {
                       Text(
                         data['country']!,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: AppColors.black,
                           fontSize: 10.0.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Icon(
                         Icons.location_on_rounded,
-                        color: purble3,
+                        color: AppColors.purble3,
                       ),
                     ],
                   ),
@@ -123,7 +124,7 @@ class TStudentProfileScreen extends StatelessWidget {
               child: Text(
                 data['points']!,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.black,
                   fontSize: 10.0.sp,
                   fontWeight: FontWeight.bold,
                 ),

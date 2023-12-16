@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/extension.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/Azkar_components.dart';
@@ -35,21 +36,23 @@ class AdScreen extends StatelessWidget {
                   Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
                 Text(
                   'الإعلان',
-                  textAlign: TextAlign.right,
-                  textDirection: TextDirection.rtl,
                   style: TextStyle(
                     fontSize: 18.sp,
-                    fontFamily: bj,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.w500,
                   ),
-                ),
+                ).arabicText(),
                 SizedBox(height: 2.h),
                 TextFormField(
                   maxLines: 5,
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.right,
-                  decoration:
-                      inputDecorationStyle('الإعلان', ' ......أكتب إعلانك'),
+                  style: TextStyle(
+                      color: AppColors.grey1,
+                      fontFamily: AppFonts.bj,
+                      fontSize: 14.sp),
+                  decoration: inputDecorationStyle(
+                      'قم بكتابة الإعلان', ' ......أكتب إعلانك'),
                   onChanged: (value) {
                     _controller.settextad(value);
                   },
@@ -65,13 +68,11 @@ class AdScreen extends StatelessWidget {
                       children: [
                         Text(
                           'الكل',
-                          textAlign: TextAlign.right,
-                          textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontSize: 15.sp,
                           ),
-                        ),
+                        ).arabicText(),
                         SizedBox(
                           width: 3.w,
                         ),
@@ -82,9 +83,9 @@ class AdScreen extends StatelessWidget {
                             return CustomCheckBox(
                               height: 12.sp,
                               width: 12.sp,
-                              selectColor: purble2,
-                              unselectColor: purble5,
-                              iconColor: white,
+                              selectColor: AppColors.purble2,
+                              unselectColor: AppColors.purble5,
+                              iconColor: AppColors.white,
                               borderRadius: 1.sp,
                               isChecked: _controller.ischecked_all,
                               iconSize: 12.sp,
@@ -103,7 +104,7 @@ class AdScreen extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         fontSize: 18.sp,
-                        fontFamily: bj,
+                        fontFamily: AppFonts.bj,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -113,9 +114,9 @@ class AdScreen extends StatelessWidget {
                 Container(
                     height: 30.h,
                     decoration: BoxDecoration(
-                        color: white,
-                        borderRadius: BorderRadius.circular(20.sp),
-                        border: Border.all(color: white, width: 1.sp),
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(8.sp),
+                        border: Border.all(color: AppColors.white, width: 1.sp),
                         boxShadow: [
                           BoxShadow(
                               color: Colors.grey.shade400,
@@ -136,7 +137,7 @@ class AdScreen extends StatelessWidget {
                                 builder: (_) {
                                   return PhysicalModel(
                                     elevation: 5,
-                                    color: white,
+                                    color: AppColors.white,
                                     borderRadius: BorderRadius.circular(5.sp),
                                     child: ListTile(
                                       shape: BeveledRectangleBorder(
@@ -165,22 +166,20 @@ class AdScreen extends StatelessWidget {
                                         textAlign: TextAlign.right,
                                         textDirection: TextDirection.rtl,
                                         style: TextStyle(
-                                          color: black,
-                                          fontFamily: bj,
+                                          color: AppColors.black,
+                                          fontFamily: AppFonts.bj,
                                           fontSize: 12.sp,
-                                          decoration: item.isChecked!
-                                              ? TextDecoration.lineThrough
-                                              : null,
                                         ),
                                       ),
-                                      tileColor:
-                                          item.isChecked! ? purble3 : purble4,
+                                      tileColor: item.isChecked!
+                                          ? AppColors.purble3
+                                          : AppColors.purble4,
                                       leading: CustomCheckBox(
                                         height: 12.sp,
                                         width: 12.sp,
-                                        selectColor: purble2,
-                                        unselectColor: purble4,
-                                        iconColor: white,
+                                        selectColor: AppColors.purble2,
+                                        unselectColor: AppColors.purble4,
+                                        iconColor: AppColors.white,
                                         borderRadius: 1.sp,
                                         isChecked: item.isChecked,
                                         iconSize: 12.sp,
@@ -212,7 +211,13 @@ class AdScreen extends StatelessWidget {
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text('بارك الله جهودك أستاذ فلان'),
+                                  Text(
+                                    'بارك الله جهودك أستاذ فلان',
+                                    style: TextStyle(
+                                        color: AppColors.grey1,
+                                        fontSize: 16.sp,
+                                        fontFamily: AppFonts.bj),
+                                  ),
                                   SizedBox(
                                     height: 20,
                                   ),
@@ -226,17 +231,17 @@ class AdScreen extends StatelessWidget {
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                             width: 1.sp,
-                                            color: purble2,
+                                            color: AppColors.purble2,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(5.sp),
-                                          color: purble2),
+                                          color: AppColors.purble2),
                                       child: Center(
                                         child: Text(
                                           'إغلاق',
                                           maxLines: 1,
                                           style: TextStyle(
-                                            color: white,
+                                            color: AppColors.white,
                                             fontSize: 10.sp,
                                             fontFamily: 'Bahij',
                                             fontWeight: FontWeight.bold,
@@ -257,7 +262,8 @@ class AdScreen extends StatelessWidget {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(purble2),
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.purble2),
                       ),
                       child: Center(
                         child: Text(
@@ -265,7 +271,7 @@ class AdScreen extends StatelessWidget {
                           textAlign: TextAlign.right,
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
-                            color: white,
+                            color: AppColors.white,
                             fontFamily: 'Bahij',
                             fontSize: 10.sp,
                             fontWeight: FontWeight.w700,
@@ -282,16 +288,16 @@ class AdScreen extends StatelessWidget {
 
 AppBar _buildAppBar() {
   return AppBar(
-    backgroundColor: purble2,
+    backgroundColor: AppColors.purble2,
     title: Center(
       child: Text(
         'إضافة إعلان',
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
         style: TextStyle(
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w500,
-            color: white,
+            color: AppColors.white,
             fontSize: 16.sp),
       ),
     ),
@@ -299,7 +305,7 @@ AppBar _buildAppBar() {
       icon: Icon(
         Icons.arrow_back_ios_rounded,
         size: 12.sp,
-        color: white,
+        color: AppColors.white,
       ),
       onPressed: () {
         Get.back();

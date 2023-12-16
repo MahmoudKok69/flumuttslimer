@@ -43,8 +43,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // print(Get.size.width);
     // print(Get.size.height);
-    final GetMaterialController controller = Get.put(GetMaterialController());
-
     return Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -52,7 +50,7 @@ class MyApp extends StatelessWidget {
         getPages: AppPages.routes,
         title: 'Muslim Habits',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: purble2),
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.purble2),
           useMaterial3: true,
         ),
         home: WelcomeScreen(),

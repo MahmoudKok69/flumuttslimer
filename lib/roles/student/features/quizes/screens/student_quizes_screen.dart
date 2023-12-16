@@ -24,26 +24,26 @@ class StudentQuizesScreen extends StatelessWidget {
           },
           onTapActionIcon: () {},
           bottom: TabBar(
-              indicatorColor: purble1,
+              indicatorColor: AppColors.purble1,
               automaticIndicatorColorAdjustment: false,
-              overlayColor: MaterialStateProperty.all(purble3),
-              labelColor: white,
-              unselectedLabelColor: orange2,
+              overlayColor: MaterialStateProperty.all(AppColors.purble3),
+              labelColor: AppColors.white,
+              unselectedLabelColor: AppColors.orange2,
               indicatorSize: TabBarIndicatorSize.tab,
               tabs: [
                 Text(
                   'الأختبارات',
                   style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
+                      color: AppColors.white,
+                      fontFamily: AppFonts.bj,
                       fontWeight: FontWeight.w400,
                       fontSize: 12.sp),
                 ),
                 Text(
                   'الأختبارات المنجزة',
                   style: TextStyle(
-                    color: white,
-                    fontFamily: bj,
+                    color: AppColors.white,
+                    fontFamily: AppFonts.bj,
                     fontWeight: FontWeight.w400,
                     fontSize: 12.sp,
                   ),

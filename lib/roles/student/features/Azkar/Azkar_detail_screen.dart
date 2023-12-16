@@ -24,7 +24,7 @@ class AzkarDetailScreen extends StatelessWidget {
           Container(
             height: 20.h,
             decoration: BoxDecoration(
-                color: purble2,
+                color: AppColors.purble2,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(6.sp),
                   bottomRight: Radius.circular(6.sp),
@@ -42,7 +42,7 @@ class AzkarDetailScreen extends StatelessWidget {
                         icon: Icon(
                           AppIcons.back_icon,
                           size: 12.sp,
-                          color: white,
+                          color: AppColors.white,
                         ),
                         onPressed: () {
                           //TODO:"Add request logic when you close this window"
@@ -57,8 +57,8 @@ class AzkarDetailScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     textDirection: TextDirection.rtl,
                     style: TextStyle(
-                      color: white,
-                      fontFamily: bj,
+                      color: AppColors.white,
+                      fontFamily: AppFonts.bj,
                       fontSize: 20.sp,
                     ),
                   ),
@@ -74,8 +74,8 @@ class AzkarDetailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
-                  color: purble1,
-                  fontFamily: bj,
+                  color: AppColors.purble1,
+                  fontFamily: AppFonts.bj,
                   fontSize: 20.sp,
                 ),
               ),
@@ -89,8 +89,8 @@ class AzkarDetailScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(
-                    color: purble2,
-                    fontFamily: bj,
+                    color: AppColors.purble2,
+                    fontFamily: AppFonts.bj,
                     fontSize: 14.sp,
                   ),
                 ),
@@ -106,7 +106,7 @@ class AzkarDetailScreen extends StatelessWidget {
                     children: [
                       ArabicText(
                         text: 'هل أتممت قراءة الذكر؟',
-                        color: black,
+                        color: AppColors.black,
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                       ),
@@ -118,9 +118,9 @@ class AzkarDetailScreen extends StatelessWidget {
                             return CustomCheckBox(
                               height: 24.sp,
                               width: 24.sp,
-                              selectColor: purble2,
-                              unselectColor: purble4,
-                              iconColor: white,
+                              selectColor: AppColors.purble2,
+                              unselectColor: AppColors.purble4,
+                              iconColor: AppColors.white,
                               borderRadius: 1.sp,
                               isChecked: Get.find<AzkarController>()
                                   .azkary[int.tryParse(data['index']!) ?? 0]

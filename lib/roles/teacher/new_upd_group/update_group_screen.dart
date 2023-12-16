@@ -51,7 +51,7 @@ class UpdateGroupScreen extends StatelessWidget {
                           'الإسم',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -73,7 +73,7 @@ class UpdateGroupScreen extends StatelessWidget {
                           'الوصف',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -95,7 +95,7 @@ class UpdateGroupScreen extends StatelessWidget {
                           'توليد رابط جديد',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            fontFamily: bj,
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -106,7 +106,7 @@ class UpdateGroupScreen extends StatelessWidget {
                             IconButton(
                               icon: Icon(
                                 Icons.replay,
-                                color: purble3,
+                                color: AppColors.purble3,
                               ),
                               onPressed: () {
                                 print(data);
@@ -116,14 +116,14 @@ class UpdateGroupScreen extends StatelessWidget {
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                color: purble2,
+                                color: AppColors.purble2,
                                 borderRadius: BorderRadius.circular(5.sp),
                               ),
                               margin: const EdgeInsets.only(right: 5),
                               child: IconButton(
                                 icon: Icon(
                                   Icons.content_copy,
-                                  color: white,
+                                  color: AppColors.white,
                                 ),
                                 onPressed: () {
                                   Clipboard.setData(
@@ -131,12 +131,13 @@ class UpdateGroupScreen extends StatelessWidget {
 
                                   Get.showSnackbar(GetSnackBar(
                                     duration: const Duration(seconds: 2),
-                                    backgroundColor: white,
+                                    backgroundColor: AppColors.white,
                                     snackStyle: SnackStyle.GROUNDED,
                                     padding: EdgeInsets.symmetric(
                                         vertical: 1.h, horizontal: 3.w),
                                     boxShadows: [
-                                      BoxShadow(color: black, blurRadius: 5)
+                                      BoxShadow(
+                                          color: AppColors.black, blurRadius: 5)
                                     ],
                                     animationDuration:
                                         const Duration(milliseconds: 500),
@@ -144,8 +145,8 @@ class UpdateGroupScreen extends StatelessWidget {
                                       'تم نسخ النص',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: grey1,
-                                        fontFamily: bj,
+                                        color: AppColors.grey1,
+                                        fontFamily: AppFonts.bj,
                                         fontSize: 16.sp,
                                       ),
                                     ),
@@ -197,7 +198,7 @@ class UpdateGroupScreen extends StatelessWidget {
                                   text: 'تغيير العدد الأعظمي',
                                   style: TextStyle(
                                     fontSize: 14.sp,
-                                    fontFamily: bj,
+                                    fontFamily: AppFonts.bj,
                                     fontWeight: FontWeight.w500,
                                   ),
                                   children: <TextSpan>[
@@ -206,7 +207,7 @@ class UpdateGroupScreen extends StatelessWidget {
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 14.sp,
-                                        fontFamily: bj,
+                                        fontFamily: AppFonts.bj,
                                         fontWeight: FontWeight.normal,
                                       ),
                                     ),
@@ -228,7 +229,7 @@ class UpdateGroupScreen extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 fontSize: 14.sp,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -239,7 +240,7 @@ class UpdateGroupScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 14.sp,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.normal,
                               ),
                             ),
@@ -271,22 +272,22 @@ class UpdateGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                     width: 1.sp,
-                                                    color: purble2,
+                                                    color: AppColors.purble2,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.sp),
                                                   color: _controller.isPrivate
-                                                      ? purble2
-                                                      : white),
+                                                      ? AppColors.purble2
+                                                      : AppColors.white),
                                               child: Center(
                                                 child: Text(
                                                   'خاصة',
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                     color: _controller.isPrivate
-                                                        ? white
-                                                        : purble2,
+                                                        ? AppColors.white
+                                                        : AppColors.purble2,
                                                     fontSize: 15.sp,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -313,13 +314,13 @@ class UpdateGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 border: Border.all(
                                                   width: 1.sp,
-                                                  color: purble2,
+                                                  color: AppColors.purble2,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(5.sp),
                                                 color: _controller.isPrivate
-                                                    ? white
-                                                    : purble2,
+                                                    ? AppColors.white
+                                                    : AppColors.purble2,
                                               ),
                                               child: Center(
                                                 child: Text(
@@ -327,8 +328,8 @@ class UpdateGroupScreen extends StatelessWidget {
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                     color: _controller.isPrivate
-                                                        ? purble2
-                                                        : white,
+                                                        ? AppColors.purble2
+                                                        : AppColors.white,
                                                     fontSize: 15.sp,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -352,7 +353,7 @@ class UpdateGroupScreen extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 fontSize: 14.sp,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -363,7 +364,7 @@ class UpdateGroupScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 14.sp,
-                                fontFamily: bj,
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.normal,
                               ),
                             ),
@@ -394,14 +395,14 @@ class UpdateGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                     width: 1.sp,
-                                                    color: purble2,
+                                                    color: AppColors.purble2,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.sp),
                                                   color: _controller.isAvailable
-                                                      ? purble2
-                                                      : white),
+                                                      ? AppColors.purble2
+                                                      : AppColors.white),
                                               child: Center(
                                                 child: Text(
                                                   'متاحة',
@@ -409,8 +410,8 @@ class UpdateGroupScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                     color:
                                                         _controller.isAvailable
-                                                            ? white
-                                                            : purble2,
+                                                            ? AppColors.white
+                                                            : AppColors.purble2,
                                                     fontSize: 15.sp,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -436,13 +437,13 @@ class UpdateGroupScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 border: Border.all(
                                                   width: 1.sp,
-                                                  color: purble2,
+                                                  color: AppColors.purble2,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(5.sp),
                                                 color: _controller.isAvailable
-                                                    ? white
-                                                    : purble2,
+                                                    ? AppColors.white
+                                                    : AppColors.purble2,
                                               ),
                                               child: Center(
                                                 child: Text(
@@ -451,8 +452,8 @@ class UpdateGroupScreen extends StatelessWidget {
                                                   style: TextStyle(
                                                     color:
                                                         _controller.isAvailable
-                                                            ? purble2
-                                                            : white,
+                                                            ? AppColors.purble2
+                                                            : AppColors.white,
                                                     fontSize: 15.sp,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -483,14 +484,14 @@ class UpdateGroupScreen extends StatelessWidget {
                                 }
                               },
                               style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(purble2),
+                                backgroundColor: MaterialStateProperty.all(
+                                    AppColors.purble2),
                               ),
                               child: Center(
                                 child: Text(
                                   ' حفظ التغييرات ',
                                   style: TextStyle(
-                                    color: white,
+                                    color: AppColors.white,
                                     fontFamily: 'Bahij',
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w700,
@@ -512,14 +513,14 @@ class UpdateGroupScreen extends StatelessWidget {
 
 AppBar _buildAppBar() {
   return AppBar(
-    backgroundColor: purble2,
+    backgroundColor: AppColors.purble2,
     title: Center(
       child: Text(
         ' تعديل معلومات المجموعة  ',
         style: TextStyle(
-            fontFamily: bj,
+            fontFamily: AppFonts.bj,
             fontWeight: FontWeight.w500,
-            color: white,
+            color: AppColors.white,
             fontSize: 16.sp),
       ),
     ),
@@ -527,7 +528,7 @@ AppBar _buildAppBar() {
       icon: Icon(
         Icons.arrow_back_ios_rounded,
         size: 12.sp,
-        color: white,
+        color: AppColors.white,
       ),
       onPressed: () {
         Get.back();

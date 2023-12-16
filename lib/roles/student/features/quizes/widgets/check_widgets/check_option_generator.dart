@@ -24,20 +24,24 @@ class CheckOptionsGeneretor extends StatelessWidget {
               return BorderedContainer(
                 width: Get.size.width * 0.9,
                 color: checkIfAnswer(item, index)
-                    ? (_controller.checkAnswerCorrect() ? green1 : red1)
+                    ? (_controller.checkAnswerCorrect()
+                        ? AppColors.green1
+                        : AppColors.red1)
                     : (_controller.checkTheCorrectOption(item
                             .questions![_controller.currentQuestion]
                             .options![index])
-                        ? green1
-                        : white),
+                        ? AppColors.green1
+                        : AppColors.white),
                 borderWidth: checkIfAnswer(item, index) ? 0.0 : 0.1.w,
                 borderColor: checkIfAnswer(item, index)
-                    ? (_controller.checkAnswerCorrect() ? green1 : red1)
+                    ? (_controller.checkAnswerCorrect()
+                        ? AppColors.green1
+                        : AppColors.red1)
                     : (_controller.checkTheCorrectOption(item
                             .questions![_controller.currentQuestion]
                             .options![index])
-                        ? green1
-                        : grey4),
+                        ? AppColors.green1
+                        : AppColors.grey4),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 4.h),
                   child: ArabicText(
@@ -48,8 +52,8 @@ class CheckOptionsGeneretor extends StatelessWidget {
                             _controller.checkTheCorrectOption(item
                                 .questions![_controller.currentQuestion]
                                 .options![index])
-                        ? white
-                        : grey1,
+                        ? AppColors.white
+                        : AppColors.grey1,
                   ),
                 ),
               );

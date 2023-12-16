@@ -30,9 +30,13 @@ class TheOptionsGeneretor extends StatelessWidget {
                 builder: (_) {
                   return BorderedContainer(
                     width: Get.size.width * 0.9,
-                    color: checkIfAnswer(item, index) ? purble3 : white,
+                    color: checkIfAnswer(item, index)
+                        ? AppColors.purble3
+                        : AppColors.white,
                     borderWidth: checkIfAnswer(item, index) ? 0.0 : 0.1.w,
-                    borderColor: checkIfAnswer(item, index) ? purble3 : grey4,
+                    borderColor: checkIfAnswer(item, index)
+                        ? AppColors.purble3
+                        : AppColors.grey4,
                     child: Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 2.w, vertical: 4.h),
@@ -44,8 +48,8 @@ class TheOptionsGeneretor extends StatelessWidget {
                                     _controller.currentQuestion] ==
                                 item.questions![_controller.currentQuestion]
                                     .options![index]
-                            ? white
-                            : grey1,
+                            ? AppColors.white
+                            : AppColors.grey1,
                       ),
                     ),
                   );

@@ -26,7 +26,7 @@ class CheckQuestionSection extends StatelessWidget {
         child: ArabicText(
           text: item.questions![_controller.currentQuestion].label,
           fontSize: 14.sp,
-          color: grey1,
+          color: AppColors.grey1,
         ),
       ),
     );
@@ -57,14 +57,14 @@ class CheckNumberOfQuestion extends StatelessWidget {
               ArabicText(
                 text:
                     'السؤال رقم ${_controller.currentQuestion + 1}    /    ${_controller.quizes[quizIndex].questions!.length}',
-                color: grey1,
+                color: AppColors.grey1,
                 fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
               ),
               Spacer(),
               Icon(
                 isCorrect ? Icons.check : Icons.close,
-                color: isCorrect ? green1 : red1,
+                color: isCorrect ? AppColors.green1 : AppColors.red1,
                 size: 25.sp,
               )
             ],
