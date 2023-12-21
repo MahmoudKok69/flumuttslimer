@@ -492,7 +492,7 @@ class UpdateGroupScreen extends StatelessWidget {
                                   ' حفظ التغييرات ',
                                   style: TextStyle(
                                     color: AppColors.white,
-                                    fontFamily: 'Bahij',
+                                    fontFamily: AppFonts.bj,
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w700,
                                   ),

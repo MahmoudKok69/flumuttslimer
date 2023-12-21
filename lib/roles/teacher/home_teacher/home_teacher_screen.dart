@@ -170,7 +170,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                         ' إنشاء مجموعة جديدة',
                         style: TextStyle(
                           color: AppColors.white,
-                          fontFamily: 'Bahij',
+                          fontFamily: AppFonts.bj,
                         ),
                       ),
                     ),
@@ -215,7 +215,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                         ' إنشاء إختبار ',
                         style: TextStyle(
                           color: AppColors.white,
-                          fontFamily: 'Bahij',
+                          fontFamily: AppFonts.bj,
                         ),
                       ),
                     ),

@@ -27,6 +27,7 @@ class HomeCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     cards = checkDateTimeConditions();
+    cards = [AppImages.jummaCard, AppImages.morningCard, AppImages.nightCard];
     return Visibility(
       visible: cards.isNotEmpty,
       child: SizedBox(
@@ -61,7 +62,7 @@ class HomeCards extends StatelessWidget {
       result.add(AppImages.morningCard);
     }
     if (now.isAfter(evening7PM) && now.isBefore(midnight12AM)) {
-      result.add(AppImages.morningCard);
+      result.add(AppImages.nightCard);
     }
 
     return result;

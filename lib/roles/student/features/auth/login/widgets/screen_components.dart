@@ -124,7 +124,7 @@ class LoginForm extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 color: AppColors.purble1,
-                                fontFamily: 'Bahij',
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.w300,
                               ),
                               textAlign: TextAlign.right,
@@ -134,7 +134,7 @@ class LoginForm extends StatelessWidget {
                           alignLabelWithHint: true,
                           labelStyle: TextStyle(
                             color: AppColors.purble1,
-                            fontFamily: 'Bahij',
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w300,
                           ),
                           border: OutlineInputBorder(
@@ -181,7 +181,7 @@ class LoginForm extends StatelessWidget {
                         'تسجيل الدخول',
                         style: TextStyle(
                           color: AppColors.white,
-                          fontFamily: 'Bahij',
+                          fontFamily: AppFonts.bj,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w700,
                         ),

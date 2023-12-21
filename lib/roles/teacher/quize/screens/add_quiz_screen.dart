@@ -75,7 +75,7 @@ class AddQuizScreen extends StatelessWidget {
                               style: TextStyle(
                                 color: AppColors.black,
                                 fontSize: 10.sp,
-                                fontFamily: 'Bahij',
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -103,7 +103,7 @@ class AddQuizScreen extends StatelessWidget {
                                     style: TextStyle(
                                       color: AppColors.white,
                                       fontSize: 10.sp,
-                                      fontFamily: 'Bahij',
+                                      fontFamily: AppFonts.bj,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -370,7 +370,7 @@ class The_Question extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.black,
                   fontSize: 12.sp,
-                  fontFamily: 'Bahij',
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -379,7 +379,7 @@ class The_Question extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.black,
                   fontSize: 12.sp,
-                  fontFamily: 'Bahij',
+                  fontFamily: AppFonts.bj,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -557,7 +557,7 @@ class The_Question extends StatelessWidget {
                                   style: TextStyle(
                                     color: AppColors.black,
                                     fontSize: 13.sp,
-                                    fontFamily: 'Bahij',
+                                    fontFamily: AppFonts.bj,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -583,7 +583,7 @@ class The_Question extends StatelessWidget {
                                       style: TextStyle(
                                         color: AppColors.black,
                                         fontSize: 13.sp,
-                                        fontFamily: 'Bahij',
+                                        fontFamily: AppFonts.bj,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -594,7 +594,7 @@ class The_Question extends StatelessWidget {
                                       style: TextStyle(
                                         color: AppColors.black,
                                         fontSize: 13.sp,
-                                        fontFamily: 'Bahij',
+                                        fontFamily: AppFonts.bj,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
@@ -625,7 +625,7 @@ class The_Question extends StatelessWidget {
                                         style: TextStyle(
                                           color: AppColors.white,
                                           fontSize: 10.sp,
-                                          fontFamily: 'Bahij',
+                                          fontFamily: AppFonts.bj,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -650,7 +650,7 @@ class The_Question extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         color: AppColors.white,
-                        fontFamily: 'Bahij',
+                        fontFamily: AppFonts.bj,
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w700,
                       ),
@@ -997,7 +997,7 @@ class Add_Question extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
                         color: AppColors.white,
-                        fontFamily: 'Bahij',
+                        fontFamily: AppFonts.bj,
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w700,
                       ),

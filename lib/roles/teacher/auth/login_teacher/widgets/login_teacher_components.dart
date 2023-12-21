@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flumuttslimer/roles/teacher/auth/login_teacher/login_teacher_controller.dart';
@@ -132,7 +133,7 @@ class Login_teacherForm extends StatelessWidget {
                               textDirection: TextDirection.rtl,
                               style: TextStyle(
                                 color: AppColors.purble1,
-                                fontFamily: 'Bahij',
+                                fontFamily: AppFonts.bj,
                                 fontWeight: FontWeight.w300,
                               ),
                               textAlign: TextAlign.right,
@@ -142,7 +143,7 @@ class Login_teacherForm extends StatelessWidget {
                           alignLabelWithHint: true,
                           labelStyle: TextStyle(
                             color: AppColors.purble1,
-                            fontFamily: 'Bahij',
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w300,
                           ),
                           border: OutlineInputBorder(
@@ -189,7 +190,7 @@ class Login_teacherForm extends StatelessWidget {
                         'تسجيل الدخول',
                         style: TextStyle(
                           color: AppColors.white,
-                          fontFamily: 'Bahij',
+                          fontFamily: AppFonts.bj,
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w700,
                         ),

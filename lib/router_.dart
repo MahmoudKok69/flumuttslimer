@@ -22,6 +22,7 @@ import 'package:flumuttslimer/roles/student/features/auth/register/register_scre
 import 'package:flumuttslimer/roles/student/features/beauti/beuati_screen.dart';
 import 'package:flumuttslimer/roles/student/features/groups/groups_screen.dart';
 import 'package:flumuttslimer/roles/student/features/hamsat/hamsat_screen.dart';
+import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
 import 'package:flumuttslimer/roles/student/features/news/news_screen.dart';
 import 'package:flumuttslimer/roles/student/features/onboarding/onboarding_screen.dart';
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';

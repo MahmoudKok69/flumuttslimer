@@ -1,4 +1,5 @@
 import 'package:flumuttslimer/core/colors.dart';
+import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 35.sp,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       bodyWidget: Text(
@@ -32,7 +33,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       decoration: getPageDecoration(),
@@ -47,7 +48,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       bodyWidget: Text(
@@ -57,7 +58,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       decoration: getPageDecoration(),
@@ -73,7 +74,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       bodyWidget: Text(
@@ -83,7 +84,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
     ),
@@ -98,7 +99,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       bodyWidget: Text(
@@ -108,7 +109,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
     ),
@@ -123,7 +124,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 25.sp,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
       bodyWidget: Text(
@@ -133,7 +134,7 @@ class OnBoardingScreen extends StatelessWidget {
           color: AppColors.white,
           fontSize: 18.sp,
           fontWeight: FontWeight.w500,
-          fontFamily: 'Bahij',
+          fontFamily: AppFonts.bj,
         ),
       ),
     ),
@@ -217,7 +218,7 @@ class OnBoardingScreen extends StatelessWidget {
                   color: AppColors.white,
                   fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Bahij',
+                  fontFamily: AppFonts.bj,
                 ),
               ),
             ),

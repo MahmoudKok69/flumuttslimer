@@ -1,10 +1,14 @@
+import 'package:flumuttslimer/roles/student/features/auth/register/models/public_info_model.dart';
+import 'package:flumuttslimer/roles/student/features/auth/register/register_services.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
+  final _services = RegisterServices();
+
   String name = '';
-  int age = 18; // Default age
-  bool gender = true; // Default gender
-  String country = 'سوريا'; // Default country
+  int age = 18;
+  bool gender = true;
+  String country = 'سوريا';
   String phoneNumber = '096212';
   String email = '';
   String password = '';
@@ -15,21 +19,22 @@ class RegisterController extends GetxController {
   var selectedImage;
   bool obscure = true;
   bool obscureConfi = true;
-  void setName(String value) {
-    name = value;
-  }
-
   List<String> male_avatars = List.generate(
       11, (index) => 'assets/images/avatars/male_avatars/${index + 1}.png');
   List<String> female_avatars = List.generate(
       12, (index) => 'assets/images/avatars/female_avatars/${index + 1}.png');
   List<String> avatars = [];
+
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
     avatars = male_avatars;
     print(avatars);
+  }
+
+  void setName(String value) {
+    name = value;
   }
 
   void setAge(int value) {
@@ -93,18 +98,17 @@ class RegisterController extends GetxController {
     update(['avatar']);
   }
 
-  regester() {
-    print(name);
-    if (gender) {
-      print('Male');
-    } else {
-      print('Female');
-    }
-    print(age.toString());
-    print(country);
-    print(phoneNumber.toString());
-    print(email);
-    print(password);
-    print(confirmPassword);
+  regester() async {
+    PublicInfoModel info = PublicInfoModel(
+        name: name,
+        email: email,
+        password: password,
+        gender: gender ? 'male' : 'female',
+        avatar: 'avatars/user$selectedAvatatarIndex.png',
+        address: country,
+        phone_number: phoneNumber);
+    try {
+      return await _services.register(info);
+    } catch (e) {}
   }
 }

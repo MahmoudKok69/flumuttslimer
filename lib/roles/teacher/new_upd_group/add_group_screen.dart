@@ -193,7 +193,7 @@ class AddGroupScreen extends StatelessWidget {
                                                         ? AppColors.white
                                                         : AppColors.purble2,
                                                     fontSize: 14.sp,
-                                                    fontFamily: 'Bahij',
+                                                    fontFamily: AppFonts.bj,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -236,7 +236,7 @@ class AddGroupScreen extends StatelessWidget {
                                                         ? AppColors.purble2
                                                         : AppColors.white,
                                                     fontSize: 15.sp,
-                                                    fontFamily: 'Bahij',
+                                                    fontFamily: AppFonts.bj,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -322,7 +322,7 @@ class AddGroupScreen extends StatelessWidget {
                                                             ? AppColors.white
                                                             : AppColors.purble2,
                                                     fontSize: 15.sp,
-                                                    fontFamily: 'Bahij',
+                                                    fontFamily: AppFonts.bj,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -367,7 +367,7 @@ class AddGroupScreen extends StatelessWidget {
                                                             ? AppColors.purble2
                                                             : AppColors.white,
                                                     fontSize: 15.sp,
-                                                    fontFamily: 'Bahij',
+                                                    fontFamily: AppFonts.bj,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
@@ -407,7 +407,7 @@ class AddGroupScreen extends StatelessWidget {
                                   'إنشاء المجموعة',
                                   style: TextStyle(
                                     color: AppColors.white,
-                                    fontFamily: 'Bahij',
+                                    fontFamily: AppFonts.bj,
                                     fontSize: 13.sp,
                                     fontWeight: FontWeight.w700,
                                   ),

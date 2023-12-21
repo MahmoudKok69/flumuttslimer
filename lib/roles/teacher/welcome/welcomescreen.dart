@@ -189,9 +189,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: GestureDetector(
                     onTap: () {
                       if (_controller.isStudent) {
-                        Get.toNamed(AppPages.shome);
+                        Get.delete<WelcomeController>();
+                        Get.offAndToNamed(AppPages.shome);
                       } else {
-                        Get.toNamed(AppPages.hometeacher);
+                        Get.delete<WelcomeController>();
+                        Get.offAndToNamed(AppPages.hometeacher);
                       }
                     },
                     child: BorderedContainer(

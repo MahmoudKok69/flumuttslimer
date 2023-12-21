@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flumuttslimer/core/colors.dart';
 import 'package:flumuttslimer/core/font_family.dart';
 import 'package:flumuttslimer/core/layout.dart';
+import 'package:flumuttslimer/core/network/message.dart';
 import 'package:flumuttslimer/roles/student/common.dart';
 import 'package:flumuttslimer/roles/student/features/auth/register/register_controller.dart';
 import 'package:flumuttslimer/router_.dart';
@@ -333,7 +334,7 @@ class NewAccountForm extends StatelessWidget {
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             color: AppColors.purble1,
-                            fontFamily: 'Bahij',
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w300,
                           ),
                           textAlign: TextAlign.right,
@@ -343,7 +344,7 @@ class NewAccountForm extends StatelessWidget {
                       alignLabelWithHint: true,
                       labelStyle: TextStyle(
                         color: AppColors.purble1,
-                        fontFamily: 'Bahij',
+                        fontFamily: AppFonts.bj,
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
@@ -397,7 +398,7 @@ class NewAccountForm extends StatelessWidget {
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             color: AppColors.purble1,
-                            fontFamily: 'Bahij',
+                            fontFamily: AppFonts.bj,
                             fontWeight: FontWeight.w300,
                           ),
                           textAlign: TextAlign.right,
@@ -429,13 +430,13 @@ class NewAccountForm extends StatelessWidget {
             width: 40.w,
             height: 6.h,
             child: ElevatedButton(
-              onPressed: () {
-                Get.toNamed(AppPages.shome);
-
+              onPressed: () async {
+                // Get.toNamed(AppPages.shome);
                 if (_formKey.currentState!.validate()) {
-                  print('Ok');
-                  _controller.regester();
-                  // Get.toNamed(AppPages.shome);
+                  var result = await _controller.regester();
+                  if (result == Messages.SUCCESS) {
+                  } else if (result == Messages.NO_INTERNET_CONNECTION_ERROR) {
+                  } else {}
                 }
               },
               style: ButtonStyle(
@@ -446,7 +447,7 @@ class NewAccountForm extends StatelessWidget {
                   'إنشاء الحساب',
                   style: TextStyle(
                     color: AppColors.white,
-                    fontFamily: 'Bahij',
+                    fontFamily: AppFonts.bj,
                     fontSize: 10.sp,
                     fontWeight: FontWeight.w700,
                   ),

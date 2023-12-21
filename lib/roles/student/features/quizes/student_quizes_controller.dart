@@ -45,7 +45,26 @@ class StudentQuizesController extends GetxController {
         teacher_id: '1',
         teacher_name: 'حمدي دياب',
         title: 'عقيدة',
+        points: 40,
         questions: [
+          QuestionModel(
+            id: '1',
+            quiz_id: '1',
+            label: "السؤال السؤالي المتساءل عل  السؤال ؟",
+            answer: "الجواب لصحيح",
+            option1: "الخيار الأول الخارق",
+            option2: "الخيار الثاني الخارق",
+            option3: "الخيار الثالث الخارق",
+          ),
+          QuestionModel(
+            id: '1',
+            quiz_id: '1',
+            label: "السؤال السؤالي المتساءل عل  السؤال ؟",
+            answer: "الجواب لصحيح",
+            option1: "الخيار الأول الخارق",
+            option2: "الخيار الثاني الخارق",
+            option3: "الخيار الثالث الخارق",
+          ),
           QuestionModel(
             id: '1',
             quiz_id: '1',
@@ -56,22 +75,6 @@ class StudentQuizesController extends GetxController {
             option3: "الخيار الثالث الخارق",
           ),
         ]),
-    QuizModel(
-        id: '1',
-        teacher_id: '1',
-        teacher_name: 'حمدي دياب',
-        title: 'عقيدة',
-        questions: [
-          QuestionModel(
-            id: '1',
-            quiz_id: '1',
-            label: "السؤال السؤالي المتساءل عل  السؤال ؟",
-            answer: "الجواب لصحيح",
-            option1: "الخيار الأول الخارق",
-            option2: "الخيار الثاني الخارق",
-            option3: "الخيار الثالث الخارق",
-          ),
-        ])
   ];
   List<MyQuizModel> my_quizes = [
     MyQuizModel(

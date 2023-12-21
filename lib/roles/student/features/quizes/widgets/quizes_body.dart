@@ -19,6 +19,7 @@ class QuizBody extends StatelessWidget {
     return TabBarView(children: [
       AllQuizes(controller: _controller),
       MyQuizes(controller: _controller),
+      // Container(),
     ]);
   }
 }
@@ -107,7 +108,7 @@ class GridItem extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
               const SizedBox(width: 4.0),
-              const PointIcon(),
+              // const PointIcon(),
             ],
           ).rightDirction(),
         ],
@@ -256,7 +257,7 @@ class QuizCard extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const PointIcon(),
+                            // const PointIcon(),
                           ],
                         ),
                       ],

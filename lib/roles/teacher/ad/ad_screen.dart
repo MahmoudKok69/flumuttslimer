@@ -243,7 +243,7 @@ class AdScreen extends StatelessWidget {
                                           style: TextStyle(
                                             color: AppColors.white,
                                             fontSize: 10.sp,
-                                            fontFamily: 'Bahij',
+                                            fontFamily: AppFonts.bj,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -272,7 +272,7 @@ class AdScreen extends StatelessWidget {
                           textDirection: TextDirection.rtl,
                           style: TextStyle(
                             color: AppColors.white,
-                            fontFamily: 'Bahij',
+                            fontFamily: AppFonts.bj,
                             fontSize: 10.sp,
                             fontWeight: FontWeight.w700,
                           ),
