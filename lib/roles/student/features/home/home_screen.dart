@@ -192,7 +192,13 @@ class SHomeScreen extends StatelessWidget {
                           min(Get.size.width * 0.6, Get.size.height * 0.6) / 2,
                     ),
                     onPressed: () {
-                      Get.toNamed(AppPages.student_profile);
+                      Get.toNamed(AppPages.tstudent_profile, parameters: {
+                        'path_image': 'e.path_image!',
+                        'name_student': 'ميدو',
+                        'age': '15'.toString(),
+                        'points': '240'.toString(),
+                        'country': 'سوريا',
+                      });
                     },
                   )),
               SizedBox(

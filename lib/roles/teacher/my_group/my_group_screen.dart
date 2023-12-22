@@ -109,7 +109,7 @@ class TeacherGroupsScreen extends StatelessWidget {
               ),
               child: ListTile(
                   onTap: () {
-                    Get.toNamed(AppPages.profile_student, parameters: {
+                    Get.toNamed(AppPages.tstudent_profile, parameters: {
                       'path_image': e.path_image!,
                       'name_student': e.name_student!,
                       'age': e.age.toString(),
