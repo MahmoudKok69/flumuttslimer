@@ -29,7 +29,131 @@ class TStudentProfileScreen extends StatelessWidget {
     return Scaffold(
         body: Column(
       children: [
-        header_profile(data: data),
+        Stack(
+          children: [
+            Container(
+              height: 50.h,
+              width: Get.size.width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [AppColors.purble2, AppColors.purblegradient],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.sp),
+                  bottomRight: Radius.circular(10.sp),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(35),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 100.sp,
+                      width: 100.sp,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.purble4,
+                        image: DecorationImage(
+                          image: AssetImage(
+                            data['path_image']!,
+                          ),
+                          alignment: Alignment.center,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      data['name_student']!,
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 20.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      ' المستوى 5 ',
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 12.0.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.date_range_sharp,
+                                color: AppColors.orange2,
+                              ),
+                              SizedBox(
+                                width: 1.w,
+                              ),
+                              Text(
+                                'عام ${data['age']!}',
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 10.0.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ).rightDirction(),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_city,
+                                color: AppColors.orange2,
+                              ),
+                              SizedBox(
+                                width: 1.w,
+                              ),
+                              Text(
+                                '${data['country']!}',
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 10.0.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ).rightDirction(),
+                        ]),
+                    ArabicText(
+                      text: '${data['points']!} نقطة ',
+                      color: AppColors.white,
+                      fontSize: 10.0.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
+              child: GestureDetector(
+                onTap: () {
+                  Get.back();
+                },
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Icon(
+                    AppIcons.back_icon,
+                    color: white,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
         list_information(controller: _controller)
       ],
     ));
@@ -51,11 +175,15 @@ class list_information extends StatelessWidget {
       padding: EdgeInsets.all(10.sp),
       margin: EdgeInsets.all(20.sp),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8),
+        gradient: LinearGradient(colors: [
+          AppColors.purble3,
+          AppColors.purble3,
+          AppColors.purblegradient,
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: AppColors.purble3,
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 2),
@@ -70,13 +198,21 @@ class list_information extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(Icons.male, size: 18.sp),
+              Icon(
+                Icons.male,
+                size: 18.sp,
+                color: AppColors.white,
+              ),
               SizedBox(width: 2.w),
-              ArabicText(text: 'ذكر'),
+              ArabicText(
+                text: 'ذكر',
+                fontSize: 16.sp,
+                color: AppColors.white,
+              ),
             ],
           ).rightDirction(),
           Divider(
-            color: Colors.grey[400],
+            color: AppColors.white,
             height: 1,
             thickness: 1,
             indent: 8,
@@ -84,13 +220,21 @@ class list_information extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(Icons.email, size: 18.sp),
+              Icon(
+                Icons.email,
+                size: 18.sp,
+                color: AppColors.white,
+              ),
               SizedBox(width: 2.w),
-              ArabicText(text: 'svdvds@gmail.com'),
+              ArabicText(
+                text: 'svdvds@gmail.com',
+                fontSize: 16.sp,
+                color: AppColors.white,
+              ),
             ],
           ).rightDirction(),
           Divider(
-            color: Colors.grey[400],
+            color: AppColors.white,
             height: 1,
             thickness: 1,
             indent: 8,
@@ -98,12 +242,18 @@ class list_information extends StatelessWidget {
           ),
           Row(
             children: [
-              Icon(Icons.lock, size: 18.sp),
+              Icon(
+                Icons.lock,
+                size: 18.sp,
+                color: AppColors.white,
+              ),
               SizedBox(width: 2.w),
               Obx(
                 () => ArabicText(
                   text:
                       _controller.isTextVisible.value ? 'S54sx557' : '********',
+                  fontSize: 16.sp,
+                  color: AppColors.white,
                 ),
               ),
               SizedBox(width: 35.w),
@@ -114,6 +264,7 @@ class list_information extends StatelessWidget {
                         ? Icons.visibility
                         : Icons.visibility_off,
                     size: 18.sp,
+                    color: AppColors.white,
                   ),
                   onPressed: () {
                     _controller.toggleTextVisibility();
@@ -123,7 +274,7 @@ class list_information extends StatelessWidget {
             ],
           ).rightDirction(),
           Divider(
-            color: Colors.grey[400],
+            color: AppColors.white,
             height: 1,
             thickness: 1,
             indent: 8,
@@ -134,13 +285,18 @@ class list_information extends StatelessWidget {
               Icon(
                 Icons.phone,
                 size: 18.sp,
+                color: AppColors.white,
               ),
               SizedBox(width: 2.w),
-              ArabicText(text: '09555555555'),
+              ArabicText(
+                text: '09555555555',
+                fontSize: 16.sp,
+                color: AppColors.white,
+              ),
             ],
           ).rightDirction(),
           Divider(
-            color: Colors.grey[400],
+            color: AppColors.white,
             height: 1,
             thickness: 1,
             indent: 8,
@@ -151,9 +307,14 @@ class list_information extends StatelessWidget {
               Icon(
                 Icons.location_on,
                 size: 18.sp,
+                color: AppColors.white,
               ),
               SizedBox(width: 2.w),
-              ArabicText(text: 'دمشق'),
+              ArabicText(
+                text: 'دمشق',
+                fontSize: 16.sp,
+                color: AppColors.white,
+              ),
             ],
           ).rightDirction(),
         ],

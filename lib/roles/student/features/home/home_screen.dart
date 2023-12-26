@@ -175,7 +175,7 @@ class SHomeScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Get.toNamed(AppPages.tstudent_profile, parameters: {
-                    'path_image': 'assets/images/home/quiz.png',
+                    'path_image': 'assets/images/avatars/male_avatars/2.png',
                     'name_student': 'kok',
                     'age': '15',
                     'points': '500',
