@@ -2,7 +2,8 @@ import 'package:flumuttslimer/core/bottom_nagigation_bar/bottom_nav_bar_controll
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_controller.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_controller.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_controller.dart';
-import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_controller.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/student_quizes_controller.dart';
+
 import 'package:get/get.dart';
 
 class BottomNavBarBinding extends Bindings {
@@ -12,6 +13,6 @@ class BottomNavBarBinding extends Bindings {
     Get.lazyPut(() => HomeController());
     Get.lazyPut(() => AzkarController());
     Get.lazyPut(() => QuranController());
-    Get.lazyPut(() => StudentProfileController());
+    Get.lazyPut(() => StudentQuizesController());
   }
 }

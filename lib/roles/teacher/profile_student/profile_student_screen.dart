@@ -101,7 +101,7 @@ class TStudentProfileScreen extends StatelessWidget {
                                 'عام ${data['age']!}',
                                 style: TextStyle(
                                   color: AppColors.white,
-                                  fontSize: 10.0.sp,
+                                  fontSize: 14.0.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -120,17 +120,20 @@ class TStudentProfileScreen extends StatelessWidget {
                                 '${data['country']!}',
                                 style: TextStyle(
                                   color: AppColors.white,
-                                  fontSize: 10.0.sp,
+                                  fontSize: 14.0.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ).rightDirction(),
                         ]),
+                    SizedBox(
+                      height: 5.h,
+                    ),
                     ArabicText(
                       text: '${data['points']!} نقطة ',
                       color: AppColors.white,
-                      fontSize: 10.0.sp,
+                      fontSize: 14.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ],

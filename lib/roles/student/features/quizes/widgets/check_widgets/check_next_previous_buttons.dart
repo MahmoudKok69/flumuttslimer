@@ -55,7 +55,7 @@ class CheckQuestionNextButton extends StatelessWidget {
             }
           : () {
               _controller.resetQuiz();
-              Get.until((route) => Get.currentRoute == AppPages.squizes);
+              Get.until((route) => Get.currentRoute == AppPages.shome);
             },
       child: InkWell(
         child: Container(
