@@ -6,7 +6,9 @@ import 'package:flumuttslimer/core/layout.dart';
 import 'package:flumuttslimer/roles/student/features/Azkar/azkar_screen.dart';
 import 'package:flumuttslimer/roles/student/features/Quran/Quran_screen.dart';
 import 'package:flumuttslimer/roles/student/features/home/home_screen.dart';
+import 'package:flumuttslimer/roles/student/features/quizes/screens/student_quizes_screen.dart';
 import 'package:flumuttslimer/roles/student/features/student_profile/student_profile_screen.dart';
+import 'package:flumuttslimer/roles/teacher/features/profile_student/profile_student_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_navigation_bar/responsive_navigation_bar.dart';
@@ -20,7 +22,7 @@ class BottomNavBarScreen extends StatelessWidget {
     SHomeScreen(),
     AzkarScreen(),
     const QuranScreen(),
-    StudentProfileScreen(),
+    StudentQuizesScreen(),
   ];
 
   @override
@@ -62,9 +64,12 @@ class BottomNavBarScreen extends StatelessWidget {
                       title: Text('القرأن'),
                     ),
                     SalomonBottomBarItem(
-                      icon:
-                          SvgIcon(w: 10.w, h: 5.h, iconTitle: AppIcons.profile),
-                      title: Text('حسابي'),
+                      icon: Image.asset(
+                        'assets/images/home/quiz.png',
+                        width: 10.w,
+                        height: 5.h,
+                      ),
+                      title: Text('الأختبارات'),
                     ),
                   ],
                 );

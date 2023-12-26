@@ -16,6 +16,7 @@ import 'package:flumuttslimer/roles/student/features/home/widgets/home_cards.dar
 import 'package:flumuttslimer/roles/student/features/prizes/prizes_screen.dart';
 import 'package:flumuttslimer/router_.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
@@ -52,19 +53,9 @@ class SHomeScreen extends StatelessWidget {
       page: AppPages.hamsa,
     ),
     MainPages(
-      name: 'الأختبارات',
-      image: 'assets/images/home/quiz.png',
-      page: AppPages.squizes,
-    ),
-    MainPages(
       name: 'المكتبة',
       image: 'assets/images/home/refrences.png',
       page: AppPages.refrences,
-    ),
-    MainPages(
-      name: 'المجموعات العامة',
-      image: 'assets/images/home/group.png',
-      page: AppPages.sgroup,
     ),
   ];
 
@@ -181,82 +172,84 @@ class SHomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(8.0.sp),
           child: Column(
             children: [
-              CircleAvatar(
-                  radius: min(Get.size.width * 0.4, Get.size.height * 0.4) / 2,
-                  backgroundColor: AppColors.white,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.person,
-                      color: AppColors.purble1,
-                      size:
-                          min(Get.size.width * 0.6, Get.size.height * 0.6) / 2,
-                    ),
-                    onPressed: () {
-                      Get.toNamed(AppPages.student_profile);
-                    },
-                  )),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppPages.tstudent_profile, parameters: {
+                    'path_image': 'assets/images/home/quiz.png',
+                    'name_student': 'kok',
+                    'age': '15',
+                    'points': '500',
+                    'country': 'kok',
+                  });
+                },
+                child: CircleAvatar(
+                    radius:
+                        min(Get.size.width * 0.4, Get.size.height * 0.4) / 2,
+                    backgroundColor: AppColors.white,
+                    child: SvgIcon(iconTitle: AppIcons.profile)),
+              ),
               SizedBox(
                 height: 1.h,
               ),
               drawerOption(
-                  "الخيار الأول",
-                  Icon(
-                    Icons.onetwothree_outlined,
-                    size: 30.sp,
-                  ),
-                  'page'),
+                  'الأنضمام لمجموعة',
+                  SizedBox(
+                      width:
+                          min(Get.size.width * 0.15, Get.size.height * 0.15) /
+                              2,
+                      height:
+                          min(Get.size.width * 0.15, Get.size.height * 0.15) /
+                              2,
+                      child: Image.asset('assets/images/home/group.png')),
+                  AppPages.sgroup),
               drawerOption(
-                  "الخيار الثاني",
+                  "تسجيل الخروج",
                   Icon(
-                    Icons.onetwothree_outlined,
-                    size: 30.sp,
+                    Icons.output_rounded,
+                    size:
+                        min(Get.size.width * 0.15, Get.size.height * 0.15) / 2,
                   ),
                   'page'),
-              drawerOption(
-                  "الخيار الثالث",
-                  Icon(
-                    Icons.onetwothree_outlined,
-                    size: 30.sp,
-                  ),
-                  'page'),
-              Divider(
-                thickness: 1.sp,
-              ),
             ],
           ),
         ));
   }
 }
 
-drawerOption(String name, Icon icon, String page) {
-  return Column(
-    children: [
-      Divider(
-        thickness: 1.sp,
-      ),
-      SizedBox(
-        height: 2.h,
-      ),
-      FittedBox(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            icon,
-            SizedBox(
-              width: 2.w,
-            ),
-            Text(
-              name,
-              style: TextStyle(
-                color: AppColors.purble1,
-                fontFamily: AppFonts.bj,
-                fontSize: 20.sp,
-              ),
-            ),
-          ],
+drawerOption(String name, Widget icon, String page) {
+  return GestureDetector(
+    onTap: () {
+      Get.toNamed(page);
+    },
+    child: Column(
+      children: [
+        Divider(
+          thickness: 1.sp,
         ),
-      ),
-    ],
+        SizedBox(
+          height: 2.h,
+        ),
+        FittedBox(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              icon,
+              SizedBox(
+                width: 2.w,
+              ),
+              Text(
+                name,
+                style: TextStyle(
+                  color: AppColors.purble1,
+                  fontFamily: AppFonts.bj,
+                  fontSize: 20.sp,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
   );
 }
 

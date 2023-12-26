@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.purble2),
           useMaterial3: true,
         ),
-        home: WelcomeScreen(),
+        home: OnBoardingScreen(),
       ),
     );
   }

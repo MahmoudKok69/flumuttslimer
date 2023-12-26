@@ -232,10 +232,10 @@ class OnBoardingScreen extends StatelessWidget {
             size: 20.sp,
           ),
           onSkip: () {
-            Get.toNamed(AppPages.sLogin);
+            Get.toNamed(AppPages.welcome);
           },
           onDone: () {
-            Get.toNamed(AppPages.sLogin);
+            Get.toNamed(AppPages.welcome);
           },
           dotsFlex: 0,
           dotsDecorator: DotsDecorator(
